@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,51 +10,74 @@
     <!-- START NAV -->
     <header>
         <nav id="navbar">
-                <li><a class="nav-link" href="#Contact">Présentation & Contact</a></li>
-            <div class="dropdown">
-                <li><a class="nav-link" href="#Projet">Projets effectués</a></li>
-            <div class="dropdown-child">
-                <a href="#Survey">Survey Form</a>
-                <a href="#Tribute">Tribute Page</a>
-                <a href="#DocTech">Technical Document</a>
-                <a href="#Landing">Landing Page</a>
-            </div>
-            </div> 
+            <ul>
+                <li><a class="nav-link" href="#présentation">Présentation</a></li>
+                <li class="dropdown">
+                    <a class="nav-link" href="#Projet">Projets effectués</a>
+                    <div class="dropdown-mid1">
+                        <ul>
+                            <li><a class="nav-link" href="#Responsive">Responsive Web Design</a>
+                                <div class="dropdown-child">
+                                    <a href="#Survey">Survey Form</a>
+                                    <a href="#Tribute">Tribute Page</a>
+                                    <a href="#DocTech">Technical Document</a>
+                                    <a href="#Landing">Landing Page</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-mid2">
+                        <ul>
+                            <li><a class="nav-link" href="#Ecole">Projets effectués en formation</a></li>
+                            <div class="dropdown-child">
+                                <a href="#Pkn">Encyclopédie Pokémon</a>
+                            </div>
+                        </ul>
+                    </div>
+                </li>
+                <li><a class="nav-link" href="#Contact">Me contacter</a></li>
+            </ul>
         </nav>
     </header>
     <!-- END NAV -->
     <!-- START WELCOME SECTION -->
-    <section id="welcome-section">
+    <section id="welcome-section" class="welcome-section">
         <h1>Portfolio DGHIM Ichem</h1>
-        <p></p>
+        <p>Qui suis-je ?</p>
+        <p>
+            <img 
+            id="photo"
+            src="Comp1.jpg"
+            alt="Moi">
+        </p>
     </section>
     <!-- END WELCOME SECTION -->
     <!-- START PROJECTS SECTION -->
     <section id="projects">
         <h2>Projets effectués afin d'obtenir la certification Responsive Web Design</h2>
-        <a class="project-link" id="Survey" target="" href="">Survey Form</a>
         <a class="project-link" id="Tribute" target="_blank" href="https://idghim.github.io/fcc-Tribute-Page/">Tribute Page</a>
         <a class="project-link" id="DocTech" target="_blank" href="https://idghim.github.io/fcc-Technical-Documentation/">Technical Document</a>
         <a class="project-link" id="Landing" target="_blank" href="https://idghim.github.io/fcc-Landing-Page/">Landing Page</a>
+        <h2>Projets effectués en formation</h2>
+        <a class="project-link" id="Pkn" target="_blank" href="https://idghim.github.io/Encyclop-die-Pok-dex/">Encyclopédie Pokémon</a>
     </section>
     <!-- END PROJECTS SECTION -->
-    <!-- START CONTACT SECTION -->
+    <!-- START FOOTER SECTION -->
+    <footer>
+        <!-- START CONTACT SECTION -->
     <section class="profil-link">
         <h3>Me contacter sur mes réseaux</h3>
         <a id="profile-link" target="_blank" href="https://github.com/IDGHIM">
-            <input id="submit" type="submit" value="GitHub" class="btn" />
+            <img id="github" src="github-logo-png.png">Github
         </a>
         <a id="profile-link" target="_blank" href="https://www.instagram.com/iichoumm_pwr/">
-            <input id="submit" type="submit" value="Instagram" class="btn" />
+            <img id="ig" src="ig-logo-png.png">Instagram
         </a>
-        <a href="mailto:ichemdghim@gmail.com">
-            <input id="submit" type="submit" value="Adresse mail" class="btn" />
+        <a id="profile-link" href="mailto:ichemdghim@gmail.com">
+            <img id="mail" src="mail-logo-png.png">Adresse mail
         </a>
     </section>
      <!-- END CONTACT SECTION -->
-    <!-- START FOOTER SECTION -->
-    <footer>
-        
     </footer>
     <!-- END FOOTER SECTION -->
 </body>

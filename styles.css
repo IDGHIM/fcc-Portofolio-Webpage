@@ -1,0 +1,173 @@
+/* Général */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --rusty-red-color: #D22E48;
+    --vivid-auburn-color: #9A2826;
+    --metallic-red-color: #AC2B29;
+    --philippine-silver-color: #B7B4B3; 
+    --wenge-color: #645D5B; 
+    --brown-coffee-color: #4D3228;
+}
+
+/* Style pour l'en-tête */
+header {
+    background-color: var(--wenge-color);
+    color: #fff;
+    padding: 10px 0;
+}
+
+/* Style pour la barre de navigation */
+#navbar {
+    text-align: center;
+}
+
+/* Style des éléments de la liste */
+#navbar ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#navbar li {
+    margin: 0 15px;
+    position: relative;
+}
+
+/* Style des liens */
+.nav-link {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    padding: 8px 15px;
+    display: block;
+}
+
+/* Effet au survol des liens */
+.nav-link:hover {
+    background-color: var(--philippine-silver-color);
+    border-radius: 5px;
+}
+
+/* Style pour les éléments de menu déroulant */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-mid1{
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 50%;
+    background-color: var(--wenge-color);
+    min-width: 200px;
+    z-index: 10;
+}
+
+.dropdown-mid2 {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    background-color: var(--wenge-color);
+    min-width: 200px;
+    z-index: 10;
+}
+
+.dropdown-mid1 ul, .dropdown-mid2 ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-child {
+    display: none;
+    background-color: var(--wenge-color);;
+}
+
+.dropdown-child a {
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-child a:hover {
+    background-color: var(--metallic-red-color);
+}
+
+/* Affichage du menu déroulant au survol */
+.dropdown:hover .dropdown-mid1,
+.dropdown:hover .dropdown-mid2 {
+    display: block;
+}
+
+/* Affichage du sous-menu dans le menu déroulant */
+.dropdown-mid1 li:hover .dropdown-child, 
+.dropdown-mid2 li:hover .dropdown-child {
+    display: block;
+}
+
+/* Corps du document */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Section sur ma présentation*/
+.welcome-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    color: var(--philippine-silver-color);
+    background-color: var(--metallic-red-color);
+    background-image: linear-gradient(62deg, #3a3d40 0%, #181719 100%);
+  }
+
+img {
+    width: 25%;
+    height: auto;
+  }
+
+/* Section sur les projets * /
+
+/* FOOTER : Section pied de page */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--wenge-color);
+    color: white;
+}
+
+footer p {
+    font-size: 1em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #navbar {
+        flex-direction: column;
+    }
+
+    .nav-link {
+        margin: 0.5rem 0;
+    }
+
+    #projects a {
+        display: block;
+        margin: 1rem 0;
+    }
+
+    #profile-link {
+        font-size: 1rem;
+    }
+} 

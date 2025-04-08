@@ -1,0 +1,21 @@
+/* FOOTER : Section pied de page */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+}
+
+footer p {
+    font-size: 1em;
+}
+
+/* PALETTE COULEUR */
+:root{
+    --rusty-red-color: #D22E48;
+    --vivid-auburn-color: #9A2826;
+    --metallic-red-color: #AC2B29;
+    --philippine-silver-color: #B7B4B3; 
+    --wenge-color: #645D5B; 
+    --brown-coffee-color: #4D3228;
+}
