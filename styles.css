@@ -144,6 +144,12 @@ img {
     margin: 10px ;
   }
 
+#photo {
+    position: relative;
+    animation: floating 2s ease-in-out infinite;
+    box-shadow: 5px 5px 10px black;
+}
+
 /* Section sur les projets * /
 
 /* FOOTER : Section pied de page */
@@ -176,4 +182,19 @@ footer p {
     #profile-link {
         font-size: 1rem;
     }
-} 
+}
+
+/* Animations */
+
+@keyframes floating {
+    0%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-10px);
+        box-shadow: 8px 15px 10px black;
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
