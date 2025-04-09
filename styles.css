@@ -137,16 +137,23 @@ h1{
     text-align: center;
 }
 
-img {
+.frame {
+    aspect-ratio: 3863/4829;
     width: 25%;
-    height: auto;
-    border-radius: 10px;
     margin: 10px ;
+    position: relative;
+    background: linear-gradient(var(--brown-coffee-color), var(--philippine-silver-color));
+    border: 2px solid var(--metallic-red-color);
+    border-radius: 5px;
+    animation: floating 2s ease-in-out infinite;
   }
 
+img {
+    width: 100%;
+    border-radius: 10px;
+}
+
 #photo {
-    position: relative;
-    animation: floating 2s ease-in-out infinite;
     box-shadow: 5px 5px 10px black;
 }
 
