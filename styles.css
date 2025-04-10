@@ -204,20 +204,29 @@ a {
     width: 100%;
     margin: 0 auto;
 }
-    
-.fcc-shf{
-    border-radius: 10px;
-    border: 5px solid transparent;
+
+.sheffield{
+    align-items: center;
+    text-align: center;
+}
+.shf{
+    width: auto;
 }
 
-.fcc-health{
-    border-radius: 10px;
-    border: 5px solid transparent;
+.Nutrition{
+    align-items: center;
+    text-align: center;
+}
+.nutrition{
+    width: 85%;
 }
 
-.fcc-lg{
-    border-radius: 10px;
-    border: 5px solid transparent;
+.Studprod{
+    align-items: center;
+    text-align: center;
+}
+.stud{
+    width: 65%;
 }
 
 /*SECTION PROJET C*/
@@ -230,9 +239,12 @@ a {
     margin: 0 auto;
 }
 
-.fcc-shf{
-    border-radius: 10px;
-    border: 5px solid transparent;
+.encycl{
+    align-items: center;
+    text-align: center;
+}
+.pkn{
+    width: 80%;
 }
 
 
@@ -242,7 +254,7 @@ a {
   background: var(--wenge-color);
   display: flex;
   flex-direction: column;
-  height: 80vh;
+  height: 50vh;
   justify-content: center;
   padding: 0 2rem;
   text-align: center;
@@ -318,15 +330,3 @@ a {
     }
   }
 /* Animations */
-
-@keyframes animateBorder {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
