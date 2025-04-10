@@ -1,5 +1,4 @@
-/* Général */
-* {
+* { /* Général */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -14,20 +13,20 @@
     --brown-coffee-color: #4D3228;
 }
 
-/* Style pour l'en-tête */
-header {
+
+header { /* Style pour l'en-tête */
     background-color: var(--wenge-color);
     color: var(--philippine-silver-color);
     padding: 20px 0;
 }
 
-/* Style pour la barre de nvigation */
-#navbar {
+
+#navbar { /* Style pour la barre de nvigation */
     text-align: center;
 }
 
-/* Style des éléments de la liste */
-#navbar ul {
+
+#navbar ul { /* Style des éléments de la liste */
     list-style-type: none;
     display: flex;
     justify-content: center;
@@ -39,8 +38,7 @@ header {
     position: relative;
 }
 
-/* Style des liens */
-.nav-link {
+.nav-link { /* Style des liens */
     text-decoration: none;
     color: #fff;
     font-size: 18px;
@@ -48,14 +46,14 @@ header {
     display: block;
 }
 
-/* Effet au survol des liens */
-.nav-link:hover {
+
+.nav-link:hover { /* Effet au survol des liens */
     background-color: var(--philippine-silver-color);
     border-radius: 5px;
 }
 
-/* Style pour les éléments de menu déroulant */
-.dropdown {
+
+.dropdown { /* Style pour les éléments de menu déroulant */
     position: relative;
 }
 
@@ -101,19 +99,19 @@ header {
     background-color: var(--metallic-red-color);
 }
 
-/* Affichage du menu déroulant au survol */
+
 .dropdown:hover .dropdown-mid1,
-.dropdown:hover .dropdown-mid2 {
+.dropdown:hover .dropdown-mid2 { /* Affichage du menu déroulant au survol */
     display: block;
 }
 
-/* Affichage du sous-menu dans le menu déroulant */
+
 .dropdown-mid1 li:hover .dropdown-child, 
-.dropdown-mid2 li:hover .dropdown-child {
+.dropdown-mid2 li:hover .dropdown-child { /* Affichage du sous-menu dans le menu déroulant */
     display: block;
 }
 
-/* Corps du document */
+/* CORPS DE LA PAGE */
 h1{
     color: var(--rusty-red-color);
     font-size: 10vh;
@@ -126,13 +124,30 @@ h2 {
     color: var(--metallic-red-color);
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+h3 {
+    text-align: center;
+    font-size: 10vh;
+    margin: 2rem 0 1rem;
+    color: white;
+    text-shadow: 5px 5px 5px black;
 }
 
-/* Section sur ma présentation*/
-.welcome-section {
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--philippine-silver-color);
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    text-shadow: 5px 5px 5px black;
+  }
+
+/*SECTION PRESENTATION*/
+.welcome-section { 
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -143,37 +158,95 @@ body {
     background-image: linear-gradient(52deg, var(--metallic-red-color) 0%, #181719 100%);
   }
 
-/* Images */
-img {
+.animated-border {
+    position: relative;
+    padding: 10px;
+    background:linear-gradient(45deg, #F56992, #990001);
+    z-index: 1;
     border-radius: 10px;
-}
+  }
+  
+  .animated-border::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background:linear-gradient(45deg, #F56992, #990001);
+    background-size: 100%;
+    z-index: -1;
+    animation: animateBorder 6s linear infinite;
+    border-radius: 12px;
+  }
+  
+  .animated-border::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    background:linear-gradient(45deg, #F56992, #990001);
+    z-index: -1;
+    border-radius: 8px;
+  }
 
 #photo {
     width: 25%;
-    float: left;
-    box-shadow: 5px 5px 10px black;
+    float: center;
 }
 
-/*Session Contact*/
+/*SECTION PROJET FCC*/
+.projects1 {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+    
+.fcc-shf{
+    border-radius: 10px;
+    border: 5px solid transparent;
+}
+
+.fcc-health{
+    border-radius: 10px;
+    border: 5px solid transparent;
+}
+
+.fcc-lg{
+    border-radius: 10px;
+    border: 5px solid transparent;
+}
+
+/*SECTION PROJET C*/
+.projects2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.fcc-shf{
+    border-radius: 10px;
+    border: 5px solid transparent;
+}
+
+
+/*SECTION CONTACT*/
 .contact-section {
+  align-items: center;
+  background: var(--wenge-color);
   display: flex;
   flex-direction: column;
+  height: 80vh;
   justify-content: center;
-  align-items: center;
+  padding: 0 2rem;
   text-align: center;
   width: 100%;
-  height: 80vh;
-  padding: 0 2rem;
-  background: var(--wenge-color);
-}
-
-h3 {
-    grid-column: 1 / -1;
-    text-align: center;
-    font-size: 10vh;
-    margin: 2rem 0 1rem;
-    color: white;
-    text-shadow: 5px 5px 5px black;
 }
 
 .contact-section-header > h2 {
@@ -183,6 +256,7 @@ h3 {
 .fa-ig{
     width: 60px;
     height: 60px;
+    
 }
 
 .fa-github{
@@ -195,18 +269,12 @@ h3 {
     height: 60px;
 }
 
-@media (max-width: 28.75em) {
-  .contact-section-header > h2 {
-    font-size: 4rem;
-  }
-}
-
 .contact-section-header > p {
   font-style: italic;
 }
 
 .contact-links {
-  display: flex;
+  display: absolute;
   justify-content: center;
   width: 100%;
   max-width: 980px;
@@ -244,4 +312,21 @@ h3 {
     }
 }
 
+@media (max-width: 28.75em) {
+    .contact-section-header > h2 {
+      font-size: 4rem;
+    }
+  }
 /* Animations */
+
+@keyframes animateBorder {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
