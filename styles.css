@@ -43,7 +43,7 @@ body {
 
 a {
   text-decoration: none;
-  color: var(--wenge);
+  color: var(--jet-stream);
   text-shadow: 5px 5px 5px var(--text-dark);
 }
 
@@ -68,6 +68,9 @@ h3 {
   text-shadow: 5px 5px 5px var(--text-dark);
 }
 
+.sous-titre{
+    font-size: 15%; 
+}
 /* ================== HEADER & NAVBAR ================== */
 header {
   background-color: var(--wenge);
@@ -332,6 +335,7 @@ header {
 }
 
 .cardshf-back, .cardnt-back, .cardsp-back, .cardpk-back {
+  color: var(--metallic-red);
   border: 2px solid var(--metal);
   transform: rotateY(180deg);
 }
