@@ -1,243 +1,237 @@
-* { /* Général */
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* ================== IMPORTS & POLICES ================== */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;500;700&display=swap');
+
+/* ================== VARIABLES GLOBALES ================== */
+:root {
+  --rusty-red-color: #D22E48;
+  --vivid-auburn-color: #9A2826;
+  --metallic-red-color: #AC2B29;
+  --philippine-silver-color: #B7B4B3;
+  --wenge-color: #645D5B;
+  --brown-coffee-color: #4D3228;
+  --axolotl-color: #5B7B57;
+  --russian-green-color: #6A8E66;
+  --morning-blue-color: #8FAB98;
+  --jet-stream-color: #BFD0C1;
+  --white-coffee-color: #E4E2CF;
+  --alabaster-color: #ECEAE4;
 }
 
-:root{
-    --rusty-red-color: #D22E48;
-    --vivid-auburn-color: #9A2826;
-    --metallic-red-color: #AC2B29;
-    --philippine-silver-color: #B7B4B3; 
-    --wenge-color: #645D5B; 
-    --brown-coffee-color: #4D3228;
-}
-
-
-header { /* Style pour l'en-tête */
-    background-color: var(--wenge-color);
-    color: var(--philippine-silver-color);
-    padding: 20px 0;
-}
-
-
-#navbar { /* Style pour la barre de nvigation */
-    text-align: center;
-}
-
-
-#navbar ul { /* Style des éléments de la liste */
-    list-style-type: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#navbar li {
-    margin: 0 15px;
-    position: relative;
-}
-
-.nav-link { /* Style des liens */
-    text-decoration: none;
-    color: #fff;
-    font-size: 18px;
-    padding: 8px 15px;
-    display: block;
-}
-
-
-.nav-link:hover { /* Effet au survol des liens */
-    background-color: var(--philippine-silver-color);
-    border-radius: 5px;
-}
-
-
-.dropdown { /* Style pour les éléments de menu déroulant */
-    position: relative;
-}
-
-.dropdown-mid1{
-    display: none;
-    position: absolute;
-    top: 100%;
-    right: 50%;
-    background-color: var(--wenge-color);
-    min-width: 200px;
-    z-index: 10;
-}
-
-.dropdown-mid2 {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    background-color: var(--wenge-color);
-    min-width: 200px;
-    z-index: 10;
-}
-
-.dropdown-mid1 ul, .dropdown-mid2 ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-.dropdown-child {
-    display: none;
-    background-color: var(--wenge-color);;
-}
-
-.dropdown-child a {
-    padding: 10px;
-    color: #fff;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-child a:hover {
-    background-color: var(--metallic-red-color);
-}
-
-
-.dropdown:hover .dropdown-mid1,
-.dropdown:hover .dropdown-mid2 { /* Affichage du menu déroulant au survol */
-    display: block;
-}
-
-
-.dropdown-mid1 li:hover .dropdown-child, 
-.dropdown-mid2 li:hover .dropdown-child { /* Affichage du sous-menu dans le menu déroulant */
-    display: block;
-}
-
-/* CORPS DE LA PAGE */
-h1{
-    color: var(--rusty-red-color);
-    font-size: 10vh;
-    text-align: center;
-}
-
-h2 {
-    font-size: 3vh;
-    text-align: center;
-    color: var(--metallic-red-color);
-}
-
-h3 {
-    text-align: center;
-    font-size: 10vh;
-    margin: 2rem 0 1rem;
-    color: white;
-    text-shadow: 5px 5px 5px black;
+/* ================== RESET & STYLES GÉNÉRAUX ================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Raleway', sans-serif;
 }
 
 body {
-    background-color: var(--philippine-silver-color);
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
+  background-color: var(--philippine-silver-color);
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
 }
 
 a {
-    text-decoration: none;
-    color: white;
-    text-shadow: 5px 5px 5px black;
-  }
-
-/*SECTION PRESENTATION*/
-.welcome-section { 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100vh;
-    color: var(--philippine-silver-color);
-    background-image: linear-gradient(52deg, var(--metallic-red-color) 0%, #181719 100%);
-  }
-
-#photo {
-    width: 25%;
-    float: center;
+  text-decoration: none;
+  color: white;
+  text-shadow: 5px 5px 5px black;
 }
 
-#photo{
---s: 25%;   /* the size of the image */
---b: 8px;     /* the border thickness*/
---g: 14px;    /* the gap */
---c: var(--philippine-silver-color); /* the color */
-
-width: var(--s);
-aspect-ratio: 1;
-outline: calc(var(--s)/2) solid #0009;
-outline-offset: calc(var(--s)/-2);
-cursor: pointer;
-transition: .3s;
+/* ================== TITRES ================== */
+h1 {
+  color: var(--rusty-red-color);
+  font-size: 10vh;
+  text-align: center;
 }
 
-#photo:hover {
-outline: var(--b) solid var(--c);
-outline-offset: var(--g);
+h2 {
+  font-size: 3vh;
+  text-align: center;
+  color: var(--metallic-red-color);
 }
 
-#photo + #photo{
-border-radius: 50%;
+h3 {
+  text-align: center;
+  font-size: 10vh;
+  margin: 2rem 0 1rem;
+  color: white;
+  text-shadow: 5px 5px 5px black;
 }
 
-/*SECTION PROJET FCC*/
+/* ================== HEADER & NAVBAR ================== */
+header {
+  background-color: var(--wenge-color);
+  color: var(--philippine-silver-color);
+  padding: 20px 0;
+}
+
+#navbar {
+  text-align: center;
+}
+
+#navbar ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#navbar li {
+  margin: 0 15px;
+  position: relative;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  padding: 8px 15px;
+  display: block;
+}
+
+.nav-link:hover {
+  background-color: var(--philippine-silver-color);
+  border-radius: 5px;
+}
+
+/* ================== DROPDOWN MENUS ================== */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-mid1,
+.dropdown-mid2 {
+  display: none;
+  position: absolute;
+  top: 100%;
+  background-color: var(--wenge-color);
+  min-width: 200px;
+  z-index: 10;
+}
+
+.dropdown-mid1 {
+  right: 50%;
+}
+
+.dropdown-mid2 {
+  left: 50%;
+}
+
+.dropdown-mid1 ul,
+.dropdown-mid2 ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-child {
+  display: none;
+  background-color: var(--wenge-color);
+}
+
+.dropdown-child a {
+  padding: 10px;
+  color: #fff;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-child a:hover {
+  background-color: var(--metallic-red-color);
+}
+
+.dropdown:hover .dropdown-mid1,
+.dropdown:hover .dropdown-mid2 {
+  display: block;
+}
+
+.dropdown-mid1 li:hover .dropdown-child,
+.dropdown-mid2 li:hover .dropdown-child {
+  display: block;
+}
+
+/* ================== SECTION ACCUEIL ================== */
+.welcome-section {
+  min-height: 50vh;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: var(--alabaster-color);
+}
+
+.welcome-section h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  letter-spacing: 1.5px;
+}
+
+.welcome-section p {
+  max-width: 700px;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+#welcome-section img#photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 30px;
+  border: 4px solid var(--metallic-red-color);
+  animation: pulseBorder 2s infinite;
+}
+
+/* ================== SECTIONS PROJETS FCC ================== */
 .projects1 {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(250px, 1fr));
-    gap: 20px;
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
 }
 
-.sheffield{
-    align-items: center;
-    text-align: center;
-}
-.shf{
-    width: auto;
-}
-
-.Nutrition{
-    align-items: center;
-    text-align: center;
-}
-.nutrition{
-    width: 85%;
+.sheffield,
+.Nutrition,
+.Studprod,
+.encycl {
+  align-items: center;
+  text-align: center;
 }
 
-.Studprod{
-    align-items: center;
-    text-align: center;
-}
-.stud{
-    width: 65%;
+.shf,
+.nutrition,
+.stud,
+.pkn {
+  width: auto;
 }
 
-/*SECTION PROJET C*/
+.nutrition {
+  width: 85%;
+}
+
+.stud {
+  width: 65%;
+}
+
+.pkn {
+  width: 80%;
+}
+
+/* ================== SECTIONS PROJETS C ================== */
 .projects2 {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
 }
 
-.encycl{
-    align-items: center;
-    text-align: center;
-}
-.pkn{
-    width: 80%;
-}
-
-/*SECTION CONTACT*/
+/* ================== SECTION CONTACT ================== */
 .contact-section {
   align-items: center;
   background: var(--wenge-color);
@@ -254,24 +248,15 @@ border-radius: 50%;
   font-size: 9rem;
 }
 
-.fa-ig{
-    width: 60px;
-    height: 60px;
-    
-}
-
-.fa-github{
-    width: 60px;
-    height: 60px;
-}
-
-.fa-mail{
-    width: 60px;
-    height: 60px;
-}
-
 .contact-section-header > p {
   font-style: italic;
+}
+
+.fa-ig,
+.fa-github,
+.fa-mail {
+  width: 60px;
+  height: 60px;
 }
 
 .contact-links {
@@ -293,157 +278,193 @@ border-radius: 50%;
   transform: translateY(8px);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    #navbar {
-        flex-direction: column;
-    }
-
-    .nav-link {
-        margin: 0.5rem 0;
-    }
-
-    #projects a {
-        display: block;
-        margin: 1rem 0;
-    }
-
-    #profile-link {
-        font-size: 1rem;
-    }
+/* ================== ANIMATIONS ================== */
+@keyframes pulseBorder {
+  0% {
+    box-shadow: 0 0 0 0 var(--vivid-auburn-color);
+  }
+  70% {
+    box-shadow: 0 0 0 20px rgba(0, 255, 247, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 255, 247, 0);
+  }
 }
 
-@media (max-width: 28.75em) {
+/* ================== FLIP CARD ANIMATIONS ================== */
+.cardshf, .cardnt, .cardsp, .cardpk {
+  width: 220px;
+  height: 220px;
+  margin: 1rem auto;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.cardnt {
+  width: 280px;
+}
+
+.cardshf-inner, .cardnt-inner, .cardsp-inner, .cardpk-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.cardshf:hover .cardshf-inner,
+.cardnt:hover .cardnt-inner,
+.cardsp:hover .cardsp-inner,
+.cardpk:hover .cardpk-inner {
+  transform: rotateY(180deg);
+}
+
+.cardshf-front, .cardshf-back,
+.cardnt-front, .cardnt-back,
+.cardsp-front, .cardsp-back,
+.cardpk-front, .cardpk-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+}
+
+.cardshf-front {
+  background: url(shf.png);
+}
+
+.cardnt-front {
+  background: url(Health-Nutrition-Logo.png);
+}
+
+.cardsp-front {
+  background: url(LOGO\ STUDPROD\ NOIR.png);
+}
+
+.cardpk-front {
+  background: url(pokeball-logo-png.png);
+}
+
+.cardshf-back, .cardnt-back, .cardsp-back, .cardpk-back {
+  background: var(--alabaster-color);
+  border: 2px solid var(--metal);
+}
+
+/* ================== RESPONSIVE DESIGN MOBILE ================== */
+@media (max-width: 768px) {
+    /* NAVBAR */
+    #navbar ul {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .nav-link {
+      margin: 0.5rem 0;
+      font-size: 16px;
+      padding: 10px 20px;
+    }
+  
+    /* TITRES */
+    h1 {
+      font-size: 5vh;
+    }
+  
+    h2 {
+      font-size: 2vh;
+    }
+  
+    h3 {
+      font-size: 5vh;
+    }
+  
+    /* SECTION ACCUEIL */
+    .welcome-section {
+      padding: 40px 10px;
+    }
+  
+    .welcome-section h1 {
+      font-size: 2rem;
+    }
+  
+    .welcome-section p {
+      font-size: 1rem;
+      padding: 0 10px;
+    }
+  
+    #welcome-section img#photo {
+      width: 150px;
+      height: 150px;
+      margin-top: 20px;
+    }
+  
+    /* PROJETS */
+    .projects1,
+    .projects2 {
+      grid-template-columns: 1fr;
+      padding: 0 10px;
+    }
+  
+    .cardshf,
+    .cardnt,
+    .cardsp,
+    .cardpk {
+      width: 90%;
+      height: 200px;
+    }
+  
+    /* CONTACT */
+    .contact-section {
+      height: auto;
+      padding: 2rem 1rem;
+    }
+  
     .contact-section-header > h2 {
       font-size: 4rem;
     }
-  }
-/* Animations */
-.cardshf {
-    width: 220px;
-    height: 220px;
-    margin: 1rem auto;
-    perspective: 1000px;
-    cursor: pointer;
+  
+    .contact-section-header > p {
+      font-size: 1rem;
+    }
+  
+    .contact-links {
+      flex-direction: column;
+      align-items: center;
+      margin-top: 2rem;
+      gap: 1.5rem;
+    }
+  
+    .contact-details {
+      font-size: 1.5rem;
+    }
+  
+    .fa-ig,
+    .fa-github,
+    .fa-mail {
+      width: 40px;
+      height: 40px;
+    }
   }
   
-.cardshf-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
+  /* Très petits écrans (≤460px environ) */
+  @media (max-width: 460px) {
+    h1, h3 {
+      font-size: 4vh;
+    }
+  
+    .welcome-section p {
+      font-size: 0.95rem;
+    }
+  
+    .contact-section-header > h2 {
+      font-size: 3rem;
+    }
+  
+    .cardnt, .cardshf, .cardsp, .cardpk {
+      height: 180px;
+    }
   }
   
-.cardshf:hover .cardshf-inner {
-    transform: rotateY(180deg);
-  }
-  
-.cardshf-front,
-.cardshf-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 0.5rem;
-  }
-  
-.cardshf-front {
-    background: url(shf.png);
-  }
-  
-.cardshf-back {
-    background: var(--rusty-red-color);
-    border: 2px solid var(--metallic-red-color);
-    color: white;
-    transform: rotateY(180deg);
-  }
-
-.cardnt {
-    width: 280px;
-    height: 220px;
-    margin: 1rem auto;
-    perspective: 1000px;
-    cursor: pointer;
-  }
-  
-.cardnt-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-  }
-  
-.cardnt:hover .cardnt-inner {
-    transform: rotateY(180deg);
-  }
-  
-.cardnt-front,
-.cardnt-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 0.5rem;
-  }
-  
-.cardnt-front {
-    background: url(Health-Nutrition-Logo.png);
-  }
-  
-.cardnt-back {
-    background: var(--rusty-red-color);
-    border: 2px solid var(--metallic-red-color);
-    color: white;
-    transform: rotateY(180deg);
-  }
-
-.cardsp {
-    width: 220px;
-    height: 220px;
-    margin: 1rem auto;
-    perspective: 1000px;
-    cursor: pointer;
-  }
-  
-.cardsp-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-  }
-
-.cardsp:hover .cardsp-inner {
-    transform: rotateY(180deg);
-  }
-  
-.cardsp-front,
-.cardsp-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 0.5rem;
-  }
-  
-.cardsp-front {
-    background: url(LOGO\ STUDPROD\ NOIR.png);
-  }
-  
-.cardsp-back {
-    background: var(--rusty-red-color);
-    border: 2px solid var(--metallic-red-color);
-    color: white;
-    transform: rotateY(180deg);
-  }
