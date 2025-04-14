@@ -339,7 +339,6 @@ a:focus, .nav-link:focus {
 .cardshf-inner, .cardnt-inner, .cardsp-inner, .cardpk-inner {
   position: relative;
   height: 300px; /* Hauteur fixe pour toutes les cartes */
-  overflow: hidden;
   border-radius: 10px;
   transform-style: preserve-3d;
   transition: transform 0.6s ease;
@@ -382,13 +381,12 @@ a:focus, .nav-link:focus {
 .cardsp-inner:hover .cardsp-back,
 .cardpk-inner:hover .cardpk-back {
   opacity: 1;
-  transform: rotateY(0);
 }
 
 
 /* Style du texte et du lien */
 .cardshf-back h4, .cardnt-back h4, .cardsp-back h4, .cardpk-back h4 {
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: bold;
   margin-bottom: 10px;
   color: var(--text-light); /* Couleur claire pour le titre */
@@ -416,6 +414,49 @@ a:focus, .nav-link:focus {
   font-weight: bold;
   color: var(--rusty-red);
   margin-bottom: 40px;
+}
+
+/* ================== FLIP CARD ANIMATIONS ================== */
+.cardshf, .cardnt, .cardsp, .cardpk {
+  width: 320px;
+  height: 320px;
+  margin: 1rem auto;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.cardshf-inner, .cardnt-inner, .cardsp-inner, .cardpk-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+}
+
+.cardshf:hover .cardshf-inner,
+.cardnt:hover .cardnt-inner,
+.cardsp:hover .cardsp-inner,
+.cardpk:hover .cardpk-inner {
+  transform: rotateY(-90deg);
+}
+
+.cardshf-front, .cardshf-back, 
+.cardnt-front, .cardnt-back,
+.cardsp-front, .cardsp-back,
+.cardpk-front, .cardpk-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+}
+
+.cardshf-back, .cardnt-back, .cardsp-back, .cardpk-back {
+  color: var(--metallic-red);
+  background-color: var(--white-coffee);
+  border: 2px solid var(--metal);
+  transform: rotateY(90deg);
 }
 
 /* Media Query pour petites résolutions */
@@ -517,55 +558,6 @@ a:focus, .nav-link:focus {
   }
 }
 
-/* ================== FLIP CARD ANIMATIONS ================== */
-.cardshf, .cardnt, .cardsp, .cardpk {
-  width: 220px;
-  height: 220px;
-  margin: 1rem auto;
-  perspective: 1000px;
-  cursor: pointer;
-}
-
-.cardnt {
-  width: 280px;
-}
-
-.cardshf-inner, .cardnt-inner, .cardsp-inner, .cardpk-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-}
-
-.cardshf:hover .cardshf-inner,
-.cardnt:hover .cardnt-inner,
-.cardsp:hover .cardsp-inner,
-.cardpk:hover .cardpk-inner {
-  transform: rotateY(180deg);
-}
-
-.cardshf-front, .cardshf-back, 
-.cardnt-front, .cardnt-back,
-.cardsp-front, .cardsp-back,
-.cardpk-front, .cardpk-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 0.5rem;
-}
-
-.cardshf-back, .cardnt-back, .cardsp-back, .cardpk-back {
-  color: var(--metallic-red);
-  background-color: var(--white-coffee);
-  border: 2px solid var(--metal);
-  transform: rotateY(180deg);
-}
-
 /* ================== RÉPONSE AUX ÉCRANS PLUS PETITS (MAX 768px) ================== */
 @media screen and (max-width: 768px) {
   /* TITRES */
@@ -614,3 +606,4 @@ a:focus, .nav-link:focus {
     width: 200px;
     height: 200px; /* Réduire la taille de l'image */
   }
+}
