@@ -7,6 +7,7 @@
     <style>
       @import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400");
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <title>Portofolio Page</title>
   </head>
   <body>
@@ -24,7 +25,7 @@
                     >Responsive Web Design</a
                   >
                   <div class="dropdown-child">
-                    <a href="#Tribute">Tribute Page</a>
+                    <a href="#cardshf">Tribute Page</a>
                     <a href="#DocTech">Technical Document</a>
                     <a href="#Landing">Landing Page</a>
                   </div>
@@ -50,10 +51,10 @@
     </header>
     <!-- END NAV -->
     <!-- START WELCOME SECTION -->
-    <section id="welcome-section" class="welcome-section">
+    <section class="welcome-section" id="welcome-section">
       <h1>Portfolio DGHIM Ichem</h1>
       <span class="sous-titre">
-        <p>Qui suis-je ?</p>
+        <p><em>Qui suis-je ?</em></p>
       </span>
       <p>
         Je suis DGHIM Ichem, 20 ans, intégrateur junior basé à Agen. Diplômé
@@ -66,82 +67,72 @@
     </section>
     <!-- END WELCOME SECTION -->
     <!-- START PROJECTS SECTION -->
-    <section id="project">
+    <section id="Responsive">
       <h2>
         Projets effectués afin d'obtenir la certification Responsive Web Design
       </h2>
       <div class="projects1">
-        <div class="sheffield">
+        <div class="sheffield" id="cardshf">
           <div class="cardshf">
-            <a
-              class="project-link"
-              id="Tribute"
-              target="_blank"
-              href="https://idghim.github.io/fcc-Tribute-Page/"
-              >Tribute Page</a
-            >
             <div class="cardshf-inner">
-              <div class="cardshf-front"></div>
+              <div class="cardshf-front">
+                <!-- Image du projet -->
+                <img src="shf.png" alt="Projet SHF">
+              </div>
               <div class="cardshf-back">
-                Pour ce projet, vous construirez une page d’hommage à un sujet
-                de votre choix, fictif ou réel.
+                <h4>Tribute Page</h4>
+                <p>Une page d’hommage pour un sujet de votre choix, fictif ou réel.</p>
+                <a href="https://idghim.github.io/fcc-Tribute-Page/" target="_blank">Voir le projet</a>
               </div>
             </div>
           </div>
         </div>
-        <div class="Nutrition">
+        <div class="Nutrition" id="DocTech">
           <div class="cardnt">
-            <a
-              class="project-link"
-              id="Tribute"
-              target="_blank"
-              href="https://idghim.github.io/fcc-Technical-Documentation/"
-              >Documentation Page</a
-            >
             <div class="cardnt-inner">
-              <div class="cardnt-front"></div>
+              <div class="cardnt-front">
+                <!-- Image du projet -->
+                <img src="Health-Nutrition-Logo.png" alt="Projet Nutrition">
+              </div>
               <div class="cardnt-back">
-                Pour ce projet, vous construirez une page de documentation technique 
-                qui servira d’instruction ou de référence pour un sujet.
+                <h4>Documentation Page</h4>
+                <p>Une page de documentation technique pour servir d’instruction ou de référence sur un sujet.</p>
+                <a href="https://idghim.github.io/fcc-Technical-Documentation/" target="_blank">Voir le projet</a>
               </div>
             </div>
           </div>
         </div>
-        <div class="Studprod">
+        <div class="Studprod" id="Landing">
           <div class="cardsp">
-            <a
-              class="project-link"
-              id="Tribute"
-              target="_blank"
-              href="https://idghim.github.io/fcc-Landing-Page/"
-              >Landing Page</a
-            >
             <div class="cardsp-inner">
-              <div class="cardsp-front"></div>
+              <div class="cardsp-front">
+                <!-- Image du projet -->
+                <img src="LOGO STUDPROD NOIR.png" alt="Projet STUDPROD">
+              </div>
               <div class="cardsp-back">
-                Pour ce projet, vous construirez une page d’accueil
-                de produit pour commercialiser un produit de votre choix.
+                <h4>Landing Page</h4>
+                <p>Une page de renvoi de produit pour commercialiser un produit de votre choix.</p>
+                <a href="https://idghim.github.io/fcc-Landing-Page" target="_blank">Voir le projet</a>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="projects2">
-        <h2>Projets effectués en formation</h2>
-        <div class="Encyl">
+      <div class="projects2" id="Ecole">
+        <h2>
+          Projets effectués en formation
+        </h2>
+        <div class="Encyl" id="Pkn">
           <div class="cardpk">
-            <a
-              class="project-link"
-              id="Pkn"
-              target="_blank"
-              href="https://idghim.github.io/Encyclop-die-Pok-dex/"
-              >Encyclopédie Pokémon</a
-            >
             <div class="cardpk-inner">
-              <div class="cardpk-front"></div>
+              <div class="cardpk-front">
+                <!-- Image du projet -->
+                <img src="pokeball-logo-png.png" alt="Projet Pokémon">
+              </div>
               <div class="cardpk-back">
-                Créer une interface web nommée Encyclopédie Pokémon en utilisant uniquement HTML et CSS.
-                 L’objectif est de construire un design propre, responsive, et structuré.
+                <h4>Encyclopédie Pokémon</h4>
+                <p>Une interface web nommée Encyclopédie Pokémon.</p>
+                <a href="https://idghim.github.io/Encyclop-die-Pok-dex/" target="_blank">Voir le projet</a>
               </div>
             </div>
           </div>
@@ -150,7 +141,7 @@
     </section>
     <!-- END PROJECTS SECTION -->
     <!-- START CONTACT SECTION -->
-    <section id="contact" class="contact-section">
+    <section class="contact-section" id="Contact">
       <div class="contact-section-header">
         <h3>Me contacter :</h3>
         <p></p>
