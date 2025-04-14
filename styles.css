@@ -42,12 +42,6 @@ body {
   flex-direction: column;
 }
 
-a {
-  text-decoration: none;
-  color: var(--text-dark);
-  text-shadow: 5px 5px 5px var(--text-dark);
-}
-
 /* ================== TITRES ================== */
 h1 {
   color: var(--rusty-red);
@@ -65,7 +59,12 @@ h2 {
 
 h3 {
   font-size: 10vh;
-  color: var(--text-light);
+  text-shadow: 5px 5px 5px var(--text-dark);
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-dark);
   text-shadow: 5px 5px 5px var(--text-dark);
 }
 
@@ -266,7 +265,7 @@ a:focus, .nav-link:focus {
 
   .welcome-section p {
     font-size: 0.9rem;
-    max-width: 100%; /* Le texte prend toute la largeur de l'écran */
+    max-width: 50%; /* Le texte prend toute la largeur de l'écran */
   }
 
   .welcome-section #photo {
@@ -322,49 +321,73 @@ a:focus, .nav-link:focus {
 
 /* ================== SECTION CONTACT ================== */
 .contact-section {
-  align-items: center;
-  background: var(--wenge);
-  display: flex;
-  flex-direction: column;
-  height: 50vh;
-  justify-content: center;
-  padding: 0 2rem;
+  background-color: var(--alabaster); /* Fond clair */
+  padding: 50px 0;
   text-align: center;
-  width: 100%;
 }
 
-.contact-section-header > h2 {
-  font-size: 9rem;
+.contact-section-header h3 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--text-dark); /* Texte sombre pour le titre */
+  margin-bottom: 10px;
 }
 
-.contact-section-header > p {
-  font-style: italic;
+.contact-section-header p {
+  font-size: 1rem;
+  color: var(--wenge); /* Texte gris foncé */
+  margin-bottom: 30px;
 }
 
-.fa-ig,
-.fa-github,
-.fa-mail {
-  width: 60px;
-  height: 60px;
-}
-
+/* Style des liens de contact */
 .contact-links {
-  display: absolute;
+  display: flex;
   justify-content: center;
-  width: 100%;
-  max-width: 980px;
-  margin-top: 4rem;
-  flex-wrap: wrap;
+  gap: 20px;
 }
 
-.contact-details {
-  font-size: 2.4rem;
-  text-shadow: 2px 2px 1px var(--text-dark);
-  transition: transform 0.3s ease-out;
+.contact-links a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--rusty-red); /* Fond rouge vif */
+  color: var(--text-light); /* Texte blanc */
+  font-size: 1.1rem;
+  padding: 12px 25px;
+  border-radius: 30px; /* Coins arrondis */
+  transition: all 0.3s ease;
+  width: 200px; /* Largeur fixe */
 }
 
-.contact-details:hover {
-  transform: translateY(8px);
+.contact-links a:hover {
+  background-color: var(--metallic-red); /* Couleur plus sombre au survol */
+  transform: translateY(-5px); /* Légère animation au survol */
+}
+
+/* Icônes */
+.contact-links img {
+  width: 20px;
+  margin-right: 10px;
+}
+
+.contact-links .fa-github,
+.contact-links .fa-ig,
+.contact-links .fa-mail {
+  font-size: 1.3rem;
+  margin-right: 10px;
+}
+
+/* Media Query pour responsivité */
+@media screen and (max-width: 768px) {
+  .contact-links {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .contact-links a {
+    width: 80%;
+  }
 }
 
 /* ================== ANIMATIONS ================== */
