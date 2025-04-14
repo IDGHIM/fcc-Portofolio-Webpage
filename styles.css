@@ -301,7 +301,6 @@ a:focus, .nav-link:focus {
 }
 
 /* ================== SECTIONS PROJETS FCC ================== */
-/* Général : mise en page de la section */
 #Responsive {
   padding: 50px 20px;
   background-color: var(--alabaster); /* Fond clair */
