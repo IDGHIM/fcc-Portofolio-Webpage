@@ -301,22 +301,137 @@ a:focus, .nav-link:focus {
 }
 
 /* ================== SECTIONS PROJETS FCC ================== */
-.projects1 {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(250px, 1fr));
-  gap: 20px;
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
+/* Général : mise en page de la section */
+#Responsive {
+  padding: 50px 20px;
+  background-color: var(--alabaster); /* Fond clair */
+  color: var(--text-dark);
+  text-align: center;
 }
 
-.projects2 {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
-  max-width: 1200px;
+#Responsive h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--rusty-red);
+  margin-bottom: 40px;
+}
+
+/* Conteneur de projets */
+.projects1, .projects2 {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+/* Style des cartes */
+.cardshf, .cardnt, .cardsp, .cardpk {
+  position: relative;
   width: 100%;
+  max-width: 600px; /* Limiter la largeur maximale pour les cartes */
   margin: 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: var(--white-coffee); /* Fond clair pour les cartes */
+}
+
+.cardshf-inner, .cardnt-inner, .cardsp-inner, .cardpk-inner {
+  position: relative;
+  height: 300px; /* Hauteur fixe pour toutes les cartes */
+  overflow: hidden;
+  border-radius: 10px;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+
+/* Affichage de l'image (avant de la carte) */
+.cardshf-front, .cardnt-front, .cardsp-front, .cardpk-front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardshf-front img, .cardnt-front img, .cardsp-front img, .cardpk-front img {
+  width: 80%; /* Largeur de l'image pour ne pas la déformer */
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Affichage de l'arrière (détails du projet) */
+.cardshf-back, .cardnt-back, .cardsp-back, .cardpk-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--rusty-red); /* Couleur de fond sur le verso */
+  color: var(--text-light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.cardshf-inner:hover .cardshf-back,
+.cardnt-inner:hover .cardnt-back,
+.cardsp-inner:hover .cardsp-back,
+.cardpk-inner:hover .cardpk-back {
+  opacity: 1;
+  transform: rotateY(0);
+}
+
+
+/* Style du texte et du lien */
+.cardshf-back h4, .cardnt-back h4, .cardsp-back h4, .cardpk-back h4 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--text-light); /* Couleur claire pour le titre */
+}
+
+.cardshf-back p, .cardnt-back p, .cardsp-back p, .cardpk-back p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: var(--text-light); /* Texte clair pour la description */
+}
+
+.cardshf-back a, .cardnt-back a, .cardsp-back a, .cardpk-back a {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  text-decoration: none;
+  padding: 10px 20px;
+  background-color: var(--vivid-auburn); /* Boutons avec fond auburn */
+  border-radius: 30px;
+  transition: background-color 0.3s ease;
+}
+
+/* Séparateurs de section */
+.projects2 h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--rusty-red);
+  margin-bottom: 40px;
+}
+
+/* Media Query pour petites résolutions */
+@media screen and (max-width: 768px) {
+  .cardshf-inner, .cardnt-inner, .cardsp-inner, .cardpk-inner {
+    height: 250px; /* Réduire la hauteur des cartes sur petits écrans */
+  }
+
+  .cardshf-back, .cardnt-back, .cardsp-back, .cardpk-back {
+    padding: 15px;
+  }
+  
+  #Responsive h2 {
+    font-size: 1.6rem; /* Ajuster la taille du titre pour les petits écrans */
+  }
 }
 
 /* ================== SECTION CONTACT ================== */
