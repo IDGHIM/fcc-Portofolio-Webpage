@@ -106,7 +106,7 @@ header {
 
 a:focus, .nav-link:focus {
   outline: 2px solid var(--metallic-red);
-  background-color: var(--axolotl);
+  background-color: var(--rusty-red);
 }
 
 
