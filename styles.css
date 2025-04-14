@@ -12,6 +12,7 @@
   --philippine-silver: #B7B4B3;
   --alabaster: #ECEAE4;
   --wenge: #645D5B;
+  --blue-dark: #282c34;
 
   /* Couleurs secondaires */
   --brown-coffee: #4D3228;
@@ -43,15 +44,17 @@ body {
 
 a {
   text-decoration: none;
-  color: var(--jet-stream);
+  color: var(--text-dark);
   text-shadow: 5px 5px 5px var(--text-dark);
 }
 
 /* ================== TITRES ================== */
 h1 {
   color: var(--rusty-red);
-  font-size: 10vh;
+  font-size: 100px;
   text-align: center;
+  margin-bottom: 10px;
+  letter-spacing: 1.5px;
 }
 
 h2 {
@@ -61,16 +64,11 @@ h2 {
 }
 
 h3 {
-  text-align: center;
   font-size: 10vh;
-  margin: 2rem 0 1rem;
   color: var(--text-light);
   text-shadow: 5px 5px 5px var(--text-dark);
 }
 
-.sous-titre{
-    font-size: 15%; 
-}
 /* ================== HEADER & NAVBAR ================== */
 header {
   background-color: var(--wenge);
@@ -106,6 +104,12 @@ header {
   background-color: var(--philippine-silver);
   border-radius: 5px;
 }
+
+a:focus, .nav-link:focus {
+  outline: 2px solid var(--metallic-red);
+  background-color: var(--axolotl);
+}
+
 
 /* ================== DROPDOWN MENUS ================== */
 .dropdown {
@@ -165,36 +169,136 @@ header {
 
 /* ================== SECTION ACCUEIL ================== */
 .welcome-section {
-  min-height: 50vh;
-  padding: 80px 20px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  background: var(--alabaster);
+  justify-content: space-between; /* Espace entre le texte et l'image */
+  align-items: center; /* Aligner verticalement */
+  background-color: var(--blue-dark);
+  color: #fff;
+  padding: 50px 20px;
+  min-height: 100vh;
+  position: relative;
+  flex-wrap: wrap; /* Permet de gérer la disposition sur les petits écrans */
 }
 
 .welcome-section h1 {
   font-size: 3rem;
   margin-bottom: 10px;
-  letter-spacing: 1.5px;
+  color: #fff;
+}
+
+.welcome-section .sous-titre p {
+  font-size: 1.2rem;
+  color: #e5e5e5;
 }
 
 .welcome-section p {
-  max-width: 700px;
-  margin-bottom: 20px;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  max-width: 600px; /* Limiter la largeur du texte pour une lecture plus agréable */
+  line-height: 1.6;
+  color: #e5e5e5;
+  text-align: justify;
+  margin-right: 20px; /* Ajouter un peu d'espace à droite */
 }
 
-#welcome-section img#photo {
+/* IMAGE FIXE À DROITE DU TEXTE */
+.welcome-section #photo {
   width: 250px;
   height: 250px;
-  border-radius: 50%;
   object-fit: cover;
-  margin-top: 30px;
-  margin-right: 10px;
-  border: 4px solid var(--metallic-red);
-  animation: pulseBorder 2s infinite;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  position: sticky; /* Reste fixe lors du défilement */
+  top: 20%; /* Déplace l'image un peu plus bas dans la section */
+  align-self: flex-start; /* Aligne l'image vers le haut de la section */
+  transition: all 0.3s ease-in-out;
+}
+
+.welcome-section #photo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ANIMATION DE L'IMAGE (BORDURE ANIMEE) */
+.animated-border {
+  animation: borderAnimation 2s infinite;
+}
+
+@keyframes borderAnimation {
+  0% {
+    border-color: #fff;
+  }
+  50% {
+    border-color: var(--rusty-red); /* Couleur de la bordure à mi-animation */
+  }
+  100% {
+    border-color: #fff;
+  }
+}
+
+/* RÉPONSE AUX ÉCRANS PLUS PETITS */
+@media screen and (max-width: 768px) {
+  .welcome-section h1 {
+    font-size: 2.5rem;
+  }
+
+  .welcome-section .sous-titre p {
+    font-size: 1rem;
+  }
+
+  .welcome-section p {
+    font-size: 1rem;
+    max-width: 500px; /* Réduire la largeur du texte */
+  }
+
+  .welcome-section #photo {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .welcome-section {
+    padding: 30px 15px;
+    flex-direction: column; /* Sur les très petits écrans, la disposition devient verticale */
+    align-items: center;
+    text-align: center;
+  }
+
+  .welcome-section p {
+    font-size: 0.9rem;
+    max-width: 100%; /* Le texte prend toute la largeur de l'écran */
+  }
+
+  .welcome-section #photo {
+    width: 150px;
+    height: 150px;
+    margin-top: 20px;
+  }
+}
+
+/* IMAGE FIXE ET ENCADRÉE PAR LE TEXTE */
+.welcome-section #photo {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  position: absolute; /* Position fixe */
+  top: 50%; /* Centré verticalement */
+  left: 50%; /* Centré horizontalement */
+  transform: translate(-50%, -50%); /* Décalage pour centrer parfaitement */
+  z-index: 10; /* S'assurer que l'image soit au-dessus du texte */
+  transition: all 0.3s ease-in-out;
+}
+
+.welcome-section #photo:hover {
+  transform: scale(1.05) translate(-50%, -50%);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ANIMATION DE L'IMAGE (BORDURE ANIMEE) */
+.animated-border {
+  animation: borderAnimation 2s infinite;
 }
 
 /* ================== SECTIONS PROJETS FCC ================== */
@@ -318,119 +422,57 @@ header {
   border-radius: 0.5rem;
 }
 
-.cardshf-front {
-  background: url(shf.png);
-}
-
-.cardnt-front {
-  background: url(Health-Nutrition-Logo.png);
-}
-
-.cardsp-front {
-  background: url(LOGO\ STUDPROD\ NOIR.png);
-}
-
-.cardpk-front {
-  background: url(pokeball-logo-png.png);
-}
-
 .cardshf-back, .cardnt-back, .cardsp-back, .cardpk-back {
   color: var(--metallic-red);
+  background-color: var(--white-coffee);
   border: 2px solid var(--metal);
   transform: rotateY(180deg);
 }
 
-/* ================== RESPONSIVE DESIGN MOBILE ================== */
-@media (max-width: 768px) {
-    /* NAVBAR */
-    #navbar ul {
-      flex-direction: column;
-      gap: 10px;
-    }
+/* ================== RÉPONSE AUX ÉCRANS PLUS PETITS (MAX 768px) ================== */
+@media screen and (max-width: 768px) {
+  /* TITRES */
+  h1 {
+    font-size: 3rem; /* Plus petit pour les écrans moyens */
+  }
 
-    .nav-link {
-      margin: 0.5rem 0;
-      font-size: 16px;
-      padding: 10px 20px;
-    }
+  h2 {
+    font-size: 2vh; /* Ajustement de la taille des titres */
+  }
 
-    /* TITRES */
-    h1 {
-      font-size: 5vh;
-    }
+  h3 {
+    font-size: 6vh;
+  }
 
-    h2 {
-      font-size: 2vh;
-    }
+  /* HEADER ET NAVBAR */
+  #navbar ul {
+    flex-direction: column; /* Le menu de navigation devient vertical */
+    gap: 10px;
+  }
 
-    h3 {
-      font-size: 5vh;
-    }
+  .nav-link {
+    font-size: 16px;
+    padding: 10px 20px; /* Plus d'espacement pour l'interaction tactile */
+  }
 
-    /* SECTION ACCUEIL */
-    .welcome-section {
-      padding: 40px 10px;
-    }
+  /* SECTION ACCUEIL */
+  .welcome-section {
+    flex-direction: column; /* Le texte et l'image se disposent en colonne */
+    padding: 30px 15px;
+    min-height: auto; /* Pas besoin d'un minimum de hauteur */
+    text-align: center; /* Centrer le texte */
+  }
 
-    .welcome-section h1 {
-      font-size: 2rem;
-    }
+  .welcome-section h1 {
+    font-size: 2.5rem;
+  }
 
-    .welcome-section p {
-      font-size: 1rem;
-      padding: 0 10px;
-    }
+  .welcome-section p {
+    font-size: 1rem;
+    max-width: 100%; /* Le texte occupe toute la largeur */
+    padding: 0 15px; /* Espacement autour du texte */
+  }
 
-    #welcome-section img#photo {
-      width: 150px;
-      height: 150px;
-      margin-top: 20px;
-    }
-
-    /* PROJETS */
-    .projects1,
-    .projects2 {
-      grid-template-columns: 1fr;
-      padding: 0 10px;
-    }
-
-    .cardshf,
-    .cardnt,
-    .cardsp,
-    .cardpk {
-      width: 90%;
-      height: 200px;
-    }
-
-    /* CONTACT */
-    .contact-section {
-      height: auto;
-      padding: 2rem 1rem;
-    }
-
-    .contact-section-header > h2 {
-      font-size: 4rem;
-    }
-
-    .contact-section-header > p {
-      font-size: 1rem;
-    }
-
-    .contact-links {
-      flex-direction: column;
-      align-items: center;
-      margin-top: 2rem;
-      gap: 1.5rem;
-    }
-
-    .contact-details {
-      font-size: 1.5rem;
-    }
-
-    .fa-ig,
-    .fa-github,
-    .fa-mail {
-      width: 40px;
-      height: 40px;
-    }
-}
+  .welcome-section #photo {
+    width: 200px;
+    height: 200px; /* Réduire la taille de l'image */
