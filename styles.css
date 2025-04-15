@@ -391,7 +391,8 @@ a:focus, .nav-link:focus {
   font-size: 1.4rem;
   font-weight: bold;
   margin-bottom: 10px;
-  color: var(--philippine-silver); /* Couleur claire pour le titre */
+  color: var(--blue-dark); /* Couleur claire pour le titre */
+  text-shadow: 2px 2px 2px var(--philippine-silver);
 }
 
 .cardshf-back p, .cardnt-back p, .cardsp-back p, .cardpk-back p {
