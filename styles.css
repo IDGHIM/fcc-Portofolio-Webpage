@@ -400,6 +400,16 @@ a:focus, .nav-link:focus {
   color: var(--text-light); /* Texte clair pour la description */
 }
 
+/* Disposition du texte et du bouton en colonne */
+.cardshf-back, .cardnt-back, .cardsp-back, .cardpk-back {
+  display: flex;
+  flex-direction: column; /* Organiser le contenu en colonne */
+  justify-content: space-between; /* Espacer les éléments verticalement */
+  align-items: center; /* Centrer les éléments horizontalement */
+  text-align: center;
+  padding: 20px;
+}
+
 .cardshf-back a, .cardnt-back a, .cardsp-back a, .cardpk-back a {
   font-size: 1.1rem;
   color: var(--text-light);
@@ -408,7 +418,9 @@ a:focus, .nav-link:focus {
   background-color: var(--vivid-auburn); /* Boutons avec fond auburn */
   border-radius: 30px;
   transition: background-color 0.3s ease;
+  margin-top: 10px; /* Ajouter de l'espace au-dessus du bouton */
 }
+
 
 /* Séparateurs de section */
 .projects2 h2 {
