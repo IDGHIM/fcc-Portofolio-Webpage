@@ -66,8 +66,9 @@ Il m’a permis de renforcer mes compétences en :
 
 ## 📫 Me contacter
 
-- GitHub : [@idghim](https://github.com/idghim)  
-- Profil freeCodeCamp : [Mon profil](https://www.freecodecamp.org/IchemD)
+- GitHub: [@idghim](https://github.com/idghim)  
+- freeCodeCamp: [My Profile](https://www.freecodecamp.org/IchemD)
+- Mail : [Email](ichemdghim@gmail.com)
 
 ---
 
