@@ -388,7 +388,7 @@ a:focus, .nav-link:focus {
 
 /* Style du texte et du lien */
 .cardshf-back h4, .cardnt-back h4, .cardsp-back h4, .cardpk-back h4 {
-  font-size: 1rem;
+  font-size: 1.4rem;
   font-weight: bold;
   margin-bottom: 10px;
   color: var(--philippine-silver); /* Couleur claire pour le titre */
@@ -398,6 +398,7 @@ a:focus, .nav-link:focus {
   font-size: 1rem;
   margin-bottom: 15px;
   color: var(--text-light); /* Texte clair pour la description */
+  text-shadow: 2px 2px 2px var(--blue-dark);
 }
 
 /* Disposition du texte et du bouton en colonne */
@@ -420,7 +421,6 @@ a:focus, .nav-link:focus {
   transition: background-color 0.3s ease;
   margin-top: 10px; /* Ajouter de l'espace au-dessus du bouton */
 }
-
 
 /* Séparateurs de section */
 .projects2 h2 {
