@@ -45,6 +45,7 @@ body {
 /* ================== TITRES ================== */
 h1 {
   color: var(--rusty-red);
+  text-shadow: 5px 5px 5px var(--vivid-auburn);
   font-size: 100px;
   text-align: center;
   margin-bottom: 10px;
@@ -55,6 +56,7 @@ h2 {
   font-size: 3vh;
   text-align: center;
   color: var(--metallic-red);
+  
 }
 
 h3 {
@@ -180,14 +182,10 @@ a:focus, .nav-link:focus {
 }
 
 .welcome-section h1 {
-  font-size: 3rem;
+  font-size: 4rem;
   margin-bottom: 10px;
   color: #fff;
-}
-
-.welcome-section .sous-titre p {
-  font-size: 1.2rem;
-  color: #e5e5e5;
+  text-shadow: 5px 5px 5px var(--vivid-auburn);
 }
 
 .welcome-section p {
@@ -197,6 +195,11 @@ a:focus, .nav-link:focus {
   color: #e5e5e5;
   text-align: justify;
   margin-right: 20px; /* Ajouter un peu d'espace à droite */
+}
+
+.welcome-section p:hover{
+  transform: translateY(5px);
+  text-shadow: 5px 5px 5px var(--vivid-auburn);
 }
 
 /* IMAGE FIXE À DROITE DU TEXTE */
@@ -473,6 +476,8 @@ a:focus, .nav-link:focus {
   border: 2px solid var(--metal);
   transform: rotateY(90deg);
 }
+
+
 
 /* Media Query pour petites résolutions */
 @media screen and (max-width: 768px) {
