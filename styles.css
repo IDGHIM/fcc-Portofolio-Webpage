@@ -498,7 +498,7 @@ a:focus, .nav-link:focus {
 
 /* ================== SECTION CONTACT ================== */
 .contact-section {
-  background-color: var(--alabaster); /* Fond clair */
+  background-color: var(--philippine-silver); /* Fond clair */
   padding: 50px 0;
   text-align: center;
 }
