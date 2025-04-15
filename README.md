@@ -1,4 +1,5 @@
-# fcc-Portofolio-Webpage
+# fcc-Portofolio-Webpage ( English version )
+
 Website: [https://idghim.github.io/fcc-Portofolio-Webpage/](https://idghim.github.io/fcc-Portofolio-Webpage/)
 
 *On this site, I made some modifications to the instructions in order to achieve a result that I personally liked and that fits my style.*
