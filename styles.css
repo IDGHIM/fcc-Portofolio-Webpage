@@ -318,16 +318,18 @@ a:focus, .nav-link:focus {
 /* Conteneur de projets */
 .projects1, .projects2 {
   display: flex;
-  flex-direction: column;
+  flex-direction: row; /* Alignement horizontal des cartes */
+  justify-content: space-around; /* Espace entre les cartes */
   gap: 30px;
   margin-bottom: 40px;
+  flex-wrap: wrap; /* Permet aux cartes de passer à la ligne suivante si nécessaire */
 }
 
 /* Style des cartes */
 .cardshf, .cardnt, .cardsp, .cardpk {
   position: relative;
   width: 100%;
-  max-width: 600px; /* Limiter la largeur maximale pour les cartes */
+  max-width: 300px; /* Limiter la largeur des cartes pour un affichage horizontal */
   margin: 0 auto;
   border-radius: 10px;
   overflow: hidden;
@@ -472,7 +474,14 @@ a:focus, .nav-link:focus {
   #Responsive h2 {
     font-size: 1.6rem; /* Ajuster la taille du titre pour les petits écrans */
   }
+
+  /* Adapter les cartes sur petits écrans (affichage en colonne si nécessaire) */
+  .projects1, .projects2 {
+    flex-direction: column; /* Disposition verticale sur petits écrans */
+    align-items: center; /* Centrer les cartes */
+  }
 }
+
 
 /* ================== SECTION CONTACT ================== */
 .contact-section {
