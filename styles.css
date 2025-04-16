@@ -50,18 +50,19 @@ h1 {
   text-align: center;
   margin-bottom: 10px;
   letter-spacing: 1.5px;
+  
 }
 
 h2 {
   font-size: 3vh;
   text-align: center;
   color: var(--metallic-red);
-  
 }
 
 h3 {
   font-size: 10vh;
   text-shadow: 5px 5px 5px var(--text-dark);
+  
 }
 
 a {
@@ -189,11 +190,11 @@ a:focus, .nav-link:focus {
 }
 
 .welcome-section p {
-  font-size: 1.1rem;
+  font-size: 2.2rem;
   max-width: 600px; /* Limiter la largeur du texte pour une lecture plus agréable */
   line-height: 1.6;
   color: #e5e5e5;
-  text-align: justify;
+  text-align: center;
   margin-right: 20px; /* Ajouter un peu d'espace à droite */
 }
 
@@ -313,7 +314,6 @@ a:focus, .nav-link:focus {
 
 #Responsive h2 {
   font-size: 2rem;
-  font-weight: bold;
   color: var(--rusty-red);
   margin-bottom: 40px;
 }
