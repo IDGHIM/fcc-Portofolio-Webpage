@@ -312,6 +312,7 @@ a:focus, .nav-link:focus {
 }
 
 #Responsive h2 {
+  display: flex;
   font-size: 2rem;
   color: var(--rusty-red);
   margin-bottom: 40px;
@@ -586,51 +587,81 @@ a:focus, .nav-link:focus {
 }
 
 /* ================== RÉPONSE AUX ÉCRANS PLUS PETITS (MAX 768px) ================== */
-@media screen and (max-width: 768px) {
-  /* TITRES */
-  h1 {
-    font-size: 3rem; /* Plus petit pour les écrans moyens */
-  }
+@media screen and (max-width: 375px) {
 
-  h2 {
-    font-size: 2vh; /* Ajustement de la taille des titres */
+  h1 {
+    font-size: 2rem;
+    text-align: center;
   }
 
   h3 {
-    font-size: 6vh;
+    font-size: 1.5rem;
+    text-align: center;
   }
 
-  /* HEADER ET NAVBAR */
-  #navbar ul {
-    flex-direction: column; /* Le menu de navigation devient vertical */
-    gap: 10px;
-  }
-
-  .nav-link {
-    font-size: 16px;
-    padding: 10px 20px; /* Plus d'espacement pour l'interaction tactile */
-  }
-
-  /* SECTION ACCUEIL */
   .welcome-section {
-    flex-direction: column; /* Le texte et l'image se disposent en colonne */
-    padding: 30px 15px;
-    min-height: auto; /* Pas besoin d'un minimum de hauteur */
-    text-align: center; /* Centrer le texte */
-  }
-
-  .welcome-section h1 {
-    font-size: 2.5rem;
+    padding: 20px 10px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
   .welcome-section p {
-    font-size: 1rem;
-    max-width: 100%; /* Le texte occupe toute la largeur */
-    padding: 0 15px; /* Espacement autour du texte */
+    font-size: 0.85rem;
+    max-width: 90%;
+    margin-right: 0;
   }
 
   .welcome-section #photo {
-    width: 200px;
-    height: 200px; /* Réduire la taille de l'image */
+    width: 120px;
+    height: 120px;
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin-top: 20px;
+  }
+
+  .projects1,
+  .projects2 {
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cardshf,
+  .cardnt,
+  .cardsp,
+  .cardpk {
+    width: 90%;
+    height: auto;
+  }
+
+  .cardshf-inner,
+  .cardnt-inner,
+  .cardsp-inner,
+  .cardpk-inner {
+    height: 250px;
+  }
+
+  .cardshf-front img,
+  .cardnt-front img,
+  .cardsp-front img,
+  .cardpk-front img {
+    width: 100%;
+  }
+
+  .contact-links a {
+    font-size: 1rem;
+    padding: 10px 20px;
+    width: 90%;
+  }
+
+  .contact-links img,
+  .contact-links .fa-github,
+  .contact-links .fa-ig,
+  .contact-links .fa-mail {
+    font-size: 1rem;
+    margin-right: 8px;
   }
 }
