@@ -53,12 +53,6 @@ h1 {
   
 }
 
-h2 {
-  font-size: 3vh;
-  text-align: center;
-  color: var(--metallic-red);
-}
-
 h3 {
   font-size: 10vh;
   text-shadow: 5px 5px 5px var(--text-dark);
@@ -306,8 +300,13 @@ a:focus, .nav-link:focus {
 
 /* ================== SECTIONS PROJETS FCC ================== */
 #Responsive {
-  padding: 50px 20px;
-  background-color: var(--alabaster); /* Fond clair */
+  min-height: 100vh; /* Prend toute la hauteur de la fenêtre */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centre verticalement */
+  align-items: center;     /* Centre horizontalement */
+  padding: 40px 20px;
+  background-color: var(--alabaster);
   color: var(--text-dark);
   text-align: center;
 }
@@ -316,6 +315,7 @@ a:focus, .nav-link:focus {
   font-size: 2rem;
   color: var(--rusty-red);
   margin-bottom: 40px;
+  
 }
 
 /* Conteneur de projets */
