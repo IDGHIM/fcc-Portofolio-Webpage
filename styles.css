@@ -23,6 +23,55 @@ fieldset{
   border: solid 2px;
   }
 
+/* ================== TITRES MARQUANTS ================== */
+h1, h2 {
+  font-size: 2.5rem;
+  color: var(--rusty-red);
+  position: relative;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: fadeSlide 1.2s ease-in-out both;
+}
+
+/* Soulignement animé */
+h1::after, h2::after {
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 4px;
+  background-color: var(--vivid-auburn);
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+  animation: underlineGrow 1.2s ease forwards;
+}
+
+/* Animation de fade + slide */
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation du soulignement */
+@keyframes underlineGrow {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 60px;
+    opacity: 1;
+  }
+}
+
 /* ================== VARIABLES GLOBALES ================== */
 :root {
   /* Couleurs principales */
