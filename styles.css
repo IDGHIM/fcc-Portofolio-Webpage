@@ -19,24 +19,9 @@ body {
   flex-direction: column;
 }
 
-/* ================== VARIABLES GLOBALES ================== */ 
-:root {
-  --rusty-red: #D22E48;
-  --vivid-auburn: #9A2826;
-  --metallic-red: #AC2B29;
-
-  --philippine-silver: #B7B4B3;
-  --alabaster: #ECEAE4;
-  --wenge: #645D5B;
-  --blue-dark: #282c34;
-
-  --brown-coffee: #4D3228;
-  --white-coffee: #E4E2CF;
-
-  --text-dark: #1f1f1f;
-  --text-light: #fff;
-}
-
+fieldset{
+  border: solid 2px;
+  }
 
 /* ================== VARIABLES GLOBALES ================== */
 :root {
@@ -156,7 +141,7 @@ header {
 
 /* ================== SECTION COMPÉTENCES ================== */
 #SkillBox {
-  background-color: var(--white-coffee);
+  background-color: var(--alabaster);
   padding: 60px 20px;
   text-align: center;
 }
@@ -243,7 +228,7 @@ header {
 }
 
 #Skill-HTML {
-  background-color: var(--rusty-red);
+  background-color: var(--vivid-auburn);
   width: 100%;
 }
 
