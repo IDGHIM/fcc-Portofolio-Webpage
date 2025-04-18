@@ -176,7 +176,6 @@ header {
 
 /* ================== SECTION ACCUEIL ================== */
 .welcome-section {
-  background-color: var(--jet-stream);
   padding: 60px 20px;
   text-align: center;
 }
@@ -201,8 +200,8 @@ header {
   object-fit: cover;
   border-radius: 50%;
   border: 5px solid #fff;
+  margin-top: 40px;
   margin-left: 40px;
-  margin-bottom: 30px;
   flex-shrink: 0;
   transition: all 0.3s ease-in-out;
 }
@@ -236,6 +235,7 @@ header {
 }
 
 .skills h2 {
+  margin-top: 20px;
   margin-bottom: 20px;
   text-align: center; /* Centrer le titre */
 }
@@ -254,7 +254,8 @@ header {
   flex: 1 1 150px; /* Flex-grow, flex-shrink, flex-basis */
   max-width: 150px; /* Largeur maximale pour chaque boÃ®te */
   padding: 1rem;
-  color: #ddd;
+  color: var(--white-coffee);
+  text-shadow: 2px 2px 2px var(--blue-dark);
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -289,7 +290,6 @@ header {
   width: 0;
   height: 4px;
   border-radius: 2px 0 0 2px;
-  background-color: var(--accent-color);
   transition: 0.5s;
 }
 
@@ -301,12 +301,10 @@ header {
   width: 0;
   height: 4px;
   border-radius: 0 2px 2px 0;
-  background-color: var(--accent-color);
   transition: 0.5s;
 }
 
 .skill-title h3 {
-  color: var(--text-color);
   margin-top: 0.5rem;
   font-size: 1.2rem; /* Ajustez la taille du texte */
 }
@@ -316,7 +314,6 @@ header {
   height: 90px;
   position: relative;
   border-radius: 45px;
-  background-color: var(--text-color);
   display: flex;
   justify-content: center;
   align-items: center;
