@@ -3,19 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portofolio Page</title>
+    
+    <!-- Feuilles de style -->
     <link rel="stylesheet" href="styles.css" />
     <style>@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400");</style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
     <link rel="shortcut icon" href="favicon/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
     <link rel="manifest" href="/favicon/site.webmanifest" />
-    <title>Portofolio Page</title>
   </head>
   <body>
-    
-    <!-- START NAV -->
+
+    <!-- NAVIGATION -->
     <header>
       <nav id="navbar">
         <ul>
@@ -25,9 +29,7 @@
             <div class="dropdown-mid1">
               <ul>
                 <li>
-                  <a class="nav-link" href="#Responsive"
-                    >Responsive Web Design</a
-                  >
+                  <a class="nav-link" href="#Responsive">Responsive Web Design</a>
                   <div class="dropdown-child">
                     <a href="#cardshf">Tribute Page</a>
                     <a href="#DocTech">Technical Document</a>
@@ -39,9 +41,7 @@
             <div class="dropdown-mid2">
               <ul>
                 <li>
-                  <a class="nav-link" href="#Ecole"
-                    >Projets effectués en formation</a
-                  >
+                  <a class="nav-link" href="#Ecole">Projets en formation</a>
                   <div class="dropdown-child">
                     <a href="#Pkn">Encyclopédie Pokémon</a>
                   </div>
@@ -53,11 +53,10 @@
         </ul>
       </nav>
     </header>
-    <!-- END NAV -->
-    <!-- START WELCOME SECTION -->
-    <section class="welcome-section" id="welcome-section">
+
+    <!-- SECTION PRÉSENTATION -->
+    <section class="welcome-section" id="présentation">
       <h1>Portfolio DGHIM Ichem</h1>
-      <img id="photo" class="animated-border" src="Comp1.jpg" alt="Moi" />
       <p>
         Je suis DGHIM Ichem, 20 ans, intégrateur junior basé à Agen. Diplômé
         d’un bac STI2D spécialité SIN, j’ai une imagination sans limite qui me
@@ -66,68 +65,85 @@
         pour seul objectif : exaucer tout ce que j’imagine.
       </p>
     </section>
-    <!-- END WELCOME SECTION -->
-    <!-- START PROJECTS SECTION -->
-    <section id="Responsive">
-      <h2>
-        Projets effectués afin d'obtenir la certification Responsive Web Design
-      </h2>
-      <div class="projects1">
-        <div class="sheffield" id="cardshf">
-          <div class="cardshf">
-            <div class="cardshf-inner">
-              <div class="cardshf-front">
-                <!-- Image du projet -->
-                <img src="projets-pict/shf.png" alt="Projet SHF">
-              </div>
-              <div class="cardshf-back">
-                <h4>Tribute Page</h4>
-                <p>Une page d’hommage pour un sujet de votre choix, fictif ou réel.</p>
-                <a href="https://idghim.github.io/fcc-Tribute-Page/" target="_blank">Voir le projet</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="Nutrition" id="DocTech">
-          <div class="cardnt">
-            <div class="cardnt-inner">
-              <div class="cardnt-front">
-                <!-- Image du projet -->
-                <img src="projets-pict/Health-Nutrition-Logo.png" alt="Projet Nutrition">
-              </div>
-              <div class="cardnt-back">
-                <h4>Documentation Page</h4>
-                <p>Une page de documentation technique pour servir d’instruction ou de référence sur un sujet.</p>
-                <a href="https://idghim.github.io/fcc-Technical-Documentation/" target="_blank">Voir le projet</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="Studprod" id="Landing">
-          <div class="cardsp">
-            <div class="cardsp-inner">
-              <div class="cardsp-front">
-                <!-- Image du projet -->
-                <img src="projets-pict/LOGO STUDPROD NOIR.png" alt="Projet STUDPROD">
-              </div>
-              <div class="cardsp-back">
-                <h4>Landing Page</h4>
-                <p>Une page de renvoi de produit pour commercialiser un produit de votre choix.</p>
-                <a href="https://idghim.github.io/fcc-Landing-Page" target="_blank">Voir le projet</a>
-              </div>
-            </div>
-          </div>
+
+    <!-- SECTION COMPÉTENCES -->
+    <section id="SkillBox">
+      <h2>Mes Compétences</h2>
+      <img id="photo" class="animated-border" src="Comp1.jpg" alt="Moi" />
+      <div class="SkillBar">
+        <div id="Skill-HTML">
+          <span class="Skill-Area">HTML</span>
+          <span class="PercentText ">100%</span>
         </div>
       </div>
-      <div class="projects2" id="Ecole">
-        <h2>
-          Projets effectués en formation
-        </h2>
+      <div class="SkillBar">
+        <div id="Skill-CSS">
+          <span class="Skill-Area">CSS</span>
+          <span class="PercentText">70%</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION PROJETS -->
+    <section id="Projet">
+      <!-- Projets certif. Responsive Web Design -->
+      <section id="Responsive">
+        <h2>Projets effectués pour la certification Responsive Web Design</h2>
+        <div class="projects1">
+          <div class="sheffield" id="cardshf">
+            <div class="cardshf">
+              <div class="cardshf-inner">
+                <div class="cardshf-front">
+                  <img src="projets-pict/shf.png" alt="Projet SHF">
+                </div>
+                <div class="cardshf-back">
+                  <h4>Tribute Page</h4>
+                  <p>Une page d’hommage pour un sujet de votre choix, fictif ou réel.</p>
+                  <a href="https://idghim.github.io/fcc-Tribute-Page/" target="_blank">Voir le projet</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="Nutrition" id="DocTech">
+            <div class="cardnt">
+              <div class="cardnt-inner">
+                <div class="cardnt-front">
+                  <img src="projets-pict/Health-Nutrition-Logo.png" alt="Projet Nutrition">
+                </div>
+                <div class="cardnt-back">
+                  <h4>Documentation Page</h4>
+                  <p>Une page de documentation technique sur un sujet de votre choix.</p>
+                  <a href="https://idghim.github.io/fcc-Technical-Documentation/" target="_blank">Voir le projet</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="Studprod" id="Landing">
+            <div class="cardsp">
+              <div class="cardsp-inner">
+                <div class="cardsp-front">
+                  <img src="projets-pict/LOGO STUDPROD NOIR.png" alt="Projet STUDPROD">
+                </div>
+                <div class="cardsp-back">
+                  <h4>Landing Page</h4>
+                  <p>Une page de renvoi pour commercialiser un produit.</p>
+                  <a href="https://idghim.github.io/fcc-Landing-Page" target="_blank">Voir le projet</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projets de formation -->
+      <section class="projects2" id="Ecole">
+        <h2>Projets effectués en formation</h2>
         <div class="Encyl" id="Pkn">
           <div class="cardpk">
             <div class="cardpk-inner">
               <div class="cardpk-front">
-                <!-- Image du projet -->
                 <img src="projets-pict/pokeball-logo-png.png" alt="Projet Pokémon">
               </div>
               <div class="cardpk-back">
@@ -138,44 +154,28 @@
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </section>
-    <!-- END PROJECTS SECTION -->
-    <!-- START CONTACT SECTION -->
+
+    <!-- SECTION CONTACT -->
     <section class="contact-section" id="Contact">
       <div class="contact-section-header">
         <h3>Me contacter :</h3>
-        <p></p>
       </div>
       <div class="contact-links">
-        <a
-          id="profile-link"
-          href="https://github.com/IDGHIM"
-          target="_blank"
-          class="btn contact-details"
-        >
+        <a href="https://github.com/IDGHIM" target="_blank" class="btn contact-details">
           <img src="contact-logo/github-logo-png.png" class="fa-github" /> Suivez-moi sur GitHub
         </a>
-        <a
-          id="profile-link"
-          href="https://www.instagram.com/iichoumm_pwr/"
-          target="_blank"
-          class="btn contact-details"
-        >
+        <a href="https://www.instagram.com/iichoumm_pwr/" target="_blank" class="btn contact-details">
           <img src="contact-logo/ig-logo-png.png" class="fa-ig" /> Suivez-moi sur Instagram
         </a>
-        <a
-          id="profile-link"
-          href="mailto:ichemdghim@gmail.com"
-          class="btn contact-details"
-        >
+        <a href="mailto:ichemdghim@gmail.com" class="btn contact-details">
           <img src="contact-logo/mail-logo-png.png" class="fa-mail" /> Contactez-moi par e-mail
         </a>
       </div>
     </section>
-    <!-- END CONTACT SECTION -->
-    <!-- START FOOTER SECTION -->
+
+    <!-- FOOTER -->
     <footer></footer>
-    <!-- END FOOTER SECTION -->
   </body>
 </html>

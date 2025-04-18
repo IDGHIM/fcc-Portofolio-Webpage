@@ -1,33 +1,10 @@
 /* ================== IMPORTS & POLICES ================== */
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;500;700&display=swap');
 
-/* ================== VARIABLES GLOBALES ================== */
-:root {
-  /* Couleurs principales */
-  --rusty-red: #D22E48;
-  --vivid-auburn: #9A2826;
-  --metallic-red: #AC2B29;
-  
-  /* Couleurs de fond */
-  --philippine-silver: #B7B4B3;
-  --alabaster: #ECEAE4;
-  --wenge: #645D5B;
-  --blue-dark: #282c34;
-
-  /* Couleurs secondaires */
-  --brown-coffee: #4D3228;
-  --axolotl: #5B7B57;
-  --russian-green: #6A8E66;
-  --morning-blue: #8FAB98;
-  --jet-stream: #BFD0C1;
-  --white-coffee: #E4E2CF;
-  
-  /* Textes */
-  --text-dark: #1f1f1f;
-  --text-light: #fff;
+html {
+  scroll-behavior: smooth;
 }
 
-/* ================== RESET & STYLES GÉNÉRAUX ================== */
 * {
   margin: 0;
   padding: 0;
@@ -42,405 +19,275 @@ body {
   flex-direction: column;
 }
 
-/* ================== TITRES ================== */
-h1 {
-  color: var(--rusty-red);
-  text-shadow: 5px 5px 5px var(--vivid-auburn);
-  font-size: 100px;
-  text-align: center;
-  margin-bottom: 10px;
-  letter-spacing: 1.5px;
-  
+/* ================== VARIABLES GLOBALES ================== */ 
+:root {
+  --rusty-red: #D22E48;
+  --vivid-auburn: #9A2826;
+  --metallic-red: #AC2B29;
+
+  --philippine-silver: #B7B4B3;
+  --alabaster: #ECEAE4;
+  --wenge: #645D5B;
+  --blue-dark: #282c34;
+
+  --brown-coffee: #4D3228;
+  --white-coffee: #E4E2CF;
+
+  --text-dark: #1f1f1f;
+  --text-light: #fff;
 }
 
-h3 {
-  font-size: 10vh;
-  text-shadow: 5px 5px 5px var(--text-dark);
-  
+
+/* ================== VARIABLES GLOBALES ================== */
+:root {
+  /* Couleurs principales */
+  --rusty-red: #D22E48;
+  --vivid-auburn: #9A2826;
+  --metallic-red: #AC2B29;
+
+  /* Couleurs neutres */
+  --philippine-silver: #B7B4B3;
+  --alabaster: #ECEAE4;
+  --wenge: #645D5B;
+  --blue-dark: #282c34;
+
+  /* Couleurs secondaires */
+  --brown-coffee: #4D3228;
+  --white-coffee: #E4E2CF;
+
+  /* Couleurs de texte */
+  --text-dark: #1f1f1f;
+  --text-light: #fff;
 }
 
-a {
-  text-decoration: none;
-  color: var(--text-dark);
-  text-shadow: 5px 5px 5px var(--text-dark);
-}
-
-/* ================== HEADER & NAVBAR ================== */
+/* ================== NAVIGATION ================== */
 header {
-  background-color: var(--wenge);
-  color: var(--philippine-silver);
-  padding: 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--blue-dark);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 #navbar {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  background-color: var(--blue-dark);
 }
 
 #navbar ul {
-  list-style-type: none;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  list-style: none;
 }
 
 #navbar li {
-  margin: 0 15px;
   position: relative;
+  padding: 15px 20px;
 }
 
 .nav-link {
-  text-decoration: none;
   color: var(--text-light);
-  font-size: 18px;
-  padding: 8px 15px;
-  display: block;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .nav-link:hover {
-  background-color: var(--philippine-silver);
-  border-radius: 5px;
+  color: var(--rusty-red);
 }
 
-a:focus, .nav-link:focus {
-  outline: 2px solid var(--metallic-red);
-  background-color: var(--rusty-red);
-}
-
-
-/* ================== DROPDOWN MENUS ================== */
-.dropdown {
-  position: relative;
-}
-
-.dropdown-mid1,
-.dropdown-mid2 {
-  display: none;
-  position: absolute;
-  top: 100%;
-  background-color: var(--wenge);
-  min-width: 200px;
-  z-index: 10;
-}
-
-.dropdown-mid1 {
-  right: 50%;
-}
-
-.dropdown-mid2 {
-  left: 50%;
-}
-
-.dropdown-mid1 ul,
-.dropdown-mid2 ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-.dropdown-child {
-  display: none;
-  background-color: var(--wenge);
-}
-
-.dropdown-child a {
-  padding: 10px;
-  color: var(--text-light);
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-child a:hover {
-  background-color: var(--metallic-red);
-}
-
+/* Sous-menus dropdown */
 .dropdown:hover .dropdown-mid1,
 .dropdown:hover .dropdown-mid2 {
   display: block;
 }
 
-.dropdown-mid1 li:hover .dropdown-child,
-.dropdown-mid2 li:hover .dropdown-child {
-  display: block;
+.dropdown-mid1, .dropdown-mid2 {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--wenge);
+  padding: 10px;
+  border-radius: 8px;
+  min-width: 200px;
+  z-index: 999;
+}
+
+.dropdown-mid2 {
+  left: 220px;
+  top: 0;
+}
+
+.dropdown-child {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-child a {
+  color: var(--text-light);
+  padding: 5px 0;
+  text-decoration: none;
+}
+
+.dropdown-child a:hover {
+  color: var(--rusty-red);
 }
 
 /* ================== SECTION ACCUEIL ================== */
 .welcome-section {
-  display: flex;
-  justify-content: space-between; /* Espace entre le texte et l'image */
-  align-items: center; /* Aligner verticalement */
-  background-color: var(--blue-dark);
-  color: #fff;
-  padding: 50px 20px;
-  min-height: 100vh;
-  position: relative;
-  flex-wrap: wrap; /* Permet de gérer la disposition sur les petits écrans */
+  background-color: var(--jet-stream);
+  padding: 60px 20px;
+  text-align: center;
 }
 
 .welcome-section h1 {
-  font-size: 4rem;
-  margin-bottom: 10px;
-  color: #fff;
-  text-shadow: 5px 5px 5px var(--vivid-auburn);
+  font-size: 2.5rem;
+  color: var(--rusty-red);
+  margin-bottom: 20px;
 }
 
 .welcome-section p {
-  font-size: 2.2rem;
-  max-width: 600px; /* Limiter la largeur du texte pour une lecture plus agréable */
-  line-height: 1.6;
-  color: #e5e5e5;
+  font-size: 1.2rem;
+  color: var(--text-dark);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ================== SECTION COMPÉTENCES ================== */
+#SkillBox {
+  background-color: var(--white-coffee);
+  padding: 60px 20px;
   text-align: center;
-  margin-right: 20px; /* Ajouter un peu d'espace à droite */
 }
 
-.welcome-section p:hover{
-  transform: translateY(5px);
-  text-shadow: 5px 5px 5px var(--vivid-auburn);
+#SkillBox h2 {
+  font-size: 2rem;
+  color: var(--rusty-red);
+  margin-bottom: 30px;
 }
 
-/* IMAGE FIXE À DROITE DU TEXTE */
-.welcome-section #photo {
-  width: 250px;
-  height: 250px;
+/* Photo de profil */
+#photo {
+  width: 150px;
+  height: 150px;
   object-fit: cover;
   border-radius: 50%;
   border: 5px solid #fff;
-  position: relative; /* Plus de sticky */
-  margin-left: 40px; /* espace entre l'image et le texte */
-  flex-shrink: 0; /* Empêche l'image de rétrécir */
+  margin-left: 40px;
+  margin-bottom: 30px;
+  flex-shrink: 0;
   transition: all 0.3s ease-in-out;
 }
 
-.welcome-section #photo:hover {
+#photo:hover {
   transform: scale(1.05);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
-
-/* ANIMATION DE L'IMAGE (BORDURE ANIMEE) */
+/* Animation bordure */
 .animated-border {
   animation: borderAnimation 2s infinite;
 }
 
 @keyframes borderAnimation {
-  0% {
+  0%, 100% {
     border-color: #fff;
   }
   50% {
-    border-color: var(--rusty-red); /* Couleur de la bordure à mi-animation */
-  }
-  100% {
-    border-color: #fff;
+    border-color: var(--rusty-red);
   }
 }
 
-/* RÉPONSE AUX ÉCRANS PLUS PETITS */
-@media screen and (max-width: 768px) {
-  .welcome-section h1 {
-    font-size: 2.5rem;
-  }
-
-  .welcome-section .sous-titre p {
-    font-size: 1rem;
-  }
-
-  .welcome-section p {
-    font-size: 1rem;
-    max-width: 500px; /* Réduire la largeur du texte */
-  }
-
-  .welcome-section #photo {
-    width: 200px;
-    height: 200px;
-  }
+/* Barres de compétences */
+.SkillBar {
+  width: 80%;
+  margin: 10px auto;
+  background-color: var(--philippine-silver);
+  border-radius: 25px;
+  overflow: hidden;
+  position: relative;
 }
 
-@media screen and (max-width: 480px) {
-  .welcome-section {
-    padding: 30px 15px;
-    flex-direction: column; /* Sur les très petits écrans, la disposition devient verticale */
-    align-items: center;
-    text-align: center;
-  }
-
-  .welcome-section p {
-    font-size: 0.9rem;
-    max-width: 50%; /* Le texte prend toute la largeur de l'écran */
-  }
-
-  .welcome-section #photo {
-    width: 150px;
-    height: 150px;
-    margin-top: 20px;
-  }
+.SkillBar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px solid var(--rusty-red);
+  border-radius: 25px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+  z-index: -1;
 }
 
-/* IMAGE FIXE ET ENCADRÉE PAR LE TEXTE */
-.welcome-section #photo {
-  width: 250px;
-  height: 250px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 5px solid #fff;
-  position: absolute; /* Position fixe */
-  top: 50%; /* Centré verticalement */
-  left: 50%; /* Centré horizontalement */
-  transform: translate(-50%, -50%); /* Décalage pour centrer parfaitement */
-  z-index: 10; /* S'assurer que l'image soit au-dessus du texte */
-  transition: all 0.3s ease-in-out;
+.SkillBar:hover::before {
+  transform: scaleX(1);
 }
 
-.welcome-section #photo:hover {
-  transform: scale(1.05) translate(-50%, -50%);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+.SkillBar:hover {
+  animation: borderGlow 1.5s ease-in-out;
+  border: 2px solid var(--rusty-red);
+  transition: border 0.3s ease;
+  box-shadow: 0 0 15px var(--blue-dark);
 }
 
-/* ANIMATION DE L'IMAGE (BORDURE ANIMEE) */
-.animated-border {
-  animation: borderAnimation 2s infinite;
-}
-
-/* ================== SECTIONS PROJETS FCC ================== */
-#Responsive {
-  min-height: 100vh; /* Prend toute la hauteur de la fenêtre */
+/* Styles spécifiques HTML / CSS */
+#Skill-HTML, #Skill-CSS {
   display: flex;
-  flex-direction: column;
-  justify-content: center; /* Centre verticalement */
-  align-items: center;     /* Centre horizontalement */
+  justify-content: space-between;
+  padding: 10px 20px;
+  color: var(--text-light);
+  font-weight: bold;
+  border-radius: 25px;
+}
+
+#Skill-HTML {
+  background-color: var(--rusty-red);
+  width: 100%;
+}
+
+#Skill-CSS {
+  background-color: var(--vivid-auburn);
+  width: 70%;
+}
+
+.Skill-Area {
+  text-align: left;
+}
+
+.PercentText {
+  text-align: right;
+}
+
+/* ================== SECTION PROJETS ================== */
+#Responsive {
+  min-height: 100vh;
   padding: 40px 20px;
   background-color: var(--alabaster);
   color: var(--text-dark);
   text-align: center;
 }
 
-#Responsive h2 {
-  display: flex;
+#Responsive h2,
+.projects2 h2 {
   font-size: 2rem;
   color: var(--rusty-red);
   margin-bottom: 40px;
-  
 }
 
-/* Conteneur de projets */
 .projects1, .projects2 {
   display: flex;
-  flex-direction: row; /* Alignement horizontal des cartes */
-  justify-content: space-around; /* Espace entre les cartes */
+  flex-wrap: wrap;
   gap: 30px;
-  margin-bottom: 40px;
-  flex-wrap: wrap; /* Permet aux cartes de passer à la ligne suivante si nécessaire */
-}
-
-/* Style des cartes */
-.cardshf, .cardnt, .cardsp, .cardpk {
-  position: relative;
-  width: 100%;
-  max-width: 300px; /* Limiter la largeur des cartes pour un affichage horizontal */
-  margin: 0 auto;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background-color: var(--white-coffee); /* Fond clair pour les cartes */
-}
-
-.cardshf-inner, .cardnt-inner, .cardsp-inner, .cardpk-inner {
-  position: relative;
-  height: 300px; /* Hauteur fixe pour toutes les cartes */
-  border-radius: 10px;
-  transform-style: preserve-3d;
-  transition: transform 0.6s ease;
-}
-
-/* Affichage de l'image (avant de la carte) */
-.cardshf-front, .cardnt-front, .cardsp-front, .cardpk-front {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  display: flex;
   justify-content: center;
-  align-items: center;
-}
-
-.cardshf-front img, .cardnt-front img, .cardsp-front img, .cardpk-front img {
-  width: 80%; /* Largeur de l'image pour ne pas la déformer */
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-/* Affichage de l'arrière (détails du projet) */
-.cardshf-back, .cardnt-back, .cardsp-back, .cardpk-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: var(--rusty-red); /* Couleur de fond sur le verso */
-  color: var(--text-light);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.cardshf-inner:hover .cardshf-back,
-.cardnt-inner:hover .cardnt-back,
-.cardsp-inner:hover .cardsp-back,
-.cardpk-inner:hover .cardpk-back {
-  opacity: 1;
-}
-
-
-/* Style du texte et du lien */
-.cardshf-back h4, .cardnt-back h4, .cardsp-back h4, .cardpk-back h4 {
-  font-size: 1.4rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: var(--blue-dark); /* Couleur claire pour le titre */
-  text-shadow: 2px 2px 2px var(--philippine-silver);
-}
-
-.cardshf-back p, .cardnt-back p, .cardsp-back p, .cardpk-back p {
-  font-size: 1rem;
-  margin-bottom: 15px;
-  color: var(--text-light); /* Texte clair pour la description */
-  text-shadow: 2px 2px 2px var(--blue-dark);
-}
-
-/* Disposition du texte et du bouton en colonne */
-.cardshf-back, .cardnt-back, .cardsp-back, .cardpk-back {
-  display: flex;
-  flex-direction: column; /* Organiser le contenu en colonne */
-  justify-content: space-between; /* Espacer les éléments verticalement */
-  align-items: center; /* Centrer les éléments horizontalement */
-  text-align: center;
-  padding: 20px;
-}
-
-.cardshf-back a, .cardnt-back a, .cardsp-back a, .cardpk-back a {
-  font-size: 1.1rem;
-  color: var(--text-light);
-  text-decoration: none;
-  padding: 10px 20px;
-  background-color: var(--vivid-auburn); /* Boutons avec fond auburn */
-  border-radius: 30px;
-  transition: background-color 0.3s ease;
-  margin-top: 10px; /* Ajouter de l'espace au-dessus du bouton */
-}
-
-/* Séparateurs de section */
-.projects2 h2 {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: var(--rusty-red);
   margin-bottom: 40px;
 }
 
-/* ================== FLIP CARD ANIMATIONS ================== */
+/* Cartes de projets interactives */
 .cardshf, .cardnt, .cardsp, .cardpk {
   width: 320px;
   height: 320px;
-  margin: 1rem auto;
   perspective: 1000px;
   cursor: pointer;
 }
@@ -450,6 +297,7 @@ a:focus, .nav-link:focus {
   width: 100%;
   height: 100%;
   transition: transform 0.6s;
+  transform-style: preserve-3d;
 }
 
 .cardshf:hover .cardshf-inner,
@@ -459,7 +307,7 @@ a:focus, .nav-link:focus {
   transform: rotateY(-90deg);
 }
 
-.cardshf-front, .cardshf-back, 
+.cardshf-front, .cardshf-back,
 .cardnt-front, .cardnt-back,
 .cardsp-front, .cardsp-back,
 .cardpk-front, .cardpk-back {
@@ -469,171 +317,99 @@ a:focus, .nav-link:focus {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0.5rem;
+  border-radius: 10px;
+  backface-visibility: hidden;
 }
 
+.cardshf-front img, .cardnt-front img, .cardsp-front img, .cardpk-front img {
+  width: 80%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Face arrière des cartes */
 .cardshf-back, .cardnt-back, .cardsp-back, .cardpk-back {
-  color: var(--metallic-red);
-  background-color: var(--white-coffee);
-  border: 2px solid var(--metal);
+  background-color: var(--rusty-red);
+  color: var(--text-light);
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  padding: 20px;
   transform: rotateY(90deg);
 }
 
-
-
-/* Media Query pour petites résolutions */
-@media screen and (max-width: 768px) {
-  .cardshf-inner, .cardnt-inner, .cardsp-inner, .cardpk-inner {
-    height: 250px; /* Réduire la hauteur des cartes sur petits écrans */
-  }
-
-  .cardshf-back, .cardnt-back, .cardsp-back, .cardpk-back {
-    padding: 15px;
-  }
-  
-  #Responsive h2 {
-    font-size: 1.6rem; /* Ajuster la taille du titre pour les petits écrans */
-  }
-
-  /* Adapter les cartes sur petits écrans (affichage en colonne si nécessaire) */
-  .projects1, .projects2 {
-    flex-direction: column; /* Disposition verticale sur petits écrans */
-    align-items: center; /* Centrer les cartes */
-  }
+.cardshf-back h4, .cardnt-back h4, .cardsp-back h4, .cardpk-back h4 {
+  font-size: 1.4rem;
+  color: var(--blue-dark);
+  text-shadow: 2px 2px 2px var(--philippine-silver);
+  margin-bottom: 10px;
 }
 
+.cardshf-back p, .cardnt-back p, .cardsp-back p, .cardpk-back p {
+  font-size: 1rem;
+  color: var(--text-light);
+  text-shadow: 2px 2px 2px var(--blue-dark);
+  margin-bottom: 15px;
+}
+
+.cardshf-back a, .cardnt-back a, .cardsp-back a, .cardpk-back a {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  background-color: var(--vivid-auburn);
+  padding: 10px 20px;
+  border-radius: 30px;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.cardshf-back a:hover,
+.cardnt-back a:hover,
+.cardsp-back a:hover,
+.cardpk-back a:hover {
+  background-color: var(--metallic-red);
+}
 
 /* ================== SECTION CONTACT ================== */
 .contact-section {
-  background-color: var(--philippine-silver); /* Fond clair */
-  padding: 50px 0;
+  background-color: var(--philippine-silver);
+  padding: 50px 20px;
   text-align: center;
 }
 
 .contact-section-header h3 {
   font-size: 2rem;
   font-weight: bold;
-  color: var(--text-dark); /* Texte sombre pour le titre */
+  color: var(--text-dark);
   margin-bottom: 10px;
 }
 
-.contact-section-header p {
-  font-size: 1rem;
-  color: var(--wenge); /* Texte gris foncé */
-  margin-bottom: 30px;
-}
-
-/* Style des liens de contact */
 .contact-links {
   display: flex;
   justify-content: center;
   gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 30px;
 }
 
 .contact-links a {
-  text-decoration: none;
+  background-color: var(--rusty-red);
+  color: var(--text-light);
+  font-size: 1.1rem;
+  padding: 12px 25px;
+  border-radius: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--rusty-red); /* Fond rouge vif */
-  color: var(--text-light); /* Texte blanc */
-  font-size: 1.1rem;
-  padding: 12px 25px;
-  border-radius: 30px; /* Coins arrondis */
+  gap: 10px;
+  width: 200px;
   transition: all 0.3s ease;
-  width: 200px; /* Largeur fixe */
 }
 
 .contact-links a:hover {
-  background-color: var(--metallic-red); /* Couleur plus sombre au survol */
-  transform: translateY(-5px); /* Légère animation au survol */
+  background-color: var(--metallic-red);
+  transform: translateY(-5px);
 }
 
-/* Icônes */
 .contact-links img {
   width: 20px;
-  margin-right: 10px;
 }
-
-.contact-links .fa-github,
-.contact-links .fa-ig,
-.contact-links .fa-mail {
-  font-size: 1.3rem;
-  margin-right: 10px;
-}
-
-/* Media Query pour responsivité */
-@media screen and (max-width: 768px) {
-  .contact-links {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .contact-links a {
-    width: 80%;
-  }
-}
-
-/* ================== ANIMATIONS ================== */
-@keyframes pulseBorder {
-  0% {
-    box-shadow: 0 0 0 0 var(--vivid-auburn);
-  }
-  70% {
-    box-shadow: 0 0 0 20px rgba(0, 255, 247, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(0, 255, 247, 0);
-  }
-}
-
-/* ================== RÉPONSE AUX ÉCRANS PLUS PETITS (MAX 768px) ================== */
-@media screen and (max-width: 768px) {
-  /* TITRES */
-  h1 {
-    font-size: 3rem; /* Plus petit pour les écrans moyens */
-  }
-
-  h2 {
-    font-size: 2vh; /* Ajustement de la taille des titres */
-  }
-
-  h3 {
-    font-size: 6vh;
-  }
-
-  /* HEADER ET NAVBAR */
-  #navbar ul {
-    flex-direction: column; /* Le menu de navigation devient vertical */
-    gap: 10px;
-  }
-
-  .nav-link {
-    font-size: 16px;
-    padding: 10px 20px; /* Plus d'espacement pour l'interaction tactile */
-  }
-
-  /* SECTION ACCUEIL */
-  .welcome-section {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .welcome-section #photo {
-    width: 150px;
-    height: 150px;
-    margin: 20px 0;
-  }
-
-  .welcome-section p {
-    max-width: 90%;
-    margin-right: 0;
-    font-size: 1rem;
-  }
-}
-
-  .welcome-section #photo {
-    width: 200px;
-    height: 200px; /* Réduire la taille de l'image */
-  }
