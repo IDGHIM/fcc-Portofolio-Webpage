@@ -242,9 +242,9 @@ header {
 
 .skill-container {
   display: flex;
-  flex-wrap: wrap; /* Permet aux Ã©lÃ©ments de passer Ã  la ligne si nÃ©cessaire */
-  justify-content: center; /* Centre les Ã©lÃ©ments horizontalement */
-  gap: 2rem; /* Espacement entre les Ã©lÃ©ments */
+  flex-wrap: wrap; /* Permet aux éléments de passer Ã  la ligne si nÃ©cessaire */
+  justify-content: center; /* Centre les éléments horizontalement */
+  gap: 2rem; /* Espacement entre les éléments */
   padding: 1rem;
   text-align: center;
   font-size: 1.2rem;
@@ -252,15 +252,15 @@ header {
 
 .skill-box {
   flex: 1 1 150px; /* Flex-grow, flex-shrink, flex-basis */
-  max-width: 150px; /* Largeur maximale pour chaque boÃ®te */
+  max-width: 150px; /* Largeur maximale pour chaque boîte */
   padding: 1rem;
   color: var(--white-coffee);
   text-shadow: 2px 2px 2px var(--blue-dark);
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centrer les Ã©lÃ©ments horizontalement */
-  justify-content: center; /* Centrer les Ã©lÃ©ments verticalement */
+  align-items: center; /* Centrer les éléments horizontalement */
+  justify-content: center; /* Centrer les éléments verticalement */
   box-sizing: border-box;
 }
 
@@ -386,7 +386,7 @@ header {
 .cardnt:hover .cardnt-inner,
 .cardsp:hover .cardsp-inner,
 .cardpk:hover .cardpk-inner {
-  transform: rotateY(-90deg);
+  transform: rotateY(90deg);
 }
 
 .cardshf-front, .cardshf-back,
@@ -401,6 +401,7 @@ header {
   justify-content: center;
   border-radius: 10px;
   backface-visibility: hidden;
+  
 }
 
 .cardshf-front img, .cardnt-front img, .cardsp-front img, .cardpk-front img {
