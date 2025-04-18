@@ -524,4 +524,116 @@ header {
     margin-bottom: 20px;
   }
 
-  /* ==================*/
+  /* ================== TITRES ================== */
+  h1, h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  /* ================== SECTION ACCUEIL ================== */
+  .welcome-section {
+    padding: 40px 15px;
+  }
+
+  /* ================== SECTION COMPÉTENCES ================== */
+  .skills {
+    width: 100%;
+  }
+
+  .skill-container {
+    flex-direction: column; /* Les éléments passent en colonne */
+    gap: 1rem;
+  }
+
+  .skill-box {
+    max-width: 100%; /* Les boîtes prennent toute la largeur */
+    flex: 1 1 100%;
+  }
+
+  /* ================== SECTION PROJETS ================== */
+  .projects1, .projects2 {
+    flex-direction: column; /* Les projets sont maintenant affichés en colonne */
+    align-items: center;
+  }
+
+  .cardshf, .cardnt, .cardsp, .cardpk {
+    width: 100%; /* Les cartes prennent 100% de la largeur de l'écran */
+    height: 300px; /* Ajuste la hauteur pour un affichage plus adapté */
+    margin-bottom: 20px;
+  }
+
+  /* ================== SECTION CONTACT ================== */
+  .contact-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-links a {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .contact-links img {
+    width: 18px;
+  }
+
+  /* ================== GESTION DES IMAGES ================== */
+  .skill-image {
+    width: 80px;
+    height: 80px;
+  }
+
+  .cardshf-front img, .cardnt-front img, .cardsp-front img, .cardpk-front img {
+    width: 100%;
+    object-fit: contain;
+  }
+}
+
+/* ================== TABLETLE RESPONSIVE ================== */
+
+/* Ajustements pour les tablettes (écrans entre 768px et 1024px) */
+@media only screen and (max-width: 1024px) and (min-width: 769px) {
+  /* Réduire légèrement la taille du texte */
+  h1, h2 {
+    font-size: 2.2rem;
+  }
+
+  /* Modifier l'affichage de la navigation */
+  #navbar ul {
+    flex-direction: row; /* Le menu reste horizontal mais plus compact */
+    gap: 20px;
+  }
+
+  /* Adapter les compétences */
+  .skills .skill-container {
+    justify-content: space-between;
+  }
+
+  .skill-box {
+    max-width: 45%;
+  }
+
+  /* Réajuster les cartes projets */
+  .cardshf, .cardnt, .cardsp, .cardpk {
+    width: 45%; /* Ajuste la largeur des cartes pour les écrans de taille moyenne */
+    height: 300px;
+  }
+}
+
+/* ================== LARGE SCREENS RESPONSIVE ================== */
+
+/* Ajustements pour les grands écrans (plus de 1024px) */
+@media only screen and (min-width: 1025px) {
+  /* Largeur et espacement adaptés pour les grands écrans */
+  .skills .skill-container {
+    justify-content: space-evenly;
+  }
+
+  .skill-box {
+    max-width: 20%; /* Les boîtes de compétences occupent 20% de la largeur */
+  }
+
+  .projects1, .projects2 {
+    gap: 40px;
+  }
+}
