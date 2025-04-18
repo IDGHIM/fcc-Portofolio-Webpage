@@ -386,7 +386,7 @@ header {
 .cardnt:hover .cardnt-inner,
 .cardsp:hover .cardsp-inner,
 .cardpk:hover .cardpk-inner {
-  transform: rotateY(90deg);
+  transform: rotateY(-90deg);
 }
 
 .cardshf-front, .cardshf-back,
