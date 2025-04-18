@@ -194,12 +194,45 @@ header {
   margin: 0 auto;
 }
 
+/* Photo de profil */
+#photo {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  margin-left: 40px;
+  margin-bottom: 30px;
+  flex-shrink: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+#photo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Animation bordure */
+.animated-border {
+  animation: borderAnimation 2s infinite;
+}
+
+@keyframes borderAnimation {
+  0%, 100% {
+    border-color: #fff;
+  }
+  50% {
+    border-color: var(--rusty-red);
+  }
+}
+
 /* ================== SECTION COMPÉTENCES ================== */
 .skills {
   margin-top: 20px;
   width: 80%;
   max-width: 1200px; /* Ajustez la largeur maximale selon vos besoins */
   margin: 0 auto; /* Centrer la section */
+  background-color: var(--philippine-silver);
 }
 
 .skills h2 {
@@ -310,38 +343,6 @@ header {
 
 .hidden {
   display: none;
-}
-
-/* Photo de profil */
-#photo {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 5px solid #fff;
-  margin-left: 40px;
-  margin-bottom: 30px;
-  flex-shrink: 0;
-  transition: all 0.3s ease-in-out;
-}
-
-#photo:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-}
-
-/* Animation bordure */
-.animated-border {
-  animation: borderAnimation 2s infinite;
-}
-
-@keyframes borderAnimation {
-  0%, 100% {
-    border-color: #fff;
-  }
-  50% {
-    border-color: var(--rusty-red);
-  }
 }
 
 /* ================== SECTION PROJETS ================== */
