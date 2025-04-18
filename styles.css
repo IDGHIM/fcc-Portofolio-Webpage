@@ -497,3 +497,31 @@ header {
 .contact-links img {
   width: 20px;
 }
+
+/* ================== MOBILE RESPONSIVE ================== */
+
+/* Ajustements pour les petits écrans (mobiles) */
+@media only screen and (max-width: 768px) {
+  body {
+    padding: 20px;
+  }
+
+  /* ================== NAVIGATION ================== */
+  #navbar ul {
+    flex-direction: column; /* Les liens du menu s'affichent verticalement */
+    gap: 15px;
+  }
+
+  #navbar li {
+    padding: 10px;
+  }
+
+  /* Logo de la navigation si nécessaire */
+  #photo {
+    width: 120px;
+    height: 120px;
+    margin-left: 0;
+    margin-bottom: 20px;
+  }
+
+  /* ==================*/
