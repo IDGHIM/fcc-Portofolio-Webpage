@@ -20,7 +20,7 @@ body {
 }
 
 fieldset{
-  border: solid 2px;
+  border: solid 3px;
   }
 
 /* ================== TITRES MARQUANTS ================== */
@@ -142,7 +142,7 @@ header {
   display: block;
 }
 
-.dropdown-mid1, .dropdown-mid2 {
+.dropdown-mid1 {
   display: none;
   position: absolute;
   top: 100%;
@@ -154,30 +154,12 @@ header {
   z-index: 999;
 }
 
-.dropdown-mid2 {
-  left: 220px;
-}
-
-.dropdown-child {
-  margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-}
-
-.dropdown-child a {
-  color: var(--text-light);
-  padding: 5px 0;
-  text-decoration: none;
-}
-
-.dropdown-child a:hover {
-  color: var(--rusty-red);
-}
 
 /* ================== SECTION ACCUEIL ================== */
 .welcome-section {
   padding: 60px 20px;
   text-align: center;
+  background-color: var(--alabaster);
 }
 
 .welcome-section h1 {
@@ -204,11 +186,6 @@ header {
   margin-left: 40px;
   flex-shrink: 0;
   transition: all 0.3s ease-in-out;
-}
-
-#photo:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Animation bordure */
@@ -256,7 +233,6 @@ header {
   padding: 1rem;
   color: var(--white-coffee);
   text-shadow: 2px 2px 2px var(--blue-dark);
-  cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center; /* Centrer les éléments horizontalement */
@@ -371,7 +347,6 @@ header {
   width: 320px;
   height: 320px;
   perspective: 1000px;
-  cursor: pointer;
 }
 
 .cardshf-inner, .cardnt-inner, .cardsp-inner, .cardpk-inner {
@@ -401,7 +376,6 @@ header {
   justify-content: center;
   border-radius: 10px;
   backface-visibility: hidden;
-  
 }
 
 .cardshf-front img, .cardnt-front img, .cardsp-front img, .cardpk-front img {
@@ -443,6 +417,7 @@ header {
   border-radius: 30px;
   transition: background-color 0.3s ease;
   margin-top: 10px;
+  text-decoration: none;
 }
 
 .cardshf-back a:hover,
@@ -450,6 +425,8 @@ header {
 .cardsp-back a:hover,
 .cardpk-back a:hover {
   background-color: var(--metallic-red);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 /* ================== SECTION CONTACT ================== */
@@ -486,6 +463,7 @@ header {
   gap: 10px;
   width: 200px;
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .contact-links a:hover {
