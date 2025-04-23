@@ -124,36 +124,12 @@ header {
   color: var(--text-light);
   text-decoration: none;
   font-weight: bold;
+  font-size: 1.6rem;
 }
 
 .nav-link:hover {
   color: var(--rusty-red);
 }
-
-/* Pour afficher "Responsive" et "Projets" sur la même ligne */
-#navbar .nav-item {
-  display: flex; /* Assurer qu'ils sont sur la même ligne */
-  align-items: center; /* Centrer verticalement */
-}
-
-/* Dropdown menu */
-.dropdown:hover .dropdown-mid1,
-.dropdown:hover .dropdown-mid2 {
-  display: block;
-}
-
-.dropdown-mid1 {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: var(--wenge);
-  padding: 10px;
-  border-radius: 8px;
-  min-width: 200px;
-  z-index: 999;
-}
-
 
 /* ================== SECTION ACCUEIL ================== */
 .welcome-section {
@@ -169,7 +145,7 @@ header {
 }
 
 .welcome-section p {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   color: var(--text-dark);
   max-width: 800px;
   margin: 0 auto;
@@ -177,8 +153,8 @@ header {
 
 /* Photo de profil */
 #photo {
-  width: 150px;
-  height: 150px;
+  width: 300px;
+  height: 300px;
   object-fit: cover;
   border-radius: 50%;
   border: 5px solid #fff;
@@ -200,6 +176,32 @@ header {
   50% {
     border-color: var(--rusty-red);
   }
+}
+
+ /* Style du bouton de téléchargement */
+ .download-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--metallic-red);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(74, 111, 165, 0.3);
+}
+
+.download-button:hover {
+  background-color: var(--rusty-red);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(74, 111, 165, 0.4);
+}
+
+.download-button:active {
+  transform: translateY(0);
 }
 
 /* ================== SECTION COMPÉTENCES ================== */
@@ -238,15 +240,6 @@ header {
   align-items: center; /* Centrer les éléments horizontalement */
   justify-content: center; /* Centrer les éléments verticalement */
   box-sizing: border-box;
-}
-
-.skill-box:hover .skill-title:after,
-.skill-box:hover .skill-title:before {
-  width: 35px;
-}
-
-.skill-box:hover .skill-image {
-  transform: translateY(-10px);
 }
 
 .skill-title {
@@ -313,6 +306,86 @@ header {
   z-index: 2;
   object-fit: contain; /* Assurez-vous que les logos sont bien ajustÃ©s */
 }
+
+.certif {
+  margin-top: 20px;
+  width: 80%;
+  max-width: 1200px; /* Ajustez la largeur maximale selon vos besoins */
+  margin: 0 auto; /* Centrer la section */
+  background-color: var(--philippine-silver);
+}
+
+.certif h2 {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  text-align: center; /* Centrer le titre */
+}
+
+.certif-container {
+  display: flex;
+  flex-wrap: wrap; /* Permet aux éléments de passer Ã  la ligne si nÃ©cessaire */
+  justify-content: center; /* Centre les éléments horizontalement */
+  gap: 2rem; /* Espacement entre les éléments */
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.certif-box {
+  flex: 1 1 150px; /* Flex-grow, flex-shrink, flex-basis */
+  max-width: 150px; /* Largeur maximale pour chaque boîte */
+  padding: 1rem;
+  color: var(--white-coffee);
+  text-shadow: 2px 2px 2px var(--blue-dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrer les éléments horizontalement */
+  justify-content: center; /* Centrer les éléments verticalement */
+  box-sizing: border-box;
+}
+
+.certif-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
+  margin-bottom: 3.5rem;
+  position: relative;
+}
+
+.certif-image {
+  width: 90px;
+  height: 90px;
+  position: relative;
+  border-radius: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+}
+
+.certif-image:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 90px;
+  background: rgba(100, 100, 100, 0.5);
+  border-radius: 45px 0 0 45px;
+}
+
+.certif-icon {
+  width: 300px;
+  height: 300px; /* Ajustez la taille des logos */
+  z-index: 2;
+  object-fit: contain; /* Assurez-vous que les logos sont bien ajustÃ©s */
+}
+
+.certif-icon:hover {
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
+} 
 
 .hidden {
   display: none;

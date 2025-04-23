@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portofolio Page</title>
+    <title>Ichem DGHIM, développeur web junior</title>
     <!-- Feuilles de style -->
     <link rel="stylesheet" href="styles.css" />
     <style>@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400");</style>
@@ -22,20 +22,7 @@
         <ul>
           <li><a class="nav-link" href="#présentation">Présentation</a></li>
           <li><a class="nav-link" href="#competences">Compétences</a></li>
-          <li class="dropdown">
-            <a class="nav-link" href="#Projet">Projets effectués</a>
-            <div class="dropdown-mid1">
-              <ul>
-                <li>
-                  <a class="nav-link" href="#Responsive">Responsive Web Design</a>
-                </li>
-              </ul>
-              <ul>
-                <li>
-                  <a class="nav-link" href="#Ecole">Projets en formation</a>
-                </li>
-              </ul>
-            </div>
+          <li><a class="nav-link" href="#Projet">Projets effectués</a></li>
           <li><a class="nav-link" href="#Contact">Me contacter</a></li>
         </ul>
       </nav>
@@ -53,31 +40,31 @@
       </p>
       &nbsp;
       <p>
-        J’ai eu la chance de suivre une formation de développeur web, qui m’a permis de renforcer mes compétences techniques et de gagner en expérience pratique. Ce parcours m’a conforté dans ma passion pour le code, la création d’interfaces et le design responsive.
-      </p>
-      &nbsp;
-      <p>
-        Je suis un créatif dans l’âme, toujours en quête d’idées nouvelles, de designs innovants et d’interfaces toujours plus intuitives. Chaque projet est pour moi une aventure, un défi que je relève avec enthousiasme et précision.
-      </p>
-      &nbsp;
-      <p>
         Et quand je ne suis pas devant mon écran, je suis à la salle de sport ! 
         Je pratique le powerlifting en compétition. C’est une discipline exigeante, qui m’a appris la rigueur, la persévérance et le dépassement de soi — des qualités que je retrouve aussi dans l’univers du développement web.
       </p>
-      <img id="photo" class="animated-border" src="Comp2.jpeg" alt="Moi" />
-      <img id="photo" class="animated-border" src="Comp1.jpg" alt="Moi" />
-      <img id="photo" class="animated-border" src="Comp3.jpg" alt="Moi" />
+      &nbsp;
+      <p>
+        <a href="CV DVW DGHIM Ichem.pdf" download class="download-button">
+          Télécharger mon CV (PDF)
+        </a>
+      </p>
+      <img id="photo" class="animated-border" src="Comp2.jpeg" alt="DGHIM Ichem lifting squat" />
+      <img id="photo" class="animated-border" src="Comp1.jpg" alt="DGHIM Ichem focus" />
+      <img id="photo" class="animated-border" src="Comp3.jpg" alt="DGHIM Ichem focus before deadlift" />
     </section>
     <!-- SECTION COMPÉTENCES -->
-    <fieldset class="animated-border">
-      <section id="competences" class="section">
-        <div class="skills">
+    <fieldset class="animated-border" >
+      <section class="section">
+        <div class="skills" id="competences">
           <h2 id="competences_heading">Compétences</h2>
           <div class="skill-container">
             <div class="skill-box">
               <div class="skill-title">
                 <div class="skill-image">
-                  <img src="compétence/HTML5_logo_and_wordmark.svg.png" class="skill-icon" alt="HTML icon" />
+                  <img 
+                  src="compétence/HTML5_logo_and_wordmark.svg.png" 
+                  class="skill-icon" alt="HTML icon" />
                 </div>
                 <h3 id="html_skill">HTML 5</h3>
               </div>
@@ -85,7 +72,9 @@
             <div class="skill-box">
               <div class="skill-title">
                 <div class="skill-image">
-                  <img src="compétence/CSS3_logo_and_wordmark.svg.png" class="skill-icon" alt="CSS icon" />
+                  <img 
+                  src="compétence/CSS3_logo_and_wordmark.svg.png" 
+                  class="skill-icon" alt="CSS icon" />
                 </div>
                 <h3 id="css_skill">CSS 3</h3>
               </div>
@@ -93,12 +82,26 @@
             <div class="skill-box">
               <div class="skill-title">
                 <div class="skill-image">
-                  <img src="compétence/Montage_vidéo.png" class="skill-icon" alt="Montage icon" />
+                  <img 
+                  src="compétence/Montage_vidéo.png" 
+                  class="skill-icon" alt="Montage icon" />
                 </div>
-                <h3 id="montage_skill">Montage Vidéo</h3>
+                <h3 id="montage_skill">Montage Vidéo</a></h3>
               </div>
             </div>
           </div> 
+          <h2>Certifications<h2>
+            <div class="certif-box">
+              <div class="certif-title">
+                <div class="certif-image">
+                  <a href="https://www.freecodecamp.org/certification/IchemD/responsive-web-design" target="_blank">
+                    <img
+                    src="certification_fcc/Certif_RWD.png"
+                    class="certif-icon" alt="Responsive Web Design certification" />
+                  </a>
+                </div>
+              </div>
+            </div>
     </fieldset>
 <!-- SECTION PROJETS -->
 <section id="Projet">
@@ -173,24 +176,26 @@
     </div>
   </section>
 </section>
-    <!-- SECTION CONTACT -->
+    <!-- FOOTER -->
+    <footer>
+      <!-- SECTION CONTACT -->
     <section class="contact-section" id="Contact">
       <div class="contact-section-header">
-        <h3>Me contacter :</h3>
+        <h3>Une idée de projet ?</h3>
+        <h3>Contactez-moi :</h3>
       </div>
       <div class="contact-links">
+        <a href="mailto:ichemdghim@gmail.com" class="btn contact-details">
+          <img src="contact-logo/mail-logo-png.png" class="fa-mail" /> Contactez-moi par e-mail
+        </a>
         <a href="https://github.com/IDGHIM" target="_blank" class="btn contact-details">
           <img src="contact-logo/github-logo-png.png" class="fa-github" /> Suivez-moi sur GitHub
         </a>
         <a href="https://www.instagram.com/iichoumm_pwr/" target="_blank" class="btn contact-details">
           <img src="contact-logo/ig-logo-png.png" class="fa-ig" /> Suivez-moi sur Instagram
         </a>
-        <a href="mailto:ichemdghim@gmail.com" class="btn contact-details">
-          <img src="contact-logo/mail-logo-png.png" class="fa-mail" /> Contactez-moi par e-mail
-        </a>
       </div>
     </section>
-    <!-- FOOTER -->
-    <footer></footer>
+    </footer>
   </body>
 </html>
