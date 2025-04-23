@@ -23,6 +23,14 @@ fieldset{
   border: solid 3px;
   }
 
+/* Empêche la navbar de masquer les titres lors du scroll vers une ancre */
+#présentation,
+#competences,
+#Projet,
+#Contact {
+  scroll-margin-top: 80px; 
+} 
+
 /* ================== TITRES MARQUANTS ================== */
 h1, h2 {
   font-size: 2.5rem;
