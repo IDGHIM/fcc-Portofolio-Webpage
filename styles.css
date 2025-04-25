@@ -20,8 +20,16 @@ body {
 }
 
 fieldset{
-  border: solid 2px;
+  border: solid 3px;
   }
+
+/* Empêche la navbar de masquer les titres lors du scroll vers une ancre */
+#présentation,
+#competences,
+#Projet,
+#Contact {
+  scroll-margin-top: 80px; 
+} 
 
 /* ================== TITRES MARQUANTS ================== */
 h1, h2 {
@@ -124,53 +132,10 @@ header {
   color: var(--text-light);
   text-decoration: none;
   font-weight: bold;
+  font-size: 1.6rem;
 }
 
 .nav-link:hover {
-  color: var(--rusty-red);
-}
-
-/* Pour afficher "Responsive" et "Projets" sur la même ligne */
-#navbar .nav-item {
-  display: flex; /* Assurer qu'ils sont sur la même ligne */
-  align-items: center; /* Centrer verticalement */
-}
-
-/* Dropdown menu */
-.dropdown:hover .dropdown-mid1,
-.dropdown:hover .dropdown-mid2 {
-  display: block;
-}
-
-.dropdown-mid1, .dropdown-mid2 {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: var(--wenge);
-  padding: 10px;
-  border-radius: 8px;
-  min-width: 200px;
-  z-index: 999;
-}
-
-.dropdown-mid2 {
-  left: 220px;
-}
-
-.dropdown-child {
-  margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-}
-
-.dropdown-child a {
-  color: var(--text-light);
-  padding: 5px 0;
-  text-decoration: none;
-}
-
-.dropdown-child a:hover {
   color: var(--rusty-red);
 }
 
@@ -178,25 +143,27 @@ header {
 .welcome-section {
   padding: 60px 20px;
   text-align: center;
+  background-color: var(--alabaster);
 }
 
 .welcome-section h1 {
   font-size: 2.5rem;
   color: var(--rusty-red);
-  margin-bottom: 20px;
+  margin-bottom: 1.5em;
 }
 
 .welcome-section p {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   color: var(--text-dark);
   max-width: 800px;
   margin: 0 auto;
+  margin-bottom: 1.5em; 
 }
 
 /* Photo de profil */
 #photo {
-  width: 150px;
-  height: 150px;
+  width: 300px;
+  height: 300px;
   object-fit: cover;
   border-radius: 50%;
   border: 5px solid #fff;
@@ -204,11 +171,6 @@ header {
   margin-left: 40px;
   flex-shrink: 0;
   transition: all 0.3s ease-in-out;
-}
-
-#photo:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Animation bordure */
@@ -223,6 +185,32 @@ header {
   50% {
     border-color: var(--rusty-red);
   }
+}
+
+ /* Style du bouton de téléchargement */
+ .download-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--metallic-red);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(74, 111, 165, 0.3);
+}
+
+.download-button:hover {
+  background-color: var(--rusty-red);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(74, 111, 165, 0.4);
+}
+
+.download-button:active {
+  transform: translateY(0);
 }
 
 /* ================== SECTION COMPÉTENCES ================== */
@@ -256,21 +244,11 @@ header {
   padding: 1rem;
   color: var(--white-coffee);
   text-shadow: 2px 2px 2px var(--blue-dark);
-  cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center; /* Centrer les éléments horizontalement */
   justify-content: center; /* Centrer les éléments verticalement */
   box-sizing: border-box;
-}
-
-.skill-box:hover .skill-title:after,
-.skill-box:hover .skill-title:before {
-  width: 35px;
-}
-
-.skill-box:hover .skill-image {
-  transform: translateY(-10px);
 }
 
 .skill-title {
@@ -338,6 +316,86 @@ header {
   object-fit: contain; /* Assurez-vous que les logos sont bien ajustÃ©s */
 }
 
+.certif {
+  margin-top: 20px;
+  width: 80%;
+  max-width: 1200px; /* Ajustez la largeur maximale selon vos besoins */
+  margin: 0 auto; /* Centrer la section */
+  background-color: var(--philippine-silver);
+}
+
+.certif h2 {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  text-align: center; /* Centrer le titre */
+}
+
+.certif-container {
+  display: flex;
+  flex-wrap: wrap; /* Permet aux éléments de passer Ã  la ligne si nÃ©cessaire */
+  justify-content: center; /* Centre les éléments horizontalement */
+  gap: 2rem; /* Espacement entre les éléments */
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.certif-box {
+  flex: 1 1 150px; /* Flex-grow, flex-shrink, flex-basis */
+  max-width: 150px; /* Largeur maximale pour chaque boîte */
+  padding: 1rem;
+  color: var(--white-coffee);
+  text-shadow: 2px 2px 2px var(--blue-dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrer les éléments horizontalement */
+  justify-content: center; /* Centrer les éléments verticalement */
+  box-sizing: border-box;
+}
+
+.certif-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
+  margin-bottom: 3.5rem;
+  position: relative;
+}
+
+.certif-image {
+  width: 90px;
+  height: 90px;
+  position: relative;
+  border-radius: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+}
+
+.certif-image:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 90px;
+  background: rgba(100, 100, 100, 0.5);
+  border-radius: 45px 0 0 45px;
+}
+
+.certif-icon {
+  width: 300px;
+  height: 300px; /* Ajustez la taille des logos */
+  z-index: 2;
+  object-fit: contain; /* Assurez-vous que les logos sont bien ajustÃ©s */
+}
+
+.certif-icon:hover {
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
+} 
+
 .hidden {
   display: none;
 }
@@ -371,7 +429,6 @@ header {
   width: 320px;
   height: 320px;
   perspective: 1000px;
-  cursor: pointer;
 }
 
 .cardsf-inner, .cardshf-inner, .cardnt-inner, .cardsp-inner, .cardpk-inner {
@@ -403,7 +460,6 @@ header {
   justify-content: center;
   border-radius: 10px;
   backface-visibility: hidden;
-  
 }
 
 .cardsf-front img, .cardshf-front img, .cardnt-front img, .cardsp-front img, .cardpk-front img {
@@ -445,6 +501,7 @@ header {
   border-radius: 30px;
   transition: background-color 0.3s ease;
   margin-top: 10px;
+  text-decoration: none;
 }
 
 .cardsf-back a:hover,
@@ -453,6 +510,8 @@ header {
 .cardsp-back a:hover,
 .cardpk-back a:hover {
   background-color: var(--metallic-red);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 /* ================== SECTION CONTACT ================== */
@@ -489,6 +548,7 @@ header {
   gap: 10px;
   width: 200px;
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .contact-links a:hover {
