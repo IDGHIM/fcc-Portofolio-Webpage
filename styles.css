@@ -42,6 +42,8 @@ h1, h2 {
   animation: fadeSlide 1.2s ease-in-out both;
 }
 
+.responsive h2 {}
+
 /* Soulignement animé */
 h1::after, h2::after {
   content: '';
@@ -425,13 +427,13 @@ header {
 }
 
 /* Cartes de projets interactives */
-.cardsf, .cardshf, .cardnt, .cardsp, .cardpdm, .cardrnc, .cardpk {
+.cardresponsive, .cardjs, .cardpk {
   width: 320px;
   height: 320px;
   perspective: 1000px;
 }
 
-.cardsf-inner, .cardshf-inner, .cardnt-inner, .cardsp-inner, .cardpdm-inner, .cardrnc-inner, .cardpk-inner {
+.cardresponsive-inner, .cardjs-inner, .cardpk-inner {
   position: relative;
   width: 100%;
   height: 100%;
@@ -439,22 +441,14 @@ header {
   transform-style: preserve-3d;
 }
 
-.cardsf:hover .cardsf-inner,
-.cardshf:hover .cardshf-inner,
-.cardnt:hover .cardnt-inner,
-.cardsp:hover .cardsp-inner,
-.cardpdm:hover .cardpdm-inner,
-.cardrnc:hover .cardrnc-inner,
+.cardresponsive:hover .cardresponsive-inner,
+.cardjs:hover .cardjs-inner,
 .cardpk:hover .cardpk-inner {
   transform: rotateY(-90deg);
 }
 
-.cardsf-front, .cardsf-back,
-.cardshf-front, .cardshf-back,
-.cardnt-front, .cardnt-back,
-.cardsp-front, .cardsp-back,
-.cardpdm-front, .cardpdm-back,
-.cardrnc-front, .cardrnc-back,
+.cardresponsive-front, .cardresponsive-back,
+.cardjs-front, .cardjs-back,
 .cardpk-front, .cardpk-back {
   position: absolute;
   width: 100%;
@@ -466,14 +460,14 @@ header {
   backface-visibility: hidden;
 }
 
-.cardsf-front img, .cardshf-front img, .cardnt-front img, .cardsp-front img, .cardpdm-front img, .cardrnc-front img, .cardpk-front img {
+.cardresponsive img, .cardjs-front img, .cardpk-front img {
   width: 80%;
   object-fit: cover;
   border-radius: 10px;
 }
 
 /* Face arrière des cartes */
-.cardsf-back, .cardshf-back, .cardnt-back, .cardsp-back, .cardpdm-back, .cardrnc-back, .cardpk-back {
+.cardresponsive-back, .cardjs-back, .cardpk-back {
   background-color: var(--rusty-red);
   color: var(--text-light);
   flex-direction: column;
@@ -483,21 +477,21 @@ header {
   transform: rotateY(90deg);
 }
 
-.cardsf-back h4, .cardshf-back h4, .cardnt-back h4, .cardsp-back h4, .cardpdm-back h4, .cardrnc-back h4, .cardpk-back h4 {
+.cardresponsive-back h4, .cardjs-back h4, .cardpk-back h4 {
   font-size: 1.4rem;
   color: var(--blue-dark);
   text-shadow: 2px 2px 2px var(--philippine-silver);
   margin-bottom: 10px;
 }
 
-.cardsf p,.cardshf-back p, .cardnt-back p, .cardsp-back p, .cardpdm-back p, .cardrnc-back p, .cardpk-back p {
+.cardresponsive p, .cardjs-back p, .cardpk-back p {
   font-size: 1rem;
   color: var(--text-light);
   text-shadow: 2px 2px 2px var(--blue-dark);
   margin-bottom: 15px;
 }
 
-.cardsf a, .cardshf-back a, .cardnt-back a, .cardsp-back a, .cardpdm-back a, .cardrnc-back a, .cardpk-back a{
+.cardresponsive a, .cardjs-back a, .cardpk-back a{
   font-size: 1.1rem;
   color: var(--text-light);
   background-color: var(--vivid-auburn);
@@ -508,12 +502,8 @@ header {
   text-decoration: none;
 }
 
-.cardsf-back a:hover,
-.cardshf-back a:hover,
-.cardnt-back a:hover,
-.cardsp-back a:hover,
-.cardpdm-back a:hover,
-.cardrnc-back a:hover,
+.cardresponsive-back a:hover,
+.cardjs-back a:hover,
 .cardpk-back a:hover {
   background-color: var(--metallic-red);
   transform: scale(1.05);
@@ -624,7 +614,7 @@ header {
     align-items: center;
   }
 
-  .cardshf, .cardnt, .cardsp, .cardpk {
+  .cardresponsive, .cardpk {
     width: 50%; /* Les cartes prennent 50% de la largeur de l'écran */
     height: 300px; /* Ajuste la hauteur pour un affichage plus adapté */
     margin-bottom: 20px;
@@ -651,7 +641,7 @@ header {
     height: 80px;
   }
 
-  .cardshf-front img, .cardnt-front img, .cardsp-front img, .cardpk-front img {
+  .cardresponsive img, .cardpk-front img {
     width: 100%;
     object-fit: contain;
   }
