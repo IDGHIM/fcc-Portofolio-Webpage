@@ -431,7 +431,11 @@ header {
   perspective: 1000px;
 }
 
+<<<<<<< HEAD
 .cardsf-inner, .cardshf-inner, .cardnt-inner, .cardsp-inner, .cardpdm-inner, .cardrnc-inner, .carduspn-inner, .cardpk-inner {
+=======
+.cardsf-inner, .cardshf-inner, .cardnt-inner, .cardsp-inner, .cardpdm-inner, .cardrnc-inner, .carduspn, .cardpk-inner {
+>>>>>>> dc278a7aa5e9d7c5b97004275f7e7fc3ecc35ec8
   position: relative;
   width: 100%;
   height: 100%;
@@ -485,7 +489,11 @@ header {
   transform: rotateY(90deg);
 }
 
+<<<<<<< HEAD
 .cardsf-back h4, .cardshf-back h4, .cardnt-back h4, .cardsp-back h4, .cardpdm-back h4, .cardrnc-back h4, .carduspn h4, .cardpk-back h4 {
+=======
+.cardsf-back h4, .cardshf-back h4, .cardnt-back h4, .cardsp-back h4, .cardpdm-back h4, .cardrnc-back h4, .carduspn-back h4, .cardpk-back h4 {
+>>>>>>> dc278a7aa5e9d7c5b97004275f7e7fc3ecc35ec8
   font-size: 1.4rem;
   color: var(--blue-dark);
   text-shadow: 2px 2px 2px var(--philippine-silver);
@@ -499,7 +507,11 @@ header {
   margin-bottom: 15px;
 }
 
+<<<<<<< HEAD
 .cardsf a, .cardshf-back a, .cardnt-back a, .cardsp-back a, .cardpdm-back a, .cardrnc-back a, .carduspn-back a,.cardpk-back a{
+=======
+.cardsf a, .cardshf-back a, .cardnt-back a, .cardsp-back a, .cardpdm-back a, .cardrnc-back a, .carduspn-back a, .cardpk-back a{
+>>>>>>> dc278a7aa5e9d7c5b97004275f7e7fc3ecc35ec8
   font-size: 1.1rem;
   color: var(--text-light);
   background-color: var(--vivid-auburn);
