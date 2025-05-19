@@ -42,8 +42,6 @@ h1, h2 {
   animation: fadeSlide 1.2s ease-in-out both;
 }
 
-.responsive h2 {}
-
 /* Soulignement animé */
 h1::after, h2::after {
   content: '';
