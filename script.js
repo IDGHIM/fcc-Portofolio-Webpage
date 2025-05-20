@@ -1,26 +1,44 @@
-// script.js
-(function () {
-  emailjs.init("IdsT61xCsLA3EUkrQ"); 
-})();
+document.addEventListener("DOMContentLoaded", function () {
+  // Initialisation d'EmailJS avec votre clé publique
+  emailjs.init("IdsT61xCsLA3EUkrQ");
 
-document.querySelector(".contact-form").addEventListener("submit", function (e) {
-  e.preventDefault();
+  // Sélection du formulaire
+  const form = document.querySelector(".contact-form");
 
-  // Données du formulaire
-  const nom = document.getElementById("nom").value;
-  const email = document.getElementById("email").value;
-  const message = document.getElementById("message").value;
+  if (!form) {
+    console.error("Le formulaire n'a pas été trouvé !");
+    return;
+  }
 
-  const params = {
-    nom: nom,
-    email: email,
-    message: message
-  };
+  // Écoute de l'événement 'submit'
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-  emailjs.send("service_guqhch8", "template_q3apao5", params)
-    .then(function (response) {
-      alert("Message envoyé avec succès !");
-    }, function (error) {
-      alert("Erreur lors de l'envoi du message : " + JSON.stringify(error));
-    });
+    // Récupération des valeurs du formulaire
+    const nom = document.getElementById("nom").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    if (!nom || !email || !message) {
+      alert("Veuillez remplir tous les champs du formulaire.");
+      return;
+    }
+
+    const params = {
+      nom: nom,
+      email: email,
+      message: message
+    };
+
+    // Envoi avec EmailJS
+    emailjs.send("service_guqhch8", "template_q3apao5", params)
+      .then(function (response) {
+        alert("✅ Message envoyé avec succès !");
+        form.reset(); // Réinitialise le formulaire après envoi
+      })
+      .catch(function (error) {
+        console.error("Erreur EmailJS :", error);
+        alert("❌ Une erreur s'est produite lors de l'envoi. Réessayez plus tard.");
+      });
+  });
 });
