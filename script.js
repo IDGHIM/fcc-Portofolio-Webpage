@@ -1,6 +1,6 @@
 // script.js
 (function () {
-  emailjs.init("IdsT61xCsLA3EUkrQ"); // Remplacez par votre clé publique EmailJS
+  emailjs.init("IdsT61xCsLA3EUkrQ"); 
 })();
 
 document.querySelector(".contact-form").addEventListener("submit", function (e) {

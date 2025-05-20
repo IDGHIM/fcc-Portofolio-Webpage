@@ -524,6 +524,79 @@ header {
 }
 
 /* ================== SECTION CONTACT ================== */
+/* ================== FORMULAIRE DE CONTACT ================== */
+.contact-form {
+  max-width: 600px;
+  margin: 40px auto;
+  background-color: var(--alabaster);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: var(--blue-dark);
+  font-size: 1.1rem;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  background-color: var(--white-coffee);
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid var(--philippine-silver);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.input-container i {
+  color: var(--blue-dark);
+  font-size: 1.2rem;
+  margin-right: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  border: none;
+  background: transparent;
+  outline: none;
+  flex: 1;
+  font-size: 1rem;
+  color: var(--text-dark);
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+#submit_button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: var(--rusty-red);
+  color: var(--text-light);
+  border: none;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#submit_button:hover {
+  background-color: var(--metallic-red);
+  transform: translateY(-2px);
+}
+
+#submit_button:active {
+  transform: translateY(0);
+}
+
 .contact-section {
   background-color: var(--philippine-silver);
   padding: 50px 20px;
