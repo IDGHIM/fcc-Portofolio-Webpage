@@ -316,6 +316,21 @@ header {
   object-fit: contain; /* Assurez-vous que les logos sont bien ajustÃ©s */
 }
 
+.skill-icons-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* espace entre les logos */
+  margin: 0 0;
+}
+
+.skill-icon2 {
+  background-color : var(--alabaster);
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
 .certif {
   margin-top: 20px;
   width: 80%;
