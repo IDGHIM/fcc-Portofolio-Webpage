@@ -1,3 +1,39 @@
+document.addEventListener('DOMContentLoaded', () => {
+  const hamburger = document.querySelector('.hamburger');
+  const navMenu = document.querySelector('#navbar ul');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('show');
+  });
+
+  // Optionnel : Fermer le menu quand on clique sur un lien
+  navMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('show');
+    });
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll(".cardresponsive, .cardjs, .cardpk");
+
+    cards.forEach(card => {
+      card.addEventListener("click", function () {
+        // Retirer flipped aux autres cartes (optionnel)
+        cards.forEach(c => {
+          if (c !== card) c.classList.remove("flipped");
+        });
+
+        // Bascule la classe flipped
+        card.classList.toggle("flipped");
+      });
+    });
+  });
+
+// Fonction pour le formulaire de contact
 document.addEventListener("DOMContentLoaded", function () {
   emailjs.init("IdsT61xCsLA3EUkrQ");
 

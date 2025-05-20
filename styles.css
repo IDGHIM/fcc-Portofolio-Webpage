@@ -1,10 +1,10 @@
 /* ================== IMPORTS & POLICES ================== */
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;500;700&display=swap');
 
+/* ================== RESET ================== */
 html {
   scroll-behavior: smooth;
 }
-
 * {
   margin: 0;
   padding: 0;
@@ -12,6 +12,22 @@ html {
   font-family: 'Raleway', sans-serif;
 }
 
+/* ================== VARIABLES GLOBALES ================== */
+:root {
+  --rusty-red: #D22E48;
+  --vivid-auburn: #9A2826;
+  --metallic-red: #AC2B29;
+  --philippine-silver: #B7B4B3;
+  --alabaster: #ECEAE4;
+  --wenge: #645D5B;
+  --blue-dark: #282c34;
+  --brown-coffee: #4D3228;
+  --white-coffee: #E4E2CF;
+  --text-dark: #1f1f1f;
+  --text-light: #fff;
+}
+
+/* ================== BODY ================== */
 body {
   background-color: var(--philippine-silver);
   justify-content: center;
@@ -19,17 +35,16 @@ body {
   flex-direction: column;
 }
 
-fieldset{
+fieldset {
   border: solid 3px;
-  }
+}
 
-/* Empêche la navbar de masquer les titres lors du scroll vers une ancre */
 #présentation,
 #competences,
 #Projet,
 #Contact {
   scroll-margin-top: 80px; 
-} 
+}
 
 /* ================== TITRES MARQUANTS ================== */
 h1, h2 {
@@ -41,8 +56,6 @@ h1, h2 {
   letter-spacing: 2px;
   animation: fadeSlide 1.2s ease-in-out both;
 }
-
-/* Soulignement animé */
 h1::after, h2::after {
   content: '';
   position: absolute;
@@ -55,8 +68,6 @@ h1::after, h2::after {
   border-radius: 2px;
   animation: underlineGrow 1.2s ease forwards;
 }
-
-/* Animation de fade + slide */
 @keyframes fadeSlide {
   from {
     opacity: 0;
@@ -67,8 +78,6 @@ h1::after, h2::after {
     transform: translateY(0);
   }
 }
-
-/* Animation du soulignement */
 @keyframes underlineGrow {
   from {
     width: 0;
@@ -80,28 +89,6 @@ h1::after, h2::after {
   }
 }
 
-/* ================== VARIABLES GLOBALES ================== */
-:root {
-  /* Couleurs principales */
-  --rusty-red: #D22E48;
-  --vivid-auburn: #9A2826;
-  --metallic-red: #AC2B29;
-
-  /* Couleurs neutres */
-  --philippine-silver: #B7B4B3;
-  --alabaster: #ECEAE4;
-  --wenge: #645D5B;
-  --blue-dark: #282c34;
-
-  /* Couleurs secondaires */
-  --brown-coffee: #4D3228;
-  --white-coffee: #E4E2CF;
-
-  /* Couleurs de texte */
-  --text-dark: #1f1f1f;
-  --text-light: #fff;
-}
-
 /* ================== NAVIGATION ================== */
 header {
   position: sticky;
@@ -110,31 +97,26 @@ header {
   background-color: var(--blue-dark);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
-
 #navbar {
   display: flex;
-  justify-content: center; /* Centrer horizontalement */
+  justify-content: center;
   background-color: var(--blue-dark);
 }
-
 #navbar ul {
   display: flex;
   list-style: none;
-  gap: 30px; /* Espacement entre les éléments */
+  gap: 30px;
 }
-
 #navbar li {
   position: relative;
   padding: 15px 20px;
 }
-
 .nav-link {
   color: var(--text-light);
   text-decoration: none;
   font-weight: bold;
   font-size: 1.6rem;
 }
-
 .nav-link:hover {
   color: var(--rusty-red);
 }
@@ -145,22 +127,17 @@ header {
   text-align: center;
   background-color: var(--alabaster);
 }
-
 .welcome-section h1 {
   font-size: 2.5rem;
   color: var(--rusty-red);
   margin-bottom: 1.5em;
 }
-
 .welcome-section p {
   font-size: 1.6rem;
   color: var(--text-dark);
   max-width: 800px;
-  margin: 0 auto;
-  margin-bottom: 1.5em; 
+  margin: 0 auto 1.5em auto;
 }
-
-/* Photo de profil */
 #photo {
   width: 300px;
   height: 300px;
@@ -172,23 +149,14 @@ header {
   flex-shrink: 0;
   transition: all 0.3s ease-in-out;
 }
-
-/* Animation bordure */
 .animated-border {
   animation: borderAnimation 2s infinite;
 }
-
 @keyframes borderAnimation {
-  0%, 100% {
-    border-color: #fff;
-  }
-  50% {
-    border-color: var(--rusty-red);
-  }
+  0%, 100% { border-color: #fff; }
+  50% { border-color: var(--rusty-red); }
 }
-
- /* Style du bouton de téléchargement */
- .download-button {
+.download-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -202,181 +170,91 @@ header {
   transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(74, 111, 165, 0.3);
 }
-
 .download-button:hover {
   background-color: var(--rusty-red);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(74, 111, 165, 0.4);
 }
-
 .download-button:active {
   transform: translateY(0);
 }
 
-/* ================== SECTION COMPÉTENCES ================== */
-.skills {
+/* ================== SECTION COMPÉTENCES ET CERTIFICATIONS ================== */
+.skills,
+.certif {
   margin-top: 20px;
   width: 80%;
-  max-width: 1200px; /* Ajustez la largeur maximale selon vos besoins */
-  margin: 0 auto; /* Centrer la section */
+  max-width: 1200px;
+  margin: 0 auto;
   background-color: var(--philippine-silver);
 }
-
-.skills h2 {
+.skills h2,
+.certif h2 {
   margin-top: 20px;
   margin-bottom: 20px;
-  text-align: center; /* Centrer le titre */
+  text-align: center;
 }
 
 .skill-container {
   display: flex;
-  flex-wrap: wrap; /* Permet aux éléments de passer Ã  la ligne si nÃ©cessaire */
-  justify-content: center; /* Centre les éléments horizontalement */
-  gap: 2rem; /* Espacement entre les éléments */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
   padding: 1rem;
   text-align: center;
   font-size: 1.2rem;
 }
 
 .skill-box {
-  flex: 1 1 150px; /* Flex-grow, flex-shrink, flex-basis */
-  max-width: 150px; /* Largeur maximale pour chaque boîte */
+  flex: 1 1 150px;
+  max-width: 150px;
   padding: 1rem;
   color: var(--white-coffee);
   text-shadow: 2px 2px 2px var(--blue-dark);
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centrer les éléments horizontalement */
-  justify-content: center; /* Centrer les éléments verticalement */
+  align-items: center;
+  justify-content: center;
   box-sizing: border-box;
-}
-
-.skill-title {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0.5rem;
-  margin-bottom: 0.5rem;
-  position: relative;
-}
-
-.skill-title:after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: 50%;
-  width: 0;
-  height: 4px;
-  border-radius: 2px 0 0 2px;
-  transition: 0.5s;
-}
-
-.skill-title:before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 4px;
-  border-radius: 0 2px 2px 0;
-  transition: 0.5s;
-}
-
-.skill-title h3 {
-  margin-top: 0.5rem;
-  font-size: 1.2rem; /* Ajustez la taille du texte */
-}
-
-.skill-image {
-  width: 90px;
-  height: 90px;
-  position: relative;
-  border-radius: 45px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: 0.5s;
-}
-
-.skill-image:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%;
-  height: 90px;
-  background: rgba(100, 100, 100, 0.5);
-  border-radius: 45px 0 0 45px;
-}
-
-.skill-icon {
-  width: 50px;
-  height: 50px; /* Ajustez la taille des logos */
-  z-index: 2;
-  object-fit: contain; /* Assurez-vous que les logos sont bien ajustÃ©s */
-}
-
-.skill-icons-row {
-  display: flex;
-  justify-content: center;
-  gap: 10px; /* espace entre les logos */
-  margin: 0 0;
-}
-
-.skill-icon2 {
-  background-color : var(--alabaster);
-  border-radius: 50%;
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-}
-
-.certif {
-  margin-top: 20px;
-  width: 80%;
-  max-width: 1200px; /* Ajustez la largeur maximale selon vos besoins */
-  margin: 0 auto; /* Centrer la section */
-  background-color: var(--philippine-silver);
-}
-
-.certif h2 {
-  margin-top: 40px;
-  margin-bottom: 40px;
-  text-align: center; /* Centrer le titre */
 }
 
 .certif-container {
   display: flex;
-  flex-wrap: wrap; /* Permet aux éléments de passer Ã  la ligne si nÃ©cessaire */
-  justify-content: center; /* Centre les éléments horizontalement */
-  gap: 2rem; /* Espacement entre les éléments */
-  padding: 1rem;
-  text-align: center;
-  font-size: 1.2rem;
-}
-
-.certif-box {
-  flex: 1 1 150px; /* Flex-grow, flex-shrink, flex-basis */
-  max-width: 150px; /* Largeur maximale pour chaque boîte */
-  padding: 1rem;
-  color: var(--white-coffee);
-  text-shadow: 2px 2px 2px var(--blue-dark);
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centrer les éléments horizontalement */
-  justify-content: center; /* Centrer les éléments verticalement */
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  gap: 2rem;
+  padding: 2rem;
   box-sizing: border-box;
 }
 
-.certif-title {
+.certif-box {
+  width: 320px;
+  height: 320px;
+  background-color: var(--alabaster);
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
   display: flex;
-  flex-direction: column;
   align-items: center;
-  padding: 0.5rem;
-  margin-bottom: 3.5rem;
-  position: relative;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0;
 }
 
+.certif-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.certif-icon:hover {
+  transform: scale(1.05);
+}
+
+.skill-image,
 .certif-image {
   width: 90px;
   height: 90px;
@@ -388,29 +266,39 @@ header {
   transition: 0.5s;
 }
 
-.certif-image:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%;
-  height: 90px;
-  background: rgba(100, 100, 100, 0.5);
-  border-radius: 45px 0 0 45px;
+.skill-icon {
+  width: 50px;
+  height: 50px;
+  z-index: 2;
+  object-fit: contain;
 }
 
 .certif-icon {
-  width: 300px;
-  height: 300px; /* Ajustez la taille des logos */
+  width: 80%;
+  height: auto;
+  max-height: 80%;
+  object-fit: contain;
   z-index: 2;
-  object-fit: contain; /* Assurez-vous que les logos sont bien ajustÃ©s */
+  transition: transform 0.3s ease-in-out;
 }
 
 .certif-icon:hover {
   transform: scale(1.05);
-  transition: all 0.3s ease-in-out;
-} 
+}
 
+.skill-icons-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 0;
+}
+.skill-icon2 {
+  background-color: var(--alabaster);
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
 .hidden {
   display: none;
 }
@@ -423,14 +311,12 @@ header {
   color: var(--text-dark);
   text-align: center;
 }
-
 #Responsive h2,
 .projects2 h2 {
   font-size: 2rem;
   color: var(--rusty-red);
   margin-bottom: 40px;
 }
-
 .projects1, .projects2 {
   display: flex;
   flex-wrap: wrap;
@@ -438,14 +324,11 @@ header {
   justify-content: center;
   margin-bottom: 40px;
 }
-
-/* Cartes de projets interactives */
 .cardresponsive, .cardjs, .cardpk {
   width: 320px;
   height: 320px;
   perspective: 1000px;
 }
-
 .cardresponsive-inner, .cardjs-inner, .cardpk-inner {
   position: relative;
   width: 100%;
@@ -453,13 +336,11 @@ header {
   transition: transform 0.6s;
   transform-style: preserve-3d;
 }
-
-.cardresponsive:hover .cardresponsive-inner,
-.cardjs:hover .cardjs-inner,
-.cardpk:hover .cardpk-inner {
+.cardresponsive.flipped .cardresponsive-inner,
+.cardjs.flipped .cardjs-inner,
+.cardpk.flipped .cardpk-inner {
   transform: rotateY(-90deg);
 }
-
 .cardresponsive-front, .cardresponsive-back,
 .cardjs-front, .cardjs-back,
 .cardpk-front, .cardpk-back {
@@ -472,14 +353,11 @@ header {
   border-radius: 10px;
   backface-visibility: hidden;
 }
-
 .cardresponsive img, .cardjs-front img, .cardpk-front img {
   width: 80%;
   object-fit: cover;
   border-radius: 10px;
 }
-
-/* Face arrière des cartes */
 .cardresponsive-back, .cardjs-back, .cardpk-back {
   background-color: var(--rusty-red);
   color: var(--text-light);
@@ -489,22 +367,12 @@ header {
   padding: 20px;
   transform: rotateY(90deg);
 }
-
 .cardresponsive-back h4, .cardjs-back h4, .cardpk-back h4 {
   font-size: 1.4rem;
   color: var(--blue-dark);
   text-shadow: 2px 2px 2px var(--philippine-silver);
-  margin-bottom: 10px;
 }
-
-.cardresponsive p, .cardjs-back p, .cardpk-back p {
-  font-size: 1rem;
-  color: var(--text-light);
-  text-shadow: 2px 2px 2px var(--blue-dark);
-  margin-bottom: 15px;
-}
-
-.cardresponsive a, .cardjs-back a, .cardpk-back a{
+.cardresponsive a, .cardjs-back a, .cardpk-back a {
   font-size: 1.1rem;
   color: var(--text-light);
   background-color: var(--vivid-auburn);
@@ -514,7 +382,6 @@ header {
   margin-top: 10px;
   text-decoration: none;
 }
-
 .cardresponsive-back a:hover,
 .cardjs-back a:hover,
 .cardpk-back a:hover {
@@ -641,142 +508,98 @@ header {
   width: 20px;
 }
 
-/* ================== MOBILE RESPONSIVE ================== */
+/* ================== FORMULAIRE DE CONTACT ================== */
+/* [Identique à ta version précédente, laissé tel quel pour clarté] */
 
-/* Ajustements pour les petits écrans (mobiles) */
+/* ================== RESPONSIVE ================== */
 @media only screen and (max-width: 768px) {
   body {
-    padding: 20px;
-  }
-
-  /* ================== NAVIGATION ================== */
-  #navbar ul {
-    flex-direction: column; /* Les liens du menu s'affichent verticalement */
-    gap: 15px;
-  }
-
-  #navbar li {
     padding: 10px;
   }
-
-  /* Logo de la navigation si nécessaire */
-  #photo {
-    width: 120px;
-    height: 120px;
-    margin-left: 0;
-    margin-bottom: 20px;
+  #navbar ul {
+    flex-direction: column;
+    gap: 15px;
   }
-
-  /* ================== TITRES ================== */
-  h1, h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
+  #navbar li {
+    padding: 12px 10px;
   }
-
-  /* ================== SECTION ACCUEIL ================== */
+  .nav-link {
+    font-size: 1.2rem;
+  }
   .welcome-section {
-    padding: 40px 15px;
+    padding: 30px 10px;
   }
-
-  /* ================== SECTION COMPÉTENCES ================== */
+  .welcome-section h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1em;
+  }
+  .welcome-section p {
+    font-size: 1.2rem;
+    max-width: 100%;
+  }
+  #photo {
+    width: 150px;
+    height: 150px;
+    margin: 20px auto 30px auto;
+    display: block;
+  }
+  h1, h2 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+  }
   .skills {
     width: 100%;
+    padding: 0 10px;
   }
-
   .skill-container {
-    flex-direction: column; /* Les éléments passent en colonne */
-    gap: 1rem;
-  }
-
-  .skill-box {
-    max-width: 100%; /* Les boîtes prennent toute la largeur */
-    flex: 1 1 100%;
-  }
-
-  /* ================== SECTION PROJETS ================== */
-  .projects1, .projects2 {
-    flex-direction: column; /* Les projets sont maintenant affichés en colonne */
-    align-items: center;
-  }
-
-  .cardresponsive, .cardpk {
-    width: 50%; /* Les cartes prennent 50% de la largeur de l'écran */
-    height: 300px; /* Ajuste la hauteur pour un affichage plus adapté */
-    margin-bottom: 20px;
-  }
-
-  /* ================== SECTION CONTACT ================== */
-  .contact-links {
     flex-direction: column;
+    gap: 1rem;
     align-items: center;
   }
-
-  .contact-links a {
-    width: 100%;
-    margin-bottom: 10px;
+  .skill-box {
+    max-width: 90%;
+    flex: none;
   }
-
-  .contact-links img {
-    width: 18px;
-  }
-
-  /* ================== GESTION DES IMAGES ================== */
   .skill-image {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
   }
-
-  .cardresponsive img, .cardpk-front img {
-    width: 100%;
-    object-fit: contain;
+  .skill-icon {
+    width: 40px;
+    height: 40px;
   }
-}
-
-/* ================== TABLETLE RESPONSIVE ================== */
-
-/* Ajustements pour les tablettes (écrans entre 768px et 1024px) */
-@media only screen and (max-width: 1024px) and (min-width: 769px) {
-  /* Réduire légèrement la taille du texte */
-  h1, h2 {
-    font-size: 2.2rem;
+  .certif-container {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem;
+    min-height: auto;
   }
-
-  /* Modifier l'affichage de la navigation */
-  #navbar ul {
-    flex-direction: row; /* Le menu reste horizontal mais plus compact */
-    gap: 20px;
-  }
-
-  /* Adapter les compétences */
-  .skills .skill-container {
-    justify-content: space-between;
-  }
-
-  .skill-box {
-    max-width: 45%;
-  }
-
-  /* Réajuster les cartes projets */
-  .cardshf, .cardnt, .cardsp, .cardpk {
-    width: 45%; /* Ajuste la largeur des cartes pour les écrans de taille moyenne */
-    height: 300px;
+  .certif-box {
+    width: 90%;
+    max-width: 350px;
+    height: auto;
+    padding: 1rem;
   }
 }
 
-/* ================== LARGE SCREENS RESPONSIVE ================== */
-
-/* Ajustements pour les grands écrans (plus de 1024px) */
-@media only screen and (min-width: 1025px) {
-  /* Largeur et espacement adaptés pour les grands écrans */
-  .skills .skill-container {
-    justify-content: space-evenly;
+@media only screen and (max-width: 768px) {
+  .contact-section {
+    padding: 15px 10px;
+    max-width: 100%;
   }
 
-  .skill-box {
-    max-width: 20%; /* Les boîtes de compétences occupent 20% de la largeur */
+  .contact-section-header h3 {
+    font-size: 1.2rem;
   }
 
-  .projects1, .projects2 {
-    gap: 40px;
+  .contact-form input[type="text"],
+  .contact-form input[type="email"],
+  .contact-form textarea {
+    font-size: 0.95rem;
+  }
+
+  #submit_button {
+    font-size: 1rem;
+    padding: 12px 0;
   }
 }
