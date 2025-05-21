@@ -522,51 +522,85 @@ header {
 /* ================== NAVIGATION RESPONSIVE ================== */
 /* ===== HAMBURGER MENU ===== */
 .hamburger {
+  position: fixed;
+  display: flex;
   flex-direction: column;
   justify-content: space-around;
   width: 30px;
   height: 24px;
   cursor: pointer;
   margin: 15px;
-  
+  z-index: 1006;
+  background: none;
+  border: none;
 }
+
 .hamburger span {
   height: 4px;
   width: 100%;
+  background-color: #000;
   border-radius: 5px;
   transition: all 0.3s ease;
+  display: block;
 }
+
+/* Animation hamburger -> cross */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Cacher le menu */
 #navbar.hidden {
-  visibility: hidden;
+  display: none;
 }
+
 .navbar {
-    position: fixed;
-    display: flex;
-    left: 10px;
-    top: 60px;
-    flex-direction: column;
-    align-items: center;
-    transition: max-height 0.3s ease;
-  }
-  .nav-link {
-    font-size: 1.2rem;
-  }
-  .navbar ul {
-    flex-direction: column;
-    gap: 15px;
-  }
-  #navbar li {
-    padding: 12px 10px;
-  }
-  .navbar.overlay{
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px);
-    z-index: 1005;
-  }
+  position: fixed;
+  display: flex;
+  left: 10px;
+  top: 60px;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  z-index: 1004;
+}
+
+.nav-link {
+  font-size: 1.2rem;
+}
+
+.navbar ul {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+#navbar li {
+  padding: 12px 10px;
+}
+
+.navbar.overlay {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  z-index: 1005;
+}
 /* ================== PRESENTATION RESPONSIVE ================== */
   .welcome-section {
     padding: 30px 10px;
