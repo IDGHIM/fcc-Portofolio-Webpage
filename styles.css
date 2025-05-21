@@ -523,13 +523,17 @@ header {
 .hamburger {
    display: flex;
     position: fixed;
-    width: 40px;       /* plus grand qu'en version desktop */
-    height: 32px;      /* plus grand */
+    top: 20px;
+    left: 20px;
+    width: 48px; /* plus grand sur mobile */
+    height: 38px;
     cursor: pointer;
-    margin: 20px;
     z-index: 1006;
     background: none;
     border: none;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 6px;
 }
 .no-scroll {
   overflow: hidden;
