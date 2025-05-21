@@ -181,8 +181,7 @@ header {
 }
 
 /* ================== SECTION COMPÉTENCES ET CERTIFICATIONS ================== */
-.skills,
-.certif {
+.skills{
   margin-top: 20px;
   width: 80%;
   max-width: 1200px;
@@ -218,43 +217,8 @@ header {
   justify-content: center;
   box-sizing: border-box;
 }
-.certif-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  gap: 2rem;
-  padding: 2rem;
-  box-sizing: border-box;
-}
-.certif-box {
-  width: 320px;
-  height: 320px;
-  background-color: var(--alabaster);
-  border-radius: 15px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  padding: 0;
-}
 
-.certif-icon {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 15px;
-  transition: transform 0.3s ease-in-out;
-}
-
-.certif-icon:hover {
-  transform: scale(1.05);
-}
-
-.skill-image,
-.certif-image {
+.skill-image {
   width: 90px;
   height: 90px;
   position: relative;
@@ -272,19 +236,6 @@ header {
   object-fit: contain;
 }
 
-.certif-icon {
-  width: 80%;
-  height: auto;
-  max-height: 80%;
-  object-fit: contain;
-  z-index: 2;
-  transition: transform 0.3s ease-in-out;
-}
-
-.certif-icon:hover {
-  transform: scale(1.05);
-}
-
 .skill-icons-row {
   display: flex;
   justify-content: center;
@@ -297,6 +248,52 @@ header {
   width: 80px;
   height: 80px;
   object-fit: contain;
+}
+.certif-box {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+/* Grille responsive */
+.certif-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+/* Carte de certification */
+.certif-title {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.certif-title:hover {
+  transform: scale(1.03);
+}
+/* Image */
+.certif-icon {
+  max-width: 100%;
+  height: auto;
+  max-height: 300px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+.certif-icon:hover {
+  transform: scale(1.02);
 }
 .hidden {
   display: none;
@@ -643,9 +640,9 @@ header {
     min-height: auto;
   }
   .certif-box {
-    width: 90%;
+    width: 100%;
     max-width: 350px;
-    height: auto;
+    height: 100%;
     padding: 1rem;
   }
 }
