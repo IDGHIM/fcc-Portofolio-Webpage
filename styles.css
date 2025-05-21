@@ -526,8 +526,6 @@ header {
 .hamburger {
    display: flex;
     position: fixed;
-    flex-direction: column;
-    justify-content: space-around;
     width: 40px;       /* plus grand qu'en version desktop */
     height: 32px;      /* plus grand */
     cursor: pointer;
@@ -535,6 +533,10 @@ header {
     z-index: 1006;
     background: none;
     border: none;
+}
+.no-scroll {
+  overflow: hidden;
+  height: 100vh;
 }
 
 /* Animation hamburger -> cross */

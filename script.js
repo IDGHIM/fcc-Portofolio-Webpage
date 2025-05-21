@@ -1,35 +1,36 @@
 const hamburger = document.querySelector('.hamburger');
-  const navbar = document.getElementById('navbar');
-  const navLinks = document.querySelectorAll('.nav-link');
+const navbar = document.getElementById('navbar');
+const navLinks = document.querySelectorAll('.nav-link');
 
-  // Fonction pour basculer l'affichage du menu
-  function toggleMenu() {
-    navbar.classList.toggle('hidden');
-    hamburger.classList.toggle('active');
-  }
+// Fonction pour basculer l'affichage du menu
+function toggleMenu() {
+  navbar.classList.toggle('hidden');
+  hamburger.classList.toggle('active');
+  document.body.classList.toggle('no-scroll'); // Bloquer/débloquer le scroll
+}
 
-  // Ouvrir/fermer en cliquant sur le hamburger
-  hamburger.addEventListener('click', toggleMenu);
+// Ouvrir/fermer en cliquant sur le hamburger
+hamburger.addEventListener('click', toggleMenu);
 
-  // Fermer le menu quand un lien est cliqué
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      if (!navbar.classList.contains('hidden')) {
-        toggleMenu();
-      }
-    });
-  });
-
-  // Fermer le menu si on clique en dehors
-  document.addEventListener('click', (e) => {
-    if (
-      !navbar.classList.contains('hidden') &&
-      !navbar.contains(e.target) &&
-      !hamburger.contains(e.target)
-    ) {
+// Fermer le menu quand un lien est cliqué
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    if (!navbar.classList.contains('hidden')) {
       toggleMenu();
     }
   });
+});
+
+// Fermer le menu si on clique en dehors
+document.addEventListener('click', (e) => {
+  if (
+    !navbar.classList.contains('hidden') &&
+    !navbar.contains(e.target) &&
+    !hamburger.contains(e.target)
+  ) {
+    toggleMenu();
+  }
+});
 
 document.addEventListener("DOMContentLoaded", function () {
     const cards = document.querySelectorAll(".cardresponsive, .cardjs, .cardpk");
