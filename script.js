@@ -1,21 +1,9 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const hamburger = document.querySelector('.hamburger');
-  const navMenu = document.querySelector('#navbar ul');
+const hamburger = document.getElementById('hamburger');
+const navbar = document.getElementById('navbar');
 
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('show');
-  });
-
-  // Optionnel : Fermer le menu quand on clique sur un lien
-  navMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      hamburger.classList.remove('active');
-      navMenu.classList.remove('show');
-    });
-  });
+hamburger.addEventListener('click', () => {
+  navbar.classList.toggle('hidden');
 });
-
 
 document.addEventListener("DOMContentLoaded", function () {
     const cards = document.querySelectorAll(".cardresponsive, .cardjs, .cardpk");

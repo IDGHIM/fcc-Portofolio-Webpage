@@ -29,7 +29,7 @@ html {
 
 /* ================== BODY ================== */
 body {
-  background-color: var(--philippine-silver);
+  background-color: var(--philippine-silver); 
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
@@ -94,7 +94,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-color: var(--blue-dark);
+  background-color: var(--blue-dark); 
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 #navbar {
@@ -102,6 +102,7 @@ header {
   justify-content: center;
   background-color: var(--blue-dark);
 }
+
 #navbar ul {
   display: flex;
   list-style: none;
@@ -120,12 +121,27 @@ header {
 .nav-link:hover {
   color: var(--rusty-red);
 }
-
+/* ===== HAMBURGER MENU ===== */
+.hamburger {
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 24px;
+  cursor: pointer;
+  margin: 15px;
+}
+.hamburger span {
+  height: 4px;
+  width: 100%;
+  background-color: var(--blue-dark);
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
 /* ================== SECTION ACCUEIL ================== */
 .welcome-section {
   padding: 60px 20px;
   text-align: center;
-  background-color: var(--alabaster);
+  background-color: var(--alabaster); 
 }
 .welcome-section h1 {
   font-size: 2.5rem;
@@ -513,19 +529,59 @@ header {
 
 /* ================== RESPONSIVE ================== */
 @media only screen and (max-width: 768px) {
+
+/* ================== BODY RESPONSIVE ================== */
   body {
     padding: 10px;
   }
-  #navbar ul {
+  h1, h2 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+  }
+/* ================== NAVIGATION RESPONSIVE ================== */
+#navbar.hidden {
+  visibility: hidden;
+}
+.navbar {
+    position: fixed;
+    display: flex;
+    left: 10px;
+    top: 60px;
+    flex-direction: column;
+    align-items: center;
+    transition: max-height 0.3s ease;
+  }
+  .nav-link {
+    font-size: 1.2rem;
+  }
+  .navbar ul {
     flex-direction: column;
     gap: 15px;
   }
   #navbar li {
     padding: 12px 10px;
   }
-  .nav-link {
-    font-size: 1.2rem;
+  .overlay{
+    display : flex;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    z-index: 995;
   }
+  .navbar.overlay{
+    display : flex;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    z-index: 995;
+  }
+/* ================== PRESENTATION RESPONSIVE ================== */
   .welcome-section {
     padding: 30px 10px;
   }
@@ -543,10 +599,7 @@ header {
     margin: 20px auto 30px auto;
     display: block;
   }
-  h1, h2 {
-    font-size: 1.8rem;
-    margin-bottom: 25px;
-  }
+/* ================== SECTION COMPÉTENCES ET CERTIFICATIONS RESPONSIVE ================== */
   .skills {
     width: 100%;
     padding: 0 10px;
@@ -581,8 +634,7 @@ header {
     padding: 1rem;
   }
 }
-
-@media only screen and (max-width: 768px) {
+/* ================== FORMULAIRE DE CONTACT RESPONSIVE ================== */
   .contact-section {
     padding: 15px 10px;
     max-width: 100%;
@@ -602,4 +654,5 @@ header {
     font-size: 1rem;
     padding: 12px 0;
   }
-}
+
+
