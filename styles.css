@@ -93,14 +93,13 @@ h1::after, h2::after {
 header {
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 1005;
   background-color: var(--blue-dark); 
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 #navbar {
   display: flex;
   justify-content: center;
-  background-color: var(--blue-dark);
 }
 
 #navbar ul {
@@ -120,22 +119,6 @@ header {
 }
 .nav-link:hover {
   color: var(--rusty-red);
-}
-/* ===== HAMBURGER MENU ===== */
-.hamburger {
-  flex-direction: column;
-  justify-content: space-around;
-  width: 30px;
-  height: 24px;
-  cursor: pointer;
-  margin: 15px;
-}
-.hamburger span {
-  height: 4px;
-  width: 100%;
-  background-color: var(--blue-dark);
-  border-radius: 5px;
-  transition: all 0.3s ease;
 }
 /* ================== SECTION ACCUEIL ================== */
 .welcome-section {
@@ -233,7 +216,6 @@ header {
   justify-content: center;
   box-sizing: border-box;
 }
-
 .certif-container {
   display: flex;
   flex-wrap: wrap;
@@ -244,7 +226,6 @@ header {
   padding: 2rem;
   box-sizing: border-box;
 }
-
 .certif-box {
   width: 320px;
   height: 320px;
@@ -539,6 +520,22 @@ header {
     margin-bottom: 25px;
   }
 /* ================== NAVIGATION RESPONSIVE ================== */
+/* ===== HAMBURGER MENU ===== */
+.hamburger {
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 24px;
+  cursor: pointer;
+  margin: 15px;
+  
+}
+.hamburger span {
+  height: 4px;
+  width: 100%;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
 #navbar.hidden {
   visibility: hidden;
 }
@@ -561,25 +558,14 @@ header {
   #navbar li {
     padding: 12px 10px;
   }
-  .overlay{
-    display : flex;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(10px);
-    z-index: 995;
-  }
   .navbar.overlay{
-    display : flex;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(10px);
-    z-index: 995;
+    backdrop-filter: blur(5px);
+    z-index: 1005;
   }
 /* ================== PRESENTATION RESPONSIVE ================== */
   .welcome-section {
