@@ -122,6 +122,29 @@ header {
 .nav-link:hover {
   color: var(--rusty-red);
 }
+.lang-btn {
+  position: absolute;
+  bottom: 10px;
+  right: 0;
+  background-image: url('https://flagcdn.com/gb.svg'); /* ou emoji, voir en dessous */
+  background-repeat: no-repeat;
+  background-position: center left;
+  background-size: 18px 18px;
+  padding: 6px 10px 6px 28px; /* espace pour le drapeau */
+  border: 1.5px solid var(--text-light);
+  color: var(--text-light);
+  font-size: 1.2rem;
+  font-weight: normal;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: transparent;
+}
+.lang-btn:hover {
+  background-color: var(--rusty-red);
+  color: white;
+  border-color: var(--rusty-red);
+}
 /* ================== SECTION ACCUEIL ================== */
 .welcome-section {
   padding: 60px 20px;
