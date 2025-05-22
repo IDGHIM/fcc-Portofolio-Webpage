@@ -544,19 +544,19 @@ header {
 /* ================== NAVIGATION RESPONSIVE ================== */
 /* ===== HAMBURGER MENU ===== */
 .hamburger {
-   display: flex;
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    width: 48px; /* plus grand sur mobile */
-    height: 38px;
-    cursor: pointer;
-    z-index: 1006;
-    background: none;
-    border: none;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 6px;
+  display: flex;
+  position: fixed;
+  top: 10px;
+  right: 30px;
+  width: 35px; /* plus grand sur mobile */
+  height: 30px;
+  cursor: pointer;
+  z-index: 1006;
+  background-color: var(--rusty-red);
+  border: none;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 6px;
 }
 .no-scroll {
   overflow: hidden;
