@@ -343,6 +343,36 @@ header {
   justify-content: center;
   margin-bottom: 40px;
 }
+.cardresponsive-front {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Pli dans le coin bas-droit */
+.cardresponsive-front::after,
+.cardjs-front::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-bottom: 60px solid var(--rusty-red); /* couleur du coin replié */
+  border-left: 60px solid transparent;
+  z-index: 2;
+  transition: all 0.4s ease;
+  pointer-events: none;
+}
+
+/* Effet de repli au survol */
+.cardresponsive:hover .cardresponsive-front::after,
+.cardjs:hover .cardjs-front::after {
+  border-bottom-width: 0;
+  border-left-width: 0;
+  width: 60px;
+  height: 60px;
+}
+
 .cardresponsive, .cardjs, .cardpk {
   width: 320px;
   height: 320px;
@@ -408,7 +438,6 @@ header {
   transform: scale(1.05);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
-
 /* ================== FORMULAIRE DE CONTACT ================== */
 .contact-form {
   max-width: 600px;
