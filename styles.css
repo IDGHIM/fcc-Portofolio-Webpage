@@ -581,11 +581,12 @@ header {
   height: 30px;
   cursor: pointer;
   z-index: 1006;
+  color: var(--text-light);
   background-color: var(--rusty-red);
   border: none;
   flex-direction: column;
   justify-content: space-between;
-  padding: 6px;
+  padding: 2px;
 }
 .no-scroll {
   overflow: hidden;
