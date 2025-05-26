@@ -129,7 +129,6 @@ header {
   background-repeat: no-repeat;
   background-position: center left;
   background-size: 18px 18px;
-  padding: 6px 10px 6px 28px; /* espace pour le drapeau */
   border: 1.5px solid var(--text-light);
   color: var(--text-light);
   font-size: 1.2rem;
