@@ -315,6 +315,7 @@ header {
 }
 .certif-icon:hover {
   transform: scale(1.02);
+  cursor: pointer;
 }
 .hidden {
   display: none;
@@ -341,7 +342,7 @@ header {
   justify-content: center;
   margin-bottom: 40px;
 }
-.cardresponsive-front {
+.cardresponsive-front, .cardjs-front, .cardpk-front {
   position: relative;
   overflow: hidden;
 }
@@ -377,6 +378,7 @@ header {
   width: 320px;
   height: 320px;
   perspective: 1000px;
+  cursor: pointer;
 }
 .cardresponsive-inner, .cardjs-inner, .cardpk-inner {
   position: relative;
