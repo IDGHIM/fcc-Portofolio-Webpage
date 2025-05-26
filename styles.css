@@ -126,7 +126,6 @@ header {
   position: absolute;
   bottom: 10px;
   right: 0;
-  background-image: url('https://flagcdn.com/gb.svg'); /* ou emoji, voir en dessous */
   background-repeat: no-repeat;
   background-position: center left;
   background-size: 18px 18px;
@@ -639,6 +638,7 @@ header {
 }
 
 #navbar li {
+  text-align: center;;
   padding: 12px 10px;
 }
 
