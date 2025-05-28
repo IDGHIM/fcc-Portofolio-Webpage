@@ -30,8 +30,9 @@ The goal of this project is to build a **personal portfolio webpage** as part of
 - [x] The welcome section should take up the full height of the viewport
 - [x] The navbar should always stay at the top of the viewport
 
-> ⚠️ **Important**: Be sure to include this line in your HTML to link your CSS file:  
+> ⚠️ **Important**: Be sure to include this line in your HTML to link your **CSS** & **JS** file:  
 > `<link rel="stylesheet" href="styles.css">`
+> `<script src="script.js"></script>`
 
 ---
 
