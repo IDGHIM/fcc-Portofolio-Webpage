@@ -122,30 +122,6 @@ header {
 .nav-link:hover {
   color: var(--rusty-red);
 }
-<<<<<<< HEAD
-=======
-.lang-btn {
-  position: absolute;
-  bottom: 10px;
-  right: 0;
-  background-repeat: no-repeat;
-  background-position: center left;
-  background-size: 18px 18px;
-  border: 1.5px solid var(--text-light);
-  color: var(--text-light);
-  font-size: 1.2rem;
-  font-weight: normal;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  background-color: transparent;
-}
-.lang-btn:hover {
-  background-color: var(--rusty-red);
-  color: white;
-  border-color: var(--rusty-red);
-}
->>>>>>> 2e9280ca53397eebf7cf5d06781f0ddfdc3b68ce
 /* ================== SECTION ACCUEIL ================== */
 .welcome-section {
   padding: 60px 20px;
@@ -345,41 +321,6 @@ header {
   justify-content: center;
   margin-bottom: 40px;
 }
-<<<<<<< HEAD
-=======
-.cardresponsive-front, .cardjs-front, .cardpk-front {
-  position: relative;
-  overflow: hidden;
-}
-
-/* Pli dans le coin bas-droit */
-.cardresponsive-front::after,
-.cardjs-front::after,
-.cardpk-front::after {
-  content: "";
-  position: absolute;
-  bottom: 250px;
-  right: 250px;
-  width: 0;
-  height: 0;
-  border-top: 60px solid var(--rusty-red); /* couleur du coin replié */
-  border-right: 60px solid transparent;
-  z-index: 2;
-  transition: all 0.4s ease;
-  pointer-events: none;
-}
-
-/* Effet de repli au survol */
-.cardresponsive:hover .cardresponsive-front::after,
-.cardjs:hover .cardjs-front::after,
-.cardpk:hover .cardpk-front::after {
-  border-top-width: 0;
-  border-right-width: 0;
-  width: 60px;
-  height: 60px;
-}
-
->>>>>>> 2e9280ca53397eebf7cf5d06781f0ddfdc3b68ce
 .cardresponsive, .cardjs, .cardpk {
   width: 320px;
   height: 320px;
@@ -582,7 +523,6 @@ header {
 /* ================== NAVIGATION RESPONSIVE ================== */
 /* ===== HAMBURGER MENU ===== */
 .hamburger {
-<<<<<<< HEAD
    display: flex;
     position: fixed;
     top: 20px;
@@ -596,22 +536,6 @@ header {
     flex-direction: column;
     justify-content: space-between;
     padding: 6px;
-=======
-  display: flex;
-  position: fixed;
-  top: 10px;
-  right: 30px;
-  width: 35px; /* plus grand sur mobile */
-  height: 30px;
-  cursor: pointer;
-  z-index: 1006;
-  color: var(--text-light);
-  background-color: var(--rusty-red);
-  border: none;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 2px;
->>>>>>> 2e9280ca53397eebf7cf5d06781f0ddfdc3b68ce
 }
 .no-scroll {
   overflow: hidden;
