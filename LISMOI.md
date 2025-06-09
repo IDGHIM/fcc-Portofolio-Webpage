@@ -11,7 +11,8 @@
 Ce projet consiste à créer votre propre page de **portfolio personnel** dans le cadre du parcours **Responsive Web Design** proposé par [freeCodeCamp](https://www.freecodecamp.org/).
 
 > 💡 Inspiré de cet exemple :  
-[Page de portfolio](https://personal-portfolio.freecodecamp.rocks) (⚠️ **à ne pas copier**).
+[Page de portfolio](https://personal-portfolio.freecodecamp.rocks)
+(⚠️ **à ne pas copier**).
 
 ---
 
@@ -29,8 +30,9 @@ Ce projet consiste à créer votre propre page de **portfolio personnel** dans l
 - [x] La hauteur de la section d’accueil doit être égale à celle du viewport
 - [x] La barre de navigation doit rester fixée en haut de l’écran
 
-> ⚠️ **Important** : N’oubliez pas d’ajouter cette ligne dans le fichier HTML pour lier votre CSS :  
-> `<link rel="stylesheet" href="styles.css">`
+> ⚠️ **Important** : Assurez-vous d'inclure cette ligne dans votre HTML pour lier vos fichiers **CSS** et **JS** :  
+> `<link rel="stylesheet" href="styles.css">`  
+> `<script src="script.js"></script>`
 
 ---
 
