@@ -122,29 +122,6 @@ header {
 .nav-link:hover {
   color: var(--rusty-red);
 }
-.lang-btn {
-  position: absolute;
-  bottom: 10px;
-  right: 0;
-  background-image: url('https://flagcdn.com/gb.svg'); /* ou emoji, voir en dessous */
-  background-repeat: no-repeat;
-  background-position: center left;
-  background-size: 18px 18px;
-  padding: 6px 10px 6px 28px; /* espace pour le drapeau */
-  border: 1.5px solid var(--text-light);
-  color: var(--text-light);
-  font-size: 1.2rem;
-  font-weight: normal;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  background-color: transparent;
-}
-.lang-btn:hover {
-  background-color: var(--rusty-red);
-  color: white;
-  border-color: var(--rusty-red);
-}
 /* ================== SECTION ACCUEIL ================== */
 .welcome-section {
   padding: 60px 20px;
@@ -343,36 +320,6 @@ header {
   justify-content: center;
   margin-bottom: 40px;
 }
-.cardresponsive-front {
-  position: relative;
-  overflow: hidden;
-}
-
-/* Pli dans le coin bas-droit */
-.cardresponsive-front::after,
-.cardjs-front::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 0;
-  height: 0;
-  border-bottom: 60px solid var(--rusty-red); /* couleur du coin replié */
-  border-left: 60px solid transparent;
-  z-index: 2;
-  transition: all 0.4s ease;
-  pointer-events: none;
-}
-
-/* Effet de repli au survol */
-.cardresponsive:hover .cardresponsive-front::after,
-.cardjs:hover .cardjs-front::after {
-  border-bottom-width: 0;
-  border-left-width: 0;
-  width: 60px;
-  height: 60px;
-}
-
 .cardresponsive, .cardjs, .cardpk {
   width: 320px;
   height: 320px;
@@ -438,6 +385,7 @@ header {
   transform: scale(1.05);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
+
 /* ================== FORMULAIRE DE CONTACT ================== */
 .contact-form {
   max-width: 600px;
@@ -573,19 +521,19 @@ header {
 /* ================== NAVIGATION RESPONSIVE ================== */
 /* ===== HAMBURGER MENU ===== */
 .hamburger {
-  display: flex;
-  position: fixed;
-  top: 10px;
-  right: 30px;
-  width: 35px; /* plus grand sur mobile */
-  height: 30px;
-  cursor: pointer;
-  z-index: 1006;
-  background-color: var(--rusty-red);
-  border: none;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 6px;
+   display: flex;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 48px; /* plus grand sur mobile */
+    height: 38px;
+    cursor: pointer;
+    z-index: 1006;
+    background: none;
+    border: none;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 6px;
 }
 .no-scroll {
   overflow: hidden;
@@ -722,5 +670,3 @@ header {
     font-size: 1rem;
     padding: 12px 0;
   }
-
-
