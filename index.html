@@ -1,233 +1,209 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ichem DGHIM, développeur web junior</title>
-    <!-- Feuilles de style -->
-    <link rel="stylesheet" href="styles.css" />
-    <style>@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400");</style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="image/favicon/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="image/favicon/favicon.svg" />
-    <link rel="shortcut icon" href="image/favicon/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="image/favicon/apple-touch-icon.png" />
-    <link rel="manifest" href="image//favicon/site.webmanifest" />
-  </head>
-  <body>
-    <!-- NAVIGATION -->
-     <header>
-      <button class="hamburger" id="hamburger">㊂</button>
-      <nav id="navbar" class="navbar hidden overlay">
-      <ul id="nav-links" >
-        <li><a class="nav-link" href="#présentation">Présentation</a></li>
-        <li><a class="nav-link" href="#competences">Compétences</a></li>
-        <li><a class="nav-link" href="#Projet">Projets effectués</a></li>
-        <li><a class="nav-link" href="#Contact">Me contacter</a></li>
-      </ul>
-      <button class="lang-btn" id="lang_button" onclick="window.location.href='index_en.html'">🇬🇧 Switch to English</button>
-    </nav>
-  </header>
-    <!-- SECTION PRÉSENTATION -->
-    <section class="welcome-section" id="présentation">
-      <h1>Portfolio DGHIM Ichem</h1>
-      <p>
-        Je suis DGHIM Ichem, 20 ans, intégrateur junior basé à Agen. Diplômé
-        d’un bac STI2D spécialité SIN, j’ai une imagination sans limite qui me
-        pousse à transformer chaque idée en réalité. Passionné par l’univers du
-        web, je donne vie à des interfaces modernes, fluides et responsive, avec
-        pour seul objectif : exaucer tout ce que j’imagine.
-      </p>
-      <p>
-        Et quand je ne suis pas devant mon écran, je suis à la salle de sport ! 
-        Je pratique le powerlifting en compétition. C’est une discipline exigeante, qui m’a appris la rigueur, la persévérance et le dépassement de soi — des qualités que je retrouve aussi dans l’univers du développement web.
-      </p>
-      <p>
-        <a href="CV DVW DGHIM Ichem.pdf" download class="download-button">
-          Télécharger mon CV (PDF)
-        </a>
-      </p>
-      <img id="photo" class="animated-border" src="image/pict/Comp2.jpeg" alt="DGHIM Ichem lifting squat" />
-      <img id="photo" class="animated-border" src="image/pict/Comp1.jpg" alt="DGHIM Ichem focus" />
-      <img id="photo" class="animated-border" src="image/pict/Comp3.jpg" alt="DGHIM Ichem focus before deadlift" />
-    </section>
-    <!-- SECTION COMPÉTENCES -->
-    <fieldset class="animated-border" >
-      <section class="section">
-        <div class="skills" id="competences">
-          <h2 id="competences_heading">Compétences</h2>
-          <div class="skill-container">
-            <div class="skill-box">
-              <div class="skill-title">
-                <div class="skill-image">
-                  <img 
-                  src="compétence/HTML5_logo_and_wordmark.svg.png" 
-                  class="skill-icon" alt="HTML icon" />
-                </div>
-                <h3 id="html_skill">HTML 5</h3>
-              </div>
-            </div>
-            <div class="skill-box">
-              <div class="skill-title">
-                <div class="skill-image">
-                  <img 
-                  src="compétence/CSS3_logo_and_wordmark.svg.png" 
-                  class="skill-icon" alt="CSS icon" />
-                </div>
-                <h3 id="css_skill">CSS 3</h3>
-              </div>
-            </div>
-            <div class="skill-box">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ichem DGHIM, développeur web junior</title>
+  <!-- Feuilles de style -->
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="responsive.css" />
+  <style>@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400");</style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="image/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="image/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="image/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="image/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="image//favicon/site.webmanifest" />
+</head>
+
+<body>
+  <!-- NAVIGATION -->
+ <header>
+  <nav class="navbar">
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#présentation"><i class="fas fa-home"></i></a></li>
+      <li><a href="#competences"><i class="fas fa-briefcase"></i></a></li>
+      <li><a href="#Projet"><i class="fas fa-code"></i></a></li>
+      <li><a href="#Contact"><i class="fas fa-envelope"></i></a></li>
+      <li><button class="lang-btn" onclick="window.location.href='index_en.html'">🇬🇧</button></li>
+    </ul>
+  </nav>
+</header>
+
+  <!-- SECTION PRÉSENTATION -->
+  <section class="welcome-section" id="présentation">
+    <h1 class="animated-title">Ichem DGHIM, développeur web junior</h1>
+    <p>
+    <img id="photo" class="animated-border" src="image/pict/Comp3.jpeg" alt="DGHIM Ichem lifting squat" />
+    </p>
+    <p>
+      Je suis DGHIM Ichem, 20 ans, intégrateur junior basé à Agen. Diplômé d’un bac STI2D spécialité SIN, j’ai une imagination sans limite qui me pousse à transformer chaque idée en réalité. Passionné par l’univers du web, je donne vie à des interfaces modernes, fluides et responsive, avec pour seul objectif : exaucer tout ce que j’imagine.
+    </p>
+    <p>
+      Quand je ne suis pas devant mon écran, je suis à la salle de sport ! Je pratique le powerlifting en compétition. C’est une discipline exigeante, qui m’a appris la rigueur, la persévérance et le dépassement de soi — des qualités que je retrouve aussi dans l’univers du développement web.
+    </p>
+    <p>
+      <a href="CV DVW DGHIM Ichem.pdf" download class="download-button">
+        Télécharger mon CV (PDF)
+      </a>
+    </p>
+  </section>
+
+  <!-- SECTION COMPÉTENCES -->
+    <section class="section">
+      <div class="skills" id="competences">
+        <h2 id="competences_heading">Compétences</h2>
+        <div class="skill-container">
+          <div class="skill-box">
             <div class="skill-title">
               <div class="skill-image">
-                <img
-                  src="compétence/java-script-js-logo-png_seeklogo-303341.png"
-                  class="skill-icon" alt="JavaScript icon" />
+                <img src="image/compétence/HTML5_logo_and_wordmark.svg.png" class="skill-icon" alt="HTML icon" />
               </div>
-              <h3 id="js_skill">JavaScript</h3>
             </div>
           </div>
-          </div> 
-          <h2>Certifications<h2>
-            <div class="certif-box">
-              <div class="certif-title">
-                <div class="certif-image">
-                  <a href="https://www.freecodecamp.org/certification/IchemD/responsive-web-design" target="_blank">
-                    <img
-                    src="certification_fcc/Certif_RWD.png"
-                    class="certif-icon" alt="Responsive Web Design certification" />
-                  </a>
-                </div>
+          <div class="skill-box">
+            <div class="skill-title">
+              <div class="skill-image">
+                <img src="image/compétence/CSS3_logo_and_wordmark.svg.png" class="skill-icon" alt="CSS icon" />
               </div>
             </div>
-    </fieldset>
-<!-- SECTION PROJETS -->
-<section id="Projet">
-  <!-- Projets certif. Responsive Web Design -->
-  <section id="Responsive">
-    <h2 class="responsive">Projets effectués pour la certification Responsive Web Design</h2>
-    <div class="projects1">
-      <!-- Projet Nutrition -->
-      <div>
-       <div class="cardresponsive">
-          <div class="cardresponsive-inner">
-            <div class="cardresponsive-front">
-              <img src="image/projets-pict/Health-Nutrition-Logo.png"
-              alt="Projet Nutrition"
-              class="zoom-in-out-element">
-            </div>
-            <div class="cardresponsive-back">
-              <h4>Page sur la nutrition</h4>
-                <p>
-                <div class="skill-icons-row">
-                <img src="compétence/HTML_log.png" class="skill-icon2" alt="HTML icon" />
-                <img src="compétence/CSS_log.png" class="skill-icon2" alt="HTML icon" />
-            </div>
-                </p>
-                <a href="https://idghim.github.io/fcc-Technical-Documentation/" target="_blank">Voir le projet</a>
-                <a href="https://github.com/IDGHIM/fcc-Technical-Documentation" target="_blank">Voir le dépôt</a>
+          </div>
+          <div class="skill-box">
+            <div class="skill-title">
+              <div class="skill-image">
+                <img src="image/compétence/java-script-js-logo-png_seeklogo-303341.png" class="skill-icon" alt="JavaScript icon" />
+              </div>
             </div>
           </div>
         </div>
-    </div>
+        </section>
+        <h2>Certifications</h2>
+        <div class="certif-box">
+          <div class="certif-title">
+            <div class="certif-image">
+              <a href="https://www.freecodecamp.org/certification/IchemD/responsive-web-design" target="_blank">
+                <img src="image/certification_fcc/Certif_RWD.png" class="certif-icon" alt="Responsive Web Design certification" />
+              </a>
+              <a href="https://www.freecodecamp.org/certification/IchemD/javascript-algorithms-and-data-structures-v8" target="_blank">
+                <img src="image/certification_fcc/JS_certif.PNG" class="certif-icon" alt="JavaScript Algorithms and Data Structures certification" />
+              </a>
+              <a href="https://www.freecodecamp.org/certification/IchemD/back-end-development-and-apis" target="_blank">
+                <img src="image/certification_fcc/BackEnd_certif.PNG" class="certif-icon" alt="Back End Development and APIs certification" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+  <!-- SECTION PROJETS -->
+  <section id="Projet">
+    <h2>Projets effectués</h2>
+    <div class="projects-container">
+
       <!-- Projet Studprod -->
-      <div>
-        <div class="cardresponsive">
-          <div class="cardresponsive-inner">
-            <div class="cardresponsive-front">
-              <img src="image/projets-pict/LOGO STUDPROD NOIR.png" alt="Projet STUDPROD">
+      <div class="project-card">
+        <div class="project-card-inner">
+          <div class="project-card-front">
+            <img src="image/projets-pict/LOGO STUDPROD NOIR.png" alt="Projet STUDPROD">
+          </div>
+          <div class="project-card-back">
+            <h4>STUDPROD</h4>
+            <div class="skill-icons-row">
+              <img src="image/compétence/HTML_log.png" class="skill-icon2" alt="HTML icon" />
+              <img src="image/compétence/CSS_log.png" class="skill-icon2" alt="CSS icon" />
             </div>
-            <div class="cardresponsive-back">
-              <h4>STUDPROD</h4>
-              <p>
-                <div class="skill-icons-row">
-                <img src="compétence/HTML_log.png" class="skill-icon2" alt="HTML icon" />
-                <img src="compétence/CSS_log.png" class="skill-icon2" alt="HTML icon" />
-                </div>
-              </p>
-              <a href="https://idghim.github.io/fcc-Landing-Page" target="_blank">Voir le projet</a>
-              <a href="https://github.com/IDGHIM/fcc-Landing-Page" target="_blank">Voir le dépôt</a>
-            </div>
+            <a href="https://idghim.github.io/fcc-Landing-Page" target="_blank" class="project-button">Voir le projet</a>
+            <a href="https://github.com/IDGHIM/fcc-Landing-Page" target="_blank" class="project-button">Voir le dépôt</a>
           </div>
         </div>
       </div>
+
       <!-- Projet Palindrome -->
-      <h2 class="js">Projets effectués pour la certification Javascript Algorithms And Data Structures</h2>
-      <div>
-        <div class="cardjs">
-          <div class="cardjs-inner">
-            <div class="cardjs-front">
-              <img src="image/projets-pict/palindrome.png" alt="Projet Palindrome">
+      <div class="project-card">
+        <div class="project-card-inner">
+          <div class="project-card-front">
+            <img src="image/projets-pict/palindrome.png" alt="Projet Palindrome">
+          </div>
+          <div class="project-card-back">
+            <h4>Palindrome</h4>
+            <div class="skill-icons-row">
+              <img src="image/compétence/HTML_log.png" class="skill-icon2" alt="HTML icon" />
+              <img src="image/compétence/CSS_log.png" class="skill-icon2" alt="CSS icon" />
+              <img src="image/compétence/JS_log.png" class="skill-icon2" alt="JS icon" />
             </div>
-            <div class="cardjs-back">
-              <h4>Vérification d'un palindrome</h4>
-              <p>
-                <div class="skill-icons-row">
-                <img src="compétence/HTML_log.png" class="skill-icon2" alt="HTML icon" />
-                <img src="compétence/CSS_log.png" class="skill-icon2" alt="HTML icon" />
-                <img src="compétence/JS_log.png" class="skill-icon2" alt="JS icon" />
-                </div>
-              </p>
-              <a href="https://idghim.github.io/fcc-Palindrome/" target="_blank">Voir le projet</a>
-              <a href="https://github.com/IDGHIM/fcc-Palindrome" target="_blank">Voir le dépôt</a>
-            </div>
+            <a href="https://idghim.github.io/fcc-Palindrome/" target="_blank" class="project-button">Voir le projet</a>
+            <a href="https://github.com/IDGHIM/fcc-Palindrome" target="_blank" class="project-button">Voir le dépôt</a>
           </div>
         </div>
       </div>
-    </div>
-    <!-- Projets de formation -->
-    <h2 id="Ecole">Projets effectués en formation</h2>
-    <div class="projects2">
+
       <!-- Projet Memory Game -->
-      <div class="Encyl" id="Pkn">
-        <div class="cardpk">
-          <div class="cardpk-inner">
-            <div class="cardpk-front">
-              <img src="image/projets-pict/memory_game.png" alt="Projet Memory Game">
+      <div class="project-card">
+        <div class="project-card-inner">
+          <div class="project-card-front">
+            <img src="image/projets-pict/memory_game.png" alt="Projet Memory Game">
+          </div>
+          <div class="project-card-back">
+            <h4>Memory Game</h4>
+            <div class="skill-icons-row">
+              <img src="image/compétence/HTML_log.png" class="skill-icon2" alt="HTML icon" />
+              <img src="image/compétence/CSS_log.png" class="skill-icon2" alt="CSS icon" />
+              <img src="image/compétence/JS_log.png" class="skill-icon2" alt="JS icon" />
             </div>
-            <div class="cardpk-back">
-              <h4>Memory Game</h4>
-              <p>
-                <div class="skill-icons-row">
-                <img src="compétence/HTML_log.png" class="skill-icon2" alt="HTML icon" />
-                <img src="compétence/CSS_log.png" class="skill-icon2" alt="HTML icon" />
-                <img src="compétence/JS_log.png" class="skill-icon2" alt="JS icon" />
-                </div>
-              </p>
-              <a href="https://idghim.github.io/Memory-Game/" target="_blank">Voir le projet</a>
-              <a href="https://github.com/IDGHIM/Memory-Game" target="_blank">Voir le dépôt</a>
-            </div>
+            <a href="https://idghim.github.io/Memory-Game/" target="_blank" class="project-button">Voir le projet</a>
+            <a href="https://github.com/IDGHIM/Memory-Game" target="_blank" class="project-button">Voir le dépôt</a>
           </div>
         </div>
       </div>
+
+       <!-- Projet Tic-Tac-Toe -->
+      <div class="project-card">
+        <div class="project-card-inner">
+          <div class="project-card-front">
+            <img src="image/projets-pict/tic-tac-toe.png" alt="Projet Tic-Tac-Toe">
+          </div>
+          <div class="project-card-back">
+            <h4>Tic-Tac-Toe</h4>
+            <div class="skill-icons-row">
+              <img src="image/compétence/HTML_log.png" class="skill-icon2" alt="HTML icon" />
+              <img src="image/compétence/CSS_log.png" class="skill-icon2" alt="CSS icon" />
+              <img src="image/compétence/JS_log.png" class="skill-icon2" alt="JS icon" />
+            </div>
+            <a href="https://tic-tac-toe-rosy-eta.vercel.app/" target="_blank" class="project-button">Voir le projet</a>
+            <a href="https://github.com/IDGHIM/Tic-Tac-Toe" target="_blank" class="project-button">Voir le dépôt</a>
+          </div>
+        </div>
+      </div>
+
+      
     </div>
   </section>
-</section>
-    <!-- FOOTER -->
-    <footer>
-      <!-- SECTION CONTACT -->
+
+  <!-- FOOTER -->
+  <footer>
+    <!-- SECTION CONTACT -->
     <section class="contact-section" id="Contact">
       <div class="contact-section-header">
         <h3>Une idée de projet ?</h3>
         <h3>Contactez-moi :</h3>
         <form class="contact-form" method="POST">
-        <label for="nom" id="label_nom">Nom</label>
-        <div class="input-container">
-          <i class="fas fa-user-circle"></i>
-          <input type="text" name="nom" id="nom" placeholder="Votre Nom" required />
-        </div>
-        <label for="email" id="label_email">Email</label>
-        <div class="input-container">
-          <i class="fas fa-at"></i>
-          <input type="email" name="email" id="email" placeholder="Votre Email" required />
-        </div>
-        <label for="message" id="label_message">Message</label>
-        <div class="input-container">
-          <i class="fas fa-paper-plane"></i>
-          <textarea name="message" id="message" placeholder="Votre Message" required ></textarea>
-        </div>
-        <button type="submit" id="submit_button">Envoyer</button>
+          <label for="nom" id="label_nom">Nom</label>
+          <div class="input-container">
+            <i class="fas fa-user-circle"></i>
+            <input type="text" name="nom" id="nom" placeholder="Votre Nom" required />
+          </div>
+          <label for="email" id="label_email">Email</label>
+          <div class="input-container">
+            <i class="fas fa-at"></i>
+            <input type="email" name="email" id="email" placeholder="Votre Email" required />
+          </div>
+          <label for="message" id="label_message">Message</label>
+          <div class="input-container">
+            <i class="fas fa-paper-plane"></i>
+            <textarea name="message" id="message" placeholder="Votre Message" required></textarea>
+          </div>
+          <button type="submit" id="submit_button">Envoyer</button>
         </form>
       </div>
       <div class="contact-links">
@@ -245,8 +221,10 @@
         </a>
       </div>
     </section>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script src="script.js"></script>
-  </body>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
 </html>

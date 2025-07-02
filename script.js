@@ -1,54 +1,5 @@
-const hamburger = document.querySelector('.hamburger');
-const navbar = document.getElementById('navbar');
-const navLinks = document.querySelectorAll('.nav-link');
-
-// Fonction pour basculer l'affichage du menu
-function toggleMenu() {
-  navbar.classList.toggle('hidden');
-  hamburger.classList.toggle('active');
-  document.body.classList.toggle('no-scroll'); // Bloquer/débloquer le scroll
-}
-
-// Ouvrir/fermer en cliquant sur le hamburger
-hamburger.addEventListener('click', toggleMenu);
-
-// Fermer le menu quand un lien est cliqué
-navLinks.forEach(link => {
-  link.addEventListener('click', () => {
-    if (!navbar.classList.contains('hidden')) {
-      toggleMenu();
-    }
-  });
-});
-// Fermer le menu si on clique en dehors
-document.addEventListener('click', (e) => {
-  if (
-    !navbar.classList.contains('hidden') &&
-    !navbar.contains(e.target) &&
-    !hamburger.contains(e.target)
-  ) {
-    toggleMenu();
-  }
-});
-
 document.addEventListener("DOMContentLoaded", function () {
-    const cards = document.querySelectorAll(".cardresponsive, .cardjs, .cardpk");
-
-    cards.forEach(card => {
-      card.addEventListener("click", function () {
-        // Retirer flipped aux autres cartes (optionnel)
-        cards.forEach(c => {
-          if (c !== card) c.classList.remove("flipped");
-        });
-
-        // Bascule la classe flipped
-        card.classList.toggle("flipped");
-      });
-    });
-  });
-
-// Fonction pour le formulaire de contact
-document.addEventListener("DOMContentLoaded", function () {
+  // --- EmailJS init + form handling ---
   emailjs.init("IdsT61xCsLA3EUkrQ");
 
   const form = document.querySelector(".contact-form");
@@ -58,12 +9,14 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
   }
 
-  const submitBtn = form.querySelector("button[type='submit']");
+  const submitBtn = form.querySelector("#submit_button");
+  const feedback = document.createElement('div'); // Création du message visuel
+  feedback.className = 'form-feedback';
+  form.appendChild(feedback); // Ajout du message sous le formulaire
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    // Désactive le bouton pour éviter les doubles envois
     submitBtn.disabled = true;
 
     const nom = document.getElementById("nom").value.trim();
@@ -71,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const message = document.getElementById("message").value.trim();
 
     if (!nom || !email || !message) {
-      alert("Veuillez remplir tous les champs du formulaire.");
+      showFeedback("Veuillez remplir tous les champs du formulaire.", "error");
       submitBtn.disabled = false;
       return;
     }
@@ -80,19 +33,75 @@ document.addEventListener("DOMContentLoaded", function () {
 
     emailjs.send("service_guqhch8", "template_q3apao5", params)
       .then(function (response) {
-        alert("✅ Message envoyé avec succès !");
-        form.reset(); // Réinitialise les champs
+        showFeedback("✅ Message envoyé avec succès !", "success");
+        form.reset();
         submitBtn.disabled = false;
-
-        // Facultatif : supprimer les erreurs visuelles ou messages affichés
-        // Exemple : document.querySelector(".success-message").style.display = "none";
-
       })
       .catch(function (error) {
         console.error("Erreur EmailJS :", error);
-        alert("❌ Une erreur s'est produite lors de l'envoi. Réessayez plus tard.");
+        showFeedback("❌ Une erreur s'est produite. Veuillez réessayer plus tard.", "error");
         submitBtn.disabled = false;
       });
   });
-});
 
+  function showFeedback(message, type) {
+    feedback.textContent = message;
+    feedback.classList.remove('success', 'error'); // Reset classes
+    feedback.classList.add(type);
+    feedback.style.display = 'block';
+
+    setTimeout(() => {
+      feedback.style.display = 'none';
+    }, 5000);
+  }
+
+  // --- Animation titre ---
+  const title = document.querySelector('.animated-title');
+  setTimeout(() => {
+    title.classList.add('finished'); // Retire le curseur
+  }, 4200);
+
+  // --- Scroll smooth ---
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      if (!targetElement) return;
+      const offsetTop = targetElement.offsetTop - 20;
+
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+    });
+  });
+
+  // --- Flip card responsive ---
+  function toggleFlip(event) {
+    const inner = event.currentTarget.querySelector('.project-card-inner');
+    inner.classList.toggle('flipped');
+  }
+
+  function setupCardFlip() {
+    const cards = document.querySelectorAll('.project-card');
+
+    cards.forEach(card => {
+      const inner = card.querySelector('.project-card-inner');
+      if (window.innerWidth > 768) {
+        // PC : disable flip au clic, enlever flipped si présent
+        inner.classList.remove('flipped');
+        card.style.cursor = 'default';
+        card.removeEventListener('click', toggleFlip);
+      } else {
+        // Mobile/tablette : flip au clic
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', toggleFlip);
+      }
+    });
+  }
+
+  // Initialisation + écoute du resize
+  setupCardFlip();
+  window.addEventListener('resize', setupCardFlip);
+});
