@@ -7,258 +7,438 @@
   <title>Ichem DGHIM, Junior Web Developer</title>
   <!-- Stylesheets -->
   <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="responsive.css" />
-  <style>@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400");</style>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");</style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="image/favicon/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="image/favicon/favicon.svg" />
   <link rel="shortcut icon" href="image/favicon/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="image/favicon/apple-touch-icon.png" />
-  <link rel="manifest" href="image//favicon/site.webmanifest" />
+  <link rel="manifest" href="image/favicon/site.webmanifest" />
 </head>
 
 <body>
-  <!-- NAVIGATION -->
- <header>
-  <nav class="navbar">
-    <ul class="nav-links" id="nav-links">
-      <li><a href="#presentation"><i class="fas fa-home"></i></a></li>
-      <li><a href="#skills"><i class="fas fa-briefcase"></i></a></li>
-      <li><a href="#projects"><i class="fas fa-code"></i></a></li>
-      <li><a href="#contact"><i class="fas fa-envelope"></i></a></li>
-      <li><button class="lang-btn" onclick="window.location.href='index.html'">🇫🇷</button></li>
-    </ul>
-  </nav>
-</header>
+  <!-- ANIMATED BACKGROUND BUBBLES -->
+  <div class="animated-bg">
+    <div class="bubble"><div class="dot"></div></div>
+    <div class="bubble"><div class="dot"></div></div>
+    <div class="bubble"><div class="dot"></div></div>
+    <div class="bubble"><div class="dot"></div></div>
+    <div class="bubble"><div class="dot"></div></div>
+    <div class="bubble"><div class="dot"></div></div>
+    <div class="bubble"><div class="dot"></div></div>
+    <div class="bubble"><div class="dot"></div></div>
+    <div class="bubble"><div class="dot"></div></div>
+    <div class="bubble"><div class="dot"></div></div>
+    <div class="bubble"><div class="dot"></div></div>
+    <div class="bubble"><div class="dot"></div></div>
+    <div class="bubble"><div class="dot"></div></div>
+    <div class="bubble"><div class="dot"></div></div>
+    <div class="bubble"><div class="dot"></div></div>
+  </div>
 
-  <!-- PRESENTATION SECTION -->
-  <section class="welcome-section" id="presentation">
-    <h1 class="animated-title">Ichem DGHIM, Junior Web Developer</h1>
-    <p>
-    <img id="photo" class="animated-border" src="image/pict/Comp3.jpeg" alt="DGHIM Ichem lifting squat" />
-    </p>
-    <p>
-      I am Ichem DGHIM, 20 years old, junior integrator based in Agen. Graduated with a STI2D high school diploma, specializing in SIN, I have limitless imagination that pushes me to turn every idea into reality. Passionate about the web world, I bring to life modern, smooth, and responsive interfaces, with one sole goal: to make every idea I imagine come true.
-    </p>
-    <p>
-      When I am not in front of my screen, I am at the gym! I practice powerlifting competitively. It is a demanding discipline that has taught me discipline, perseverance, and self-improvement — qualities I also find in the world of web development.
-    </p>
-    <p>
-      <a href="CV DVW DGHIM Ichem.pdf" download class="download-button">
-        Download my CV (PDF)
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#hero" data-tooltip="Home"><i class="fas fa-home"></i></a></li>
+        <li><a href="#about" data-tooltip="About"><i class="fas fa-user"></i></a></li>
+        <li><a href="#skills" data-tooltip="Skills"><i class="fas fa-briefcase"></i></a></li>
+        <li><a href="#projects" data-tooltip="Projects"><i class="fas fa-code"></i></a></li>
+        <li><a href="#contact" data-tooltip="Contact"><i class="fas fa-envelope"></i></a></li>
+        <li><button class="lang-btn" onclick="window.location.href='index.html'" title="French version">🇫🇷</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Ichem DGHIM</h1>
+      <p class="hero-subtitle">Junior Web Developer</p>
+      <img class="hero-image" src="image/pict/Comp3.jpeg" alt="DGHIM Ichem" />
+      <a href="CV DVW DGHIM Ichem.pdf" download class="cta-button">
+        <i class="fas fa-download"></i> Download my CV
       </a>
-    </p>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section class="section about" id="about">
+    <div class="container">
+      <h2 class="section-title">About me</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>
+            I am <span class="highlight">DGHIM Ichem</span>, 20 years old, a junior web developer based in Agen. 
+            Graduated with a STI2D degree specializing in SIN, I have a boundless imagination that drives me to 
+            transform every idea into reality.
+          </p>
+          <p>
+            Passionate about the web universe, I bring modern, fluid and responsive interfaces to life, 
+            with only one objective: <span class="highlight">to fulfill everything I imagine</span>.
+          </p>
+          <p>
+            When I'm not in front of my screen, I'm at the gym! I compete in powerlifting. 
+            It's a demanding discipline that has taught me rigor, perseverance and 
+            self-improvement — qualities that I also find in the world of web development.
+          </p>
+        </div>
+        <div class="about-stats">
+          <div class="stat-item">
+            <span class="stat-number">20</span>
+            <span class="stat-label">years old</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">6+</span>
+            <span class="stat-label">projects</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">3</span>
+            <span class="stat-label">certifications</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">motivation</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- SKILLS SECTION -->
-    <section class="section">
-      <div class="skills" id="skills">
-        <h2 id="skills_heading">Skills</h2>
-        <div class="skill-container">
-          <div class="skill-box">
-            <div class="skill-title">
-              <div class="skill-image">
-                <img src="image/compétence/HTML5_logo_and_wordmark.svg.png" class="skill-icon" alt="HTML icon" />
-              </div>
-            </div>
-          </div>
-          <div class="skill-box">
-            <div class="skill-title">
-              <div class="skill-image">
-                <img src="image/compétence/CSS3_logo_and_wordmark.svg.png" class="skill-icon" alt="CSS icon" />
-              </div>
-            </div>
-          </div>
-          <div class="skill-box">
-            <div class="skill-title">
-              <div class="skill-image">
-                <img src="image/compétence/java-script-js-logo-png_seeklogo-303341.png" class="skill-icon" alt="JavaScript icon" />
-              </div>
-            </div>
+  <section class="section skills" id="skills">
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3><i class="fas fa-code"></i> Frontend</h3>
+          <div class="skill-items">
+            <div class="skill-item">HTML5</div>
+            <div class="skill-item">CSS3</div>
+            <div class="skill-item">JavaScript</div>
+            <div class="skill-item">React</div>
+            <div class="skill-item">Responsive Design</div>
           </div>
         </div>
-    </section>
-    <h2>Certifications</h2>
-    <div class="certif-box">
-      <div class="certif-title">
-        <div class="certif-image">
-          <a href="https://www.freecodecamp.org/certification/IchemD/responsive-web-design" target="_blank">
-            <img src="image/certification_fcc/Certif_RWD.png" class="certif-icon" alt="Responsive Web Design certification" />
+        <div class="skill-category">
+          <h3><i class="fas fa-server"></i> Backend</h3>
+          <div class="skill-items">
+            <div class="skill-item">Node.js</div>
+            <div class="skill-item">Express</div>
+            <div class="skill-item">REST APIs</div>
+            <div class="skill-item">MongoDB</div>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3><i class="fas fa-tools"></i> Tools</h3>
+          <div class="skill-items">
+            <div class="skill-item">Git & GitHub</div>
+            <div class="skill-item">VS Code</div>
+            <div class="skill-item">Figma</div>
+            <div class="skill-item">Vercel</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Certifications -->
+      <div class="certifications">
+        <h3>FreeCodeCamp Certifications</h3>
+        <div class="certif-container">
+          <a href="https://www.freecodecamp.org/certification/IchemD/responsive-web-design" target="_blank" class="certif-card">
+            <img src="image/certification_fcc/Certif_RWD.png" alt="Responsive Web Design certification" />
+            <span class="certif-title">Responsive Web Design</span>
           </a>
-          <a href="https://www.freecodecamp.org/certification/IchemD/javascript-algorithms-and-data-structures-v8" target="_blank">
-            <img src="image/certification_fcc/JS_certif.PNG" class="certif-icon" alt="JavaScript Algorithms and Data Structures certification" />
+          <a href="https://www.freecodecamp.org/certification/IchemD/javascript-algorithms-and-data-structures-v8" target="_blank" class="certif-card">
+            <img src="image/certification_fcc/JS_certif.PNG" alt="JavaScript certification" />
+            <span class="certif-title">JavaScript Algorithms</span>
           </a>
-          <a href="https://www.freecodecamp.org/certification/IchemD/back-end-development-and-apis" target="_blank">
-            <img src="image/certification_fcc/BackEnd_certif.PNG" class="certif-icon" alt="Back End Development and APIs certification" />
+          <a href="https://www.freecodecamp.org/certification/IchemD/back-end-development-and-apis" target="_blank" class="certif-card">
+            <img src="image/certification_fcc/BackEnd_certif.PNG" alt="Backend certification" />
+            <span class="certif-title">Backend Development</span>
           </a>
         </div>
       </div>
     </div>
+  </section>
 
   <!-- PROJECTS SECTION -->
-  <section id="projects">
-    <h2>Completed Projects</h2>
-    <div class="projects-container">
+  <section class="section" id="projects">
+    <div class="container">
+      <h2 class="section-title">My Projects</h2>
+      <div class="projects-grid">
 
-      <!-- Project Studprod -->
-      <div class="project-card">
-        <div class="project-card-inner">
-          <div class="project-card-front">
-            <img src="image/projets-pict/LOGO STUDPROD NOIR.png" alt="Project STUDPROD">
+        <!-- STUDPROD Project -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="image/projets-pict/LOGO STUDPROD NOIR.png" alt="STUDPROD Project" style="width: 100%; height: 100%; object-fit: contain;">
           </div>
-          <div class="project-card-back">
-            <h4>STUDPROD</h4>
-            <div class="skill-icons-row">
-              <img src="image/compétence/HTML_log.png" class="skill-icon2" alt="HTML icon" />
-              <img src="image/compétence/CSS_log.png" class="skill-icon2" alt="CSS icon" />
+          <div class="project-content">
+            <h3 class="project-title">STUDPROD</h3>
+            <p class="project-description">
+              Modern landing page created for a student production company. 
+              Responsive design and optimized user interface.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">HTML5</span>
+              <span class="tech-tag">CSS3</span>
+              <span class="tech-tag">Responsive</span>
             </div>
-            <a href="https://idghim.github.io/fcc-Landing-Page" target="_blank" class="project-button">View Project</a>
-            <a href="https://github.com/IDGHIM/fcc-Landing-Page" target="_blank" class="project-button">View Repository</a>
+            <div class="project-links">
+              <a href="https://idghim.github.io/fcc-Landing-Page" target="_blank" class="project-link primary">
+                <i class="fas fa-external-link-alt"></i> View project
+              </a>
+              <a href="https://github.com/IDGHIM/fcc-Landing-Page" target="_blank" class="project-link secondary">
+                <i class="fab fa-github"></i> Source code
+              </a>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Project Palindrome -->
-      <div class="project-card">
-        <div class="project-card-inner">
-          <div class="project-card-front">
-            <img src="image/projets-pict/palindrome.png" alt="Project Palindrome">
+        <!-- Palindrome Project -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="image/projets-pict/palindrome.png" alt="Palindrome Project" style="width: 100%; height: 100%; object-fit: contain;">
           </div>
-          <div class="project-card-back">
-            <h4>Palindrome</h4>
-            <div class="skill-icons-row">
-              <img src="image/compétence/HTML_log.png" class="skill-icon2" alt="HTML icon" />
-              <img src="image/compétence/CSS_log.png" class="skill-icon2" alt="CSS icon" />
-              <img src="image/compétence/JS_log.png" class="skill-icon2" alt="JS icon" />
+          <div class="project-content">
+            <h3 class="project-title">Palindrome Checker</h3>
+            <p class="project-description">
+              Interactive web application to check if a word or phrase is a palindrome. 
+              Intuitive interface with real-time validation.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">HTML5</span>
+              <span class="tech-tag">CSS3</span>
+              <span class="tech-tag">JavaScript</span>
             </div>
-            <a href="https://idghim.github.io/fcc-Palindrome/" target="_blank" class="project-button">View Project</a>
-            <a href="https://github.com/IDGHIM/fcc-Palindrome" target="_blank" class="project-button">View Repository</a>
+            <div class="project-links">
+              <a href="https://idghim.github.io/fcc-Palindrome/" target="_blank" class="project-link primary">
+                <i class="fas fa-external-link-alt"></i> View project
+              </a>
+              <a href="https://github.com/IDGHIM/fcc-Palindrome" target="_blank" class="project-link secondary">
+                <i class="fab fa-github"></i> Source code
+              </a>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Project Pokémon Encyclopedia -->
-      <div class="project-card">
-        <div class="project-card-inner">
-          <div class="project-card-front">
-            <img src="image/projets-pict/pokeball-logo-png.png" alt="Projet Encyclopédie Pokémon">
+        <!-- Pokédex Project -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="image/projets-pict/pokeball-logo-png.png" alt="Pokédex Project" style="width: 100%; height: 100%; object-fit: contain;">
           </div>
-          <div class="project-card-back">
-            <h4>Pokémon Encyclopédia</h4>
-            <div class="skill-icons-row">
-              <img src="image/compétence/HTML_log.png" class="skill-icon2" alt="HTML icon" />
-              <img src="image/compétence/CSS_log.png" class="skill-icon2" alt="CSS icon" />
-              <img src="image/compétence/JS_log.png" class="skill-icon2" alt="JS icon" />
+          <div class="project-content">
+            <h3 class="project-title">Pokémon Encyclopedia</h3>
+            <p class="project-description">
+              Interactive Pokédex using the Pokémon API to display detailed information 
+              for each creature. Advanced search and filtering.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">HTML5</span>
+              <span class="tech-tag">CSS3</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">REST API</span>
             </div>
-            <a href="https://idghim.github.io/Encyclop-die-Pok-dex/" target="_blank" class="project-button">View Project</a>
-            <a href="https://github.com/IDGHIM/Encyclop-die-Pok-dex" target="_blank" class="project-button">View Repository</a>
+            <div class="project-links">
+              <a href="https://idghim.github.io/Encyclop-die-Pok-dex/" target="_blank" class="project-link primary">
+                <i class="fas fa-external-link-alt"></i> View project
+              </a>
+              <a href="https://github.com/IDGHIM/Encyclop-die-Pok-dex" target="_blank" class="project-link secondary">
+                <i class="fab fa-github"></i> Source code
+              </a>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Project Memory Game -->
-      <div class="project-card">
-        <div class="project-card-inner">
-          <div class="project-card-front">
-            <img src="image/projets-pict/memory_game.png" alt="Project Memory Game">
+        <!-- Memory Game Project -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="image/projets-pict/memory_game.png" alt="Memory Game Project" style="width: 100%; height: 100%; object-fit: contain;">
           </div>
-          <div class="project-card-back">
-            <h4>Memory Game</h4>
-            <div class="skill-icons-row">
-              <img src="image/compétence/HTML_log.png" class="skill-icon2" alt="HTML icon" />
-              <img src="image/compétence/CSS_log.png" class="skill-icon2" alt="CSS icon" />
-              <img src="image/compétence/JS_log.png" class="skill-icon2" alt="JS icon" />
+          <div class="project-content">
+            <h3 class="project-title">Memory Game</h3>
+            <p class="project-description">
+              Interactive memory game with different difficulty levels. 
+              Scoring system, timer and smooth animations.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">HTML5</span>
+              <span class="tech-tag">CSS3</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">Animations</span>
             </div>
-            <a href="https://idghim.github.io/Memory-Game/" target="_blank" class="project-button">View Project</a>
-            <a href="https://github.com/IDGHIM/Memory-Game" target="_blank" class="project-button">View Repository</a>
+            <div class="project-links">
+              <a href="https://idghim.github.io/Memory-Game/" target="_blank" class="project-link primary">
+                <i class="fas fa-external-link-alt"></i> View project
+              </a>
+              <a href="https://github.com/IDGHIM/Memory-Game" target="_blank" class="project-link secondary">
+                <i class="fab fa-github"></i> Source code
+              </a>
+            </div>
           </div>
         </div>
-      </div>
 
-       <!-- Project Tic-Tac-Toe -->
-      <div class="project-card">
-        <div class="project-card-inner">
-          <div class="project-card-front">
-            <img src="image/projets-pict/tic-tac-toe.png" alt="Project Tic-Tac-Toe">
+        <!-- Tic-Tac-Toe Project -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="image/projets-pict/tic-tac-toe.png" alt="Tic-Tac-Toe Project" style="width: 100%; height: 100%; object-fit: contain;">
           </div>
-          <div class="project-card-back">
-            <h4>Tic-Tac-Toe</h4>
-            <div class="skill-icons-row">
-              <img src="image/compétence/React_log.png" class="skill-icon2" alt="React icon" />
-              <img src="image/compétence/CSS_log.png" class="skill-icon2" alt="CSS icon" />
+          <div class="project-content">
+            <h3 class="project-title">Tic-Tac-Toe React</h3>
+            <p class="project-description">
+              Modern version of the classic tic-tac-toe game developed with React. 
+              Modern interface and optimized game logic.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">CSS3</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">Hooks</span>
             </div>
-            <a href="https://tic-tac-toe-rosy-eta.vercel.app/" target="_blank" class="project-button">View Project</a>
-            <a href="https://github.com/IDGHIM/Tic-Tac-Toe" target="_blank" class="project-button">View Repository</a>
+            <div class="project-links">
+              <a href="https://tic-tac-toe-rosy-eta.vercel.app/" target="_blank" class="project-link primary">
+                <i class="fas fa-external-link-alt"></i> View project
+              </a>
+              <a href="https://github.com/IDGHIM/Tic-Tac-Toe" target="_blank" class="project-link secondary">
+                <i class="fab fa-github"></i> Source code
+              </a>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Project Quiz Hackaton -->
-      <div class="project-card">
-        <div class="project-card-inner">
-          <div class="project-card-front">
-            <img src="image/projets-pict/Quiz_Hackaton.png" alt="Project Quiz Hackaton">
+        <!-- Quiz Hackathon Project -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="image/projets-pict/Quiz_Hackaton.png" alt="Quiz Hackathon Project" style="width: 100%; height: 100%; object-fit: contain;">
           </div>
-          <div class="project-card-back">
-            <h4>Quiz Hackaton</h4>
-            <div class="skill-icons-row">
-              <img src="image/compétence/front_back_log.png" class="skill-icon2" alt="Front & Back end icon" />
-              <img src="image/compétence/CSS_log.png" class="skill-icon2" alt="CSS icon" />
+          <div class="project-content">
+            <h3 class="project-title">Quiz Hackathon</h3>
+            <p class="project-description">
+              Full-stack interactive quiz application developed during a hackathon. 
+              Robust backend with score management and rankings.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">Express</span>
+              <span class="tech-tag">MongoDB</span>
+              <span class="tech-tag">Full-Stack</span>
             </div>
-            <a href="https://hackathon-quiz-4g3a.onrender.com/" target="_blank" class="project-button">View Project</a>
-            <a href="https://github.com/IDGHIM/Hackathon_Quiz" target="_blank" class="project-button">View Repository</a>
+            <div class="project-links">
+              <a href="https://hackathon-quiz-4g3a.onrender.com/" target="_blank" class="project-link primary">
+                <i class="fas fa-external-link-alt"></i> View project
+              </a>
+              <a href="https://github.com/IDGHIM/Hackathon_Quiz" target="_blank" class="project-link secondary">
+                <i class="fab fa-github"></i> Source code
+              </a>
+            </div>
           </div>
         </div>
-      </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact me</h2>
+      <div class="contact-content">
+        <div class="contact-info">
+          <h3>Have a project idea?</h3>
+          <p>Feel free to contact me to discuss your web projects!</p>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div>
+              <h4>Email</h4>
+              <p>ichemdghim@gmail.com</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div>
+              <h4>Location</h4>
+              <p>Agen, France</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <div>
+              <h4>Status</h4>
+              <p>Open to opportunities</p>
+            </div>
+          </div>
+        </div>
+        
+        <form class="contact-form" method="POST">
+          <div class="form-group">
+            <label for="nom">Full name</label>
+            <input type="text" name="nom" id="nom" placeholder="Your name" required />
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" name="email" id="email" placeholder="your@email.com" required />
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea name="message" id="message" rows="5" placeholder="Describe your project..." required></textarea>
+          </div>
+          
+          <button type="submit" class="submit-btn">
+            <i class="fas fa-paper-plane"></i> Send message
+          </button>
+        </form>
+      </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer>
-    <!-- CONTACT SECTION -->
-    <section class="contact-section" id="contact">
-      <div class="contact-section-header">
-        <h3>Got a project idea?</h3>
-        <h3>Contact me:</h3>
-        <form class="contact-form" method="POST">
-          <label for="name" id="label_name">Name</label>
-          <div class="input-container">
-            <i class="fas fa-user-circle"></i>
-            <input type="text" name="name" id="name" placeholder="Your Name" required />
-          </div>
-          <label for="email" id="label_email">Email</label>
-          <div class="input-container">
-            <i class="fas fa-at"></i>
-            <input type="email" name="email" id="email" placeholder="Your Email" required />
-          </div>
-          <label for="message" id="label_message">Message</label>
-          <div class="input-container">
-            <i class="fas fa-paper-plane"></i>
-            <textarea name="message" id="message" placeholder="Your Message" required></textarea>
-          </div>
-          <button type="submit" id="submit_button">Send</button>
-        </form>
-      </div>
-      <div class="contact-links">
-        <a href="mailto:ichemdghim@gmail.com" class="btn contact-details">
-          <img src="image/contact-logo/mail-logo-png.png" class="fa-mail" /> E-mail
+  <footer class="footer">
+    <div class="container">
+      <div class="social-links">
+        <a href="mailto:ichemdghim@gmail.com" class="social-link">
+          <i class="fas fa-envelope"></i>
         </a>
-        <a href="https://github.com/IDGHIM" target="_blank" class="btn contact-details">
-          <img src="image/contact-logo/github-logo-png.png" class="fa-github" /> GitHub
+        <a href="https://github.com/IDGHIM" target="_blank" class="social-link">
+          <i class="fab fa-github"></i>
         </a>
-        <a href="https://www.instagram.com/iichoumm_pwr/" target="_blank" class="btn contact-details">
-          <img src="image/contact-logo/ig-logo-png.png" class="fa-ig" /> Instagram
+        <a href="https://www.linkedin.com/in/ichem-dghim/" target="_blank" class="social-link">
+          <i class="fab fa-linkedin"></i>
         </a>
-        <a href="https://www.linkedin.com/in/ichem-dghim/" target="_blank" class="btn contact-details">
-          <img src="image/contact-logo/linkedin-logo-png.png" class="fa-in" /> LinkedIn
+        <a href="https://www.instagram.com/iichoumm_pwr/" target="_blank" class="social-link">
+          <i class="fab fa-instagram"></i>
         </a>
       </div>
-    </section>
+      <p>&copy; 2025 Ichem DGHIM. All rights reserved.</p>
+    </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
   <script src="script.js"></script>
 </body>
 

@@ -55,12 +55,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 5000);
   }
 
-  // --- Animation titre ---
-  const title = document.querySelector('.animated-title');
-  setTimeout(() => {
-    title.classList.add('finished'); // Retire le curseur
-  }, 4200);
-
   // --- Scroll smooth ---
   document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', function(e) {
@@ -76,32 +70,4 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   });
-
-  // --- Flip card responsive ---
-  function toggleFlip(event) {
-    const inner = event.currentTarget.querySelector('.project-card-inner');
-    inner.classList.toggle('flipped');
-  }
-
-  function setupCardFlip() {
-    const cards = document.querySelectorAll('.project-card');
-
-    cards.forEach(card => {
-      const inner = card.querySelector('.project-card-inner');
-      if (window.innerWidth > 768) {
-        // PC : disable flip au clic, enlever flipped si présent
-        inner.classList.remove('flipped');
-        card.style.cursor = 'default';
-        card.removeEventListener('click', toggleFlip);
-      } else {
-        // Mobile/tablette : flip au clic
-        card.style.cursor = 'pointer';
-        card.addEventListener('click', toggleFlip);
-      }
-    });
-  }
-
-  // Initialisation + écoute du resize
-  setupCardFlip();
-  window.addEventListener('resize', setupCardFlip);
 });
