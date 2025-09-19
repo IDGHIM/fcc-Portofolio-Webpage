@@ -78,6 +78,7 @@
         <li><a href="#hero" data-tooltip="Home"><i class="fas fa-home"></i></a></li>
         <li><a href="#about" data-tooltip="About"><i class="fas fa-user"></i></a></li>
         <li><a href="#skills" data-tooltip="Skills"><i class="fas fa-briefcase"></i></a></li>
+        <li><a href="#methodology" data-tooltip="Process"><i class="fas fa-cogs"></i></a></li>
         <li><a href="#projects" data-tooltip="Projects"><i class="fas fa-code"></i></a></li>
         <li><a href="#contact" data-tooltip="Contact"><i class="fas fa-envelope"></i></a></li>
         <li><button class="lang-btn" onclick="window.location.href='index.html'" title="French version">🇫🇷</button></li>
@@ -193,6 +194,179 @@
             <img src="image/certification_fcc/BackEnd_certif.PNG" alt="Backend certification" />
             <span class="certif-title">Backend Development & API</span>
           </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- METHODOLOGY SECTION -->
+  <section class="section methodology" id="methodology">
+    <div class="container">
+      <h2 class="section-title">My Development Process</h2>
+      <div class="methodology-intro">
+        <p>Beyond technologies, my strength lies in a methodical and professional approach to web development.</p>
+      </div>
+      <div class="methodology-grid">
+        <!-- Planning -->
+        <div class="methodology-card">
+          <div class="methodology-icon">
+            <i class="fas fa-map-marked-alt"></i>
+          </div>
+          <h3>Planning</h3>
+          <div class="methodology-content">
+            <h4>Tools Used</h4>
+            <ul>
+              <li>Notion for project management</li>
+              <li>Figma for mockups</li>
+              <li>User flow diagrams</li>
+            </ul>
+            <h4>Method</h4>
+            <p>Before each project, I clearly define objectives, analyze user needs, and create a detailed roadmap with measurable steps.</p>
+          </div>
+        </div>
+
+        <!-- Development -->
+        <div class="methodology-card">
+          <div class="methodology-icon">
+            <i class="fas fa-code-branch"></i>
+          </div>
+          <h3>Development</h3>
+          <div class="methodology-content">
+            <h4>Git Workflow</h4>
+            <ul>
+              <li>Feature branches for each functionality</li>
+              <li>Atomic and descriptive commits</li>
+              <li>Pull requests for validation</li>
+            </ul>
+            <h4>Architecture</h4>
+            <p>Modular code, separation of concerns, and inline documentation to facilitate maintenance.</p>
+          </div>
+        </div>
+
+        <!-- Tests & Debug -->
+        <div class="methodology-card">
+          <div class="methodology-icon">
+            <i class="fas fa-bug"></i>
+          </div>
+          <h3>Testing & Debug</h3>
+          <div class="methodology-content">
+            <h4>Testing Strategy</h4>
+            <ul>
+              <li>Manual cross-browser testing</li>
+              <li>DevTools for optimization</li>
+              <li>W3C HTML/CSS validation</li>
+            </ul>
+            <h4>Debugging</h4>
+            <p>Systematic use of console, breakpoints, and performance tools to identify and fix issues.</p>
+          </div>
+        </div>
+
+        <!-- Responsive -->
+        <div class="methodology-card">
+          <div class="methodology-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h3>Responsive Design</h3>
+          <div class="methodology-content">
+            <h4>Mobile-First Approach</h4>
+            <ul>
+              <li>Design for mobile first, then desktop</li>
+              <li>Strategic breakpoints</li>
+              <li>Testing on real devices</li>
+            </ul>
+            <h4>Performance</h4>
+            <p>Image optimization, critical CSS, and lazy loading for optimal loading times on all devices.</p>
+          </div>
+        </div>
+
+        <!-- Performance -->
+        <div class="methodology-card">
+          <div class="methodology-icon">
+            <i class="fas fa-tachometer-alt"></i>
+          </div>
+          <h3>Optimization</h3>
+          <div class="methodology-content">
+            <h4>Metrics Monitored</h4>
+            <ul>
+              <li>Core Web Vitals (LCP, FID, CLS)</li>
+              <li>Loading time</li>
+              <li>Bundle sizes</li>
+            </ul>
+            <h4>Techniques Applied</h4>
+            <p>Image compression, CSS/JS minification, and strategic caching to maximize performance.</p>
+          </div>
+        </div>
+
+        <!-- Deployment -->
+        <div class="methodology-card">
+          <div class="methodology-icon">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <h3>Deployment</h3>
+          <div class="methodology-content">
+            <h4>CI/CD Pipeline</h4>
+            <ul>
+              <li>GitHub Actions for integration</li>
+              <li>Automatic deployment on Vercel/Render</li>
+              <li>Post-deployment monitoring</li>
+            </ul>
+            <h4>Security</h4>
+            <p>Secure environment variables, mandatory HTTPS, and server-side data validation.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Challenges Section -->
+      <div class="challenges-section">
+        <h3>Technical Challenges Solved</h3>
+        <div class="challenges-grid">
+          <div class="challenge-card">
+            <div class="challenge-header">
+              <h4>Pokedex Optimization</h4>
+              <span class="challenge-tag">Performance</span>
+            </div>
+            <div class="challenge-problem">
+              <strong>Problem:</strong> Slow loading with 1000+ Pokémon
+            </div>
+            <div class="challenge-solution">
+              <strong>Solution:</strong> Implemented lazy loading and smart pagination, reducing initial load time from 3s to 800ms.
+            </div>
+            <div class="challenge-tech">
+              <span>JavaScript</span><span>REST API</span><span>Intersection Observer</span>
+            </div>
+          </div>
+
+          <div class="challenge-card">
+            <div class="challenge-header">
+              <h4>Real-Time Quiz</h4>
+              <span class="challenge-tag">Full-Stack</span>
+            </div>
+            <div class="challenge-problem">
+              <strong>Problem:</strong> Synchronizing scores between users
+            </div>
+            <div class="challenge-solution">
+              <strong>Solution:</strong> WebSocket system with fallback polling, ensuring data consistency even with unstable connections.
+            </div>
+            <div class="challenge-tech">
+              <span>Node.js</span><span>MongoDB</span><span>WebSocket</span>
+            </div>
+          </div>
+
+          <div class="challenge-card">
+            <div class="challenge-header">
+              <h4>Roman Numeral Conversion</h4>
+              <span class="challenge-tag">Algorithm</span>
+            </div>
+            <div class="challenge-problem">
+              <strong>Problem:</strong> Handling complex numbers (e.g., 3999)
+            </div>
+            <div class="challenge-solution">
+              <strong>Solution:</strong> Optimized algorithm with reverse mapping, handling edge cases and validating user input.
+            </div>
+            <div class="challenge-tech">
+              <span>JavaScript</span><span>Algorithms</span><span>Validation</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
