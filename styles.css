@@ -1219,7 +1219,7 @@ body::before {
 .project-card.in-development::before {
   content: 'EN DÉVELOPPEMENT';
   position: absolute;
-  top: 20px;
+  top: 50px;
   right: -30px;
   background: var(--cyber-purple);
   color: var(--text-light);
