@@ -909,6 +909,7 @@ body {
   display: flex;
   flex-direction: column;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
 }
 
 .project-card:hover {
@@ -944,7 +945,8 @@ body {
   pointer-events: none;
 }
 
-.project-card:hover .project-image::after {
+.project-card:hover .project-image::after,
+.project-card.flipped .project-image::after {
   background: rgba(10, 10, 10, 0.7);
   backdrop-filter: blur(8px);
 }
@@ -956,7 +958,8 @@ body {
   transition: transform 0.5s ease;
 }
 
-.project-card:hover .project-image img {
+.project-card:hover .project-image img,
+.project-card.flipped .project-image img {
   transform: scale(1.05);
 }
 
@@ -981,8 +984,15 @@ body {
   z-index: 2;
 }
 
-/* Effet flip au hover */
-.project-card:hover .project-card-inner > div {
+/* Effet flip au hover sur desktop */
+@media (hover: hover) {
+  .project-card:hover .project-card-inner > div {
+    transform: rotateX(180deg);
+  }
+}
+
+/* Effet flip avec classe sur mobile */
+.project-card.flipped .project-card-inner > div {
   transform: rotateX(180deg);
 }
 
@@ -1062,12 +1072,14 @@ body {
   color: var(--rusty-red);
 }
 
-.project-card:hover .tech-tag {
+.project-card:hover .tech-tag,
+.project-card.flipped .tech-tag {
   background: rgba(210, 46, 72, 0.3);
   border-color: var(--rusty-red);
 }
 
-.project-card:hover .tech-tag i {
+.project-card:hover .tech-tag i,
+.project-card.flipped .tech-tag i {
   color: var(--text-light);
 }
 
@@ -1389,30 +1401,13 @@ body {
     grid-template-columns: 1fr;
   }
   
-  /* Désactiver l'effet flip sur mobile (tap au lieu de hover) */
-  .project-card {
-    height: auto;
-    perspective: none;
-  }
-  
-  .project-card-inner {
-    transform-style: flat;
-  }
-  
-  .project-card:hover .project-card-inner {
-    transform: none;
-  }
-  
-  .project-card-front,
-  .project-card-back {
-    position: relative;
-    transform: none !important;
-    backface-visibility: visible;
-    margin-bottom: 1rem;
+  /* Modifier le texte de l'indicateur sur mobile */
+  .flip-indicator::before {
+    content: '↻ Tap to flip / Toucher pour retourner';
   }
   
   .flip-indicator {
-    display: none;
+    font-size: 0.75rem;
   }
   
   .contact-content {
@@ -1467,7 +1462,12 @@ body {
     padding: 0.3rem 0.6rem;
   }
   
-  .project-card {
-    height: auto;
+  .project-card-inner {
+    height: 320px;
+  }
+  
+  .project-card-front,
+  .project-card-back {
+    padding: 1.5rem;
   }
 }
