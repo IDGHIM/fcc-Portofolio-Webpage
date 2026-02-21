@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ichem DGHIM, Junior Web Developer</title>
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="styles.css" />
-  <style>@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");</style>
+  <title>Ichem DGHIM — Web Developer</title>
+  <meta name="description" content="Portfolio of Ichem DGHIM, junior web developer based in Agen, France. Specialized in React, Node.js, MongoDB." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="image/favicon/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="image/favicon/favicon.svg" />
@@ -16,743 +19,680 @@
   <link rel="apple-touch-icon" sizes="180x180" href="image/favicon/apple-touch-icon.png" />
   <link rel="manifest" href="image/favicon/site.webmanifest" />
 </head>
-
 <body>
-  <!-- ANIMATED BACKGROUND BUBBLES -->
-  <div class="animated-bg">
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-    <div class="bubble"><div class="dot"></div></div>
-  </div>
 
-  <!-- NAVIGATION -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <ul class="nav-links" id="nav-links">
-        <li><a href="#hero" data-tooltip="Home"><i class="fas fa-home"></i></a></li>
-        <li><a href="#about" data-tooltip="About"><i class="fas fa-user"></i></a></li>
-        <li><a href="#skills" data-tooltip="Skills"><i class="fas fa-briefcase"></i></a></li>
-        <li><a href="#methodology" data-tooltip="Approach"><i class="fas fa-cogs"></i></a></li>
-        <li><a href="#projects" data-tooltip="Projects"><i class="fas fa-code"></i></a></li>
-        <li><a href="#contact" data-tooltip="Contact"><i class="fas fa-envelope"></i></a></li>
-        <li><button class="lang-btn" onclick="window.location.href='index.html'" title="Version française">🇫🇷</button></li>
+  <!-- CUSTOM CURSOR -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ═══════════════════════════════════════════
+       NAVIGATION SIDEBAR
+  ═══════════════════════════════════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero"        data-tooltip="Home"        class="nav-link active"><i class="fas fa-home"></i></a></li>
+        <li><a href="#about"       data-tooltip="About"       class="nav-link"><i class="fas fa-user"></i></a></li>
+        <li><a href="#skills"      data-tooltip="Skills"      class="nav-link"><i class="fas fa-briefcase"></i></a></li>
+        <li><a href="#methodology" data-tooltip="Approach"    class="nav-link"><i class="fas fa-cogs"></i></a></li>
+        <li><a href="#projects"    data-tooltip="Projects"    class="nav-link"><i class="fas fa-code"></i></a></li>
+        <li><a href="#contact"     data-tooltip="Contact"     class="nav-link"><i class="fas fa-envelope"></i></a></li>
+        <li>
+          <button class="lang-btn" onclick="window.location.href='index.html'" title="Version française">
+            <span>🇫🇷</span>
+          </button>
+        </li>
       </ul>
     </div>
   </nav>
 
-  <!-- HERO SECTION -->
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════ -->
   <section class="hero" id="hero">
-    <div class="hero-content">
-      <h1 class="hero-title">Ichem DGHIM</h1>
-      <p class="hero-subtitle">Junior Web Developer</p>
-      <img class="hero-image" src="image/pict/Comp3.jpeg" alt="DGHIM Ichem" />
-      <a href="CV_DGHIM_Ichem.pdf" download class="cta-button">
-        <i class="fas fa-download"></i> Download my Resume
-      </a>
+    <div class="hero-left">
+      <span class="hero-tag">
+        <span class="dot"></span>
+        Available · Agen, France
+      </span>
+
+      <h1 class="hero-title">
+        <span class="line"><span class="line-inner">Ichem</span></span>
+        <span class="line"><span class="line-inner">DGHIM</span></span>
+      </h1>
+
+      <p class="hero-role reveal-up delay-2">
+        <span class="role-dash"></span> Junior Web Developer
+      </p>
+
+      <p class="hero-desc reveal-up delay-3">
+        I turn ideas into modern, smooth and high-performance interfaces.
+        From design to deployment, I build what I imagine.
+      </p>
+
+      <div class="hero-actions reveal-up delay-4">
+        <a href="#projects" class="btn-primary">
+          <span>View my projects</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+        <a href="CV_DGHIM_Ichem.pdf" download class="btn-ghost">
+          <i class="fas fa-download"></i>
+          <span>My Resume</span>
+        </a>
+      </div>
+
+      <div class="hero-socials reveal-up delay-5">
+        <a href="https://github.com/IDGHIM" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/ichem-dghim/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:ichemdghim@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+
+    <div class="hero-right reveal-up delay-2">
+      <div class="hero-image-wrap">
+        <img src="image/pict/Comp3.jpeg" alt="Ichem DGHIM" class="hero-photo" />
+        <div class="hero-image-ring"></div>
+        <div class="hero-image-ring ring-2"></div>
+
+        <!-- Floating badges -->
+        <div class="hero-badge badge-1">
+          <i class="fab fa-react"></i>
+          <span>React</span>
+        </div>
+        <div class="hero-badge badge-2">
+          <i class="fab fa-node-js"></i>
+          <span>Node.js</span>
+        </div>
+        <div class="hero-badge badge-3">
+          <span class="badge-num">6+</span>
+          <span>Projects</span>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="stat-n">3</span>
+          <span class="stat-l">Certifs</span>
+        </div>
+        <div class="hero-stat-sep"></div>
+        <div class="hero-stat">
+          <span class="stat-n">21</span>
+          <span class="stat-l">Years</span>
+        </div>
+        <div class="hero-stat-sep"></div>
+        <div class="hero-stat">
+          <span class="stat-n">2025</span>
+          <span class="stat-l">DWWM</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-hint">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
     </div>
   </section>
 
-  <!-- ABOUT SECTION -->
-  <section class="section about" id="about">
+  <!-- ═══════════════════════════════════════════
+       ABOUT
+  ═══════════════════════════════════════════ -->
+  <section class="section bg-dark" id="about">
     <div class="container">
-      <h2 class="section-title">About Me</h2>
-      <div class="about-content">
-        <div class="about-text">
-          <p>
-            I'm <span class="highlight">DGHIM Ichem</span>, 21 years old, a junior web developer based in Agen. 
-            Graduated with a STI2D high school diploma specializing in SIN, I have a boundless imagination that drives me to 
-            turn every idea into reality.
-          </p>
-          <p>
-            Passionate about the web universe, I bring to life modern, fluid, and responsive interfaces, 
-            with one goal only: <span class="highlight">to fulfill everything I imagine</span>.
-          </p>
-          <p>
-            When I'm not in front of my screen, I'm at the gym! I practice powerlifting 
-            competitively. It's a demanding discipline that taught me rigor, perseverance, and 
-            self-improvement — qualities I also find in the world of web development.
-          </p>
-        </div>
-        <div class="about-stats">
-          <div class="stat-item">
-            <span class="stat-number">21</span>
-            <span class="stat-label">years old</span>
+      <span class="section-eyebrow">About</span>
+      <div class="about-grid">
+
+        <div class="about-text-col">
+          <h2 class="section-title-left">
+            Strength &amp; <br><em>Precision</em>
+          </h2>
+          <div class="about-body">
+            <p>
+              I'm <strong>Ichem DGHIM</strong>, 21, a junior web developer based in Agen, France.
+              Graduated with a STI2D SIN diploma, I have a limitless imagination that drives me to
+              turn every idea into concrete reality.
+            </p>
+            <p>
+              Passionate about the web, I build modern, smooth and responsive interfaces,
+              with one single goal: <strong>bring everything I imagine to life</strong>.
+            </p>
+            <p>
+              When I'm not coding, I'm lifting. I compete in <strong>powerlifting</strong> —
+              a demanding discipline that taught me discipline, perseverance and self-improvement.
+              Qualities I apply line by line.
+            </p>
           </div>
-          <div class="stat-item">
-            <span class="stat-number">6+</span>
-            <span class="stat-label">projects</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">3</span>
-            <span class="stat-label">certifications</span>
+
+          <div class="about-quote">
+            <span class="quote-mark">"</span>
+            <p>Every merged PR is a personal record broken.</p>
           </div>
         </div>
+
+        <div class="about-right-col">
+          <!-- Timeline -->
+          <div class="timeline">
+            <div class="timeline-track"></div>
+
+            <div class="timeline-item reveal-left">
+              <div class="tl-dot"></div>
+              <div class="tl-card">
+                <span class="tl-date">2021 – 2022</span>
+                <h4>Bac STI2D SIN</h4>
+                <p>Digital Information Systems</p>
+                <div class="tl-tags">
+                  <span>Electronics</span><span>Programming</span><span>Networks</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-item reveal-left delay-1">
+              <div class="tl-dot"></div>
+              <div class="tl-card">
+                <span class="tl-date">2022 – 2023</span>
+                <h4>BTS SN Option B</h4>
+                <p>Electronics & Communication</p>
+                <div class="tl-tags">
+                  <span>Embedded systems</span><span>Network protocols</span><span>C/C++</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-item active reveal-left delay-2">
+              <div class="tl-dot"></div>
+              <div class="tl-card">
+                <span class="tl-date">2025</span>
+                <h4>DWWM Professional Title</h4>
+                <p>Web & Mobile Web Developer</p>
+                <div class="tl-tags">
+                  <span>Full-Stack</span><span>React</span><span>Node.js</span><span>MongoDB</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- SKILLS SECTION -->
-  <section class="section skills" id="skills">
+  <!-- ═══════════════════════════════════════════
+       SKILLS
+  ═══════════════════════════════════════════ -->
+  <section class="section bg-black" id="skills">
     <div class="container">
+      <span class="section-eyebrow">Stack</span>
       <h2 class="section-title">Skills</h2>
-      <div class="skills-grid">
-        <div class="skill-category">
-          <h3><i class="fas fa-code"></i> Frontend</h3>
-          <div class="skill-items">
-            <div class="skill-item">
-              <i class="fab fa-html5"></i>
-              <span>HTML5</span>
+
+      <div class="skills-layout">
+        <div class="skills-categories">
+
+          <div class="skill-cat reveal-up">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon"><i class="fas fa-code"></i></div>
+              <h3>Frontend</h3>
             </div>
-            <div class="skill-item">
-              <i class="fab fa-css3-alt"></i>
-              <span>CSS3</span>
-            </div>
-            <div class="skill-item">
-              <i class="fab fa-js"></i>
-              <span>JavaScript</span>
-            </div>
-            <div class="skill-item">
-              <i class="fab fa-react"></i>
-              <span>React</span>
-            </div>
-            <div class="skill-item">
-              <i class="fas fa-mobile-alt"></i>
-              <span>Responsive</span>
+            <div class="skill-pills">
+              <span class="skill-pill"><i class="fab fa-html5"></i> HTML5</span>
+              <span class="skill-pill"><i class="fab fa-css3-alt"></i> CSS3</span>
+              <span class="skill-pill"><i class="fab fa-js"></i> JavaScript</span>
+              <span class="skill-pill featured"><i class="fab fa-react"></i> React</span>
+              <span class="skill-pill"><i class="fas fa-mobile-alt"></i> Responsive</span>
             </div>
           </div>
-        </div>
-        <div class="skill-category">
-          <h3><i class="fas fa-server"></i> Backend</h3>
-          <div class="skill-items">
-            <div class="skill-item">
-              <i class="fab fa-node-js"></i>
-              <span>Node.js</span>
+
+          <div class="skill-cat reveal-up delay-1">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon"><i class="fas fa-server"></i></div>
+              <h3>Backend</h3>
             </div>
-            <div class="skill-item">
-              <i class="fas fa-terminal"></i>
-              <span>Express</span>
-            </div>
-            <div class="skill-item">
-              <i class="fas fa-plug"></i>
-              <span>REST APIs</span>
-            </div>
-            <div class="skill-item">
-              <i class="fas fa-database"></i>
-              <span>MongoDB</span>
+            <div class="skill-pills">
+              <span class="skill-pill featured"><i class="fab fa-node-js"></i> Node.js</span>
+              <span class="skill-pill"><i class="fas fa-terminal"></i> Express</span>
+              <span class="skill-pill"><i class="fas fa-plug"></i> REST API</span>
+              <span class="skill-pill"><i class="fas fa-database"></i> MongoDB</span>
             </div>
           </div>
+
+          <div class="skill-cat reveal-up delay-2">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon"><i class="fas fa-tools"></i></div>
+              <h3>Tools</h3>
+            </div>
+            <div class="skill-pills">
+              <span class="skill-pill"><i class="fab fa-git-alt"></i> Git & GitHub</span>
+              <span class="skill-pill"><i class="fab fa-figma"></i> Figma</span>
+              <span class="skill-pill"><i class="fas fa-cloud"></i> Vercel</span>
+              <span class="skill-pill"><i class="fas fa-server"></i> Render</span>
+              <span class="skill-pill"><i class="fas fa-tasks"></i> Notion</span>
+              <span class="skill-pill"><i class="fas fa-code"></i> VS Code</span>
+            </div>
+          </div>
+
         </div>
-        <div class="skill-category">
-          <h3><i class="fas fa-tools"></i> Tools</h3>
-          <div class="skill-items">
-            <div class="skill-item">
-              <i class="fab fa-git-alt"></i>
-              <span>Git & GitHub</span>
-            </div>
-            <div class="skill-item">
-              <i class="fas fa-code"></i>
-              <span>VS Code</span>
-            </div>
-            <div class="skill-item">
-              <i class="fab fa-figma"></i>
-              <span>Figma</span>
-            </div>
-            <div class="skill-item">
-              <i class="fas fa-cloud"></i>
-              <span>Vercel</span>
-            </div>
-            <div class="skill-item">
-              <i class="fas fa-server"></i>
-              <span>Render</span>
-            </div>
-            <div class="skill-item">
-              <i class="fas fa-tasks"></i>
-              <span>Notion</span>
-            </div>
+
+        <!-- Certifications -->
+        <div class="certifications reveal-up delay-1">
+          <h3 class="certif-title-h">Certifications <span>FreeCodeCamp</span></h3>
+          <div class="certif-list">
+
+            <a href="https://www.freecodecamp.org/certification/IchemD/responsive-web-design" target="_blank" class="certif-item">
+              <div class="certif-icon"><i class="fas fa-mobile-alt"></i></div>
+              <div class="certif-info">
+                <span class="certif-name">Responsive Web Design</span>
+                <span class="certif-org">freeCodeCamp · 2024</span>
+              </div>
+              <div class="certif-arrow"><i class="fas fa-external-link-alt"></i></div>
+            </a>
+
+            <a href="https://www.freecodecamp.org/certification/IchemD/javascript-algorithms-and-data-structures-v8" target="_blank" class="certif-item">
+              <div class="certif-icon"><i class="fab fa-js"></i></div>
+              <div class="certif-info">
+                <span class="certif-name">JS Algorithms & Data Structures</span>
+                <span class="certif-org">freeCodeCamp · 2024</span>
+              </div>
+              <div class="certif-arrow"><i class="fas fa-external-link-alt"></i></div>
+            </a>
+
+            <a href="https://www.freecodecamp.org/certification/IchemD/back-end-development-and-apis" target="_blank" class="certif-item">
+              <div class="certif-icon"><i class="fas fa-server"></i></div>
+              <div class="certif-info">
+                <span class="certif-name">Backend Development & APIs</span>
+                <span class="certif-org">freeCodeCamp · 2024</span>
+              </div>
+              <div class="certif-arrow"><i class="fas fa-external-link-alt"></i></div>
+            </a>
+
           </div>
         </div>
       </div>
-      
-      <!-- Certifications -->
-      <div class="certifications">
-        <h3>Certifications</h3>
-        <div class="certif-container">
-          <a href="https://www.freecodecamp.org/certification/IchemD/responsive-web-design" target="_blank" class="certif-card">
-            <img src="image/certification_fcc/Certif_RWD.png" alt="Responsive Web Design certification" />
-            <span class="certif-title">Responsive Web Design</span>
-          </a>
-          <a href="https://www.freecodecamp.org/certification/IchemD/javascript-algorithms-and-data-structures-v8" target="_blank" class="certif-card">
-            <img src="image/certification_fcc/JS_certif.PNG" alt="JavaScript certification" />
-            <span class="certif-title">JavaScript Algorithms & Data Structures</span>
-          </a>
-          <a href="https://www.freecodecamp.org/certification/IchemD/back-end-development-and-apis" target="_blank" class="certif-card">
-            <img src="image/certification_fcc/BackEnd_certif.PNG" alt="Backend certification" />
-            <span class="certif-title">Backend Development & API</span>
-          </a>
-        </div>
-      </div>
+
     </div>
   </section>
 
-  <!-- METHODOLOGY SECTION -->
-  <section class="section methodology" id="methodology">
+  <!-- ═══════════════════════════════════════════
+       METHODOLOGY
+  ═══════════════════════════════════════════ -->
+  <section class="section bg-dark" id="methodology">
     <div class="container">
+      <span class="section-eyebrow">Method</span>
       <h2 class="section-title">My Approach</h2>
-      <div class="methodology-intro">
-        <p>A professional methodology for solid and maintainable projects.</p>
-      </div>
-      <div class="methodology-grid">
-        
-        <!-- Planning & Design -->
-        <div class="methodology-card">
-          <div class="methodology-icon">
-            <i class="fas fa-project-diagram"></i>
-          </div>
+
+      <div class="method-grid">
+
+        <div class="method-card reveal-up">
+          <div class="method-num">01</div>
+          <div class="method-icon"><i class="fas fa-project-diagram"></i></div>
           <h3>Planning</h3>
-          <div class="methodology-content">
-            <p>Requirements analysis, Figma mockups, and detailed roadmap with Notion before every line of code.</p>
-            <div class="methodology-tags">
-              <span>Figma</span>
-              <span>Notion</span>
-              <span>UX/UI</span>
-            </div>
+          <p>Requirements analysis, Figma wireframes and a detailed roadmap on Notion before writing a single line of code.</p>
+          <div class="method-tags">
+            <span>Figma</span><span>Notion</span><span>UX/UI</span>
           </div>
         </div>
 
-        <!-- Development -->
-        <div class="methodology-card">
-          <div class="methodology-icon">
-            <i class="fas fa-code-branch"></i>
-          </div>
+        <div class="method-card reveal-up delay-1">
+          <div class="method-num">02</div>
+          <div class="method-icon"><i class="fas fa-code-branch"></i></div>
           <h3>Development</h3>
-          <div class="methodology-content">
-            <p>Modular code, Git workflow (feature branches), descriptive commits, and architecture designed for maintenance.</p>
-            <div class="methodology-tags">
-              <span>Git</span>
-              <span>Clean Code</span>
-              <span>Mobile-First</span>
-            </div>
+          <p>Modular code, Git workflow with feature branches, descriptive commits and architecture built for long-term maintainability.</p>
+          <div class="method-tags">
+            <span>Git</span><span>Clean Code</span><span>Mobile-First</span>
           </div>
         </div>
 
-        <!-- Testing & Deployment -->
-        <div class="methodology-card">
-          <div class="methodology-icon">
-            <i class="fas fa-rocket"></i>
-          </div>
+        <div class="method-card reveal-up delay-2">
+          <div class="method-num">03</div>
+          <div class="method-icon"><i class="fas fa-rocket"></i></div>
           <h3>Testing & Deployment</h3>
-          <div class="methodology-content">
-            <p>Cross-browser testing, W3C validation, performance optimization, and automated CI/CD deployment.</p>
-            <div class="methodology-tags">
-              <span>DevTools</span>
-              <span>Vercel/Render</span>
-              <span>Performance</span>
-            </div>
+          <p>Cross-browser testing, W3C validation, performance optimization and automated CI/CD deployment.</p>
+          <div class="method-tags">
+            <span>DevTools</span><span>Vercel</span><span>Performance</span>
           </div>
         </div>
 
       </div>
-
-      <!-- Timeline Section -->
-      <div class="timeline-section">
-        <h3>My Journey</h3>
-        <div class="timeline">
-          
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-date">2021 - 2022</div>
-              <h4>STI2D SIN High School Diploma</h4>
-              <p>Information Systems and Digital Technology</p>
-              <div class="timeline-skills">
-                <span>Electronics</span>
-                <span>Programming</span>
-                <span>Networks</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-date">2022 - 2023</div>
-              <h4>BTS SN Option B</h4>
-              <p>Electronics and Communication</p>
-              <div class="timeline-skills">
-                <span>Embedded Systems</span>
-                <span>Network Protocols</span>
-                <span>C/C++</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="timeline-item active">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-date">2025</div>
-              <h4>Professional Diploma DWWM</h4>
-              <p>Web and Mobile Web Developer</p>
-              <div class="timeline-skills">
-                <span>FreeCodeCamp Certifications</span>
-                <span>Full-Stack</span>
-                <span>React</span>
-                <span>Node.js</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
     </div>
   </section>
 
-  <!-- PROJECTS SECTION -->
-  <section class="section" id="projects">
+  <!-- ═══════════════════════════════════════════
+       PROJECTS
+  ═══════════════════════════════════════════ -->
+  <section class="section bg-black" id="projects">
     <div class="container">
+      <span class="section-eyebrow">Work</span>
       <h2 class="section-title">My Projects</h2>
+
       <div class="projects-grid">
 
-        <!-- Project STUDPROD -->
-        <div class="project-card">
-          <div class="project-image">
-            <img src="image/projets-pict/LOGO STUDPROD NOIR.png" alt="STUDPROD Project">
+        <!-- PAPYRUS — Featured large -->
+        <div class="proj-card featured reveal-up"
+             data-title="Papyrus"
+             data-desc="Document management platform with full-text search, token-secured sharing and real-time collaboration."
+             data-tech="React,Node.js,MongoDB,REST API"
+             data-demo="https://papyrus-rho.vercel.app"
+             data-showcase="https://idghim.github.io/Papyrus_website/"
+             data-github="">
+          <div class="proj-preview">
+            <img src="image/projets-pict/Papyrus_logo.png" alt="Papyrus" loading="lazy" />
+            <!--
+              To add a video demo, replace the img with:
+              <video autoplay muted loop playsinline preload="none" data-src="videos/papyrus-demo.mp4">
+                <source src="videos/papyrus-demo.mp4" type="video/mp4">
+              </video>
+            -->
           </div>
-          <div class="project-card-inner">
-            <div>
-              <div class="project-card-front">
-                <div class="project-content">
-                  <h3 class="project-title">STUDPROD</h3>
-                  <p class="project-description">
-                    Modern landing page created for a student production company. 
-                    Responsive design and optimized user interface.
-                  </p>
-                  <div class="project-tech">
-                    <span class="tech-tag"><i class="fab fa-html5"></i> HTML5</span>
-                    <span class="tech-tag"><i class="fab fa-css3-alt"></i> CSS3</span>
-                    <span class="tech-tag"><i class="fas fa-mobile-alt"></i> Responsive</span>
-                  </div>
-                </div>
-                <div class="flip-indicator">↻ Hover to see links</div>
-              </div>
-              <div class="project-card-back">
-                <div>
-                  <h3>STUDPROD</h3>
-                  <p class="project-description">
-                    Landing page with smooth animations and modern design adapted to all screens.
-                  </p>
-                  <div class="project-tech">
-                    <span class="tech-tag"><i class="fab fa-html5"></i> HTML5</span>
-                    <span class="tech-tag"><i class="fab fa-css3-alt"></i> CSS3</span>
-                    <span class="tech-tag"><i class="fas fa-mobile-alt"></i> Responsive</span>
-                  </div>
-                </div>
-                <div class="project-links">
-                  <a href="https://idghim.github.io/fcc-Landing-Page" target="_blank" class="project-link primary">
-                    <i class="fas fa-external-link-alt"></i> View project
-                  </a>
-                  <a href="https://github.com/IDGHIM/fcc-Landing-Page" target="_blank" class="project-link secondary">
-                    <i class="fab fa-github"></i> Source code
-                  </a>
-                </div>
-              </div>
+          <div class="proj-overlay"></div>
+          <div class="proj-number">01</div>
+          <div class="proj-content">
+            <div class="proj-meta">
+              <span class="proj-badge live">● Live</span>
+              <span class="proj-type">Full-Stack App</span>
+            </div>
+            <h3 class="proj-title">Papyrus</h3>
+            <p class="proj-desc">Document management platform — advanced search, secure sharing and collaboration.</p>
+            <div class="proj-tags">
+              <span>React</span><span>Node.js</span><span>MongoDB</span><span>REST API</span>
+            </div>
+            <div class="proj-actions">
+              <a href="https://papyrus-rho.vercel.app" target="_blank" class="proj-btn primary" onclick="event.stopPropagation()">
+                <i class="fas fa-external-link-alt"></i> View project
+              </a>
+              <button class="proj-btn ghost open-modal" onclick="event.stopPropagation()">
+                <i class="fas fa-play"></i> Demo
+              </button>
+            </div>
+          </div>
+          <span class="proj-hint">Click for demo</span>
+        </div>
+
+        <!-- ALÉA — Compact -->
+        <div class="proj-card compact reveal-up delay-1"
+             data-title="Aléa"
+             data-desc="White-label quiz platform. Admin dashboard, multi-user system and advanced customization."
+             data-tech="React,Node.js,MongoDB,Responsive"
+             data-demo=""
+             data-github="https://github.com/IDGHIM">
+          <div class="proj-preview">
+            <img src="image/projets-pict/Alea_logo1.png" alt="Aléa" loading="lazy" />
+          </div>
+          <div class="proj-overlay"></div>
+          <div class="proj-number">02</div>
+          <div class="proj-ribbon">In dev</div>
+          <div class="proj-content">
+            <div class="proj-meta">
+              <span class="proj-badge wip">⚙ In progress</span>
+              <span class="proj-type">SaaS</span>
+            </div>
+            <h3 class="proj-title">Aléa</h3>
+            <p class="proj-desc">White-label quiz platform. Admin dashboard and advanced customization.</p>
+            <div class="proj-tags">
+              <span>React</span><span>Node.js</span><span>MongoDB</span>
+            </div>
+            <div class="proj-actions">
+              <a href="https://github.com/IDGHIM" target="_blank" class="proj-btn ghost" onclick="event.stopPropagation()">
+                <i class="fab fa-github"></i> GitHub
+              </a>
             </div>
           </div>
         </div>
 
-        <!-- Project Roman Numeral Converter -->
-        <div class="project-card">
-          <div class="project-image">
-            <img src="image/projets-pict/roman_numeral_convert.png" alt="Roman numeral converter">
+        <!-- POKÉDEX — Compact wide -->
+        <div class="proj-card compact-wide reveal-up delay-2"
+             data-title="Interactive Pokédex"
+             data-desc="Modern Pokédex with flippable 3D cards, PokéAPI integration and immersive visual effects."
+             data-tech="HTML5,CSS3,JavaScript,REST API"
+             data-demo="https://idghim.github.io/Interactive_Pok-dex/"
+             data-github="https://github.com/IDGHIM/Interactive_Pok-dex">
+          <div class="proj-preview">
+            <img src="image/projets-pict/pokédex_app.png" alt="Pokédex" loading="lazy" />
           </div>
-          <div class="project-card-inner">
-            <div>
-              <div class="project-card-front">
-                <div class="project-content">
-                  <h3 class="project-title">Roman Converter</h3>
-                  <p class="project-description">
-                    Application that transforms integers into Roman numerals and vice versa, 
-                    following writing rules.
-                  </p>
-                  <div class="project-tech">
-                    <span class="tech-tag"><i class="fab fa-html5"></i> HTML5</span>
-                    <span class="tech-tag"><i class="fab fa-css3-alt"></i> CSS3</span>
-                    <span class="tech-tag"><i class="fab fa-js"></i> JavaScript</span>
-                    <span class="tech-tag"><i class="fas fa-mobile-alt"></i> Responsive</span>
-                  </div>
-                </div>
-                <div class="flip-indicator">↻ Hover to see links</div>
-              </div>
-              <div class="project-card-back">
-                <div>
-                  <h3>Roman Converter</h3>
-                  <p class="project-description">
-                    Conversion algorithms with input validation and intuitive interface.
-                  </p>
-                  <div class="project-tech">
-                    <span class="tech-tag"><i class="fab fa-html5"></i> HTML5</span>
-                    <span class="tech-tag"><i class="fab fa-css3-alt"></i> CSS3</span>
-                    <span class="tech-tag"><i class="fab fa-js"></i> JavaScript</span>
-                    <span class="tech-tag"><i class="fas fa-mobile-alt"></i> Responsive</span>
-                  </div>
-                </div>
-                <div class="project-links">
-                  <a href="https://idghim.github.io/fcc-Roman_Numeral_Converter/" target="_blank" class="project-link primary">
-                    <i class="fas fa-external-link-alt"></i> View project
-                  </a>
-                  <a href="https://github.com/IDGHIM/fcc-Roman_Numeral_Converter" target="_blank" class="project-link secondary">
-                    <i class="fab fa-github"></i> Source code
-                  </a>
-                </div>
-              </div>
+          <div class="proj-overlay"></div>
+          <div class="proj-number">03</div>
+          <div class="proj-content">
+            <div class="proj-meta">
+              <span class="proj-badge live">● Live</span>
+              <span class="proj-type">Web App</span>
+            </div>
+            <h3 class="proj-title">Pokédex</h3>
+            <p class="proj-desc">Flippable 3D cards with PokéAPI integration.</p>
+            <div class="proj-tags">
+              <span>HTML5</span><span>CSS3</span><span>REST API</span>
+            </div>
+            <div class="proj-actions">
+              <a href="https://idghim.github.io/Interactive_Pok-dex/" target="_blank" class="proj-btn primary" onclick="event.stopPropagation()">
+                <i class="fas fa-external-link-alt"></i> View
+              </a>
+              <button class="proj-btn ghost open-modal" onclick="event.stopPropagation()">
+                <i class="fas fa-play"></i> Demo
+              </button>
+            </div>
+          </div>
+          <span class="proj-hint">Click for demo</span>
+        </div>
+
+        <!-- TIC-TAC-TOE — Featured right -->
+        <div class="proj-card featured-right reveal-up"
+             data-title="Tic-Tac-Toe React"
+             data-desc="Modern take on the classic tic-tac-toe game built with React Hooks and optimized state management."
+             data-tech="React,CSS3,JavaScript,Responsive"
+             data-demo="https://tic-tac-toe-rosy-eta.vercel.app/"
+             data-github="https://github.com/IDGHIM/Tic-Tac-Toe">
+          <div class="proj-preview">
+            <img src="image/projets-pict/tic-tac-toe.png" alt="Tic-Tac-Toe" loading="lazy" />
+          </div>
+          <div class="proj-overlay"></div>
+          <div class="proj-number">04</div>
+          <div class="proj-content">
+            <div class="proj-meta">
+              <span class="proj-badge live">● Live</span>
+              <span class="proj-type">React App</span>
+            </div>
+            <h3 class="proj-title">Tic-Tac-Toe</h3>
+            <p class="proj-desc">Tic-tac-toe game built with React Hooks, state management and smooth animations.</p>
+            <div class="proj-tags">
+              <span>React</span><span>CSS3</span><span>JavaScript</span>
+            </div>
+            <div class="proj-actions">
+              <a href="https://tic-tac-toe-rosy-eta.vercel.app/" target="_blank" class="proj-btn primary" onclick="event.stopPropagation()">
+                <i class="fas fa-external-link-alt"></i> Play
+              </a>
+              <button class="proj-btn ghost open-modal" onclick="event.stopPropagation()">
+                <i class="fas fa-play"></i> Demo
+              </button>
+            </div>
+          </div>
+          <span class="proj-hint">Click for demo</span>
+        </div>
+
+        <!-- STUDPROD — Half -->
+        <div class="proj-card half reveal-up delay-1"
+             data-title="STUDPROD"
+             data-desc="Modern landing page for a student production company with smooth animations and responsive design."
+             data-tech="HTML5,CSS3,Responsive"
+             data-demo="https://idghim.github.io/fcc-Landing-Page"
+             data-github="https://github.com/IDGHIM/fcc-Landing-Page">
+          <div class="proj-preview">
+            <img src="image/projets-pict/LOGO STUDPROD NOIR.png" alt="STUDPROD" loading="lazy" />
+          </div>
+          <div class="proj-overlay"></div>
+          <div class="proj-number">05</div>
+          <div class="proj-content">
+            <div class="proj-meta">
+              <span class="proj-badge live">● Live</span>
+              <span class="proj-type">Landing Page</span>
+            </div>
+            <h3 class="proj-title">STUDPROD</h3>
+            <p class="proj-desc">Landing page with smooth animations and adaptive design.</p>
+            <div class="proj-tags">
+              <span>HTML5</span><span>CSS3</span>
+            </div>
+            <div class="proj-actions">
+              <a href="https://idghim.github.io/fcc-Landing-Page" target="_blank" class="proj-btn primary" onclick="event.stopPropagation()">
+                <i class="fas fa-external-link-alt"></i> View
+              </a>
             </div>
           </div>
         </div>
 
-        <!-- Project Pokédex -->
-        <div class="project-card">
-          <div class="project-image">
-            <img src="image/projets-pict/pokédex_app.png" alt="Pokédex">
+        <!-- ROMAN NUMERAL CONVERTER — Half -->
+        <div class="proj-card half reveal-up delay-2"
+             data-title="Roman Numeral Converter"
+             data-desc="Conversion app between Arabic and Roman numerals with input validation and an intuitive interface."
+             data-tech="HTML5,CSS3,JavaScript,Responsive"
+             data-demo="https://idghim.github.io/fcc-Roman_Numeral_Converter/"
+             data-github="https://github.com/IDGHIM/fcc-Roman_Numeral_Converter">
+          <div class="proj-preview">
+            <img src="image/projets-pict/roman_numeral_convert.png" alt="Roman Numeral Converter" loading="lazy" />
           </div>
-          <div class="project-card-inner">
-            <div>
-              <div class="project-card-front">
-                <div class="project-content">
-                  <h3 class="project-title">Pokédex</h3>
-                  <p class="project-description">
-                    Modern and interactive Pokédex with flippable 3D cards. 
-                  </p>
-                  <div class="project-tech">
-                    <span class="tech-tag"><i class="fab fa-html5"></i> HTML5</span>
-                    <span class="tech-tag"><i class="fab fa-css3-alt"></i> CSS3</span>
-                    <span class="tech-tag"><i class="fas fa-plug"></i> REST API</span>
-                    <span class="tech-tag"><i class="fas fa-mobile-alt"></i> Responsive</span>
-                  </div>
-                </div>
-                <div class="flip-indicator">↻ Hover to see links</div>
-              </div>
-              <div class="project-card-back">
-                <div>
-                  <h3>Pokédex</h3>
-                  <p class="project-description">
-                    Interactive application with REST API and immersive 3D effects.
-                  </p>
-                  <div class="project-tech">
-                    <span class="tech-tag"><i class="fab fa-html5"></i> HTML5</span>
-                    <span class="tech-tag"><i class="fab fa-css3-alt"></i> CSS3</span>
-                    <span class="tech-tag"><i class="fas fa-plug"></i> API</span>
-                    <span class="tech-tag"><i class="fas fa-mobile-alt"></i> Responsive</span>
-                  </div>
-                </div>
-                <div class="project-links">
-                  <a href="https://idghim.github.io/Interactive_Pok-dex/" target="_blank" class="project-link primary">
-                    <i class="fas fa-external-link-alt"></i> View project
-                  </a>
-                  <a href="https://github.com/IDGHIM/Interactive_Pok-dex" target="_blank" class="project-link secondary">
-                    <i class="fab fa-github"></i> Source code
-                  </a>
-                </div>
-              </div>
+          <div class="proj-overlay"></div>
+          <div class="proj-number">06</div>
+          <div class="proj-content">
+            <div class="proj-meta">
+              <span class="proj-badge live">● Live</span>
+              <span class="proj-type">JS App</span>
+            </div>
+            <h3 class="proj-title">Converter</h3>
+            <p class="proj-desc">Arabic ↔ Roman conversion with validation algorithms.</p>
+            <div class="proj-tags">
+              <span>HTML5</span><span>JavaScript</span>
+            </div>
+            <div class="proj-actions">
+              <a href="https://idghim.github.io/fcc-Roman_Numeral_Converter/" target="_blank" class="proj-btn primary" onclick="event.stopPropagation()">
+                <i class="fas fa-external-link-alt"></i> View
+              </a>
             </div>
           </div>
         </div>
 
-        <!-- Project Tic-Tac-Toe -->
-        <div class="project-card">
-          <div class="project-image">
-            <img src="image/projets-pict/tic-tac-toe.png" alt="Tic-Tac-Toe">
-          </div>
-          <div class="project-card-inner">
-            <div>
-              <div class="project-card-front">
-                <div class="project-content">
-                  <h3 class="project-title">Tic-Tac-Toe</h3>
-                  <p class="project-description">
-                    Modern version of the classic tic-tac-toe game developed with React. 
-                    Modern interface and optimized game logic.
-                  </p>
-                  <div class="project-tech">
-                    <span class="tech-tag"><i class="fab fa-react"></i> React</span>
-                    <span class="tech-tag"><i class="fab fa-css3-alt"></i> CSS3</span>
-                    <span class="tech-tag"><i class="fab fa-js"></i> JavaScript</span>
-                    <span class="tech-tag"><i class="fas fa-mobile-alt"></i> Responsive</span>
-                  </div>
-                </div>
-                <div class="flip-indicator">↻ Hover to see links</div>
-              </div>
-              <div class="project-card-back">
-                <div>
-                  <h3>Tic-Tac-Toe</h3>
-                  <p class="project-description">
-                    Game developed with React Hooks and modern state management.
-                  </p>
-                  <div class="project-tech">
-                    <span class="tech-tag"><i class="fab fa-react"></i> React</span>
-                    <span class="tech-tag"><i class="fab fa-css3-alt"></i> CSS3</span>
-                    <span class="tech-tag"><i class="fab fa-js"></i> JavaScript</span>
-                    <span class="tech-tag"><i class="fas fa-mobile-alt"></i> Responsive</span>
-                  </div>
-                </div>
-                <div class="project-links">
-                  <a href="https://tic-tac-toe-rosy-eta.vercel.app/" target="_blank" class="project-link primary">
-                    <i class="fas fa-external-link-alt"></i> View project
-                  </a>
-                  <a href="https://github.com/IDGHIM/Tic-Tac-Toe" target="_blank" class="project-link secondary">
-                    <i class="fab fa-github"></i> Source code
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project Papyrus -->
-        <div class="project-card">
-          <div class="project-image">
-            <img src="image/projets-pict/Papyrus_logo.png" alt="Papyrus Project">
-          </div>
-          <div class="project-card-inner">
-            <div>
-              <div class="project-card-front">
-                <div class="project-content">
-                  <h3 class="project-title">Papyrus</h3>
-                  <p class="project-description">
-                    Innovative document management platform. Modern solution to organize 
-                    and share your documents.
-                  </p>
-                  <div class="project-tech">
-                    <span class="tech-tag"><i class="fab fa-react"></i> React</span>
-                    <span class="tech-tag"><i class="fab fa-node-js"></i> Node.js</span>
-                    <span class="tech-tag"><i class="fas fa-database"></i> MongoDB</span>
-                  </div>
-                </div>
-                <div class="flip-indicator">↻ Hover to see links</div>
-              </div>
-              <div class="project-card-back">
-                <div>
-                  <h3>Papyrus</h3>
-                  <p class="project-description">
-                    Complete DMS solution with advanced search, secure sharing and collaboration.
-                  </p>
-                  <div class="project-tech">
-                    <span class="tech-tag"><i class="fab fa-react"></i> React</span>
-                    <span class="tech-tag"><i class="fab fa-node-js"></i> Node.js</span>
-                    <span class="tech-tag"><i class="fas fa-database"></i> MongoDB</span>
-                  </div>
-                </div>
-                <div class="project-links">
-                  <a href="https://papyrus-rho.vercel.app" target="_blank" class="project-link primary">
-                    <i class="fas fa-external-link-alt"></i> View project
-                  </a>
-                  <a href="https://idghim.github.io/Papyrus_website/" target="_blank" class="project-link secondary">
-                    <i class="fas fa-external-link-alt"></i> View website
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project Aléa - In Development -->
-        <div class="project-card in-development">
-          <div class="project-image">
-            <img src="image/projets-pict/Alea_logo1.png" alt="Aléa Project">
-          </div>
-          <div class="project-card-inner">
-            <div>
-              <div class="project-card-front">
-                <div class="project-content">
-                  <h3 class="project-title">Aléa</h3>
-                  <p class="project-description">
-                    White-label quiz platform. Scalable and customizable solution 
-                    for individuals and professionals.
-                  </p>
-                  <div class="project-tech">
-                    <span class="tech-tag"><i class="fab fa-react"></i> React</span>
-                    <span class="tech-tag"><i class="fab fa-node-js"></i> Node.js</span>
-                    <span class="tech-tag"><i class="fas fa-database"></i> MongoDB</span>
-                  </div>
-                </div>
-                <div class="flip-indicator">↻ Hover to see links</div>
-              </div>
-              <div class="project-card-back">
-                <div>
-                  <h3>Aléa</h3>
-                  <p class="project-description">
-                    Complete platform with admin dashboard, multi-user system and advanced customization.
-                  </p>
-                  <div class="project-tech">
-                    <span class="tech-tag"><i class="fab fa-react"></i> React</span>
-                    <span class="tech-tag"><i class="fab fa-node-js"></i> Node.js</span>
-                    <span class="tech-tag"><i class="fas fa-database"></i> MongoDB</span>
-                  </div>
-                </div>
-                <div class="project-links">
-                  <a href="#" class="project-link primary disabled">
-                    <i class="fas fa-hammer"></i> In Development
-                  </a>
-                  <a href="https://github.com/IDGHIM" target="_blank" class="project-link secondary">
-                    <i class="fab fa-github"></i> Coming Soon
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
       </div>
     </div>
   </section>
 
-  <!-- CONTACT SECTION -->
-  <section class="section contact" id="contact">
+  <!-- ═══════════════════════════════════════════
+       CONTACT
+  ═══════════════════════════════════════════ -->
+  <section class="section bg-dark" id="contact">
     <div class="container">
-      <h2 class="section-title">Contact Me</h2>
-      <div class="contact-content">
-        <div class="contact-info">
-          <h3>Have a project idea?</h3>
-          <p>Feel free to contact me to discuss your web projects!</p>
-          
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="fas fa-envelope"></i>
+      <span class="section-eyebrow">Contact</span>
+      <h2 class="section-title">Let's work together</h2>
+
+      <div class="contact-grid">
+
+        <div class="contact-left reveal-left">
+          <p class="contact-intro">
+            Got a project idea? Looking for a motivated junior web developer?
+            I'm open to opportunities and collaborations.
+          </p>
+
+          <div class="contact-items">
+            <a href="mailto:ichemdghim@gmail.com" class="contact-item">
+              <div class="ci-icon"><i class="fas fa-envelope"></i></div>
+              <div class="ci-text">
+                <span class="ci-label">Email</span>
+                <span class="ci-value">ichemdghim@gmail.com</span>
+              </div>
+              <i class="fas fa-arrow-right ci-arrow"></i>
+            </a>
+
+            <div class="contact-item no-link">
+              <div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div class="ci-text">
+                <span class="ci-label">Location</span>
+                <span class="ci-value">Agen, France</span>
+              </div>
             </div>
-            <div>
-              <h4>Email</h4>
-              <p>ichemdghim@gmail.com</p>
+
+            <div class="contact-item no-link">
+              <div class="ci-icon"><i class="fas fa-circle"></i></div>
+              <div class="ci-text">
+                <span class="ci-label">Status</span>
+                <span class="ci-value ci-available">Available · Open to opportunities</span>
+              </div>
             </div>
           </div>
-          
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="fas fa-map-marker-alt"></i>
-            </div>
-            <div>
-              <h4>Location</h4>
-              <p>Agen, France</p>
-            </div>
-          </div>
-          
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="fas fa-code"></i>
-            </div>
-            <div>
-              <h4>Status</h4>
-              <p>Open to opportunities</p>
-            </div>
+
+          <div class="contact-socials">
+            <a href="https://github.com/IDGHIM" target="_blank" class="social-chip">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/ichem-dghim/" target="_blank" class="social-chip">
+              <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://www.instagram.com/iichoumm_pwr/" target="_blank" class="social-chip">
+              <i class="fab fa-instagram"></i> Instagram
+            </a>
           </div>
         </div>
-        
-        <form class="contact-form" method="POST">
-          <div class="form-group">
-            <label for="nom">Full name</label>
-            <input type="text" name="nom" id="nom" placeholder="Your name" required />
-          </div>
-          
-          <div class="form-group">
-            <label for="email">Email address</label>
-            <input type="email" name="email" id="email" placeholder="your@email.com" required />
-          </div>
-          
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea name="message" id="message" rows="5" placeholder="Describe your project..." required></textarea>
-          </div>
-          
-          <button type="submit" id="submit_button" class="submit-btn">
-            <i class="fas fa-paper-plane"></i> Send message
-          </button>
-        </form>
+
+        <div class="contact-right reveal-right">
+          <form class="contact-form" id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nom">Full name</label>
+                <input type="text" id="nom" name="nom" placeholder="Your name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="sujet">Subject</label>
+              <input type="text" id="sujet" name="sujet" placeholder="Project, collaboration, question…" />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Tell me about your project or need…" required></textarea>
+            </div>
+            <button type="submit" class="btn-primary full-w" id="submitBtn">
+              <span>Send message</span>
+              <i class="fas fa-paper-plane"></i>
+            </button>
+            <div class="form-feedback" id="formFeedback"></div>
+          </form>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
   <footer class="footer">
-    <div class="container">
-      <div class="social-links">
-        <a href="mailto:ichemdghim@gmail.com" class="social-link">
-          <i class="fas fa-envelope"></i>
-        </a>
-        <a href="https://github.com/IDGHIM" target="_blank" class="social-link">
-          <i class="fab fa-github"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/ichem-dghim/" target="_blank" class="social-link">
-          <i class="fab fa-linkedin"></i>
-        </a>
-        <a href="https://www.instagram.com/iichoumm_pwr/" target="_blank" class="social-link">
-          <i class="fab fa-instagram"></i>
-        </a>
+    <div class="container footer-inner">
+      <span class="footer-copy">© 2025 Ichem DGHIM</span>
+      <div class="footer-links">
+        <a href="mailto:ichemdghim@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="https://github.com/IDGHIM" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/ichem-dghim/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.instagram.com/iichoumm_pwr/" target="_blank"><i class="fab fa-instagram"></i></a>
       </div>
-      <p>&copy; 2025 Ichem DGHIM. All rights reserved.</p>
     </div>
   </footer>
 
+  <!-- ═══════════════════════════════════════════
+       DEMO MODAL
+  ═══════════════════════════════════════════ -->
+  <div class="modal-overlay" id="demoModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-box">
+      <div class="modal-header">
+        <span class="modal-title" id="modalTitle">—</span>
+        <button class="modal-close" id="modalClose" aria-label="Close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-video-zone" id="modalVideoZone"></div>
+      <div class="modal-footer">
+        <div class="modal-tech-list" id="modalTech"></div>
+        <div class="modal-actions" id="modalActions"></div>
+      </div>
+    </div>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-  <script>
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
-    });
-  </script>
   <script src="script.js"></script>
 </body>
-
 </html>
