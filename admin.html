@@ -1,0 +1,1942 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — IDGHIM</title>
+  <!-- Pas d'indexation de la page admin -->
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* ════════════════════════
+       RESET & VARIABLES
+    ════════════════════════ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --black:   #08080a;
+      --dark:    #0e0e12;
+      --dark2:   #13131a;
+      --plate:   #1a1a22;
+      --surface: #20202a;
+      --border:  #28283a;
+      --red:     #c0392b;
+      --red-h:   #d44637;
+      --red-soft: rgba(192,57,43,0.13);
+      --red-xsoft: rgba(192,57,43,0.06);
+      --chalk:   #edeae4;
+      --chalk-off: #c4c0b8;
+      --chalk-muted: #6a6660;
+      --green:   #39d353;
+      --gold:    #d4a017;
+      --font-d:  'Syne', sans-serif;
+      --font-b:  'DM Sans', sans-serif;
+      --font-m:  'JetBrains Mono', monospace;
+      --r-sm: 8px; --r-md: 16px; --r-lg: 24px; --r-pill: 100px;
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-b);
+      background: var(--black);
+      color: var(--chalk);
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: 0.022; pointer-events: none; z-index: 9999;
+    }
+
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--dark); }
+    ::-webkit-scrollbar-thumb { background: var(--red); border-radius: 4px; }
+    ::selection { background: var(--red); color: var(--chalk); }
+
+    /* ════════════════════════
+       LOGIN SCREEN
+    ════════════════════════ */
+    #loginScreen {
+      position: fixed; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--black);
+      z-index: 1000;
+      transition: opacity 0.4s ease, transform 0.4s var(--ease);
+    }
+
+    #loginScreen.hide {
+      opacity: 0; transform: scale(0.96); pointer-events: none;
+    }
+
+    .login-box {
+      background: var(--plate);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 48px 40px;
+      width: min(420px, 94vw);
+      box-shadow: 0 32px 80px rgba(0,0,0,0.6);
+    }
+
+    .login-logo {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .login-logo-mark {
+      width: 42px; height: 42px;
+      background: var(--red);
+      border-radius: var(--r-sm);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-d);
+      font-size: 1rem; font-weight: 800;
+      color: var(--chalk);
+    }
+
+    .login-logo-text {
+      font-family: var(--font-d);
+      font-size: 1.1rem; font-weight: 800;
+      letter-spacing: 0.05em;
+    }
+
+    .login-logo-sub {
+      font-family: var(--font-m);
+      font-size: 0.6rem;
+      color: var(--red);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      display: block;
+    }
+
+    .login-title {
+      font-family: var(--font-d);
+      font-size: 1.8rem; font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+
+    .login-sub {
+      font-size: 0.88rem;
+      color: var(--chalk-muted);
+      margin-bottom: 32px;
+    }
+
+    .login-field {
+      display: flex; flex-direction: column; gap: 7px;
+      margin-bottom: 16px;
+    }
+
+    .login-field label {
+      font-family: var(--font-m);
+      font-size: 0.64rem;
+      color: var(--chalk-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .login-input-wrap {
+      position: relative;
+    }
+
+    .login-input-wrap i {
+      position: absolute; left: 14px; top: 50%;
+      transform: translateY(-50%);
+      color: var(--chalk-muted);
+      font-size: 0.85rem;
+    }
+
+    .login-field input {
+      width: 100%; padding: 13px 14px 13px 40px;
+      background: var(--dark2);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      color: var(--chalk);
+      font-family: var(--font-b);
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .login-field input:focus {
+      border-color: rgba(192,57,43,0.5);
+      box-shadow: 0 0 0 4px rgba(192,57,43,0.07);
+    }
+
+    .login-btn {
+      width: 100%; padding: 14px;
+      background: var(--red);
+      border: none; border-radius: var(--r-pill);
+      color: var(--chalk);
+      font-family: var(--font-d);
+      font-size: 0.9rem; font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+    }
+
+    .login-btn:hover {
+      background: var(--red-h);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 28px rgba(192,57,43,0.3);
+    }
+
+    .login-error {
+      margin-top: 14px;
+      padding: 10px 14px;
+      background: var(--red-soft);
+      border: 1px solid rgba(192,57,43,0.3);
+      border-radius: var(--r-md);
+      font-family: var(--font-m);
+      font-size: 0.72rem;
+      color: #e57469;
+      display: none;
+      letter-spacing: 0.04em;
+    }
+
+    .login-error.show { display: block; }
+
+    .login-attempts {
+      margin-top: 10px;
+      font-family: var(--font-m);
+      font-size: 0.62rem;
+      color: var(--chalk-muted);
+      text-align: center;
+      display: none;
+    }
+
+    /* ════════════════════════
+       ADMIN APP
+    ════════════════════════ */
+    #adminApp {
+      display: none;
+      min-height: 100vh;
+    }
+
+    #adminApp.visible { display: flex; flex-direction: column; }
+
+    /* Header */
+    .admin-header {
+      position: sticky; top: 0;
+      background: rgba(14,14,18,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 32px;
+      height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      z-index: 100;
+    }
+
+    .admin-header-left { display: flex; align-items: center; gap: 16px; }
+
+    .admin-logo-mark {
+      width: 34px; height: 34px;
+      background: var(--red);
+      border-radius: var(--r-sm);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-d);
+      font-size: 0.85rem; font-weight: 800;
+    }
+
+    .admin-title {
+      font-family: var(--font-d);
+      font-size: 1rem; font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .admin-badge {
+      font-family: var(--font-m);
+      font-size: 0.58rem;
+      background: var(--red-soft);
+      border: 1px solid rgba(192,57,43,0.22);
+      color: var(--red);
+      padding: 3px 10px;
+      border-radius: var(--r-pill);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .admin-header-right { display: flex; align-items: center; gap: 10px; }
+
+    .admin-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 18px;
+      border-radius: var(--r-pill);
+      font-family: var(--font-d);
+      font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1.5px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .admin-btn.primary {
+      background: var(--red); color: var(--chalk);
+      border-color: var(--red);
+      box-shadow: 0 4px 14px rgba(192,57,43,0.25);
+    }
+
+    .admin-btn.primary:hover { background: var(--red-h); transform: translateY(-1px); }
+
+    .admin-btn.ghost {
+      background: transparent; color: var(--chalk-off);
+      border-color: var(--border);
+    }
+
+    .admin-btn.ghost:hover { border-color: var(--chalk-muted); color: var(--chalk); background: rgba(255,255,255,0.04); }
+
+    /* Layout principal */
+    .admin-body {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      flex: 1;
+    }
+
+    /* Sidebar */
+    .admin-sidebar {
+      border-right: 1px solid var(--border);
+      padding: 24px 12px;
+      position: sticky;
+      top: 64px;
+      height: calc(100vh - 64px);
+      overflow-y: auto;
+    }
+
+    .sidebar-section { margin-bottom: 6px; }
+
+    .sidebar-label {
+      font-family: var(--font-m);
+      font-size: 0.58rem;
+      color: var(--chalk-muted);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 0 12px;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .sidebar-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 12px;
+      border-radius: var(--r-md);
+      color: var(--chalk-muted);
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+      background: none;
+      width: 100%;
+      text-align: left;
+    }
+
+    .sidebar-item i { width: 16px; font-size: 0.85rem; color: var(--chalk-muted); flex-shrink: 0; }
+
+    .sidebar-item:hover {
+      background: var(--red-soft);
+      color: var(--chalk);
+      border-color: rgba(192,57,43,0.15);
+    }
+
+    .sidebar-item:hover i { color: var(--red); }
+
+    .sidebar-item.active {
+      background: var(--red-soft);
+      color: var(--chalk);
+      border-color: rgba(192,57,43,0.22);
+    }
+
+    .sidebar-item.active i { color: var(--red); }
+
+    /* Content area */
+    .admin-content {
+      padding: 32px;
+      overflow-y: auto;
+    }
+
+    /* Tabs */
+    .admin-tab { display: none; }
+    .admin-tab.active { display: block; }
+
+    /* Page title */
+    .page-title {
+      font-family: var(--font-d);
+      font-size: 1.8rem; font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+
+    .page-subtitle {
+      font-size: 0.88rem;
+      color: var(--chalk-muted);
+      margin-bottom: 32px;
+    }
+
+    /* ════════ STATS ════════ */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .stat-card {
+      background: var(--plate);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 24px;
+      transition: border-color 0.3s ease;
+    }
+
+    .stat-card:hover { border-color: rgba(192,57,43,0.22); }
+
+    .stat-card-icon {
+      width: 38px; height: 38px;
+      background: var(--red-soft);
+      border: 1px solid rgba(192,57,43,0.18);
+      border-radius: var(--r-sm);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--red);
+      font-size: 0.9rem;
+      margin-bottom: 16px;
+    }
+
+    .stat-card-num {
+      font-family: var(--font-d);
+      font-size: 2.4rem; font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--chalk);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat-card-label {
+      font-family: var(--font-m);
+      font-size: 0.65rem;
+      color: var(--chalk-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    /* Chart section */
+    .chart-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .chart-card {
+      background: var(--plate);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 24px;
+    }
+
+    .chart-card-title {
+      font-family: var(--font-d);
+      font-size: 0.95rem; font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      display: flex; align-items: center; gap: 10px;
+    }
+
+    .chart-card-title i { color: var(--red); font-size: 0.85rem; }
+
+    /* Bar chart */
+    .bar-chart { display: flex; flex-direction: column; gap: 10px; }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 90px 1fr 50px;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .bar-label {
+      font-family: var(--font-m);
+      font-size: 0.66rem;
+      color: var(--chalk-muted);
+      text-align: right;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .bar-track {
+      height: 6px;
+      background: var(--border);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      background: var(--red);
+      border-radius: 3px;
+      transition: width 0.8s var(--ease);
+    }
+
+    .bar-val {
+      font-family: var(--font-m);
+      font-size: 0.68rem;
+      color: var(--chalk-off);
+    }
+
+    /* Device donuts */
+    .device-list { display: flex; flex-direction: column; gap: 12px; }
+
+    .device-item {
+      display: flex; align-items: center; gap: 12px;
+    }
+
+    .device-icon {
+      width: 32px; height: 32px;
+      background: var(--dark2);
+      border: 1px solid var(--border);
+      border-radius: var(--r-sm);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--chalk-muted);
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+
+    .device-info { flex: 1; }
+
+    .device-name {
+      font-size: 0.82rem; font-weight: 500;
+      color: var(--chalk-off);
+      margin-bottom: 4px;
+    }
+
+    .device-bar-track {
+      height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .device-bar-fill {
+      height: 100%;
+      border-radius: 2px;
+      transition: width 0.8s var(--ease);
+    }
+
+    .device-pct {
+      font-family: var(--font-m);
+      font-size: 0.72rem;
+      color: var(--chalk-off);
+      width: 38px;
+      text-align: right;
+    }
+
+    /* Recent visits table */
+    .visits-table {
+      width: 100%;
+      background: var(--plate);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+    }
+
+    .visits-table-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      padding: 14px 20px;
+      background: var(--dark2);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .visits-th {
+      font-family: var(--font-m);
+      font-size: 0.6rem;
+      color: var(--chalk-muted);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .visits-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      padding: 12px 20px;
+      border-bottom: 1px solid rgba(40,40,58,0.5);
+      transition: background 0.2s ease;
+    }
+
+    .visits-row:last-child { border-bottom: none; }
+    .visits-row:hover { background: var(--surface); }
+
+    .visits-td {
+      font-size: 0.83rem;
+      color: var(--chalk-off);
+    }
+
+    .visits-td.date {
+      font-family: var(--font-m);
+      font-size: 0.72rem;
+      color: var(--chalk-muted);
+    }
+
+    .visits-td.count {
+      font-family: var(--font-d);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--red);
+    }
+
+    .empty-state {
+      padding: 60px 24px;
+      text-align: center;
+      color: var(--chalk-muted);
+      font-family: var(--font-m);
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+    }
+
+    .empty-state i {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 12px;
+      opacity: 0.3;
+    }
+
+    /* Reset btn */
+    .reset-analytics-btn {
+      margin-top: 16px;
+      padding: 8px 18px;
+      background: transparent;
+      border: 1px solid rgba(192,57,43,0.25);
+      border-radius: var(--r-pill);
+      color: var(--chalk-muted);
+      font-family: var(--font-m);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .reset-analytics-btn:hover { border-color: var(--red); color: var(--red); }
+
+    /* ════════ PROJECTS TAB ════════ */
+    .proj-admin-actions {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .projects-admin-grid {
+      display: flex; flex-direction: column; gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .proj-admin-item {
+      background: var(--plate);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 16px 20px;
+      display: flex; align-items: center; gap: 16px;
+      transition: border-color 0.25s ease;
+    }
+
+    .proj-admin-item:hover { border-color: rgba(192,57,43,0.22); }
+
+    .proj-admin-thumb {
+      width: 56px; height: 56px;
+      border-radius: var(--r-sm);
+      object-fit: cover;
+      background: var(--dark2);
+      border: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .proj-admin-info { flex: 1; min-width: 0; }
+
+    .proj-admin-title {
+      font-family: var(--font-d);
+      font-size: 0.95rem; font-weight: 800;
+      letter-spacing: 0.03em;
+      margin-bottom: 4px;
+    }
+
+    .proj-admin-meta {
+      display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+    }
+
+    .proj-admin-layout {
+      font-family: var(--font-m);
+      font-size: 0.6rem;
+      color: var(--chalk-muted);
+      background: var(--dark2);
+      border: 1px solid var(--border);
+      padding: 2px 8px;
+      border-radius: var(--r-pill);
+      letter-spacing: 0.06em;
+    }
+
+    .proj-admin-status {
+      font-family: var(--font-m);
+      font-size: 0.6rem;
+      padding: 2px 8px;
+      border-radius: var(--r-pill);
+      letter-spacing: 0.06em;
+      border: 1px solid;
+    }
+
+    .proj-admin-status.live { color: var(--green); border-color: rgba(57,211,83,0.28); background: rgba(57,211,83,0.07); }
+    .proj-admin-status.wip { color: var(--gold); border-color: rgba(212,160,23,0.28); background: rgba(212,160,23,0.07); }
+
+    .proj-admin-order {
+      font-family: var(--font-m);
+      font-size: 0.7rem;
+      color: var(--chalk-muted);
+      width: 28px;
+      text-align: center;
+    }
+
+    .proj-admin-btns {
+      display: flex; gap: 6px;
+    }
+
+    .proj-icon-btn {
+      width: 34px; height: 34px;
+      border-radius: var(--r-sm);
+      border: 1px solid var(--border);
+      background: var(--dark2);
+      color: var(--chalk-muted);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .proj-icon-btn:hover { border-color: rgba(192,57,43,0.3); color: var(--red); background: var(--red-soft); }
+    .proj-icon-btn.del:hover { border-color: rgba(192,57,43,0.5); background: rgba(192,57,43,0.15); color: #e57469; }
+
+    .drag-handle {
+      cursor: grab;
+      color: var(--chalk-muted);
+      font-size: 0.9rem;
+      padding: 4px;
+      opacity: 0.4;
+    }
+
+    .drag-handle:hover { opacity: 0.8; }
+
+    .proj-admin-item.dragging {
+      opacity: 0.5;
+      border-color: var(--red);
+      background: var(--surface);
+    }
+
+    .proj-admin-item.drag-over {
+      border-color: rgba(192,57,43,0.5);
+      background: var(--red-xsoft);
+    }
+
+    /* ════════ MODAL PROJET ════════ */
+    .modal-overlay-admin {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(16px);
+      z-index: 500;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s ease;
+      padding: 20px;
+    }
+
+    .modal-overlay-admin.active { opacity: 1; pointer-events: all; }
+
+    .modal-proj-box {
+      background: var(--plate);
+      border: 1px solid rgba(192,57,43,0.2);
+      border-radius: var(--r-lg);
+      width: min(700px, 96vw);
+      max-height: 90vh;
+      overflow-y: auto;
+      transform: scale(0.94) translateY(20px);
+      transition: transform 0.4s var(--ease);
+      box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+    }
+
+    .modal-overlay-admin.active .modal-proj-box { transform: scale(1) translateY(0); }
+
+    .modal-proj-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0;
+      background: var(--plate);
+      z-index: 2;
+    }
+
+    .modal-proj-title {
+      font-family: var(--font-d);
+      font-size: 1.1rem; font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .modal-close-btn {
+      width: 34px; height: 34px;
+      background: var(--dark2);
+      border: 1px solid var(--border);
+      border-radius: var(--r-sm);
+      color: var(--chalk-muted);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem;
+      transition: all 0.2s ease;
+    }
+
+    .modal-close-btn:hover { background: var(--red-soft); border-color: rgba(192,57,43,0.28); color: var(--chalk); }
+
+    .modal-proj-body { padding: 24px; }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-full { grid-column: 1 / -1; }
+
+    .field-group {
+      display: flex; flex-direction: column; gap: 7px;
+    }
+
+    .field-group label {
+      font-family: var(--font-m);
+      font-size: 0.62rem;
+      color: var(--chalk-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .field-group input,
+    .field-group textarea,
+    .field-group select {
+      background: var(--dark2);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 11px 14px;
+      color: var(--chalk);
+      font-family: var(--font-b);
+      font-size: 0.88rem;
+      outline: none;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+      width: 100%;
+      resize: vertical;
+    }
+
+    .field-group input::placeholder,
+    .field-group textarea::placeholder { color: var(--chalk-muted); opacity: 0.4; }
+
+    .field-group input:focus,
+    .field-group textarea:focus,
+    .field-group select:focus {
+      border-color: rgba(192,57,43,0.45);
+      box-shadow: 0 0 0 4px rgba(192,57,43,0.07);
+    }
+
+    .field-group select option { background: var(--dark2); color: var(--chalk); }
+
+    .tags-input-wrap {
+      display: flex; gap: 8px; flex-wrap: wrap;
+      background: var(--dark2);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 8px 12px;
+      min-height: 44px;
+      align-items: center;
+      cursor: text;
+      transition: border-color 0.25s ease;
+    }
+
+    .tags-input-wrap:focus-within {
+      border-color: rgba(192,57,43,0.45);
+      box-shadow: 0 0 0 4px rgba(192,57,43,0.07);
+    }
+
+    .tag-chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--red-soft);
+      border: 1px solid rgba(192,57,43,0.22);
+      border-radius: var(--r-pill);
+      font-family: var(--font-m);
+      font-size: 0.66rem;
+      color: var(--chalk-off);
+      padding: 3px 10px;
+    }
+
+    .tag-chip button {
+      background: none; border: none;
+      color: var(--chalk-muted);
+      cursor: pointer; font-size: 0.7rem; line-height: 1;
+      transition: color 0.2s;
+      padding: 0;
+    }
+
+    .tag-chip button:hover { color: var(--red); }
+
+    .tags-input {
+      border: none !important;
+      background: none !important;
+      outline: none !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+      min-width: 60px;
+      flex: 1;
+      font-size: 0.82rem;
+      color: var(--chalk);
+    }
+
+    .checkbox-row {
+      display: flex; align-items: center; gap: 10px;
+    }
+
+    .checkbox-row input[type="checkbox"] {
+      width: 16px; height: 16px;
+      accent-color: var(--red);
+      cursor: pointer;
+    }
+
+    .checkbox-row label {
+      font-size: 0.85rem;
+      color: var(--chalk-off);
+      cursor: pointer;
+      text-transform: none;
+      letter-spacing: 0;
+      font-family: var(--font-b);
+    }
+
+    .modal-proj-footer {
+      padding: 16px 24px;
+      border-top: 1px solid var(--border);
+      display: flex; justify-content: flex-end; gap: 10px;
+    }
+
+    .field-hint {
+      font-family: var(--font-m);
+      font-size: 0.6rem;
+      color: var(--chalk-muted);
+      margin-top: 3px;
+    }
+
+    /* Toast */
+    .toast-container {
+      position: fixed; bottom: 24px; right: 24px;
+      display: flex; flex-direction: column; gap: 8px;
+      z-index: 999;
+    }
+
+    .toast {
+      padding: 12px 18px;
+      border-radius: var(--r-md);
+      font-family: var(--font-m);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      border: 1px solid;
+      backdrop-filter: blur(12px);
+      animation: toastIn 0.3s var(--ease);
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    @keyframes toastIn {
+      from { opacity: 0; transform: translateX(20px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    .toast.success {
+      background: rgba(57,211,83,0.1);
+      border-color: rgba(57,211,83,0.3);
+      color: var(--green);
+    }
+
+    .toast.error {
+      background: var(--red-soft);
+      border-color: rgba(192,57,43,0.3);
+      color: #e57469;
+    }
+
+    .toast.info {
+      background: rgba(255,255,255,0.06);
+      border-color: var(--border);
+      color: var(--chalk-off);
+    }
+
+    /* Confirm dialog */
+    .confirm-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(8px);
+      z-index: 600;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+
+    .confirm-overlay.active { opacity: 1; pointer-events: all; }
+
+    .confirm-box {
+      background: var(--plate);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 28px 32px;
+      width: min(380px, 94vw);
+      box-shadow: 0 32px 80px rgba(0,0,0,0.6);
+    }
+
+    .confirm-icon {
+      width: 44px; height: 44px;
+      background: var(--red-soft);
+      border: 1px solid rgba(192,57,43,0.22);
+      border-radius: var(--r-md);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--red);
+      font-size: 1.1rem;
+      margin-bottom: 16px;
+    }
+
+    .confirm-title {
+      font-family: var(--font-d);
+      font-size: 1.1rem; font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .confirm-msg {
+      font-size: 0.88rem;
+      color: var(--chalk-muted);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .confirm-btns { display: flex; gap: 10px; justify-content: flex-end; }
+
+    /* ════════ SETTINGS ════════ */
+    .settings-section {
+      background: var(--plate);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+
+    .settings-section-title {
+      font-family: var(--font-d);
+      font-size: 0.95rem; font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    .settings-section-title i { color: var(--red); }
+
+    .settings-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(40,40,58,0.5);
+    }
+
+    .settings-row:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .settings-row-label { font-size: 0.88rem; color: var(--chalk-off); font-weight: 500; }
+    .settings-row-sub { font-size: 0.78rem; color: var(--chalk-muted); margin-top: 2px; }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .admin-body { grid-template-columns: 1fr; }
+      .admin-sidebar { display: none; }
+      .chart-section { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .admin-content { padding: 20px 16px; }
+      .form-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .visits-table-header, .visits-row { grid-template-columns: 1fr 1fr; }
+      .visits-th:nth-child(3), .visits-th:nth-child(4),
+      .visits-td:nth-child(3), .visits-td:nth-child(4) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════
+       LOGIN SCREEN
+  ═══════════════════════ -->
+  <div id="loginScreen">
+    <div class="login-box">
+      <div class="login-logo">
+        <div class="login-logo-mark">ID</div>
+        <div>
+          <span class="login-logo-text">DGHIM</span>
+          <span class="login-logo-sub">Admin Panel</span>
+        </div>
+      </div>
+      <h1 class="login-title">Connexion</h1>
+      <p class="login-sub">Accès réservé — authentification requise</p>
+
+      <form id="loginForm" autocomplete="off">
+        <div class="login-field">
+          <label for="adminUser">Identifiant</label>
+          <div class="login-input-wrap">
+            <i class="fas fa-user"></i>
+            <input type="text" id="adminUser" placeholder="Votre identifiant" autocomplete="off" />
+          </div>
+        </div>
+        <div class="login-field">
+          <label for="adminPass">Mot de passe</label>
+          <div class="login-input-wrap">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="adminPass" placeholder="••••••••••" autocomplete="new-password" />
+          </div>
+        </div>
+        <button type="submit" class="login-btn">
+          <i class="fas fa-sign-in-alt"></i>
+          <span>Accéder au dashboard</span>
+        </button>
+        <div class="login-error" id="loginError">
+          <i class="fas fa-exclamation-triangle"></i> Identifiants incorrects.
+        </div>
+        <div class="login-attempts" id="loginAttempts"></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════
+       ADMIN APP
+  ═══════════════════════ -->
+  <div id="adminApp">
+    <!-- Header -->
+    <header class="admin-header">
+      <div class="admin-header-left">
+        <div class="admin-logo-mark">ID</div>
+        <span class="admin-title">Dashboard Admin</span>
+        <span class="admin-badge">Privé</span>
+      </div>
+      <div class="admin-header-right">
+        <a href="index.html" target="_blank" class="admin-btn ghost">
+          <i class="fas fa-external-link-alt"></i> Voir le portfolio
+        </a>
+        <button class="admin-btn primary" id="addProjectBtn">
+          <i class="fas fa-plus"></i> Nouveau projet
+        </button>
+        <button class="admin-btn ghost" id="logoutBtn">
+          <i class="fas fa-sign-out-alt"></i>
+        </button>
+      </div>
+    </header>
+
+    <div class="admin-body">
+      <!-- Sidebar -->
+      <aside class="admin-sidebar">
+        <div class="sidebar-section">
+          <span class="sidebar-label">Navigation</span>
+          <button class="sidebar-item active" data-tab="stats">
+            <i class="fas fa-chart-bar"></i> Statistiques
+          </button>
+          <button class="sidebar-item" data-tab="projects">
+            <i class="fas fa-code"></i> Projets
+          </button>
+          <button class="sidebar-item" data-tab="settings">
+            <i class="fas fa-cog"></i> Paramètres
+          </button>
+        </div>
+      </aside>
+
+      <!-- Content -->
+      <main class="admin-content">
+
+        <!-- ══ STATS TAB ══ -->
+        <div class="admin-tab active" id="tab-stats">
+          <h1 class="page-title">Statistiques</h1>
+          <p class="page-subtitle">Aperçu des visites de ton portfolio</p>
+
+          <div class="stats-grid" id="statsGrid"></div>
+
+          <div class="chart-section">
+            <div class="chart-card">
+              <div class="chart-card-title"><i class="fas fa-calendar-alt"></i> Visites des 14 derniers jours</div>
+              <div class="bar-chart" id="dailyChart"></div>
+            </div>
+            <div class="chart-card">
+              <div class="chart-card-title"><i class="fas fa-desktop"></i> Appareils</div>
+              <div class="device-list" id="deviceChart"></div>
+            </div>
+          </div>
+
+          <div class="chart-card" style="margin-bottom:20px">
+            <div class="chart-card-title"><i class="fas fa-globe"></i> Sources de trafic</div>
+            <div class="bar-chart" id="referrersChart"></div>
+          </div>
+
+          <div class="visits-table">
+            <div class="visits-table-header">
+              <div class="visits-th">Date</div>
+              <div class="visits-th">Visites</div>
+              <div class="visits-th">Jour</div>
+              <div class="visits-th">Évolution</div>
+            </div>
+            <div id="visitsTableBody"></div>
+          </div>
+
+          <button class="reset-analytics-btn" id="resetAnalyticsBtn">
+            <i class="fas fa-trash"></i> Réinitialiser les statistiques
+          </button>
+        </div>
+
+        <!-- ══ PROJECTS TAB ══ -->
+        <div class="admin-tab" id="tab-projects">
+          <h1 class="page-title">Projets</h1>
+          <p class="page-subtitle">Gérer les projets affichés sur ton portfolio</p>
+
+          <div class="proj-admin-actions">
+            <button class="admin-btn primary" id="addProjectBtn2">
+              <i class="fas fa-plus"></i> Nouveau projet
+            </button>
+            <button class="admin-btn ghost" id="resetProjectsBtn">
+              <i class="fas fa-undo"></i> Remettre les projets par défaut
+            </button>
+          </div>
+
+          <div class="projects-admin-grid" id="projectsAdminList"></div>
+        </div>
+
+        <!-- ══ SETTINGS TAB ══ -->
+        <div class="admin-tab" id="tab-settings">
+          <h1 class="page-title">Paramètres</h1>
+          <p class="page-subtitle">Configuration de l'accès admin</p>
+
+          <div class="settings-section">
+            <div class="settings-section-title"><i class="fas fa-key"></i> Sécurité</div>
+            <div class="settings-row">
+              <div>
+                <div class="settings-row-label">Changer l'identifiant</div>
+                <div class="settings-row-sub">Identifiant actuel : <span id="currentUsername" style="font-family:var(--font-m);color:var(--chalk)">—</span></div>
+              </div>
+              <button class="admin-btn ghost" id="changeUsernameBtn">Modifier</button>
+            </div>
+            <div class="settings-row">
+              <div>
+                <div class="settings-row-label">Changer le mot de passe</div>
+                <div class="settings-row-sub">Choisir un mot de passe fort et unique</div>
+              </div>
+              <button class="admin-btn ghost" id="changePasswordBtn">Modifier</button>
+            </div>
+          </div>
+
+          <div class="settings-section">
+            <div class="settings-section-title"><i class="fas fa-database"></i> Données</div>
+            <div class="settings-row">
+              <div>
+                <div class="settings-row-label">Exporter les données</div>
+                <div class="settings-row-sub">Télécharger projets + statistiques en JSON</div>
+              </div>
+              <button class="admin-btn ghost" id="exportDataBtn">Exporter</button>
+            </div>
+            <div class="settings-row">
+              <div>
+                <div class="settings-row-label">Tout réinitialiser</div>
+                <div class="settings-row-sub">Projets, statistiques et paramètres</div>
+              </div>
+              <button class="admin-btn ghost" id="fullResetBtn" style="border-color:rgba(192,57,43,0.3);color:var(--red)">Réinitialiser</button>
+            </div>
+          </div>
+
+          <div class="settings-section">
+            <div class="settings-section-title"><i class="fas fa-info-circle"></i> À propos</div>
+            <div class="settings-row">
+              <div>
+                <div class="settings-row-label">Portfolio IDGHIM Admin</div>
+                <div class="settings-row-sub">Version 3.0 — Système admin privé</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════
+       MODAL PROJET
+  ═══════════════════════ -->
+  <div class="modal-overlay-admin" id="projectModal">
+    <div class="modal-proj-box">
+      <div class="modal-proj-header">
+        <span class="modal-proj-title" id="projectModalTitle">Nouveau projet</span>
+        <button class="modal-close-btn" id="closeProjectModal"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-proj-body">
+        <form id="projectForm">
+          <input type="hidden" id="projId" />
+          <div class="form-grid">
+            <div class="field-group">
+              <label>Titre *</label>
+              <input type="text" id="projTitle" placeholder="Ex: Mon projet" required />
+            </div>
+            <div class="field-group">
+              <label>Type *</label>
+              <input type="text" id="projType" placeholder="Ex: Full-Stack App" required />
+            </div>
+            <div class="field-group form-full">
+              <label>Description courte *</label>
+              <input type="text" id="projDesc" placeholder="Résumé en 1 ligne affiché sur la carte" required />
+            </div>
+            <div class="field-group form-full">
+              <label>Description complète</label>
+              <textarea id="projFullDesc" rows="3" placeholder="Description affichée dans la modale de démo"></textarea>
+            </div>
+            <div class="field-group">
+              <label>URL de l'image</label>
+              <input type="text" id="projImage" placeholder="image/projets-pict/monimage.png" />
+              <span class="field-hint">Chemin relatif ou URL complète</span>
+            </div>
+            <div class="field-group">
+              <label>Statut</label>
+              <select id="projStatus">
+                <option value="live">● Live</option>
+                <option value="wip">⚙ En cours</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label>Layout (position dans la grille)</label>
+              <select id="projLayout">
+                <option value="featured">Featured — grand (7 col)</option>
+                <option value="compact">Compact — moyen (5 col)</option>
+                <option value="compact-wide">Compact wide — moyen large (5 col)</option>
+                <option value="featured-right">Featured right — grand (7 col)</option>
+                <option value="half">Half — demi (6 col)</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label>Ordre d'affichage</label>
+              <input type="number" id="projOrder" min="1" max="50" value="99" />
+            </div>
+            <div class="field-group form-full">
+              <label>Technologies (appuyer sur Entrée pour ajouter)</label>
+              <div class="tags-input-wrap" id="techTagsWrap">
+                <input type="text" class="tags-input" id="techInput" placeholder="React, Node.js…" />
+              </div>
+              <input type="hidden" id="projTechHidden" />
+            </div>
+            <div class="field-group">
+              <label>URL Démo / Live</label>
+              <input type="url" id="projDemoUrl" placeholder="https://…" />
+            </div>
+            <div class="field-group">
+              <label>URL GitHub</label>
+              <input type="url" id="projGithubUrl" placeholder="https://github.com/…" />
+            </div>
+            <div class="field-group">
+              <label>URL Site vitrine</label>
+              <input type="url" id="projShowcaseUrl" placeholder="https://…" />
+            </div>
+            <div class="field-group" style="justify-content:flex-end;padding-top:10px">
+              <div class="checkbox-row">
+                <input type="checkbox" id="projIsLogo" />
+                <label for="projIsLogo">Image = logo (centré + fond sombre)</label>
+              </div>
+              <div class="checkbox-row" style="margin-top:8px">
+                <input type="checkbox" id="projHasDemo" />
+                <label for="projHasDemo">Afficher le bouton "Démo"</label>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-proj-footer">
+        <button class="admin-btn ghost" id="cancelProjectModal">Annuler</button>
+        <button class="admin-btn primary" id="saveProjectBtn">
+          <i class="fas fa-save"></i> Enregistrer
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confirm dialog -->
+  <div class="confirm-overlay" id="confirmOverlay">
+    <div class="confirm-box">
+      <div class="confirm-icon"><i class="fas fa-exclamation-triangle"></i></div>
+      <div class="confirm-title" id="confirmTitle">Confirmer</div>
+      <div class="confirm-msg" id="confirmMsg">Êtes-vous sûr ?</div>
+      <div class="confirm-btns">
+        <button class="admin-btn ghost" id="confirmCancel">Annuler</button>
+        <button class="admin-btn primary" id="confirmOk" style="background:var(--red)">Confirmer</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toasts -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script>
+  /* ════════════════════════════════════════
+     CONSTANTES & HELPERS
+  ════════════════════════════════════════ */
+  const KEYS = {
+    session:    'idghim_admin_session',
+    projects:   'idghim_projects',
+    analytics:  'idghim_analytics',
+    credentials:'idghim_admin_creds',
+  };
+
+  // Credentials par défaut — CHANGEZ-LES depuis les paramètres
+  const DEFAULT_CREDS = { user: 'ichem', pass: 'Agen2025!Admin' };
+
+  function getCreds() {
+    try { return JSON.parse(localStorage.getItem(KEYS.credentials)) || DEFAULT_CREDS; }
+    catch { return DEFAULT_CREDS; }
+  }
+
+  function saveCreds(creds) { localStorage.setItem(KEYS.credentials, JSON.stringify(creds)); }
+
+  function getProjects() {
+    try {
+      const p = JSON.parse(localStorage.getItem(KEYS.projects));
+      return Array.isArray(p) && p.length > 0 ? p : null;
+    } catch { return null; }
+  }
+
+  function saveProjects(arr) { localStorage.setItem(KEYS.projects, JSON.stringify(arr)); }
+
+  function getAnalytics() {
+    try { return JSON.parse(localStorage.getItem(KEYS.analytics)) || {}; }
+    catch { return {}; }
+  }
+
+  function isLoggedIn() { return sessionStorage.getItem(KEYS.session) === 'true'; }
+
+  function toast(msg, type = 'success') {
+    const t = document.createElement('div');
+    t.className = `toast ${type}`;
+    t.innerHTML = `<i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'times-circle' : 'info-circle'}"></i> ${msg}`;
+    document.getElementById('toastContainer').appendChild(t);
+    setTimeout(() => t.remove(), 3500);
+  }
+
+  function confirmDialog(title, msg) {
+    return new Promise(resolve => {
+      document.getElementById('confirmTitle').textContent = title;
+      document.getElementById('confirmMsg').textContent   = msg;
+      const overlay = document.getElementById('confirmOverlay');
+      overlay.classList.add('active');
+      const ok     = document.getElementById('confirmOk');
+      const cancel = document.getElementById('confirmCancel');
+      const cleanup = (val) => {
+        overlay.classList.remove('active');
+        ok.replaceWith(ok.cloneNode(true));
+        cancel.replaceWith(cancel.cloneNode(true));
+        resolve(val);
+      };
+      document.getElementById('confirmOk').addEventListener('click', () => cleanup(true));
+      document.getElementById('confirmCancel').addEventListener('click', () => cleanup(false));
+    });
+  }
+
+  /* ════════════════════════════════════════
+     LOGIN
+  ════════════════════════════════════════ */
+  let attempts = 0;
+  const MAX_ATTEMPTS = 5;
+  let lockUntil = 0;
+
+  document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const now = Date.now();
+    if (now < lockUntil) {
+      const secs = Math.ceil((lockUntil - now) / 1000);
+      document.getElementById('loginError').innerHTML = `<i class="fas fa-lock"></i> Trop de tentatives. Réessayez dans ${secs}s.`;
+      document.getElementById('loginError').classList.add('show');
+      return;
+    }
+
+    const user  = document.getElementById('adminUser').value.trim();
+    const pass  = document.getElementById('adminPass').value;
+    const creds = getCreds();
+
+    if (user === creds.user && pass === creds.pass) {
+      attempts = 0;
+      sessionStorage.setItem(KEYS.session, 'true');
+      document.getElementById('loginScreen').classList.add('hide');
+      setTimeout(() => {
+        document.getElementById('loginScreen').style.display = 'none';
+        const app = document.getElementById('adminApp');
+        app.classList.add('visible');
+        initApp();
+      }, 400);
+    } else {
+      attempts++;
+      document.getElementById('loginError').classList.add('show');
+      if (attempts >= MAX_ATTEMPTS) {
+        lockUntil = Date.now() + 60000;
+        document.getElementById('loginError').innerHTML = `<i class="fas fa-lock"></i> Compte bloqué 60 secondes.`;
+      } else {
+        document.getElementById('loginError').innerHTML = `<i class="fas fa-exclamation-triangle"></i> Identifiants incorrects.`;
+        const attEl = document.getElementById('loginAttempts');
+        attEl.style.display = 'block';
+        attEl.textContent = `Tentative ${attempts}/${MAX_ATTEMPTS}`;
+      }
+    }
+  });
+
+  // Auto-login si session active
+  if (isLoggedIn()) {
+    document.getElementById('loginScreen').style.display = 'none';
+    const app = document.getElementById('adminApp');
+    app.classList.add('visible');
+    window.addEventListener('DOMContentLoaded', initApp);
+  }
+
+  /* ════════════════════════════════════════
+     INIT APP
+  ════════════════════════════════════════ */
+  function initApp() {
+    initTabs();
+    renderStats();
+    renderProjectsList();
+    initProjectModal();
+    initSettings();
+
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+      sessionStorage.removeItem(KEYS.session);
+      location.reload();
+    });
+
+    document.getElementById('addProjectBtn').addEventListener('click', () => openProjectModal(null));
+    document.getElementById('addProjectBtn2').addEventListener('click', () => openProjectModal(null));
+  }
+
+  /* ════════════════════════════════════════
+     TABS
+  ════════════════════════════════════════ */
+  function initTabs() {
+    document.querySelectorAll('.sidebar-item[data-tab]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.sidebar-item').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+        if (btn.dataset.tab === 'stats') renderStats();
+        if (btn.dataset.tab === 'projects') renderProjectsList();
+      });
+    });
+  }
+
+  /* ════════════════════════════════════════
+     STATS
+  ════════════════════════════════════════ */
+  function renderStats() {
+    const a = getAnalytics();
+
+    // KPIs
+    const kpis = [
+      { icon: 'fas fa-eye',  label: 'Visites totales',   val: a.totalVisits    || 0 },
+      { icon: 'fas fa-user', label: 'Visiteurs uniques',  val: a.uniqueVisitors || 0 },
+      { icon: 'fas fa-calendar-check', label: 'Aujourd\'hui',
+        val: (() => { const t = new Date().toISOString().split('T')[0]; return (a.visitsByDay || {})[t] || 0; })() },
+      { icon: 'fas fa-clock', label: 'Dernière visite',
+        val: a.lastVisit ? new Date(a.lastVisit).toLocaleString('fr-FR', { day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit' }) : '—' },
+    ];
+
+    document.getElementById('statsGrid').innerHTML = kpis.map(k => `
+      <div class="stat-card">
+        <div class="stat-card-icon"><i class="${k.icon}"></i></div>
+        <div class="stat-card-num">${k.val}</div>
+        <div class="stat-card-label">${k.label}</div>
+      </div>
+    `).join('');
+
+    // Daily chart — 14 derniers jours
+    const visitsByDay = a.visitsByDay || {};
+    const days = [];
+    for (let i = 13; i >= 0; i--) {
+      const d = new Date();
+      d.setDate(d.getDate() - i);
+      days.push(d.toISOString().split('T')[0]);
+    }
+    const maxDay = Math.max(1, ...days.map(d => visitsByDay[d] || 0));
+
+    document.getElementById('dailyChart').innerHTML = days.length === 0 ? `<div class="empty-state"><i class="fas fa-chart-bar"></i>Aucune donnée</div>` :
+      days.map(d => {
+        const v   = visitsByDay[d] || 0;
+        const pct = Math.round((v / maxDay) * 100);
+        const label = d.slice(5);
+        return `<div class="bar-row">
+          <div class="bar-label">${label}</div>
+          <div class="bar-track"><div class="bar-fill" style="width:${pct}%"></div></div>
+          <div class="bar-val">${v}</div>
+        </div>`;
+      }).join('');
+
+    // Devices
+    const dev = a.devices || {};
+    const totalDev = Math.max(1, (dev.desktop||0) + (dev.mobile||0) + (dev.tablet||0));
+    const devDefs = [
+      { key:'desktop', icon:'fas fa-desktop', label:'Desktop', color:'#c0392b' },
+      { key:'mobile',  icon:'fas fa-mobile-alt', label:'Mobile', color:'#d4a017' },
+      { key:'tablet',  icon:'fas fa-tablet-alt', label:'Tablet', color:'#39d353' },
+    ];
+    document.getElementById('deviceChart').innerHTML = devDefs.map(d => {
+      const v = dev[d.key] || 0;
+      const pct = Math.round((v / totalDev) * 100);
+      return `<div class="device-item">
+        <div class="device-icon"><i class="${d.icon}"></i></div>
+        <div class="device-info">
+          <div class="device-name">${d.label}</div>
+          <div class="device-bar-track"><div class="device-bar-fill" style="width:${pct}%;background:${d.color}"></div></div>
+        </div>
+        <div class="device-pct">${pct}%</div>
+      </div>`;
+    }).join('');
+
+    // Referrers
+    const refs = a.referrers || {};
+    const sortedRefs = Object.entries(refs).sort((a,b) => b[1]-a[1]).slice(0, 8);
+    const maxRef = Math.max(1, ...sortedRefs.map(r => r[1]));
+    document.getElementById('referrersChart').innerHTML = sortedRefs.length === 0 ?
+      `<div class="empty-state"><i class="fas fa-globe"></i>Aucun trafic enregistré</div>` :
+      sortedRefs.map(([src, cnt]) => `
+        <div class="bar-row">
+          <div class="bar-label">${src}</div>
+          <div class="bar-track"><div class="bar-fill" style="width:${Math.round(cnt/maxRef*100)}%"></div></div>
+          <div class="bar-val">${cnt}</div>
+        </div>
+      `).join('');
+
+    // Table
+    const recentDays = Object.entries(visitsByDay).sort((a,b) => b[0].localeCompare(a[0])).slice(0, 14);
+    const dayNames   = ['Dim','Lun','Mar','Mer','Jeu','Ven','Sam'];
+    let prevVal = null;
+    document.getElementById('visitsTableBody').innerHTML = recentDays.length === 0 ?
+      `<div class="empty-state"><i class="fas fa-calendar-times"></i>Aucune visite enregistrée pour l'instant.</div>` :
+      recentDays.map(([date, cnt]) => {
+        const d   = new Date(date);
+        const day = dayNames[d.getDay()];
+        const evo = prevVal === null ? '—' : cnt > prevVal ? `▲ +${cnt - prevVal}` : cnt < prevVal ? `▼ -${prevVal - cnt}` : '→ =';
+        const evoColor = prevVal === null ? 'var(--chalk-muted)' : cnt > prevVal ? 'var(--green)' : cnt < prevVal ? '#e57469' : 'var(--chalk-muted)';
+        prevVal = cnt;
+        return `<div class="visits-row">
+          <div class="visits-td date">${date}</div>
+          <div class="visits-td count">${cnt}</div>
+          <div class="visits-td">${day}</div>
+          <div class="visits-td" style="color:${evoColor};font-family:var(--font-m);font-size:0.72rem">${evo}</div>
+        </div>`;
+      }).join('');
+
+    // Reset btn
+    document.getElementById('resetAnalyticsBtn').onclick = async () => {
+      const ok = await confirmDialog('Réinitialiser les stats', 'Toutes les statistiques de visite seront supprimées. Cette action est irréversible.');
+      if (ok) {
+        localStorage.removeItem(KEYS.analytics);
+        renderStats();
+        toast('Statistiques réinitialisées.');
+      }
+    };
+  }
+
+  /* ════════════════════════════════════════
+     PROJECTS LIST
+  ════════════════════════════════════════ */
+  const DEFAULT_PROJECTS = [
+    { id:'papyrus', number:'01', title:'Papyrus', desc:'Plateforme de gestion documentaire — recherche avancée, partage sécurisé et collaboration.', fullDesc:'Plateforme de GED avec recherche full-text, partage sécurisé par token et collaboration en temps réel.', tech:['React','Node.js','MongoDB','REST API'], status:'live', type:'Full-Stack App', layout:'featured', demoUrl:'https://papyrus-rho.vercel.app', showcaseUrl:'https://idghim.github.io/Papyrus_website/', githubUrl:'', image:'image/projets-pict/Papyrus_logo.png', isLogo:true, hasDemo:true, order:1 },
+    { id:'alea',    number:'02', title:'Aléa',    desc:"Quiz en marque blanche. Dashboard admin et personnalisation avancée.", fullDesc:"Plateforme de quiz en marque blanche. Dashboard admin, système multi-utilisateurs et personnalisation avancée.", tech:['React','Node.js','MongoDB'], status:'wip', type:'SaaS', layout:'compact', demoUrl:'', showcaseUrl:'', githubUrl:'https://github.com/IDGHIM', image:'image/projets-pict/Alea_logo1.png', isLogo:true, hasDemo:false, order:2 },
+    { id:'pokedex', number:'03', title:'Pokédex', desc:"Cartes 3D retournables et consommation de la PokéAPI.", fullDesc:"Pokédex moderne avec cartes 3D retournables, consommation de la PokéAPI et effets visuels immersifs.", tech:['HTML5','CSS3','JavaScript','REST API'], status:'live', type:'Web App', layout:'compact-wide', demoUrl:'https://idghim.github.io/Interactive_Pok-dex/', showcaseUrl:'', githubUrl:'https://github.com/IDGHIM/Interactive_Pok-dex', image:'image/projets-pict/pokédex_app.png', isLogo:false, hasDemo:true, order:3 },
+    { id:'morpion', number:'04', title:'Morpion', desc:"Jeu de morpion avec React Hooks, gestion d'état et animations fluides.", fullDesc:"Version moderne du classique jeu de morpion développée avec React Hooks et gestion d'état optimisée.", tech:['React','CSS3','JavaScript'], status:'live', type:'React App', layout:'featured-right', demoUrl:'https://tic-tac-toe-rosy-eta.vercel.app/', showcaseUrl:'', githubUrl:'https://github.com/IDGHIM/Tic-Tac-Toe', image:'image/projets-pict/tic-tac-toe.png', isLogo:false, hasDemo:true, order:4 },
+    { id:'studprod',number:'05', title:'STUDPROD',desc:"Landing page avec animations fluides et design adaptatif.", fullDesc:"Landing page moderne pour une société de production étudiante avec animations fluides et design responsive.", tech:['HTML5','CSS3'], status:'live', type:'Landing Page', layout:'half', demoUrl:'https://idghim.github.io/fcc-Landing-Page', showcaseUrl:'', githubUrl:'https://github.com/IDGHIM/fcc-Landing-Page', image:'image/projets-pict/LOGO STUDPROD NOIR.png', isLogo:true, hasDemo:false, order:5 },
+    { id:'conv',    number:'06', title:'Convertisseur', desc:"Conversion arabe ↔ romain avec algorithmes de validation.", fullDesc:"Application de conversion entre chiffres arabes et romains avec validation des entrées et interface intuitive.", tech:['HTML5','JavaScript'], status:'live', type:'JS App', layout:'half', demoUrl:'https://idghim.github.io/fcc-Roman_Numeral_Converter/', showcaseUrl:'', githubUrl:'https://github.com/IDGHIM/fcc-Roman_Numeral_Converter', image:'image/projets-pict/roman_numeral_convert.png', isLogo:false, hasDemo:false, order:6 },
+  ];
+
+  function getCurrentProjects() {
+    return getProjects() || DEFAULT_PROJECTS;
+  }
+
+  function renderProjectsList() {
+    const projects = getCurrentProjects().sort((a,b) => (a.order||0) - (b.order||0));
+    const list = document.getElementById('projectsAdminList');
+
+    if (projects.length === 0) {
+      list.innerHTML = `<div class="empty-state"><i class="fas fa-folder-open"></i>Aucun projet. Cliquez sur "Nouveau projet".</div>`;
+      return;
+    }
+
+    list.innerHTML = projects.map(p => `
+      <div class="proj-admin-item" data-id="${p.id}" draggable="true">
+        <div class="drag-handle"><i class="fas fa-grip-vertical"></i></div>
+        <div class="proj-admin-order">${String(p.order||'?').padStart(2,'0')}</div>
+        <img class="proj-admin-thumb" src="${p.image || ''}" alt="${p.title}" onerror="this.style.opacity='0.2'" />
+        <div class="proj-admin-info">
+          <div class="proj-admin-title">${p.title}</div>
+          <div class="proj-admin-meta">
+            <span class="proj-admin-layout">${p.layout}</span>
+            <span class="proj-admin-status ${p.status}">${p.status === 'live' ? '● Live' : '⚙ En cours'}</span>
+            ${(p.tech||[]).slice(0,3).map(t => `<span class="proj-admin-layout">${t}</span>`).join('')}
+          </div>
+        </div>
+        <div class="proj-admin-btns">
+          <button class="proj-icon-btn edit-proj" data-id="${p.id}" title="Modifier"><i class="fas fa-pen"></i></button>
+          <button class="proj-icon-btn del del-proj" data-id="${p.id}" title="Supprimer"><i class="fas fa-trash"></i></button>
+        </div>
+      </div>
+    `).join('');
+
+    // Edit
+    list.querySelectorAll('.edit-proj').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const proj = getCurrentProjects().find(p => p.id === btn.dataset.id);
+        if (proj) openProjectModal(proj);
+      });
+    });
+
+    // Delete
+    list.querySelectorAll('.del-proj').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const ok = await confirmDialog('Supprimer le projet', 'Ce projet sera retiré du portfolio. Cette action est irréversible.');
+        if (!ok) return;
+        let projs = getCurrentProjects().filter(p => p.id !== btn.dataset.id);
+        saveProjects(projs);
+        renderProjectsList();
+        toast('Projet supprimé.');
+      });
+    });
+
+    // Reset default
+    document.getElementById('resetProjectsBtn').onclick = async () => {
+      const ok = await confirmDialog('Remettre les projets par défaut', 'Tous vos projets personnalisés seront remplacés par les projets par défaut.');
+      if (ok) {
+        localStorage.removeItem(KEYS.projects);
+        renderProjectsList();
+        toast('Projets réinitialisés.');
+      }
+    };
+
+    initDragDrop();
+  }
+
+  /* Drag & Drop pour réordonner */
+  let dragSrc = null;
+
+  function initDragDrop() {
+    const items = document.querySelectorAll('.proj-admin-item');
+    items.forEach(item => {
+      item.addEventListener('dragstart', () => { dragSrc = item; item.classList.add('dragging'); });
+      item.addEventListener('dragend', () => { item.classList.remove('dragging'); dragSrc = null; document.querySelectorAll('.proj-admin-item').forEach(i => i.classList.remove('drag-over')); });
+      item.addEventListener('dragover', e => { e.preventDefault(); if (item !== dragSrc) item.classList.add('drag-over'); });
+      item.addEventListener('dragleave', () => item.classList.remove('drag-over'));
+      item.addEventListener('drop', e => {
+        e.preventDefault();
+        item.classList.remove('drag-over');
+        if (!dragSrc || dragSrc === item) return;
+        const list = document.getElementById('projectsAdminList');
+        const items = [...list.querySelectorAll('.proj-admin-item')];
+        const srcIdx  = items.indexOf(dragSrc);
+        const destIdx = items.indexOf(item);
+        if (srcIdx < destIdx) item.after(dragSrc);
+        else item.before(dragSrc);
+        // Sauvegarder nouvel ordre
+        const newOrder = [...list.querySelectorAll('.proj-admin-item')].map((el, i) => ({ id: el.dataset.id, order: i + 1 }));
+        let projs = getCurrentProjects().map(p => {
+          const no = newOrder.find(n => n.id === p.id);
+          return no ? { ...p, order: no.order } : p;
+        });
+        saveProjects(projs);
+        renderProjectsList();
+        toast('Ordre mis à jour.', 'info');
+      });
+    });
+  }
+
+  /* ════════════════════════════════════════
+     PROJECT MODAL
+  ════════════════════════════════════════ */
+  let currentTags = [];
+
+  function initProjectModal() {
+    const modal  = document.getElementById('projectModal');
+    const techIn = document.getElementById('techInput');
+
+    document.getElementById('closeProjectModal').addEventListener('click', closeProjectModal);
+    document.getElementById('cancelProjectModal').addEventListener('click', closeProjectModal);
+    modal.addEventListener('click', e => { if (e.target === modal) closeProjectModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeProjectModal(); });
+
+    // Tags input
+    techIn.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ',') {
+        e.preventDefault();
+        const val = techIn.value.trim().replace(/,$/, '');
+        if (val && !currentTags.includes(val)) {
+          currentTags.push(val);
+          renderTechTags();
+        }
+        techIn.value = '';
+      }
+      if (e.key === 'Backspace' && techIn.value === '' && currentTags.length > 0) {
+        currentTags.pop();
+        renderTechTags();
+      }
+    });
+
+    document.getElementById('techTagsWrap').addEventListener('click', () => techIn.focus());
+
+    document.getElementById('saveProjectBtn').addEventListener('click', saveProject);
+  }
+
+  function renderTechTags() {
+    const wrap = document.getElementById('techTagsWrap');
+    wrap.querySelectorAll('.tag-chip').forEach(c => c.remove());
+    currentTags.forEach((tag, i) => {
+      const chip = document.createElement('span');
+      chip.className = 'tag-chip';
+      chip.innerHTML = `${tag}<button type="button" data-i="${i}"><i class="fas fa-times"></i></button>`;
+      chip.querySelector('button').addEventListener('click', () => {
+        currentTags.splice(i, 1);
+        renderTechTags();
+      });
+      wrap.insertBefore(chip, document.getElementById('techInput'));
+    });
+    document.getElementById('projTechHidden').value = currentTags.join(',');
+  }
+
+  function openProjectModal(proj) {
+    const isEdit = proj !== null;
+    document.getElementById('projectModalTitle').textContent = isEdit ? `Modifier — ${proj.title}` : 'Nouveau projet';
+
+    // Reset form
+    document.getElementById('projId').value         = isEdit ? proj.id        : '';
+    document.getElementById('projTitle').value      = isEdit ? proj.title     : '';
+    document.getElementById('projType').value       = isEdit ? proj.type      : '';
+    document.getElementById('projDesc').value       = isEdit ? proj.desc      : '';
+    document.getElementById('projFullDesc').value   = isEdit ? (proj.fullDesc || '') : '';
+    document.getElementById('projImage').value      = isEdit ? (proj.image    || '') : '';
+    document.getElementById('projStatus').value     = isEdit ? proj.status    : 'live';
+    document.getElementById('projLayout').value     = isEdit ? proj.layout    : 'half';
+    document.getElementById('projOrder').value      = isEdit ? (proj.order    || 99) : 99;
+    document.getElementById('projDemoUrl').value    = isEdit ? (proj.demoUrl    || '') : '';
+    document.getElementById('projGithubUrl').value  = isEdit ? (proj.githubUrl  || '') : '';
+    document.getElementById('projShowcaseUrl').value= isEdit ? (proj.showcaseUrl|| '') : '';
+    document.getElementById('projIsLogo').checked   = isEdit ? (proj.isLogo  || false) : false;
+    document.getElementById('projHasDemo').checked  = isEdit ? (proj.hasDemo || false) : false;
+
+    currentTags = isEdit ? [...(proj.tech || [])] : [];
+    renderTechTags();
+
+    document.getElementById('projectModal').classList.add('active');
+  }
+
+  function closeProjectModal() {
+    document.getElementById('projectModal').classList.remove('active');
+  }
+
+  function saveProject() {
+    const id    = document.getElementById('projId').value;
+    const title = document.getElementById('projTitle').value.trim();
+    const type  = document.getElementById('projType').value.trim();
+    const desc  = document.getElementById('projDesc').value.trim();
+
+    if (!title || !type || !desc) { toast('Remplissez les champs obligatoires (*)','error'); return; }
+
+    const proj = {
+      id:          id || (title.toLowerCase().replace(/\s+/g, '_') + '_' + Date.now()),
+      number:      String(parseInt(document.getElementById('projOrder').value) || 99).padStart(2,'0'),
+      title,
+      type,
+      desc,
+      fullDesc:    document.getElementById('projFullDesc').value.trim(),
+      image:       document.getElementById('projImage').value.trim(),
+      status:      document.getElementById('projStatus').value,
+      layout:      document.getElementById('projLayout').value,
+      order:       parseInt(document.getElementById('projOrder').value) || 99,
+      tech:        currentTags,
+      demoUrl:     document.getElementById('projDemoUrl').value.trim(),
+      githubUrl:   document.getElementById('projGithubUrl').value.trim(),
+      showcaseUrl: document.getElementById('projShowcaseUrl').value.trim(),
+      isLogo:      document.getElementById('projIsLogo').checked,
+      hasDemo:     document.getElementById('projHasDemo').checked,
+    };
+
+    let projs = getCurrentProjects();
+    if (id) {
+      projs = projs.map(p => p.id === id ? proj : p);
+    } else {
+      projs.push(proj);
+    }
+
+    saveProjects(projs);
+    closeProjectModal();
+    renderProjectsList();
+    toast(id ? 'Projet mis à jour !' : 'Projet ajouté !');
+  }
+
+  /* ════════════════════════════════════════
+     SETTINGS
+  ════════════════════════════════════════ */
+  function initSettings() {
+    const creds = getCreds();
+    document.getElementById('currentUsername').textContent = creds.user;
+
+    document.getElementById('changeUsernameBtn').addEventListener('click', () => {
+      const newUser = prompt('Nouvel identifiant :', getCreds().user);
+      if (newUser && newUser.trim().length >= 3) {
+        saveCreds({ ...getCreds(), user: newUser.trim() });
+        document.getElementById('currentUsername').textContent = newUser.trim();
+        toast('Identifiant mis à jour.');
+      } else if (newUser !== null) {
+        toast('Identifiant trop court (min 3 caractères).', 'error');
+      }
+    });
+
+    document.getElementById('changePasswordBtn').addEventListener('click', () => {
+      const newPass = prompt('Nouveau mot de passe (min 8 caractères) :');
+      if (newPass && newPass.length >= 8) {
+        saveCreds({ ...getCreds(), pass: newPass });
+        toast('Mot de passe mis à jour.');
+      } else if (newPass !== null) {
+        toast('Mot de passe trop court (min 8 caractères).', 'error');
+      }
+    });
+
+    document.getElementById('exportDataBtn').addEventListener('click', () => {
+      const data = {
+        exportDate: new Date().toISOString(),
+        projects:   getCurrentProjects(),
+        analytics:  getAnalytics(),
+      };
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const url  = URL.createObjectURL(blob);
+      const a    = document.createElement('a');
+      a.href     = url;
+      a.download = `idghim-portfolio-data-${new Date().toISOString().split('T')[0]}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+      toast('Données exportées.', 'info');
+    });
+
+    document.getElementById('fullResetBtn').addEventListener('click', async () => {
+      const ok = await confirmDialog('Tout réinitialiser', 'Projets, statistiques et identifiants seront remis à zéro. Cette action est IRRÉVERSIBLE.');
+      if (ok) {
+        localStorage.removeItem(KEYS.projects);
+        localStorage.removeItem(KEYS.analytics);
+        localStorage.removeItem(KEYS.credentials);
+        sessionStorage.removeItem(KEYS.session);
+        toast('Tout a été réinitialisé.', 'info');
+        setTimeout(() => location.reload(), 1500);
+      }
+    });
+  }
+  </script>
+</body>
+</html>

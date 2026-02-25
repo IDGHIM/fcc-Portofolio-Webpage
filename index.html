@@ -12,7 +12,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="image/favicon/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="image/favicon/favicon.svg" />
   <link rel="shortcut icon" href="image/favicon/favicon.ico" />
@@ -21,7 +20,6 @@
 </head>
 <body>
 
-  <!-- CURSEUR CUSTOM -->
   <div class="cursor-dot" id="cursorDot"></div>
   <div class="cursor-ring" id="cursorRing"></div>
 
@@ -93,42 +91,19 @@
         <img src="image/pict/Comp3.jpeg" alt="Ichem DGHIM" class="hero-photo" />
         <div class="hero-image-ring"></div>
         <div class="hero-image-ring ring-2"></div>
-
-        <!-- Floating badges -->
-        <div class="hero-badge badge-1">
-          <i class="fab fa-react"></i>
-          <span>React</span>
-        </div>
-        <div class="hero-badge badge-2">
-          <i class="fab fa-node-js"></i>
-          <span>Node.js</span>
-        </div>
-        <div class="hero-badge badge-3">
-          <span class="badge-num">6+</span>
-          <span>Projets</span>
-        </div>
+        <div class="hero-badge badge-1"><i class="fab fa-react"></i><span>React</span></div>
+        <div class="hero-badge badge-2"><i class="fab fa-node-js"></i><span>Node.js</span></div>
+        <div class="hero-badge badge-3" id="heroBadgeProjects"><span class="badge-num" id="badgeProjectCount">6+</span><span>Projets</span></div>
       </div>
-
-      <!-- Stats flottantes -->
       <div class="hero-stats">
-        <div class="hero-stat">
-          <span class="stat-n">3</span>
-          <span class="stat-l">Certifs</span>
-        </div>
+        <div class="hero-stat"><span class="stat-n">3</span><span class="stat-l">Certifs</span></div>
         <div class="hero-stat-sep"></div>
-        <div class="hero-stat">
-          <span class="stat-n">21</span>
-          <span class="stat-l">Ans</span>
-        </div>
+        <div class="hero-stat"><span class="stat-n">21</span><span class="stat-l">Ans</span></div>
         <div class="hero-stat-sep"></div>
-        <div class="hero-stat">
-          <span class="stat-n">2025</span>
-          <span class="stat-l">DWWM</span>
-        </div>
+        <div class="hero-stat"><span class="stat-n">2025</span><span class="stat-l">DWWM</span></div>
       </div>
     </div>
 
-    <!-- Scroll indicator -->
     <div class="scroll-hint">
       <div class="scroll-line"></div>
       <span>Scroll</span>
@@ -142,77 +117,50 @@
     <div class="container">
       <span class="section-eyebrow">À propos</span>
       <div class="about-grid">
-
         <div class="about-text-col">
-          <h2 class="section-title-left">
-            Force &amp; <br><em>Précision</em>
-          </h2>
+          <h2 class="section-title-left">Force &amp; <br><em>Précision</em></h2>
           <div class="about-body">
-            <p>
-              Je suis <strong>Ichem DGHIM</strong>, 21 ans, développeur web junior basé à Agen.
-              Diplômé d'un bac STI2D spécialité SIN, j'ai une imagination sans limite qui me pousse à
-              transformer chaque idée en réalité concrète.
-            </p>
-            <p>
-              Passionné par l'univers du web, je donne vie à des interfaces modernes, fluides et responsive,
-              avec pour seul objectif : <strong>exaucer tout ce que j'imagine</strong>.
-            </p>
-            <p>
-              Quand je ne code pas, je soulève de la fonte. Je pratique le <strong>powerlifting en compétition</strong> —
-              une discipline qui m'a appris la rigueur, la persévérance et le dépassement de soi.
-              Des qualités que j'applique ligne par ligne.
-            </p>
+            <p>Je suis <strong>Ichem DGHIM</strong>, 21 ans, développeur web junior basé à Agen. Diplômé d'un bac STI2D spécialité SIN, j'ai une imagination sans limite qui me pousse à transformer chaque idée en réalité concrète.</p>
+            <p>Passionné par l'univers du web, je donne vie à des interfaces modernes, fluides et responsive, avec pour seul objectif : <strong>exaucer tout ce que j'imagine</strong>.</p>
+            <p>Quand je ne code pas, je soulève de la fonte. Je pratique le <strong>powerlifting en compétition</strong> — une discipline qui m'a appris la rigueur, la persévérance et le dépassement de soi. Des qualités que j'applique ligne par ligne.</p>
           </div>
-
           <div class="about-quote">
             <span class="quote-mark">"</span>
             <p>Chaque PR mergée, c'est une PR personnelle battue.</p>
           </div>
         </div>
-
         <div class="about-right-col">
-          <!-- Timeline parcours -->
           <div class="timeline">
             <div class="timeline-track"></div>
-
             <div class="timeline-item reveal-left">
               <div class="tl-dot"></div>
               <div class="tl-card">
                 <span class="tl-date">2021 – 2022</span>
                 <h4>Bac STI2D SIN</h4>
                 <p>Système d'Information et Numérique</p>
-                <div class="tl-tags">
-                  <span>Électronique</span><span>Programmation</span><span>Réseaux</span>
-                </div>
+                <div class="tl-tags"><span>Électronique</span><span>Programmation</span><span>Réseaux</span></div>
               </div>
             </div>
-
             <div class="timeline-item reveal-left delay-1">
               <div class="tl-dot"></div>
               <div class="tl-card">
                 <span class="tl-date">2022 – 2023</span>
                 <h4>BTS SN Option B</h4>
                 <p>Électronique et Communication</p>
-                <div class="tl-tags">
-                  <span>Systèmes embarqués</span><span>Protocoles réseau</span><span>C/C++</span>
-                </div>
+                <div class="tl-tags"><span>Systèmes embarqués</span><span>Protocoles réseau</span><span>C/C++</span></div>
               </div>
             </div>
-
             <div class="timeline-item active reveal-left delay-2">
               <div class="tl-dot"></div>
               <div class="tl-card">
                 <span class="tl-date">2025</span>
                 <h4>Titre Pro DWWM</h4>
                 <p>Développeur Web et Web Mobile</p>
-                <div class="tl-tags">
-                  <span>Full-Stack</span><span>React</span><span>Node.js</span><span>MongoDB</span>
-                </div>
+                <div class="tl-tags"><span>Full-Stack</span><span>React</span><span>Node.js</span><span>MongoDB</span></div>
               </div>
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -224,16 +172,10 @@
     <div class="container">
       <span class="section-eyebrow">Stack</span>
       <h2 class="section-title">Compétences</h2>
-
       <div class="skills-layout">
-        <!-- Colonne principale : catégories -->
         <div class="skills-categories">
-
           <div class="skill-cat reveal-up">
-            <div class="skill-cat-header">
-              <div class="skill-cat-icon"><i class="fas fa-code"></i></div>
-              <h3>Frontend</h3>
-            </div>
+            <div class="skill-cat-header"><div class="skill-cat-icon"><i class="fas fa-code"></i></div><h3>Frontend</h3></div>
             <div class="skill-pills">
               <span class="skill-pill"><i class="fab fa-html5"></i> HTML5</span>
               <span class="skill-pill"><i class="fab fa-css3-alt"></i> CSS3</span>
@@ -242,12 +184,8 @@
               <span class="skill-pill"><i class="fas fa-mobile-alt"></i> Responsive</span>
             </div>
           </div>
-
           <div class="skill-cat reveal-up delay-1">
-            <div class="skill-cat-header">
-              <div class="skill-cat-icon"><i class="fas fa-server"></i></div>
-              <h3>Backend</h3>
-            </div>
+            <div class="skill-cat-header"><div class="skill-cat-icon"><i class="fas fa-server"></i></div><h3>Backend</h3></div>
             <div class="skill-pills">
               <span class="skill-pill featured"><i class="fab fa-node-js"></i> Node.js</span>
               <span class="skill-pill"><i class="fas fa-terminal"></i> Express</span>
@@ -255,12 +193,8 @@
               <span class="skill-pill"><i class="fas fa-database"></i> MongoDB</span>
             </div>
           </div>
-
           <div class="skill-cat reveal-up delay-2">
-            <div class="skill-cat-header">
-              <div class="skill-cat-icon"><i class="fas fa-tools"></i></div>
-              <h3>Outils</h3>
-            </div>
+            <div class="skill-cat-header"><div class="skill-cat-icon"><i class="fas fa-tools"></i></div><h3>Outils</h3></div>
             <div class="skill-pills">
               <span class="skill-pill"><i class="fab fa-git-alt"></i> Git & GitHub</span>
               <span class="skill-pill"><i class="fab fa-figma"></i> Figma</span>
@@ -270,45 +204,28 @@
               <span class="skill-pill"><i class="fas fa-code"></i> VS Code</span>
             </div>
           </div>
-
         </div>
-
-        <!-- Certifications -->
         <div class="certifications reveal-up delay-1">
           <h3 class="certif-title-h">Certifications <span>FreeCodeCamp</span></h3>
           <div class="certif-list">
-
             <a href="https://www.freecodecamp.org/certification/IchemD/responsive-web-design" target="_blank" class="certif-item">
               <div class="certif-icon"><i class="fas fa-mobile-alt"></i></div>
-              <div class="certif-info">
-                <span class="certif-name">Responsive Web Design</span>
-                <span class="certif-org">freeCodeCamp · 2025</span>
-              </div>
+              <div class="certif-info"><span class="certif-name">Responsive Web Design</span><span class="certif-org">freeCodeCamp · 2025</span></div>
               <div class="certif-arrow"><i class="fas fa-external-link-alt"></i></div>
             </a>
-
             <a href="https://www.freecodecamp.org/certification/IchemD/javascript-algorithms-and-data-structures-v8" target="_blank" class="certif-item">
               <div class="certif-icon"><i class="fab fa-js"></i></div>
-              <div class="certif-info">
-                <span class="certif-name">JS Algorithms & Data Structures</span>
-                <span class="certif-org">freeCodeCamp · 2025</span>
-              </div>
+              <div class="certif-info"><span class="certif-name">JS Algorithms & Data Structures</span><span class="certif-org">freeCodeCamp · 2025</span></div>
               <div class="certif-arrow"><i class="fas fa-external-link-alt"></i></div>
             </a>
-
             <a href="https://www.freecodecamp.org/certification/IchemD/back-end-development-and-apis" target="_blank" class="certif-item">
               <div class="certif-icon"><i class="fas fa-server"></i></div>
-              <div class="certif-info">
-                <span class="certif-name">Backend Development & APIs</span>
-                <span class="certif-org">freeCodeCamp · 2025</span>
-              </div>
+              <div class="certif-info"><span class="certif-name">Backend Development & APIs</span><span class="certif-org">freeCodeCamp · 2025</span></div>
               <div class="certif-arrow"><i class="fas fa-external-link-alt"></i></div>
             </a>
-
           </div>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -319,39 +236,28 @@
     <div class="container">
       <span class="section-eyebrow">Méthode</span>
       <h2 class="section-title">Mon Approche</h2>
-
       <div class="method-grid">
-
         <div class="method-card reveal-up">
           <div class="method-num">01</div>
           <div class="method-icon"><i class="fas fa-project-diagram"></i></div>
           <h3>Planification</h3>
           <p>Analyse des besoins, maquettes Figma, et roadmap détaillée avec Notion avant chaque ligne de code.</p>
-          <div class="method-tags">
-            <span>Figma</span><span>Notion</span><span>UX/UI</span>
-          </div>
+          <div class="method-tags"><span>Figma</span><span>Notion</span><span>UX/UI</span></div>
         </div>
-
         <div class="method-card reveal-up delay-1">
           <div class="method-num">02</div>
           <div class="method-icon"><i class="fas fa-code-branch"></i></div>
           <h3>Développement</h3>
           <p>Code modulaire, Git workflow avec feature branches, commits descriptifs et architecture pensée pour la maintenance.</p>
-          <div class="method-tags">
-            <span>Git</span><span>Clean Code</span><span>Mobile-First</span>
-          </div>
+          <div class="method-tags"><span>Git</span><span>Clean Code</span><span>Mobile-First</span></div>
         </div>
-
         <div class="method-card reveal-up delay-2">
           <div class="method-num">03</div>
           <div class="method-icon"><i class="fas fa-rocket"></i></div>
           <h3>Tests & Déploiement</h3>
           <p>Tests cross-browser, validation W3C, optimisation des performances et déploiement CI/CD automatisé.</p>
-          <div class="method-tags">
-            <span>DevTools</span><span>Vercel</span><span>Performance</span>
-          </div>
+          <div class="method-tags"><span>DevTools</span><span>Vercel</span><span>Performance</span></div>
         </div>
-
       </div>
     </div>
   </section>
@@ -363,209 +269,14 @@
     <div class="container">
       <span class="section-eyebrow">Réalisations</span>
       <h2 class="section-title">Mes Projets</h2>
-
-      <div class="projects-grid">
-
-        <!-- PAPYRUS — Featured large -->
-        <div class="proj-card featured reveal-up"
-             data-title="Papyrus"
-             data-desc="Plateforme de GED avec recherche full-text, partage sécurisé par token et collaboration en temps réel."
-             data-tech="React,Node.js,MongoDB,REST API"
-             data-demo="https://papyrus-rho.vercel.app"
-             data-showcase="https://idghim.github.io/Papyrus_website/"
-             data-github="">
-          <div class="proj-preview">
-            <img src="image/projets-pict/Papyrus_logo.png" alt="Papyrus" loading="lazy" />
-            <!--
-              Pour vidéo : remplacer l'img par :
-              <video autoplay muted loop playsinline preload="none" data-src="videos/papyrus-demo.mp4">
-                <source src="videos/papyrus-demo.mp4" type="video/mp4">
-              </video>
-            -->
-          </div>
-          <div class="proj-overlay"></div>
-          <div class="proj-number">01</div>
-          <div class="proj-content">
-            <div class="proj-meta">
-              <span class="proj-badge live">● Live</span>
-              <span class="proj-type">Full-Stack App</span>
-            </div>
-            <h3 class="proj-title">Papyrus</h3>
-            <p class="proj-desc">Plateforme de gestion documentaire — recherche avancée, partage sécurisé et collaboration.</p>
-            <div class="proj-tags">
-              <span>React</span><span>Node.js</span><span>MongoDB</span><span>REST API</span>
-            </div>
-            <div class="proj-actions">
-              <a href="https://papyrus-rho.vercel.app" target="_blank" class="proj-btn primary" onclick="event.stopPropagation()">
-                <i class="fas fa-external-link-alt"></i> Voir le projet
-              </a>
-              <button class="proj-btn ghost open-modal" onclick="event.stopPropagation()">
-                <i class="fas fa-play"></i> Démo
-              </button>
-            </div>
-          </div>
-          <span class="proj-hint">Cliquer pour la démo</span>
-        </div>
-
-        <!-- ALÉA — Compact -->
-        <div class="proj-card compact reveal-up delay-1"
-             data-title="Aléa"
-             data-desc="Plateforme de quiz en marque blanche. Dashboard admin, système multi-utilisateurs et personnalisation avancée."
-             data-tech="React,Node.js,MongoDB,Responsive"
-             data-demo=""
-             data-github="https://github.com/IDGHIM">
-          <div class="proj-preview">
-            <img src="image/projets-pict/Alea_logo1.png" alt="Aléa" loading="lazy" />
-          </div>
-          <div class="proj-overlay"></div>
-          <div class="proj-number">02</div>
-          <div class="proj-ribbon">En dev</div>
-          <div class="proj-content">
-            <div class="proj-meta">
-              <span class="proj-badge wip">⚙ En cours</span>
-              <span class="proj-type">SaaS</span>
-            </div>
-            <h3 class="proj-title">Aléa</h3>
-            <p class="proj-desc">Quiz en marque blanche. Dashboard admin et personnalisation avancée.</p>
-            <div class="proj-tags">
-              <span>React</span><span>Node.js</span><span>MongoDB</span>
-            </div>
-            <div class="proj-actions">
-              <a href="https://github.com/IDGHIM" target="_blank" class="proj-btn ghost" onclick="event.stopPropagation()">
-                <i class="fab fa-github"></i> GitHub
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- POKÉDEX — Compact wide -->
-        <div class="proj-card compact-wide reveal-up delay-2"
-             data-title="Pokédex Interactif"
-             data-desc="Pokédex moderne avec cartes 3D retournables, consommation de la PokéAPI et effets visuels immersifs."
-             data-tech="HTML5,CSS3,JavaScript,REST API"
-             data-demo="https://idghim.github.io/Interactive_Pok-dex/"
-             data-github="https://github.com/IDGHIM/Interactive_Pok-dex">
-          <div class="proj-preview">
-            <img src="image/projets-pict/pokédex_app.png" alt="Pokédex" loading="lazy" />
-          </div>
-          <div class="proj-overlay"></div>
-          <div class="proj-number">03</div>
-          <div class="proj-content">
-            <div class="proj-meta">
-              <span class="proj-badge live">● Live</span>
-              <span class="proj-type">Web App</span>
-            </div>
-            <h3 class="proj-title">Pokédex</h3>
-            <p class="proj-desc">Cartes 3D retournables et consommation de la PokéAPI.</p>
-            <div class="proj-tags">
-              <span>HTML5</span><span>CSS3</span><span>API REST</span>
-            </div>
-            <div class="proj-actions">
-              <a href="https://idghim.github.io/Interactive_Pok-dex/" target="_blank" class="proj-btn primary" onclick="event.stopPropagation()">
-                <i class="fas fa-external-link-alt"></i> Voir
-              </a>
-              <button class="proj-btn ghost open-modal" onclick="event.stopPropagation()">
-                <i class="fas fa-play"></i> Démo
-              </button>
-            </div>
-          </div>
-          <span class="proj-hint">Cliquer pour la démo</span>
-        </div>
-
-        <!-- MORPION — Featured right -->
-        <div class="proj-card featured-right reveal-up"
-             data-title="Morpion React"
-             data-desc="Version moderne du classique jeu de morpion développée avec React Hooks et gestion d'état optimisée."
-             data-tech="React,CSS3,JavaScript,Responsive"
-             data-demo="https://tic-tac-toe-rosy-eta.vercel.app/"
-             data-github="https://github.com/IDGHIM/Tic-Tac-Toe">
-          <div class="proj-preview">
-            <img src="image/projets-pict/tic-tac-toe.png" alt="Morpion" loading="lazy" />
-          </div>
-          <div class="proj-overlay"></div>
-          <div class="proj-number">04</div>
-          <div class="proj-content">
-            <div class="proj-meta">
-              <span class="proj-badge live">● Live</span>
-              <span class="proj-type">React App</span>
-            </div>
-            <h3 class="proj-title">Morpion</h3>
-            <p class="proj-desc">Jeu de morpion avec React Hooks, gestion d'état et animations fluides.</p>
-            <div class="proj-tags">
-              <span>React</span><span>CSS3</span><span>JavaScript</span>
-            </div>
-            <div class="proj-actions">
-              <a href="https://tic-tac-toe-rosy-eta.vercel.app/" target="_blank" class="proj-btn primary" onclick="event.stopPropagation()">
-                <i class="fas fa-external-link-alt"></i> Jouer
-              </a>
-              <button class="proj-btn ghost open-modal" onclick="event.stopPropagation()">
-                <i class="fas fa-play"></i> Démo
-              </button>
-            </div>
-          </div>
-          <span class="proj-hint">Cliquer pour la démo</span>
-        </div>
-
-        <!-- STUDPROD — Half -->
-        <div class="proj-card half reveal-up delay-1"
-             data-title="STUDPROD"
-             data-desc="Landing page moderne pour une société de production étudiante avec animations fluides et design responsive."
-             data-tech="HTML5,CSS3,Responsive"
-             data-demo="https://idghim.github.io/fcc-Landing-Page"
-             data-github="https://github.com/IDGHIM/fcc-Landing-Page">
-          <div class="proj-preview">
-            <img src="image/projets-pict/LOGO STUDPROD NOIR.png" alt="STUDPROD" loading="lazy" />
-          </div>
-          <div class="proj-overlay"></div>
-          <div class="proj-number">05</div>
-          <div class="proj-content">
-            <div class="proj-meta">
-              <span class="proj-badge live">● Live</span>
-              <span class="proj-type">Landing Page</span>
-            </div>
-            <h3 class="proj-title">STUDPROD</h3>
-            <p class="proj-desc">Landing page avec animations fluides et design adaptatif.</p>
-            <div class="proj-tags">
-              <span>HTML5</span><span>CSS3</span>
-            </div>
-            <div class="proj-actions">
-              <a href="https://idghim.github.io/fcc-Landing-Page" target="_blank" class="proj-btn primary" onclick="event.stopPropagation()">
-                <i class="fas fa-external-link-alt"></i> Voir
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- CONVERTISSEUR — Half -->
-        <div class="proj-card half reveal-up delay-2"
-             data-title="Convertisseur Romain"
-             data-desc="Application de conversion entre chiffres arabes et romains avec validation des entrées et interface intuitive."
-             data-tech="HTML5,CSS3,JavaScript,Responsive"
-             data-demo="https://idghim.github.io/fcc-Roman_Numeral_Converter/"
-             data-github="https://github.com/IDGHIM/fcc-Roman_Numeral_Converter">
-          <div class="proj-preview">
-            <img src="image/projets-pict/roman_numeral_convert.png" alt="Convertisseur Romain" loading="lazy" />
-          </div>
-          <div class="proj-overlay"></div>
-          <div class="proj-number">06</div>
-          <div class="proj-content">
-            <div class="proj-meta">
-              <span class="proj-badge live">● Live</span>
-              <span class="proj-type">JS App</span>
-            </div>
-            <h3 class="proj-title">Convertisseur</h3>
-            <p class="proj-desc">Conversion arabe ↔ romain avec algorithmes de validation.</p>
-            <div class="proj-tags">
-              <span>HTML5</span><span>JavaScript</span>
-            </div>
-            <div class="proj-actions">
-              <a href="https://idghim.github.io/fcc-Roman_Numeral_Converter/" target="_blank" class="proj-btn primary" onclick="event.stopPropagation()">
-                <i class="fas fa-external-link-alt"></i> Voir
-              </a>
-            </div>
-          </div>
-        </div>
-
+      <!-- Les projets sont injectés dynamiquement par script.js -->
+      <div class="projects-grid" id="projectsGrid">
+        <!-- Fallback statique si JS désactivé -->
+        <noscript>
+          <p style="color:var(--chalk-muted); text-align:center; padding:40px 0;">
+            Activez JavaScript pour voir les projets.
+          </p>
+        </noscript>
       </div>
     </div>
   </section>
@@ -577,83 +288,42 @@
     <div class="container">
       <span class="section-eyebrow">Contact</span>
       <h2 class="section-title">Travaillons ensemble</h2>
-
       <div class="contact-grid">
-
         <div class="contact-left reveal-left">
-          <p class="contact-intro">
-            Une idée de projet ? Besoin d'un développeur web junior motivé ?
-            Je suis ouvert aux opportunités et aux collaborations.
-          </p>
-
+          <p class="contact-intro">Une idée de projet ? Besoin d'un développeur web junior motivé ? Je suis ouvert aux opportunités et aux collaborations.</p>
           <div class="contact-items">
             <a href="mailto:ichemdghim@gmail.com" class="contact-item">
               <div class="ci-icon"><i class="fas fa-envelope"></i></div>
-              <div class="ci-text">
-                <span class="ci-label">Email</span>
-                <span class="ci-value">ichemdghim@gmail.com</span>
-              </div>
+              <div class="ci-text"><span class="ci-label">Email</span><span class="ci-value">ichemdghim@gmail.com</span></div>
               <i class="fas fa-arrow-right ci-arrow"></i>
             </a>
-
             <div class="contact-item no-link">
               <div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div>
-              <div class="ci-text">
-                <span class="ci-label">Localisation</span>
-                <span class="ci-value">Agen, France</span>
-              </div>
+              <div class="ci-text"><span class="ci-label">Localisation</span><span class="ci-value">Agen, France</span></div>
             </div>
-
             <div class="contact-item no-link">
               <div class="ci-icon"><i class="fas fa-circle"></i></div>
-              <div class="ci-text">
-                <span class="ci-label">Statut</span>
-                <span class="ci-value ci-available">Disponible · Ouvert aux opportunités</span>
-              </div>
+              <div class="ci-text"><span class="ci-label">Statut</span><span class="ci-value ci-available">Disponible · Ouvert aux opportunités</span></div>
             </div>
           </div>
-
           <div class="contact-socials">
-            <a href="https://github.com/IDGHIM" target="_blank" class="social-chip">
-              <i class="fab fa-github"></i> GitHub
-            </a>
-            <a href="https://www.linkedin.com/in/ichem-dghim/" target="_blank" class="social-chip">
-              <i class="fab fa-linkedin"></i> LinkedIn
-            </a>
-            <a href="https://www.instagram.com/iichoumm_pwr/" target="_blank" class="social-chip">
-              <i class="fab fa-instagram"></i> Instagram
-            </a>
+            <a href="https://github.com/IDGHIM" target="_blank" class="social-chip"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://www.linkedin.com/in/ichem-dghim/" target="_blank" class="social-chip"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://www.instagram.com/iichoumm_pwr/" target="_blank" class="social-chip"><i class="fab fa-instagram"></i> Instagram</a>
           </div>
         </div>
-
         <div class="contact-right reveal-right">
           <form class="contact-form" id="contactForm">
             <div class="form-row">
-              <div class="form-group">
-                <label for="nom">Nom complet</label>
-                <input type="text" id="nom" name="nom" placeholder="Votre nom" required />
-              </div>
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="votre@email.com" required />
-              </div>
+              <div class="form-group"><label for="nom">Nom complet</label><input type="text" id="nom" name="nom" placeholder="Votre nom" required /></div>
+              <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" placeholder="votre@email.com" required /></div>
             </div>
-            <div class="form-group">
-              <label for="sujet">Sujet</label>
-              <input type="text" id="sujet" name="sujet" placeholder="Projet, collaboration, question…" />
-            </div>
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" rows="5" placeholder="Décrivez votre projet ou votre besoin…" required></textarea>
-            </div>
-            <button type="submit" class="btn-primary full-w" id="submitBtn">
-              <span>Envoyer le message</span>
-              <i class="fas fa-paper-plane"></i>
-            </button>
+            <div class="form-group"><label for="sujet">Sujet</label><input type="text" id="sujet" name="sujet" placeholder="Projet, collaboration, question…" /></div>
+            <div class="form-group"><label for="message">Message</label><textarea id="message" name="message" rows="5" placeholder="Décrivez votre projet ou votre besoin…" required></textarea></div>
+            <button type="submit" class="btn-primary full-w" id="submitBtn"><span>Envoyer le message</span><i class="fas fa-paper-plane"></i></button>
             <div class="form-feedback" id="formFeedback"></div>
           </form>
         </div>
-
       </div>
     </div>
   </section>
@@ -680,9 +350,7 @@
     <div class="modal-box">
       <div class="modal-header">
         <span class="modal-title" id="modalTitle">—</span>
-        <button class="modal-close" id="modalClose" aria-label="Fermer">
-          <i class="fas fa-times"></i>
-        </button>
+        <button class="modal-close" id="modalClose" aria-label="Fermer"><i class="fas fa-times"></i></button>
       </div>
       <div class="modal-video-zone" id="modalVideoZone"></div>
       <div class="modal-footer">
@@ -693,6 +361,7 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script src="analytics-tracker.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
