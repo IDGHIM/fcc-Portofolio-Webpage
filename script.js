@@ -11,170 +11,98 @@ function getCurrentLang() {
 }
 
 /* ══════════════════════════════════════
-   TRADUCTIONS EN PAR ID DE PROJET
-   Seuls les textes changent — tout le reste
-   (image, urls, tech, layout…) vient de l'admin
-══════════════════════════════════════ */
-const EN_TRANSLATIONS = {
-  papyrus: {
-    desc:     'Document management platform — advanced search, secure sharing and collaboration.',
-    fullDesc: 'DMS platform with full-text search, token-based secure sharing and real-time collaboration.',
-    type:     'Full-Stack App',
-  },
-  alea: {
-    desc:     'White-label quiz platform. Admin dashboard and advanced customisation.',
-    fullDesc: 'White-label quiz platform with admin dashboard, multi-user system and advanced customisation.',
-    type:     'SaaS',
-  },
-  pokedex: {
-    desc:     'Flippable 3D cards consuming the PokéAPI.',
-    fullDesc: 'Modern Pokédex with flippable 3D cards, PokéAPI consumption and immersive visual effects.',
-    type:     'Web App',
-  },
-  morpion: {
-    title:    'Tic-Tac-Toe',
-    desc:     'Tic-Tac-Toe game built with React Hooks, state management and smooth animations.',
-    fullDesc: 'Modern take on the classic Tic-Tac-Toe built with React Hooks and optimised state management.',
-    type:     'React App',
-  },
-  studprod: {
-    desc:     'Landing page with smooth animations and adaptive design.',
-    fullDesc: 'Modern landing page for a student production company with smooth animations and responsive design.',
-    type:     'Landing Page',
-  },
-  conv: {
-    title:    'Number Converter',
-    desc:     'Arabic ↔ Roman numeral converter with validation algorithms.',
-    fullDesc: 'Converter between Arabic and Roman numerals with input validation and intuitive interface.',
-    type:     'JS App',
-  },
-  convertisseur: {
-    title:    'Number Converter',
-    desc:     'Arabic ↔ Roman numeral converter with validation algorithms.',
-    fullDesc: 'Converter between Arabic and Roman numerals with input validation and intuitive interface.',
-    type:     'JS App',
-  },
-};
-
-/* ══════════════════════════════════════
    PROJETS PAR DÉFAUT (version FR)
-   Utilisés si aucun projet admin en localStorage
 ══════════════════════════════════════ */
 const DEFAULT_PROJECTS = [
   {
-    id: 'papyrus',
-    number: '01',
-    title: 'Papyrus',
+    id: 'papyrus', number: '01', title: 'Papyrus',
+    titleEn: 'Papyrus',
     desc: 'Plateforme de gestion documentaire — recherche avancée, partage sécurisé et collaboration.',
+    descEn: 'Document management platform — advanced search, secure sharing and collaboration.',
     fullDesc: 'Plateforme de GED avec recherche full-text, partage sécurisé par token et collaboration en temps réel.',
+    fullDescEn: 'DMS platform with full-text search, token-based secure sharing and real-time collaboration.',
     tech: ['React', 'Node.js', 'MongoDB', 'REST API'],
-    status: 'live',
-    type: 'Full-Stack App',
-    layout: 'featured',
+    status: 'live', type: 'Full-Stack App', layout: 'featured',
     demoUrl: 'https://papyrus-rho.vercel.app',
     showcaseUrl: 'https://idghim.github.io/Papyrus_website/',
-    githubUrl: '',
-    image: 'image/projets-pict/Papyrus_logo.png',
-    isLogo: true,
-    hasDemo: true,
-    order: 1
+    githubUrl: '', image: 'image/projets-pict/Papyrus_logo.png',
+    isLogo: true, hasDemo: true, order: 1
   },
   {
-    id: 'alea',
-    number: '02',
-    title: 'Aléa',
+    id: 'alea', number: '02', title: 'Aléa',
+    titleEn: 'Aléa',
     desc: 'Quiz en marque blanche. Dashboard admin et personnalisation avancée.',
+    descEn: 'White-label quiz platform. Admin dashboard and advanced customisation.',
     fullDesc: 'Plateforme de quiz en marque blanche. Dashboard admin, système multi-utilisateurs et personnalisation avancée.',
+    fullDescEn: 'White-label quiz platform with admin dashboard, multi-user system and advanced customisation.',
     tech: ['React', 'Node.js', 'MongoDB'],
-    status: 'wip',
-    type: 'SaaS',
-    layout: 'compact',
-    demoUrl: '',
-    showcaseUrl: '',
-    githubUrl: 'https://github.com/IDGHIM',
+    status: 'wip', type: 'SaaS', layout: 'compact',
+    demoUrl: '', showcaseUrl: '', githubUrl: 'https://github.com/IDGHIM',
     image: 'image/projets-pict/Alea_logo1.png',
-    isLogo: true,
-    hasDemo: false,
-    order: 2
+    isLogo: true, hasDemo: false, order: 2
   },
   {
-    id: 'pokedex',
-    number: '03',
-    title: 'Pokédex',
+    id: 'pokedex', number: '03', title: 'Pokédex',
+    titleEn: 'Pokédex',
     desc: 'Cartes 3D retournables et consommation de la PokéAPI.',
+    descEn: 'Flippable 3D cards consuming the PokéAPI.',
     fullDesc: 'Pokédex moderne avec cartes 3D retournables, consommation de la PokéAPI et effets visuels immersifs.',
+    fullDescEn: 'Modern Pokédex with flippable 3D cards, PokéAPI consumption and immersive visual effects.',
     tech: ['HTML5', 'CSS3', 'JavaScript', 'REST API'],
-    status: 'live',
-    type: 'Web App',
-    layout: 'compact-wide',
+    status: 'live', type: 'Web App', layout: 'compact-wide',
     demoUrl: 'https://idghim.github.io/Interactive_Pok-dex/',
-    showcaseUrl: '',
-    githubUrl: 'https://github.com/IDGHIM/Interactive_Pok-dex',
+    showcaseUrl: '', githubUrl: 'https://github.com/IDGHIM/Interactive_Pok-dex',
     image: 'image/projets-pict/pokédex_app.png',
-    isLogo: false,
-    hasDemo: true,
-    order: 3
+    isLogo: false, hasDemo: true, order: 3
   },
   {
-    id: 'morpion',
-    number: '04',
-    title: 'Morpion',
+    id: 'morpion', number: '04', title: 'Morpion',
+    titleEn: 'Tic-Tac-Toe',
     desc: 'Jeu de morpion avec React Hooks, gestion d\'état et animations fluides.',
+    descEn: 'Tic-Tac-Toe game built with React Hooks, state management and smooth animations.',
     fullDesc: 'Version moderne du classique jeu de morpion développée avec React Hooks et gestion d\'état optimisée.',
+    fullDescEn: 'Modern take on the classic Tic-Tac-Toe built with React Hooks and optimised state management.',
     tech: ['React', 'CSS3', 'JavaScript'],
-    status: 'live',
-    type: 'React App',
-    layout: 'featured-right',
+    status: 'live', type: 'React App', layout: 'featured-right',
     demoUrl: 'https://tic-tac-toe-rosy-eta.vercel.app/',
-    showcaseUrl: '',
-    githubUrl: 'https://github.com/IDGHIM/Tic-Tac-Toe',
+    showcaseUrl: '', githubUrl: 'https://github.com/IDGHIM/Tic-Tac-Toe',
     image: 'image/projets-pict/tic-tac-toe.png',
-    isLogo: false,
-    hasDemo: true,
-    order: 4
+    isLogo: false, hasDemo: true, order: 4
   },
   {
-    id: 'studprod',
-    number: '05',
-    title: 'STUDPROD',
+    id: 'studprod', number: '05', title: 'STUDPROD',
+    titleEn: 'STUDPROD',
     desc: 'Landing page avec animations fluides et design adaptatif.',
+    descEn: 'Landing page with smooth animations and adaptive design.',
     fullDesc: 'Landing page moderne pour une société de production étudiante avec animations fluides et design responsive.',
+    fullDescEn: 'Modern landing page for a student production company with smooth animations and responsive design.',
     tech: ['HTML5', 'CSS3'],
-    status: 'live',
-    type: 'Landing Page',
-    layout: 'half',
+    status: 'live', type: 'Landing Page', layout: 'half',
     demoUrl: 'https://idghim.github.io/fcc-Landing-Page',
-    showcaseUrl: '',
-    githubUrl: 'https://github.com/IDGHIM/fcc-Landing-Page',
+    showcaseUrl: '', githubUrl: 'https://github.com/IDGHIM/fcc-Landing-Page',
     image: 'image/projets-pict/LOGO STUDPROD NOIR.png',
-    isLogo: true,
-    hasDemo: false,
-    order: 5
+    isLogo: true, hasDemo: false, order: 5
   },
   {
-    id: 'conv',
-    number: '06',
-    title: 'Convertisseur',
+    id: 'conv', number: '06', title: 'Convertisseur',
+    titleEn: 'Number Converter',
     desc: 'Conversion arabe ↔ romain avec algorithmes de validation.',
+    descEn: 'Arabic ↔ Roman numeral converter with validation algorithms.',
     fullDesc: 'Application de conversion entre chiffres arabes et romains avec validation des entrées et interface intuitive.',
+    fullDescEn: 'Converter between Arabic and Roman numerals with input validation and intuitive interface.',
     tech: ['HTML5', 'JavaScript'],
-    status: 'live',
-    type: 'JS App',
-    layout: 'half',
+    status: 'live', type: 'JS App', layout: 'half',
     demoUrl: 'https://idghim.github.io/fcc-Roman_Numeral_Converter/',
-    showcaseUrl: '',
-    githubUrl: 'https://github.com/IDGHIM/fcc-Roman_Numeral_Converter',
+    showcaseUrl: '', githubUrl: 'https://github.com/IDGHIM/fcc-Roman_Numeral_Converter',
     image: 'image/projets-pict/roman_numeral_convert.png',
-    isLogo: false,
-    hasDemo: false,
-    order: 6
+    isLogo: false, hasDemo: false, order: 6
   }
 ];
 
 /* ══════════════════════════════════════
-   RÉCUPÉRATION + TRADUCTION DES PROJETS
-   On lit toujours idghim_projects (clé admin)
-   et on applique les traductions EN si besoin
+   RÉCUPÉRATION DES PROJETS
+   Lit idghim_projects (clé admin)
+   Applique les champs EN si lang=en
 ══════════════════════════════════════ */
 function getProjects() {
   let projects;
@@ -182,21 +110,20 @@ function getProjects() {
     const stored = localStorage.getItem('idghim_projects');
     if (stored) {
       const parsed = JSON.parse(stored);
-      if (Array.isArray(parsed) && parsed.length > 0) {
-        projects = parsed;
-      }
+      if (Array.isArray(parsed) && parsed.length > 0) projects = parsed;
     }
   } catch {}
 
   if (!projects) projects = DEFAULT_PROJECTS;
 
-  // Si version EN : appliquer les traductions par id
   if (getCurrentLang() === 'en') {
-    projects = projects.map(proj => {
-      const t = EN_TRANSLATIONS[proj.id];
-      if (!t) return proj; // Pas de traduction connue → garder tel quel
-      return { ...proj, ...t };
-    });
+    projects = projects.map(proj => ({
+      ...proj,
+      // Utilise la version EN si elle existe, sinon fallback FR
+      title:    proj.titleEn    || proj.title,
+      desc:     proj.descEn     || proj.desc,
+      fullDesc: proj.fullDescEn || proj.fullDesc,
+    }));
   }
 
   return projects;
@@ -208,25 +135,17 @@ function getProjects() {
 function buildProjectCard(proj) {
   const lang = getCurrentLang();
 
-  const isLogoClass = (proj.isLogo || (proj.image && (
+  const isLogoClass = proj.isLogo || (proj.image && (
     proj.image.includes('logo') || proj.image.includes('Logo') || proj.image.includes('LOGO')
-  )));
+  ));
   const logoFilter = isLogoClass
     ? 'object-fit:contain;padding:20%;filter:brightness(0.5) grayscale(10%)'
     : '';
 
   const badgeLive = `<span class="proj-badge live">● Live</span>`;
-  const badgeWip  = lang === 'en'
-    ? `<span class="proj-badge wip">⚙ In Progress</span>`
-    : `<span class="proj-badge wip">⚙ En cours</span>`;
-
-  const ribbon = proj.status === 'wip'
-    ? `<div class="proj-ribbon">${lang === 'en' ? 'In dev' : 'En dev'}</div>`
-    : '';
-
-  const hint = proj.hasDemo
-    ? `<span class="proj-hint">${lang === 'en' ? 'Click for demo' : 'Cliquer pour la démo'}</span>`
-    : '';
+  const badgeWip  = `<span class="proj-badge wip">⚙ ${lang === 'en' ? 'In Progress' : 'En cours'}</span>`;
+  const ribbon    = proj.status === 'wip' ? `<div class="proj-ribbon">${lang === 'en' ? 'In dev' : 'En dev'}</div>` : '';
+  const hint      = proj.hasDemo ? `<span class="proj-hint">${lang === 'en' ? 'Click for demo' : 'Cliquer pour la démo'}</span>` : '';
 
   let actions = '';
   if (proj.demoUrl) {
@@ -286,9 +205,7 @@ function renderProjects() {
   grid.innerHTML = sorted.map(buildProjectCard).join('');
 
   const badge = document.getElementById('badgeProjectCount');
-  if (badge) {
-    badge.textContent = projects.length >= 6 ? projects.length + '+' : projects.length;
-  }
+  if (badge) badge.textContent = projects.length >= 6 ? projects.length + '+' : projects.length;
 
   bindProjectInteractions();
   bindRevealObserver();
@@ -314,28 +231,16 @@ function bindProjectInteractions() {
 
     modalTitle.textContent = title;
 
-    if (demo) {
-      videoZone.innerHTML = `
-        <iframe
-          src="${demo}"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen loading="lazy"></iframe>`;
-    } else {
-      videoZone.innerHTML = `
-        <div class="modal-no-video">
-          <i class="fas fa-hammer icon"></i>
-          <p>${lang === 'en' ? 'Demo coming soon' : 'Démo en cours de préparation'}</p>
-        </div>`;
-    }
+    videoZone.innerHTML = demo
+      ? `<iframe src="${demo}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>`
+      : `<div class="modal-no-video"><i class="fas fa-hammer icon"></i><p>${lang === 'en' ? 'Demo coming soon' : 'Démo en cours de préparation'}</p></div>`;
 
     modalTech.innerHTML = '';
-    if (tech) {
-      tech.split(',').forEach(t => {
-        const s = document.createElement('span');
-        s.textContent = t.trim();
-        modalTech.appendChild(s);
-      });
-    }
+    if (tech) tech.split(',').forEach(t => {
+      const s = document.createElement('span');
+      s.textContent = t.trim();
+      modalTech.appendChild(s);
+    });
 
     modalActs.innerHTML = '';
     if (demo)     modalActs.innerHTML += `<a href="${demo}"     target="_blank" class="proj-btn primary"><i class="fas fa-external-link-alt"></i> ${lang === 'en' ? 'Open' : 'Ouvrir'}</a>`;
@@ -353,10 +258,7 @@ function bindProjectInteractions() {
   }
 
   document.querySelectorAll('.open-modal').forEach(btn => {
-    btn.addEventListener('click', e => {
-      e.stopPropagation();
-      openModal(btn.closest('.proj-card'));
-    });
+    btn.addEventListener('click', e => { e.stopPropagation(); openModal(btn.closest('.proj-card')); });
   });
 
   document.querySelectorAll('.proj-card').forEach(card => {
@@ -378,10 +280,7 @@ function bindRevealObserver() {
   const revealEls = document.querySelectorAll('.reveal-up:not(.visible), .reveal-left:not(.visible), .reveal-right:not(.visible)');
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        obs.unobserve(entry.target);
-      }
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); obs.unobserve(entry.target); }
     });
   }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
   revealEls.forEach(el => obs.observe(el));
@@ -408,19 +307,17 @@ document.addEventListener('DOMContentLoaded', () => {
       requestAnimationFrame(animRing);
     };
     animRing();
-    const hoverables = document.querySelectorAll('a, button, .proj-card, .certif-item, .skill-pill, .contact-item');
-    hoverables.forEach(el => {
+    document.querySelectorAll('a, button, .proj-card, .certif-item, .skill-pill, .contact-item').forEach(el => {
       el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
       el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
     });
   }
 
-  /* 2. Reveal observer initial */
+  /* 2. Reveal initial */
   bindRevealObserver();
 
   /* 3. Nav active section */
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks  = document.querySelectorAll('.nav-links .nav-link');
+  const navLinks = document.querySelectorAll('.nav-links .nav-link');
   const navObs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -432,7 +329,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }, { threshold: 0.45 });
-  sections.forEach(s => navObs.observe(s));
+  document.querySelectorAll('section[id]').forEach(s => navObs.observe(s));
 
   /* 4. Smooth scroll */
   document.querySelectorAll('a[href^="#"]').forEach(link => {
@@ -463,36 +360,19 @@ document.addEventListener('DOMContentLoaded', () => {
       const email   = document.getElementById('email').value.trim();
       const message = document.getElementById('message').value.trim();
       if (!nom || !email || !message) {
-        showFeedback(
-          lang === 'en'
-            ? 'Please fill in all required fields.'
-            : 'Veuillez remplir tous les champs obligatoires.',
-          'error'
-        );
+        showFeedback(lang === 'en' ? 'Please fill in all required fields.' : 'Veuillez remplir tous les champs obligatoires.', 'error');
         return;
       }
       submitBtn.disabled = true;
       submitBtn.querySelector('span').textContent = lang === 'en' ? 'Sending…' : 'Envoi en cours…';
       try {
         await emailjs.send('service_guqhch8', 'template_q3apao5', {
-          nom, email,
-          sujet: document.getElementById('sujet')?.value.trim() || '',
-          message
+          nom, email, sujet: document.getElementById('sujet')?.value.trim() || '', message
         });
-        showFeedback(
-          lang === 'en'
-            ? '✅ Message sent! I\'ll get back to you soon.'
-            : '✅ Message envoyé avec succès ! Je vous répondrai rapidement.',
-          'success'
-        );
+        showFeedback(lang === 'en' ? '✅ Message sent! I\'ll get back to you soon.' : '✅ Message envoyé avec succès ! Je vous répondrai rapidement.', 'success');
         form.reset();
       } catch {
-        showFeedback(
-          lang === 'en'
-            ? '❌ Something went wrong. Please try again or contact me directly.'
-            : '❌ Une erreur s\'est produite. Veuillez réessayer ou me contacter directement.',
-          'error'
-        );
+        showFeedback(lang === 'en' ? '❌ Something went wrong. Please try again or contact me directly.' : '❌ Une erreur s\'est produite. Veuillez réessayer ou me contacter directement.', 'error');
       } finally {
         submitBtn.disabled = false;
         submitBtn.querySelector('span').textContent = lang === 'en' ? 'Send message' : 'Envoyer le message';
@@ -514,7 +394,7 @@ document.addEventListener('DOMContentLoaded', () => {
     hero.appendChild(amb);
   }
 
-  /* 8. Parallaxe légère hero */
+  /* 8. Parallaxe hero */
   if (window.matchMedia('(min-width: 1025px)').matches) {
     const heroPhoto  = document.querySelector('.hero-photo');
     const heroBadges = document.querySelectorAll('.hero-badge');
@@ -529,7 +409,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
-  /* 9. Video hover sur cartes projet */
+  /* 9. Video hover */
   document.querySelectorAll('.proj-card').forEach(card => {
     const video = card.querySelector('video[data-src]');
     if (!video) return;
