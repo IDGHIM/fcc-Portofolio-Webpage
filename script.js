@@ -4,10 +4,9 @@
 ════════════════════════════════════════════════════════════ */
 
 /* ══════════════════════════════════════
-   PROJETS PAR DÉFAUT
-   (Chargés si aucun projet admin en localStorage)
+   PROJETS — VERSION FRANÇAISE
 ══════════════════════════════════════ */
-const DEFAULT_PROJECTS = [
+const DEFAULT_PROJECTS_FR = [
   {
     id: 'papyrus',
     number: '01',
@@ -15,9 +14,9 @@ const DEFAULT_PROJECTS = [
     desc: 'Plateforme de gestion documentaire — recherche avancée, partage sécurisé et collaboration.',
     fullDesc: 'Plateforme de GED avec recherche full-text, partage sécurisé par token et collaboration en temps réel.',
     tech: ['React', 'Node.js', 'MongoDB', 'REST API'],
-    status: 'live',         // 'live' | 'wip'
+    status: 'live',
     type: 'Full-Stack App',
-    layout: 'featured',    // 'featured' | 'compact' | 'compact-wide' | 'featured-right' | 'half'
+    layout: 'featured',
     demoUrl: 'https://papyrus-rho.vercel.app',
     showcaseUrl: 'https://idghim.github.io/Papyrus_website/',
     githubUrl: '',
@@ -119,38 +118,181 @@ const DEFAULT_PROJECTS = [
 ];
 
 /* ══════════════════════════════════════
+   PROJETS — VERSION ANGLAISE
+══════════════════════════════════════ */
+const DEFAULT_PROJECTS_EN = [
+  {
+    id: 'papyrus',
+    number: '01',
+    title: 'Papyrus',
+    desc: 'Document management platform — advanced search, secure sharing and collaboration.',
+    fullDesc: 'DMS platform with full-text search, token-based secure sharing and real-time collaboration.',
+    tech: ['React', 'Node.js', 'MongoDB', 'REST API'],
+    status: 'live',
+    type: 'Full-Stack App',
+    layout: 'featured',
+    demoUrl: 'https://papyrus-rho.vercel.app',
+    showcaseUrl: 'https://idghim.github.io/Papyrus_website/',
+    githubUrl: '',
+    image: 'image/projets-pict/Papyrus_logo.png',
+    isLogo: true,
+    hasDemo: true,
+    order: 1
+  },
+  {
+    id: 'alea',
+    number: '02',
+    title: 'Aléa',
+    desc: 'White-label quiz platform. Admin dashboard and advanced customisation.',
+    fullDesc: 'White-label quiz platform with admin dashboard, multi-user system and advanced customisation.',
+    tech: ['React', 'Node.js', 'MongoDB'],
+    status: 'wip',
+    type: 'SaaS',
+    layout: 'compact',
+    demoUrl: '',
+    showcaseUrl: '',
+    githubUrl: 'https://github.com/IDGHIM',
+    image: 'image/projets-pict/Alea_logo1.png',
+    isLogo: true,
+    hasDemo: false,
+    order: 2
+  },
+  {
+    id: 'pokedex',
+    number: '03',
+    title: 'Pokédex',
+    desc: 'Flippable 3D cards consuming the PokéAPI.',
+    fullDesc: 'Modern Pokédex with flippable 3D cards, PokéAPI consumption and immersive visual effects.',
+    tech: ['HTML5', 'CSS3', 'JavaScript', 'REST API'],
+    status: 'live',
+    type: 'Web App',
+    layout: 'compact-wide',
+    demoUrl: 'https://idghim.github.io/Interactive_Pok-dex/',
+    showcaseUrl: '',
+    githubUrl: 'https://github.com/IDGHIM/Interactive_Pok-dex',
+    image: 'image/projets-pict/pokédex_app.png',
+    isLogo: false,
+    hasDemo: true,
+    order: 3
+  },
+  {
+    id: 'morpion',
+    number: '04',
+    title: 'Tic-Tac-Toe',
+    desc: 'Tic-Tac-Toe game built with React Hooks, state management and smooth animations.',
+    fullDesc: 'Modern take on the classic Tic-Tac-Toe game built with React Hooks and optimised state management.',
+    tech: ['React', 'CSS3', 'JavaScript'],
+    status: 'live',
+    type: 'React App',
+    layout: 'featured-right',
+    demoUrl: 'https://tic-tac-toe-rosy-eta.vercel.app/',
+    showcaseUrl: '',
+    githubUrl: 'https://github.com/IDGHIM/Tic-Tac-Toe',
+    image: 'image/projets-pict/tic-tac-toe.png',
+    isLogo: false,
+    hasDemo: true,
+    order: 4
+  },
+  {
+    id: 'studprod',
+    number: '05',
+    title: 'STUDPROD',
+    desc: 'Landing page with smooth animations and adaptive design.',
+    fullDesc: 'Modern landing page for a student production company with smooth animations and responsive design.',
+    tech: ['HTML5', 'CSS3'],
+    status: 'live',
+    type: 'Landing Page',
+    layout: 'half',
+    demoUrl: 'https://idghim.github.io/fcc-Landing-Page',
+    showcaseUrl: '',
+    githubUrl: 'https://github.com/IDGHIM/fcc-Landing-Page',
+    image: 'image/projets-pict/LOGO STUDPROD NOIR.png',
+    isLogo: true,
+    hasDemo: false,
+    order: 5
+  },
+  {
+    id: 'convertisseur',
+    number: '06',
+    title: 'Number Converter',
+    desc: 'Arabic ↔ Roman numeral converter with validation algorithms.',
+    fullDesc: 'Converter application between Arabic and Roman numerals with input validation and intuitive interface.',
+    tech: ['HTML5', 'JavaScript'],
+    status: 'live',
+    type: 'JS App',
+    layout: 'half',
+    demoUrl: 'https://idghim.github.io/fcc-Roman_Numeral_Converter/',
+    showcaseUrl: '',
+    githubUrl: 'https://github.com/IDGHIM/fcc-Roman_Numeral_Converter',
+    image: 'image/projets-pict/roman_numeral_convert.png',
+    isLogo: false,
+    hasDemo: false,
+    order: 6
+  }
+];
+
+/* ══════════════════════════════════════
+   DÉTECTION DE LANGUE
+   Lit l'attribut lang="fr" ou lang="en" du <html>
+══════════════════════════════════════ */
+function getCurrentLang() {
+  return document.documentElement.lang === 'en' ? 'en' : 'fr';
+}
+
+/* ══════════════════════════════════════
    RENDU DES PROJETS
 ══════════════════════════════════════ */
 function getProjects() {
+  const lang = getCurrentLang();
   try {
-    const stored = localStorage.getItem('idghim_projects');
+    // Les projets admin sont stockés par langue
+    const stored = localStorage.getItem(`idghim_projects_${lang}`);
     if (stored) {
       const parsed = JSON.parse(stored);
       if (Array.isArray(parsed) && parsed.length > 0) return parsed;
     }
+    // Fallback sur l'ancienne clé sans langue (compatibilité)
+    const storedLegacy = localStorage.getItem('idghim_projects');
+    if (storedLegacy) {
+      const parsed = JSON.parse(storedLegacy);
+      if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+    }
   } catch {}
-  return DEFAULT_PROJECTS;
+  return lang === 'en' ? DEFAULT_PROJECTS_EN : DEFAULT_PROJECTS_FR;
 }
 
 function buildProjectCard(proj) {
+  const lang = getCurrentLang();
+
   const isLogoClass = (proj.isLogo || (proj.image && (proj.image.includes('logo') || proj.image.includes('Logo') || proj.image.includes('LOGO'))));
   const logoFilter  = isLogoClass ? 'object-fit:contain;padding:20%;filter:brightness(0.5) grayscale(10%)' : '';
 
-  const badgeLive = `<span class="proj-badge live">● Live</span>`;
-  const badgeWip  = `<span class="proj-badge wip">⚙ En cours</span>`;
-  const ribbon    = proj.status === 'wip' ? `<div class="proj-ribbon">En dev</div>` : '';
-  const hint      = proj.hasDemo ? `<span class="proj-hint">Cliquer pour la démo</span>` : '';
+  const badgeLive = lang === 'en'
+    ? `<span class="proj-badge live">● Live</span>`
+    : `<span class="proj-badge live">● Live</span>`;
+
+  const badgeWip = lang === 'en'
+    ? `<span class="proj-badge wip">⚙ In Progress</span>`
+    : `<span class="proj-badge wip">⚙ En cours</span>`;
+
+  const ribbon = proj.status === 'wip'
+    ? `<div class="proj-ribbon">${lang === 'en' ? 'In dev' : 'En dev'}</div>`
+    : '';
+
+  const hint = proj.hasDemo
+    ? `<span class="proj-hint">${lang === 'en' ? 'Click for demo' : 'Cliquer pour la démo'}</span>`
+    : '';
 
   // Boutons d'action
   let actions = '';
   if (proj.demoUrl) {
     actions += `<a href="${proj.demoUrl}" target="_blank" class="proj-btn primary" onclick="event.stopPropagation()">
-      <i class="fas fa-external-link-alt"></i> Voir le projet
+      <i class="fas fa-external-link-alt"></i> ${lang === 'en' ? 'View project' : 'Voir le projet'}
     </a>`;
   }
   if (proj.hasDemo) {
     actions += `<button class="proj-btn ghost open-modal" onclick="event.stopPropagation()">
-      <i class="fas fa-play"></i> Démo
+      <i class="fas fa-play"></i> Demo
     </button>`;
   }
   if (proj.githubUrl && !proj.demoUrl) {
@@ -214,6 +356,7 @@ function renderProjects() {
    MODAL DÉMO
 ══════════════════════════════════════ */
 function bindProjectInteractions() {
+  const lang       = getCurrentLang();
   const modal      = document.getElementById('demoModal');
   const modalTitle = document.getElementById('modalTitle');
   const videoZone  = document.getElementById('modalVideoZone');
@@ -239,7 +382,7 @@ function bindProjectInteractions() {
       videoZone.innerHTML = `
         <div class="modal-no-video">
           <i class="fas fa-hammer icon"></i>
-          <p>Démo en cours de préparation</p>
+          <p>${lang === 'en' ? 'Demo coming soon' : 'Démo en cours de préparation'}</p>
         </div>`;
     }
 
@@ -253,8 +396,8 @@ function bindProjectInteractions() {
     }
 
     modalActs.innerHTML = '';
-    if (demo)     modalActs.innerHTML += `<a href="${demo}"    target="_blank" class="proj-btn primary"><i class="fas fa-external-link-alt"></i> Ouvrir</a>`;
-    if (showcase) modalActs.innerHTML += `<a href="${showcase}" target="_blank" class="proj-btn ghost"><i class="fas fa-globe"></i> Site vitrine</a>`;
+    if (demo)     modalActs.innerHTML += `<a href="${demo}"     target="_blank" class="proj-btn primary"><i class="fas fa-external-link-alt"></i> ${lang === 'en' ? 'Open' : 'Ouvrir'}</a>`;
+    if (showcase) modalActs.innerHTML += `<a href="${showcase}" target="_blank" class="proj-btn ghost"><i class="fas fa-globe"></i> ${lang === 'en' ? 'Showcase' : 'Site vitrine'}</a>`;
     if (github)   modalActs.innerHTML += `<a href="${github}"   target="_blank" class="proj-btn ghost"><i class="fab fa-github"></i> Code</a>`;
 
     modal.classList.add('active');
@@ -376,28 +519,44 @@ document.addEventListener('DOMContentLoaded', () => {
   if (form) {
     form.addEventListener('submit', async e => {
       e.preventDefault();
+      const lang    = getCurrentLang();
       const nom     = document.getElementById('nom').value.trim();
       const email   = document.getElementById('email').value.trim();
       const message = document.getElementById('message').value.trim();
       if (!nom || !email || !message) {
-        showFeedback('Veuillez remplir tous les champs obligatoires.', 'error');
+        showFeedback(
+          lang === 'en'
+            ? 'Please fill in all required fields.'
+            : 'Veuillez remplir tous les champs obligatoires.',
+          'error'
+        );
         return;
       }
       submitBtn.disabled = true;
-      submitBtn.querySelector('span').textContent = 'Envoi en cours…';
+      submitBtn.querySelector('span').textContent = lang === 'en' ? 'Sending…' : 'Envoi en cours…';
       try {
         await emailjs.send('service_guqhch8', 'template_q3apao5', {
           nom, email,
           sujet: document.getElementById('sujet')?.value.trim() || '',
           message
         });
-        showFeedback('✅ Message envoyé avec succès ! Je vous répondrai rapidement.', 'success');
+        showFeedback(
+          lang === 'en'
+            ? '✅ Message sent successfully! I\'ll get back to you soon.'
+            : '✅ Message envoyé avec succès ! Je vous répondrai rapidement.',
+          'success'
+        );
         form.reset();
       } catch {
-        showFeedback('❌ Une erreur s\'est produite. Veuillez réessayer ou me contacter directement.', 'error');
+        showFeedback(
+          lang === 'en'
+            ? '❌ An error occurred. Please try again or contact me directly.'
+            : '❌ Une erreur s\'est produite. Veuillez réessayer ou me contacter directement.',
+          'error'
+        );
       } finally {
         submitBtn.disabled = false;
-        submitBtn.querySelector('span').textContent = 'Envoyer le message';
+        submitBtn.querySelector('span').textContent = lang === 'en' ? 'Send message' : 'Envoyer le message';
       }
     });
   }
