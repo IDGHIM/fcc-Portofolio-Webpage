@@ -4,9 +4,63 @@
 ════════════════════════════════════════════════════════════ */
 
 /* ══════════════════════════════════════
-   PROJETS — VERSION FRANÇAISE
+   DÉTECTION DE LANGUE
 ══════════════════════════════════════ */
-const DEFAULT_PROJECTS_FR = [
+function getCurrentLang() {
+  return document.documentElement.lang === 'en' ? 'en' : 'fr';
+}
+
+/* ══════════════════════════════════════
+   TRADUCTIONS EN PAR ID DE PROJET
+   Seuls les textes changent — tout le reste
+   (image, urls, tech, layout…) vient de l'admin
+══════════════════════════════════════ */
+const EN_TRANSLATIONS = {
+  papyrus: {
+    desc:     'Document management platform — advanced search, secure sharing and collaboration.',
+    fullDesc: 'DMS platform with full-text search, token-based secure sharing and real-time collaboration.',
+    type:     'Full-Stack App',
+  },
+  alea: {
+    desc:     'White-label quiz platform. Admin dashboard and advanced customisation.',
+    fullDesc: 'White-label quiz platform with admin dashboard, multi-user system and advanced customisation.',
+    type:     'SaaS',
+  },
+  pokedex: {
+    desc:     'Flippable 3D cards consuming the PokéAPI.',
+    fullDesc: 'Modern Pokédex with flippable 3D cards, PokéAPI consumption and immersive visual effects.',
+    type:     'Web App',
+  },
+  morpion: {
+    title:    'Tic-Tac-Toe',
+    desc:     'Tic-Tac-Toe game built with React Hooks, state management and smooth animations.',
+    fullDesc: 'Modern take on the classic Tic-Tac-Toe built with React Hooks and optimised state management.',
+    type:     'React App',
+  },
+  studprod: {
+    desc:     'Landing page with smooth animations and adaptive design.',
+    fullDesc: 'Modern landing page for a student production company with smooth animations and responsive design.',
+    type:     'Landing Page',
+  },
+  conv: {
+    title:    'Number Converter',
+    desc:     'Arabic ↔ Roman numeral converter with validation algorithms.',
+    fullDesc: 'Converter between Arabic and Roman numerals with input validation and intuitive interface.',
+    type:     'JS App',
+  },
+  convertisseur: {
+    title:    'Number Converter',
+    desc:     'Arabic ↔ Roman numeral converter with validation algorithms.',
+    fullDesc: 'Converter between Arabic and Roman numerals with input validation and intuitive interface.',
+    type:     'JS App',
+  },
+};
+
+/* ══════════════════════════════════════
+   PROJETS PAR DÉFAUT (version FR)
+   Utilisés si aucun projet admin en localStorage
+══════════════════════════════════════ */
+const DEFAULT_PROJECTS = [
   {
     id: 'papyrus',
     number: '01',
@@ -98,7 +152,7 @@ const DEFAULT_PROJECTS_FR = [
     order: 5
   },
   {
-    id: 'convertisseur',
+    id: 'conv',
     number: '06',
     title: 'Convertisseur',
     desc: 'Conversion arabe ↔ romain avec algorithmes de validation.',
@@ -118,160 +172,51 @@ const DEFAULT_PROJECTS_FR = [
 ];
 
 /* ══════════════════════════════════════
-   PROJETS — VERSION ANGLAISE
+   RÉCUPÉRATION + TRADUCTION DES PROJETS
+   On lit toujours idghim_projects (clé admin)
+   et on applique les traductions EN si besoin
 ══════════════════════════════════════ */
-const DEFAULT_PROJECTS_EN = [
-  {
-    id: 'papyrus',
-    number: '01',
-    title: 'Papyrus',
-    desc: 'Document management platform — advanced search, secure sharing and collaboration.',
-    fullDesc: 'DMS platform with full-text search, token-based secure sharing and real-time collaboration.',
-    tech: ['React', 'Node.js', 'MongoDB', 'REST API'],
-    status: 'live',
-    type: 'Full-Stack App',
-    layout: 'featured',
-    demoUrl: 'https://papyrus-rho.vercel.app',
-    showcaseUrl: 'https://idghim.github.io/Papyrus_website/',
-    githubUrl: '',
-    image: 'image/projets-pict/Papyrus_logo.png',
-    isLogo: true,
-    hasDemo: true,
-    order: 1
-  },
-  {
-    id: 'alea',
-    number: '02',
-    title: 'Aléa',
-    desc: 'White-label quiz platform. Admin dashboard and advanced customisation.',
-    fullDesc: 'White-label quiz platform with admin dashboard, multi-user system and advanced customisation.',
-    tech: ['React', 'Node.js', 'MongoDB'],
-    status: 'wip',
-    type: 'SaaS',
-    layout: 'compact',
-    demoUrl: '',
-    showcaseUrl: '',
-    githubUrl: 'https://github.com/IDGHIM',
-    image: 'image/projets-pict/Alea_logo1.png',
-    isLogo: true,
-    hasDemo: false,
-    order: 2
-  },
-  {
-    id: 'pokedex',
-    number: '03',
-    title: 'Pokédex',
-    desc: 'Flippable 3D cards consuming the PokéAPI.',
-    fullDesc: 'Modern Pokédex with flippable 3D cards, PokéAPI consumption and immersive visual effects.',
-    tech: ['HTML5', 'CSS3', 'JavaScript', 'REST API'],
-    status: 'live',
-    type: 'Web App',
-    layout: 'compact-wide',
-    demoUrl: 'https://idghim.github.io/Interactive_Pok-dex/',
-    showcaseUrl: '',
-    githubUrl: 'https://github.com/IDGHIM/Interactive_Pok-dex',
-    image: 'image/projets-pict/pokédex_app.png',
-    isLogo: false,
-    hasDemo: true,
-    order: 3
-  },
-  {
-    id: 'morpion',
-    number: '04',
-    title: 'Tic-Tac-Toe',
-    desc: 'Tic-Tac-Toe game built with React Hooks, state management and smooth animations.',
-    fullDesc: 'Modern take on the classic Tic-Tac-Toe game built with React Hooks and optimised state management.',
-    tech: ['React', 'CSS3', 'JavaScript'],
-    status: 'live',
-    type: 'React App',
-    layout: 'featured-right',
-    demoUrl: 'https://tic-tac-toe-rosy-eta.vercel.app/',
-    showcaseUrl: '',
-    githubUrl: 'https://github.com/IDGHIM/Tic-Tac-Toe',
-    image: 'image/projets-pict/tic-tac-toe.png',
-    isLogo: false,
-    hasDemo: true,
-    order: 4
-  },
-  {
-    id: 'studprod',
-    number: '05',
-    title: 'STUDPROD',
-    desc: 'Landing page with smooth animations and adaptive design.',
-    fullDesc: 'Modern landing page for a student production company with smooth animations and responsive design.',
-    tech: ['HTML5', 'CSS3'],
-    status: 'live',
-    type: 'Landing Page',
-    layout: 'half',
-    demoUrl: 'https://idghim.github.io/fcc-Landing-Page',
-    showcaseUrl: '',
-    githubUrl: 'https://github.com/IDGHIM/fcc-Landing-Page',
-    image: 'image/projets-pict/LOGO STUDPROD NOIR.png',
-    isLogo: true,
-    hasDemo: false,
-    order: 5
-  },
-  {
-    id: 'convertisseur',
-    number: '06',
-    title: 'Number Converter',
-    desc: 'Arabic ↔ Roman numeral converter with validation algorithms.',
-    fullDesc: 'Converter application between Arabic and Roman numerals with input validation and intuitive interface.',
-    tech: ['HTML5', 'JavaScript'],
-    status: 'live',
-    type: 'JS App',
-    layout: 'half',
-    demoUrl: 'https://idghim.github.io/fcc-Roman_Numeral_Converter/',
-    showcaseUrl: '',
-    githubUrl: 'https://github.com/IDGHIM/fcc-Roman_Numeral_Converter',
-    image: 'image/projets-pict/roman_numeral_convert.png',
-    isLogo: false,
-    hasDemo: false,
-    order: 6
-  }
-];
+function getProjects() {
+  let projects;
+  try {
+    const stored = localStorage.getItem('idghim_projects');
+    if (stored) {
+      const parsed = JSON.parse(stored);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        projects = parsed;
+      }
+    }
+  } catch {}
 
-/* ══════════════════════════════════════
-   DÉTECTION DE LANGUE
-   Lit l'attribut lang="fr" ou lang="en" du <html>
-══════════════════════════════════════ */
-function getCurrentLang() {
-  return document.documentElement.lang === 'en' ? 'en' : 'fr';
+  if (!projects) projects = DEFAULT_PROJECTS;
+
+  // Si version EN : appliquer les traductions par id
+  if (getCurrentLang() === 'en') {
+    projects = projects.map(proj => {
+      const t = EN_TRANSLATIONS[proj.id];
+      if (!t) return proj; // Pas de traduction connue → garder tel quel
+      return { ...proj, ...t };
+    });
+  }
+
+  return projects;
 }
 
 /* ══════════════════════════════════════
    RENDU DES PROJETS
 ══════════════════════════════════════ */
-function getProjects() {
-  const lang = getCurrentLang();
-  try {
-    // Les projets admin sont stockés par langue
-    const stored = localStorage.getItem(`idghim_projects_${lang}`);
-    if (stored) {
-      const parsed = JSON.parse(stored);
-      if (Array.isArray(parsed) && parsed.length > 0) return parsed;
-    }
-    // Fallback sur l'ancienne clé sans langue (compatibilité)
-    const storedLegacy = localStorage.getItem('idghim_projects');
-    if (storedLegacy) {
-      const parsed = JSON.parse(storedLegacy);
-      if (Array.isArray(parsed) && parsed.length > 0) return parsed;
-    }
-  } catch {}
-  return lang === 'en' ? DEFAULT_PROJECTS_EN : DEFAULT_PROJECTS_FR;
-}
-
 function buildProjectCard(proj) {
   const lang = getCurrentLang();
 
-  const isLogoClass = (proj.isLogo || (proj.image && (proj.image.includes('logo') || proj.image.includes('Logo') || proj.image.includes('LOGO'))));
-  const logoFilter  = isLogoClass ? 'object-fit:contain;padding:20%;filter:brightness(0.5) grayscale(10%)' : '';
+  const isLogoClass = (proj.isLogo || (proj.image && (
+    proj.image.includes('logo') || proj.image.includes('Logo') || proj.image.includes('LOGO')
+  )));
+  const logoFilter = isLogoClass
+    ? 'object-fit:contain;padding:20%;filter:brightness(0.5) grayscale(10%)'
+    : '';
 
-  const badgeLive = lang === 'en'
-    ? `<span class="proj-badge live">● Live</span>`
-    : `<span class="proj-badge live">● Live</span>`;
-
-  const badgeWip = lang === 'en'
+  const badgeLive = `<span class="proj-badge live">● Live</span>`;
+  const badgeWip  = lang === 'en'
     ? `<span class="proj-badge wip">⚙ In Progress</span>`
     : `<span class="proj-badge wip">⚙ En cours</span>`;
 
@@ -283,7 +228,6 @@ function buildProjectCard(proj) {
     ? `<span class="proj-hint">${lang === 'en' ? 'Click for demo' : 'Cliquer pour la démo'}</span>`
     : '';
 
-  // Boutons d'action
   let actions = '';
   if (proj.demoUrl) {
     actions += `<a href="${proj.demoUrl}" target="_blank" class="proj-btn primary" onclick="event.stopPropagation()">
@@ -341,13 +285,11 @@ function renderProjects() {
 
   grid.innerHTML = sorted.map(buildProjectCard).join('');
 
-  // Mettre à jour le badge du hero
   const badge = document.getElementById('badgeProjectCount');
   if (badge) {
     badge.textContent = projects.length >= 6 ? projects.length + '+' : projects.length;
   }
 
-  // Rebind interactions après injection DOM
   bindProjectInteractions();
   bindRevealObserver();
 }
@@ -410,7 +352,6 @@ function bindProjectInteractions() {
     setTimeout(() => { videoZone.innerHTML = ''; }, 320);
   }
 
-  // Boutons "Démo"
   document.querySelectorAll('.open-modal').forEach(btn => {
     btn.addEventListener('click', e => {
       e.stopPropagation();
@@ -418,7 +359,6 @@ function bindProjectInteractions() {
     });
   });
 
-  // Clic carte entière
   document.querySelectorAll('.proj-card').forEach(card => {
     card.addEventListener('click', e => {
       if (e.target.closest('a') || e.target.closest('button')) return;
@@ -426,14 +366,13 @@ function bindProjectInteractions() {
     });
   });
 
-  // Fermeture
   document.getElementById('modalClose').addEventListener('click', closeModal);
   modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 }
 
 /* ══════════════════════════════════════
-   REVEAL OBSERVER (réutilisable)
+   REVEAL OBSERVER
 ══════════════════════════════════════ */
 function bindRevealObserver() {
   const revealEls = document.querySelectorAll('.reveal-up:not(.visible), .reveal-left:not(.visible), .reveal-right:not(.visible)');
@@ -507,11 +446,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* 5. Render projects (dynamique) */
+  /* 5. Render projects */
   renderProjects();
 
   /* 6. EmailJS */
   emailjs.init('IdsT61xCsLA3EUkrQ');
+  const lang      = getCurrentLang();
   const form      = document.getElementById('contactForm');
   const submitBtn = document.getElementById('submitBtn');
   const feedback  = document.getElementById('formFeedback');
@@ -519,7 +459,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (form) {
     form.addEventListener('submit', async e => {
       e.preventDefault();
-      const lang    = getCurrentLang();
       const nom     = document.getElementById('nom').value.trim();
       const email   = document.getElementById('email').value.trim();
       const message = document.getElementById('message').value.trim();
@@ -542,7 +481,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         showFeedback(
           lang === 'en'
-            ? '✅ Message sent successfully! I\'ll get back to you soon.'
+            ? '✅ Message sent! I\'ll get back to you soon.'
             : '✅ Message envoyé avec succès ! Je vous répondrai rapidement.',
           'success'
         );
@@ -550,7 +489,7 @@ document.addEventListener('DOMContentLoaded', () => {
       } catch {
         showFeedback(
           lang === 'en'
-            ? '❌ An error occurred. Please try again or contact me directly.'
+            ? '❌ Something went wrong. Please try again or contact me directly.'
             : '❌ Une erreur s\'est produite. Veuillez réessayer ou me contacter directement.',
           'error'
         );
